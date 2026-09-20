@@ -1,0 +1,33 @@
+[32]{month,Category_Clean,Segment_Clean,Sub_Segment_Clean,OEM_Clean,Model,production_units,domestic_sales_units,export_units}:
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450,0,0,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,57,88,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1149,935,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3247,2588,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,9692,10052,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,21015,19216,0
+  2025-04-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,50,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,6927,7116,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,800,32,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,1000,808,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,INDIA YAMAHA MOTOR,EC06,0,0,0
+  2025-04-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,32,33,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,5,0,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,27139,27604,80
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,237,273,0
+  2025-04-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,178,215,0
+  2025-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,37,37,0
+  2025-04-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,2,0
+  2025-04-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,89,63,0
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,109,200,0
+  2025-04-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2025-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,3342,3363,0
+  2025-04-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-04-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,65,56,0
+  2025-04-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,0,31,0
+  2025-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,160,301,0
+  2025-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,2154,1617,0
+  2025-04-01,Passenger Vehicles,Utility Vehicles,UV3: Length >4700 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,XEV,2578,2494,0
