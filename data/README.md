@@ -163,9 +163,14 @@ observations — thin for testing leads of several months. The registrations fil
 reach back to 2018 (segment, state) and are worth considering as an extended or
 alternate independent variable.
 
-**The last month is partial.** The registrations files run to 2026-09-15, so
-2026-09 is roughly half a month and will read as a sharp drop. Drop it or
-annualise it.
+**The last month is partial in both sources, for different reasons.** The
+registrations files run to 2026-09-15, so 2026-09 is roughly half a month and
+will read as a sharp drop. Separately, **2026-08 production is incomplete**: only
+5 of the 11 OEMs reporting in 2026-07 appear in 2026-08 (Ather, Hero, Honda,
+Suzuki, Yamaha and Okinawa are all missing), which reads as an 88% month-on-month
+collapse and is a reporting artefact, not a real one. The usable production
+series therefore ends **2026-07**, giving 40 months, not 41. Drop both tail
+months or annualise them.
 
 **Pricing covers ten months, not a history.** Both price files start 2025-11 and
 are weekly scrapes, so they support cross-sectional comparison and short-run
