@@ -1,0 +1,605 @@
+brand,model,variant,ex_showroom_price_inr,battery_kwh,range_km,seats,rating,reviews,first_seen,last_seen,weeks_observed
+Audi,Audi Q8 Sportback e-tron,Q8 Sportback e-tron 50 Quattro,11900000,95,505,,4.4,2,2025-11-27,2026-04-16,12
+Audi,Audi Q8 Sportback e-tron,Q8 Sportback e-tron 55 Quattro,13200000,114,600,,4.4,2,2025-11-27,2026-04-16,12
+Audi,Audi Q8 e-tron,Q8 e-tron 50 Quattro,11500000,95,491,,4.2,42,2025-11-27,2026-05-02,16
+Audi,Audi Q8 e-tron,Q8 e-tron 55 Quattro,12700000,106,582,,4.2,42,2025-11-27,2026-05-02,16
+Audi,Audi RS e-tron GT,RS e-tron GT Quattro,19500000,93,401,,4.5,12,2025-11-27,2026-05-02,16
+Audi,Audi e-tron GT,e-tron GT Quattro,17200000,93,388,,4.3,47,2025-11-27,2026-05-02,14
+BMW,BMW i4,i4 eDrive35 M Sport,7250000,70.2,483,,4.2,58,2025-11-27,2026-09-23,34
+BMW,BMW i4,i4 eDrive40 M Sport,7750000,83.9,590,,4.2,58,2025-11-27,2026-09-23,34
+BMW,BMW i5,i5 M60 xDrive,12000000,83.9,516,,4.8,4,2025-11-27,2026-09-23,33
+BMW,BMW i5 LWB,i5 LWB First Edition,7960000,81.6,669,,0,,2026-09-15,2026-09-23,2
+BMW,BMW i5 LWB,i5 LWB eDrive35L M Sport,7960000,81.6,669,,0,,2026-09-15,2026-09-23,2
+BMW,BMW i7,i7 50 xDrive,19500000,112.5,728,,0,,2026-09-15,2026-09-23,2
+BMW,BMW i7,i7 M70 xDrive,25800000,101.7,560,,4.4,105,2025-11-27,2026-09-06,32
+BMW,BMW i7,i7 M70 xDrive,26500000,112.5,686,,0,,2026-09-15,2026-09-23,2
+BMW,BMW i7,i7 eDrive50 M Sport,20500000,101.7,625,,4.4,104,2025-11-27,2026-07-15,26
+BMW,BMW i7,i7 eDrive50 M Sport,21000000,101.7,625,,4.4,105,2026-07-23,2026-09-06,6
+BMW,BMW iX,iX xDrive50,14000000,111.5,575,,4.2,70,2025-11-27,2026-09-23,34
+BMW,BMW iX1,iX1 LWB,4990000,66.4,531,5,4.6,24,2025-11-27,2026-03-05,11
+BMW,BMW iX1,iX1 LWB,5090000,66.4,531,,4.6,25,2026-03-13,2026-05-12,8
+BMW,BMW iX1,iX1 LWB,5140000,66.4,531,,4.6,25,2026-05-20,2026-05-20,1
+BMW,BMW iX1,iX1 LWB,5240000,66.4,531,,4.6,28,2026-08-02,2026-09-23,7
+BYD,BYD Atto 3,Atto 3 Dynamic,2499000,49.92,468,,4.2,109,2025-11-27,2026-09-06,24
+BYD,BYD Atto 3,Atto 3 Premium,2985000,60.48,521,,4.2,109,2025-11-27,2026-06-13,20
+BYD,BYD Atto 3,Atto 3 Premium,3035000,60.48,521,,4.2,108,2026-08-11,2026-09-06,4
+BYD,BYD Atto 3,Atto 3 Superior,3399000,60.48,521,,4.2,109,2025-11-27,2026-06-13,20
+BYD,BYD Atto 3,Atto 3 Superior,3449000,60.48,521,,4.2,108,2026-08-11,2026-09-06,4
+BYD,BYD Seal,Seal Dynamic Range,4100000,61.44,510,,4.4,45,2025-11-27,2026-06-05,20
+BYD,BYD Seal,Seal Dynamic Range,4150000,61.44,510,,4.4,45,2026-07-15,2026-09-06,6
+BYD,BYD Seal,Seal Performance,5315000,82.56,580,,4.4,45,2025-11-27,2026-06-05,20
+BYD,BYD Seal,Seal Performance,5365000,82.56,580,,4.4,45,2026-07-15,2026-09-06,6
+BYD,BYD Seal,Seal Premium Range,4570000,82.56,650,,4.4,45,2025-11-27,2026-06-05,20
+BYD,BYD Seal,Seal Premium Range,4620000,82.56,650,,4.4,45,2026-07-15,2026-09-06,6
+BYD,BYD Sealion 7,Performance Anniversary Edition,5490000,82.56,542,,4.7,10,2026-03-23,2026-08-02,10
+BYD,BYD Sealion 7,Performance Anniversary Edition,5590000,82.56,542,,4.7,10,2026-08-11,2026-09-23,6
+BYD,BYD Sealion 7,Sealion 7 Dynamic,4190000,71.8,520,,4.7,10,2026-08-28,2026-09-23,4
+BYD,BYD Sealion 7,Sealion 7 Performance,5490000,82.56,542,,4.8,10,2025-11-27,2026-06-05,20
+BYD,BYD Sealion 7,Sealion 7 Performance,5590000,82.56,542,,4.7,10,2026-08-02,2026-09-23,7
+BYD,BYD Sealion 7,Sealion 7 Premium,4890000,82.56,567,,4.8,9,2025-11-27,2026-03-05,10
+BYD,BYD Sealion 7,Sealion 7 Premium,4940000,82.56,567,,4.7,10,2026-03-13,2026-06-05,10
+BYD,BYD Sealion 7,Sealion 7 Premium,4990000,82.56,567,,4.7,10,2026-08-02,2026-09-23,7
+BYD,BYD Sealion 7,Sealion 7 Premium Anniversary Edition,4940000,82.56,567,,4.7,10,2026-03-23,2026-08-02,10
+BYD,BYD Sealion 7,Sealion 7 Premium Anniversary Edition,4990000,82.56,567,,4.7,10,2026-08-11,2026-09-23,6
+BYD,BYD eMAX 7,eMAX 7 Comfort 6-Seater,2790000,71.8,485,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Comfort 7-Seater,2830000,71.8,420,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Premium 6-Seater,2690000,55.4,420,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Premium 6Str,2690000,55.4,420,"6, 7",4.7,10,2025-11-27,2026-06-29,20
+BYD,BYD eMAX 7,eMAX 7 Premium 7-Seater,2750000,55.4,420,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Premium 7Str,2750000,55.4,420,"6, 7",4.7,10,2025-11-27,2026-06-29,20
+BYD,BYD eMAX 7,eMAX 7 Superior 6-Seater,2930000,71.8,530,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Superior 6Str,2930000,71.8,530,"6, 7",4.7,10,2025-11-27,2026-06-29,20
+BYD,BYD eMAX 7,eMAX 7 Superior 7-Seater,2990000,71.8,530,"6, 7",4.7,10,2026-07-07,2026-09-15,7
+BYD,BYD eMAX 7,eMAX 7 Superior 7Str,2990000,71.8,530,"6, 7",4.7,10,2025-11-27,2026-06-29,20
+Citroen,Citroen e-C3 X,e-C3 X Live,698000,29.2,325,5,4.2,88,2026-07-07,2026-07-07,1
+Citroen,Citroen e-C3 X,e-C3 X Live,1199000,29.2,325,5,4.2,88,2026-07-23,2026-09-06,6
+Citroen,Citroen e-C3 X,e-C3 X Live,1199000,29.2,330,5,4.2,88,2026-09-15,2026-09-15,1
+Citroen,Citroen e-C3 X,e-C3 X Live (O),1235000,29.2,325,5,4.2,88,2026-07-07,2026-09-06,7
+Citroen,Citroen e-C3 X,e-C3 X Live (O),1235000,29.2,330,5,4.2,88,2026-09-15,2026-09-15,1
+Citroen,Citroen e-C3 X,e-C3 X Shine,1326000,29.2,325,5,4.2,88,2026-07-07,2026-09-06,7
+Citroen,Citroen e-C3 X,e-C3 X Shine,1326000,29.2,330,5,4.2,88,2026-09-15,2026-09-15,1
+Citroen,Citroen eC3,eC3 Feel,1290000,29.2,320,5,4.2,88,2025-11-27,2026-05-28,20
+Citroen,Citroen eC3,eC3 Shine,1326000,29.2,320,5,4.2,88,2025-11-27,2026-05-28,20
+Citroen,Citroen eC3,eC3 Shine DT,1341000,29.2,320,5,4.2,88,2025-11-27,2026-05-28,20
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence,2130000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence DT,2145000,42,420,,4.8,29,2025-12-29,2026-09-06,25
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence HC,2203000,42,420,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence HC,2204000,42,420,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence HC DT,2218000,42,420,,4.8,29,2025-12-29,2026-09-06,25
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence HC Knight,2218000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence HC Knight DT,2233000,42,420,,4.8,29,2025-12-29,2026-09-06,25
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence Knight,2145000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence Knight DT,2160000,42,420,,4.8,29,2025-12-29,2026-09-06,25
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR,2367000,51.4,510,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR DT,2382000,51.4,473,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR HC,2440000,51.4,510,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR HC DT,2218000,51.4,473,,4.8,27,2025-11-27,2026-05-20,20
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR HC DT,2455000,51.4,473,,4.8,29,2026-06-05,2026-09-06,8
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR HC Knight,2455000,51.4,510,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR Knight,2382000,51.4,510,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR Knight DT,2396000,51.4,510,,4.8,27,2025-12-29,2026-06-05,18
+Hyundai,Hyundai Creta Electric,Creta Electric Excellence LR Knight DT,2397000,51.4,510,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Executive,1802000,42,420,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Executive,1803000,42,420,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Executive (O),2000000,51.4,510,,4.8,24,2025-11-27,2025-12-16,3
+Hyundai,Hyundai Creta Electric,Creta Electric Executive (O) LR,2000000,42,390,,4.8,25,2026-01-08,2026-01-26,3
+Hyundai,Hyundai Creta Electric,Creta Electric Executive (O) LR,2000000,51.4,510,,4.8,29,2026-02-04,2026-09-06,21
+Hyundai,Hyundai Creta Electric,Creta Electric Executive Tech,1900000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Premium,2000000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Premium DT,2015000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Premium DT,2016000,42,390,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Premium HC,2073000,42,420,,4.8,29,2025-11-27,2026-09-06,28
+Hyundai,Hyundai Creta Electric,Creta Electric Premium HC DT,2088000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Premium HC DT,2089000,42,390,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Smart,1900000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O),1950000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) DT,1965000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) HC,2023000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) HC DT,2038000,42,390,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR,2153000,51.4,510,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR,2154000,51.4,510,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR DT,2165000,51.4,473,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR HC,2226000,51.4,510,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR HC,2227000,51.4,510,,4.8,29,2026-07-15,2026-09-06,7
+Hyundai,Hyundai Creta Electric,Creta Electric Smart (O) LR HC DT,2238000,51.4,473,,4.8,27,2025-11-27,2026-06-05,21
+Hyundai,Hyundai Creta Electric,Excellence LR HC Knight DT,2470000,51.4,510,,4.8,29,2025-12-29,2026-09-06,25
+Hyundai,Hyundai IONIQ 5,IONIQ 5 Long Range RWD,4605000,72.6,631,,4.2,84,2025-11-27,2025-11-27,1
+Hyundai,Hyundai IONIQ 5,IONIQ 5 Long Range RWD,4630000,72.6,631,,4.2,85,2025-12-08,2026-04-16,10
+Hyundai,Hyundai IONIQ 5,IONIQ 5 Long Range RWD,5570000,84,690,,5,1,2026-05-02,2026-08-28,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX ER,2299000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX ER,2304000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX ER 6Str,2299000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX ER 6Str,2304000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX Plus ER,2499000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX Plus ER,2500000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX Plus ER 6Str,2499000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV GTX Plus ER 6Str,2500000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTK Plus,1799000,42,404,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTK Plus,1799000,42,404,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTK Plus,1804000,42,404,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX,2049000,42,404,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX,2049000,42,404,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX,2054000,42,404,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX 6Str,2049000,42,404,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX 6Str,2054000,42,404,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E,1999000,42,404,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E,1999000,42,404,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E,2000000,42,404,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E 6Str,1999000,42,404,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E 6Str,2000000,42,404,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E ER,2199000,51.4,490,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E ER,2199000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E ER,2204000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E ER 6Str,2199000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX E ER 6Str,2204000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX ER,2249000,51.4,490,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX ER,2249000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX ER,2254000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX ER 6Str,2249000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX ER 6Str,2254000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX Plus ER,2449000,51.4,490,7,4.6,7,2025-11-27,2026-03-13,11
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX Plus ER,2449000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX Plus ER,2454000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX Plus ER 6Str,2449000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV HTX Plus ER 6Str,2454000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV X-Line ER,2499000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV X-Line ER,2500000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia Carens Clavis EV,Carens Clavis EV X-Line ER 6Str,2499000,51.4,490,"6, 7",4.6,10,2026-03-23,2026-05-20,8
+Kia,Kia Carens Clavis EV,Carens Clavis EV X-Line ER 6Str,2500000,51.4,490,"6, 7",4.6,12,2026-08-02,2026-09-06,5
+Kia,Kia EV6,EV6 GT Line,6097000,84,663,,4.7,5,2025-11-27,2025-12-16,3
+Kia,Kia EV6,EV6 GT Line,6597000,84,663,,4.7,8,2025-12-29,2026-09-23,28
+Kia,Kia EV9,EV9 GT Line,13000000,99.8,561,,4.9,12,2025-11-27,2026-09-06,29
+Kia,Kia Syros EV,Syros EV HTK,1350000,42,443,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV HTK Plus,1500000,42,443,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV HTK Plus ER,1700000,51.4,526,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV HTX,1600000,42,443,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV HTX ER,1800000,51.4,526,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV HTX Plus ER,1950000,51.4,526,5,5,3,2026-07-23,2026-09-23,8
+Kia,Kia Syros EV,Syros EV X-Line ER,2000000,51.4,526,5,5,3,2026-07-23,2026-09-23,8
+Lexus,Lexus ES,ES 500e,8999000,74.68,580,,5,4.746,2026-03-23,2026-07-15,15
+Lexus,Lexus ES Electric,ES Electric 500e,8999000,74.68,580,,5,1,2026-07-23,2026-08-28,5
+Lexus,Lexus ES Electric,ES Electric 500e,9120000,74.68,580,,5,1,2026-09-06,2026-09-23,3
+Lotus,Lotus Eletre,Eletre Base,25500000,112,600,,4.8,10,2025-11-27,2026-09-23,34
+Lotus,Lotus Eletre,Eletre R,29900000,112,500,,4.8,10,2025-11-27,2026-09-23,34
+Lotus,Lotus Eletre,Eletre S,27500000,112,600,,4.8,10,2025-11-27,2026-09-23,34
+Lotus,Lotus Emeya,Emeya GT,23400000,102,610,,5,4.66,2026-02-13,2026-09-23,27
+MG,MG Comet EV,Comet EV Blackstorm Edition,763000,17.4,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,Comet EV Excite,857000,17.3,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,Comet EV Excite FC,897000,17.4,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,Comet EV Exclusive,956000,17.3,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,Comet EV Exclusive FC,760000,17.4,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,Comet EV Executive,750000,17.3,230,4,4.3,231,2025-11-27,2026-03-23,13
+MG,MG Comet EV,MG Comet EV Blackstorm Edition,763000,17.4,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Blackstorm Edition,1000000,17.4,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Comet EV,MG Comet EV Excite,857000,17.3,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Excite,890000,17.3,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Comet EV,MG Comet EV Excite FC,897000,17.4,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Excite FC,917000,17.4,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Comet EV,MG Comet EV Exclusive,956000,17.3,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Exclusive,980000,17.3,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Comet EV,MG Comet EV Exclusive FC,760000,17.4,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Exclusive FC,1007000,17.4,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Comet EV,MG Comet EV Executive,750000,17.3,230,4,4.3,235,2026-03-31,2026-05-20,7
+MG,MG Comet EV,MG Comet EV Executive,780000,17.3,230,4,4.3,239,2026-08-02,2026-09-06,5
+MG,MG Cyberster,Cyberster GT,7500000,77,580,,4.7,44,2025-11-27,2026-03-23,13
+MG,MG Cyberster,MG Cyberster Couture Edition,8749000,77,580,,4.7,58,2026-08-11,2026-09-23,6
+MG,MG Cyberster,MG Cyberster GT,7500000,77,580,,4.7,50,2026-03-31,2026-06-29,12
+MG,MG Cyberster,MG Cyberster GT,8250000,77,580,,4.7,58,2026-07-07,2026-09-23,10
+MG,MG Hector Tomahawk EV,Essence 5-Seater,2299000,69.2,517,,0,,2026-08-28,2026-08-28,1
+MG,MG Hector Tomahawk EV,Essence 5-Seater,2300000,69.2,517,,4,1,2026-09-06,2026-09-06,1
+MG,MG Hector Tomahawk EV,Essence 7-Seater,2349000,69.2,517,,0,,2026-08-28,2026-08-28,1
+MG,MG Hector Tomahawk EV,Essence 7-Seater,2350000,69.2,517,,4,1,2026-09-06,2026-09-06,1
+MG,MG Hector Tomahawk EV,Excite 7-Seater,1949000,69.2,517,,0,,2026-08-28,2026-08-28,1
+MG,MG Hector Tomahawk EV,Excite 7-Seater,1950000,69.2,517,,4,1,2026-09-06,2026-09-06,1
+MG,MG Hector Tomahawk EV,Exclusive 7-Seater,2199000,69.2,517,,0,,2026-08-28,2026-08-28,1
+MG,MG Hector Tomahawk EV,Exclusive 7-Seater,2200000,69.2,517,,4,1,2026-09-06,2026-09-06,1
+MG,MG M9,M9 Presidential Limo,6990000,90,548,,4.7,17,2025-11-27,2026-03-05,10
+MG,MG M9,M9 Presidential Limo,7090000,90,548,,4.7,18,2026-03-13,2026-03-23,2
+MG,MG M9,MG M9 Couture Edition,8494000,90,548,,4.7,19,2026-08-11,2026-09-23,6
+MG,MG M9,MG M9 Presidential Limo,7090000,90,548,,4.7,18,2026-03-31,2026-06-29,12
+MG,MG M9,MG M9 Presidential Limo,7995000,90,548,,4.7,19,2026-07-07,2026-09-23,10
+MG,MG Windsor EV,MG Windsor EV Essence,1653000,38,332,,4.6,116,2026-03-31,2026-07-15,10
+MG,MG Windsor EV,MG Windsor EV Essence,1700000,38,332,,4.6,118,2026-07-23,2026-09-06,6
+MG,MG Windsor EV,MG Windsor EV Essence Pro,1850000,52.9,449,,4.6,116,2026-03-31,2026-05-28,8
+MG,MG Windsor EV,MG Windsor EV Essence Pro,1860000,52.9,449,,4.6,116,2026-07-07,2026-07-15,2
+MG,MG Windsor EV,MG Windsor EV Essence Pro,1900000,52.9,449,,4.6,118,2026-07-23,2026-09-06,6
+MG,MG Windsor EV,MG Windsor EV Excite,1400000,38,332,,4.6,116,2026-03-31,2026-05-28,8
+MG,MG Windsor EV,MG Windsor EV Excite,1410000,38,332,,4.6,116,2026-07-07,2026-07-15,2
+MG,MG Windsor EV,MG Windsor EV Excite,1470000,38,332,,4.6,118,2026-07-23,2026-09-06,6
+MG,MG Windsor EV,MG Windsor EV Exclusive,1553000,38,332,,4.6,116,2026-03-31,2026-07-15,10
+MG,MG Windsor EV,MG Windsor EV Exclusive,1600000,38,332,,4.6,118,2026-07-23,2026-09-06,6
+MG,MG Windsor EV,MG Windsor EV Exclusive Pro,1738000,52.9,449,,4.6,116,2026-03-31,2026-07-15,10
+MG,MG Windsor EV,MG Windsor EV Exclusive Pro,1790000,52.9,449,,4.6,118,2026-07-23,2026-09-06,6
+MG,MG Windsor EV,Windsor EV Essence,1630000,38,332,,4.6,111,2025-11-27,2026-01-26,7
+MG,MG Windsor EV,Windsor EV Essence,1653000,38,332,,4.6,112,2026-02-04,2026-03-23,6
+MG,MG Windsor EV,Windsor EV Essence Pro,1839000,52.9,449,,4.6,111,2025-11-27,2026-01-26,7
+MG,MG Windsor EV,Windsor EV Essence Pro,1850000,52.9,449,,4.6,112,2026-02-04,2026-03-23,6
+MG,MG Windsor EV,Windsor EV Excite,1400000,38,332,,4.6,112,2025-11-27,2026-03-23,13
+MG,MG Windsor EV,Windsor EV Exclusive,1515000,38,332,,4.6,111,2025-11-27,2026-01-26,7
+MG,MG Windsor EV,Windsor EV Exclusive,1553000,38,332,,4.6,112,2026-02-04,2026-03-23,6
+MG,MG Windsor EV,Windsor EV Exclusive Pro,1725000,52.9,449,,4.6,111,2025-11-27,2026-01-26,7
+MG,MG Windsor EV,Windsor EV Exclusive Pro,1738000,52.9,449,,4.6,112,2026-02-04,2026-03-23,6
+MG,MG Windsor EV,Windsor EV Inspire Edition,1265000,38,332,,4.6,111,2025-11-27,2026-01-26,7
+MG,MG ZS EV,MG ZS EV 100 Year Limited Edition,1950000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV 100 Year Limited Edition,1975000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Essence,2050000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV Essence,2075000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Essence DT,2050000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV Essence DT,2075000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Excite Pro,1850000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV Excite Pro,1875000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Exclusive Plus,1950000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV Exclusive Plus,1975000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Exclusive Plus DT,1950000,50.3,461,,4.2,128,2026-03-31,2026-05-20,7
+MG,MG ZS EV,MG ZS EV Exclusive Plus DT,1975000,50.3,461,,4.2,128,2026-08-02,2026-09-06,5
+MG,MG ZS EV,MG ZS EV Executive,1799000,50.3,461,,4.2,128,2026-03-31,2026-09-06,12
+MG,MG ZS EV,ZS EV 100 Year Limited Edition,1950000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Essence,2050000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Essence DT,2050000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Excite Pro,1850000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Exclusive Plus,1950000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Exclusive Plus DT,1950000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+MG,MG ZS EV,ZS EV Executive,1799000,50.3,461,,4.2,128,2025-11-27,2026-03-23,13
+Mahindra,Mahindra BE 6,BE 6 Batman Edition,2779000,59,683,,4.8,472,2025-11-27,2025-11-27,1
+Mahindra,Mahindra BE 6,BE 6 Batman Edition,2849000,59,683,,4.8,516,2026-03-13,2026-08-11,12
+Mahindra,Mahindra BE 6,BE 6 FE 79kWh,2445000,79,683,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 FE Four 79kWh,2695000,79,683,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 FE2,2369000,79,683,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 FE3,2449000,79,683,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One,1890000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One 11.2kw Charger,1965000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One 7.2kw Charger,1940000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One Above,2050000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One Above 11.2kw Charger,2125000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack One Above 7.2kw Charger,2100000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three,2690000,79,683,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three 79kwh 11.2kw Charger,2765000,79,683,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three 79kwh 7.2kw Charger,2740000,79,683,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three Select,2450000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three Select 11.2kw Charger,2525000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Three Select 7.2kw Charger,2500000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Two,2190000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Two 11.2kw Charger,2265000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Two 7.2kw Charger,2240000,59,557,,4.8,516,2025-11-27,2026-08-11,23
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh,2350000,59,683,,4.8,472,2025-11-27,2025-11-27,1
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh,2350000,79,683,,4.8,516,2025-12-08,2026-08-11,22
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh 11.2kw Charger,2425000,59,683,,4.8,472,2025-11-27,2025-11-27,1
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh 11.2kw Charger,2425000,79,683,,4.8,516,2025-12-08,2026-08-11,22
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh 7.2kw Charger,2400000,59,683,,4.8,472,2025-11-27,2025-11-27,1
+Mahindra,Mahindra BE 6,BE 6 Pack Two 79kwh 7.2kw Charger,2400000,79,683,,4.8,516,2025-12-08,2026-08-11,22
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Four 79kWh,2695000,79,683,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Launch Edition 79kWh,2695000,79,683,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ One 59kWh,1945000,59,548,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Three 59kWh,2195000,59,548,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Three 70kWh,2295000,70,651,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Three Plus 70kWh,2395000,70,651,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Three Plus 79kWh,2495000,79,683,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra BE 6,BE 6 SPORTEQ Two 59kWh,2095000,59,548,5,4.8,524,2026-08-19,2026-09-06,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 59kWh,1995000,59,521,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 59kWh,2065000,59,521,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 59kWh 7-Seater,2065000,59,521,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 79kWh,2195000,79,679,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 79kWh,2265000,79,679,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack One Above 79kWh 7-Seater,2265000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three 79kWh,2735000,79,679,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three 79kWh,2785000,79,679,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three 79kWh 6-Seater,2880000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three 79kWh 7-Seater,2785000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three Above 79kWh,2945000,79,679,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three Above 79kWh,2995000,79,679,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three Above 79kWh 6-Seater,3090000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Three Above 79kWh 7-Seater,2995000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 70kWh,2445000,70,600,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 70kWh,2505000,70,600,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 70kWh 6-Seater,2600000,70,600,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 70kWh 7-Seater,2505000,70,600,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 79kWh,2545000,79,679,7,4.8,34,2025-12-08,2026-05-20,17
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 79kWh,2595000,79,679,7,4.8,38,2026-08-02,2026-08-19,3
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 79kWh 6-Seater,2690000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9S,XEV 9S Pack Two Above 79kWh 7-Seater,2595000,79,679,"6, 7",4.8,38,2026-08-28,2026-09-15,2
+Mahindra,Mahindra XEV 9e,Pack Three Select 11.2kw Charger,2865000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Cineluxe Edition,2935000,79,656,,4.8,124,2026-03-05,2026-09-23,18
+Mahindra,Mahindra XEV 9e,XEV 9e Pack One,2190000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack One 11.2kw Charger,2265000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack One 7.2kw Charger,2240000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Three,3050000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Three 11.2kw Charger,3125000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Three 7.2kw Charger,3100000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Three Select,2790000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Three Select 7.2kw Charger,2840000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two,2490000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two 11.2kw Charger,2565000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two 7.2kw Charger,2540000,59,542,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two 79kWh,2650000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two 79kwh 11.2kw Charger,2725000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XEV 9e,XEV 9e Pack Two 79kwh 7.2kw Charger,2700000,79,656,,4.8,124,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XUV 3XO EV,XUV 3XO EV AX5,1389000,39.4,456,5,4,4.6109,2026-01-08,2026-01-08,1
+Mahindra,Mahindra XUV 3XO EV,XUV 3XO EV AX5,1389000,39.4,456,,4.7,9,2026-01-16,2026-08-28,17
+Mahindra,Mahindra XUV 3XO EV,XUV 3XO EV AX7L,1496000,39.4,456,5,4,4.6109,2026-01-08,2026-01-08,1
+Mahindra,Mahindra XUV 3XO EV,XUV 3XO EV AX7L,1496000,39.4,456,,4.7,9,2026-01-16,2026-08-28,17
+Mahindra,Mahindra XUV400 EV,XUV400 EV EC Pro 34.5 kWh,1549000,34.5,375,,4.5,269,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XUV400 EV,XUV400 EV EL Pro 34.5 kWh,1674000,34.5,375,,4.5,269,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XUV400 EV,XUV400 EV EL Pro 39.4 kWh,1749000,39.4,456,,4.5,269,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XUV400 EV,XUV400 EV EL Pro DT 34.5 kWh,1694000,34.5,375,,4.5,269,2025-11-27,2026-09-23,28
+Mahindra,Mahindra XUV400 EV,XUV400 EV EL Pro DT 39.4 kWh,1769000,39.4,456,,4.5,269,2025-11-27,2026-09-23,28
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha,1979000,61,543,5,4.7,8,2026-03-13,2026-03-13,1
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha,1979000,61,543,,4.8,20,2026-03-23,2026-08-02,10
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha,1999000,61,543,,4.7,22,2026-08-11,2026-09-06,4
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha Dual Tone,2001000,61,543,5,4.7,8,2026-03-13,2026-03-13,1
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha Dual Tone,2001000,61,543,,4.8,20,2026-03-23,2026-08-02,10
+Maruti,Maruti Suzuki e Vitara,e Vitara Alpha Dual Tone,2021000,61,543,,4.7,22,2026-08-11,2026-09-06,4
+Maruti,Maruti Suzuki e Vitara,e Vitara Delta,1599000,49,440,5,4.7,8,2026-03-13,2026-03-13,1
+Maruti,Maruti Suzuki e Vitara,e Vitara Delta,1599000,49,440,,4.8,20,2026-03-23,2026-08-19,12
+Maruti,Maruti Suzuki e Vitara,e Vitara Delta,1619000,49,440,,4.7,22,2026-08-28,2026-09-06,2
+Maruti,Maruti Suzuki e Vitara,e Vitara Zeta,1749000,61,543,5,4.7,8,2026-03-13,2026-03-13,1
+Maruti,Maruti Suzuki e Vitara,e Vitara Zeta,1749000,61,543,,4.8,20,2026-03-23,2026-08-02,10
+Maruti,Maruti Suzuki e Vitara,e Vitara Zeta,1779000,61,543,,4.7,20,2026-08-11,2026-08-19,2
+Maruti,Maruti Suzuki e Vitara,e Vitara Zeta,1794000,61,543,,4.7,22,2026-08-28,2026-09-06,2
+Maruti,Maruti e Vitara,e Vitara Alpha,1979000,61,543,5,4.7,8,2026-02-25,2026-03-05,2
+Maruti,Maruti e Vitara,e Vitara Alpha Dual Tone,2001000,61,543,5,4.7,8,2026-02-25,2026-03-05,2
+Maruti,Maruti e Vitara,e Vitara Delta,1599000,49,440,5,4.7,8,2026-02-25,2026-03-05,2
+Maruti,Maruti e Vitara,e Vitara Zeta,1749000,61,543,5,4.7,8,2026-02-25,2026-03-05,2
+Mercedes-Benz,Mercedes-Benz AMG EQS,AMG EQS 53 4Matic Plus,24500000,107.8,526,,4.6,2,2025-11-27,2026-09-15,27
+Mercedes-Benz,Mercedes-Benz CLA Electric,CLA 250 Plus Launch Edition,6400000,85.5,792,,4.4,2,2026-05-02,2026-09-15,10
+Mercedes-Benz,Mercedes-Benz CLA Electric,CLA Electric 200,5500000,58,542,,4.4,2,2026-05-02,2026-06-29,4
+Mercedes-Benz,Mercedes-Benz CLA Electric,CLA Electric 200,5650000,58,542,,4.4,2,2026-07-23,2026-09-15,6
+Mercedes-Benz,Mercedes-Benz CLA Electric,CLA Electric 250 Plus,5900000,85.5,792,,4.4,2,2026-05-02,2026-09-15,10
+Mercedes-Benz,Mercedes-Benz EQA,EQA 250 Plus,6720000,70.5,497,,4.8,4,2025-11-27,2026-04-24,15
+Mercedes-Benz,Mercedes-Benz EQB,EQB 250 Plus,7220000,70.5,464,,4.9,6,2025-11-27,2026-04-16,14
+Mercedes-Benz,Mercedes-Benz EQB,EQB 350 4Matic,7890000,66.5,397,,4.9,6,2025-11-27,2026-04-16,14
+Mercedes-Benz,Mercedes-Benz EQE SUV,EQE SUV 500 4MATIC,14100000,90.56,550,,4.1,22,2025-11-27,2026-04-24,16
+Mercedes-Benz,Mercedes-Benz EQS,EQS 580 4MATIC Celebration Edition,13000000,107.8,813,,4.4,41,2025-11-27,2026-09-23,34
+Mercedes-Benz,Mercedes-Benz EQS,EQS 580 4Matic,16300000,107.8,857,,4.4,40,2025-11-27,2026-05-20,19
+Mercedes-Benz,Mercedes-Benz EQS,EQS 580 4Matic,14800000,107.8,857,,4.4,41,2026-05-28,2026-09-23,15
+Mercedes-Benz,Mercedes-Benz EQS SUV,EQS SUV 450 4Matic,13300000,122,820,,4.7,8,2025-11-27,2026-09-23,30
+Mercedes-Benz,Mercedes-Benz EQS SUV,EQS SUV 450 Celebration Edition,13400000,122,820,,4.7,8,2026-01-16,2026-09-23,25
+Mercedes-Benz,Mercedes-Benz EQS SUV,EQS SUV 580 4Matic,14800000,122,809,,4.7,8,2025-11-27,2026-09-23,30
+Mercedes-Benz,Mercedes-Benz EQS SUV,EQS SUV 580 Celebration Edition,14800000,122,809,,4.7,8,2026-01-16,2026-09-23,25
+Mercedes-Benz,Mercedes-Benz G-Class Electric,G-Class Electric G 580,31000000,116,473,,4.7,38,2025-11-27,2026-09-23,33
+Mercedes-Benz,Mercedes-Benz Maybach EQS SUV,Maybach EQS SUV 680,22800000,122,611,,4.7,6,2025-11-27,2026-05-20,17
+Mercedes-Benz,Mercedes-Benz Maybach EQS SUV,Maybach EQS SUV 680,24000000,122,611,,4.7,6,2026-05-28,2026-09-15,13
+Mercedes-Benz,Mercedes-Benz Maybach EQS SUV,Maybach EQS SUV Night Series,26300000,122,611,,4.7,6,2025-11-27,2026-05-20,17
+Mercedes-Benz,Mercedes-Benz Maybach EQS SUV,Maybach EQS SUV Night Series,26500000,122,611,,4.7,6,2026-05-28,2026-09-15,13
+Mini,Mini Cooper SE,Cooper SE Electric,5350000,32.6,270,,4.2,50,2025-11-27,2025-12-16,3
+Mini,Mini Countryman Electric,Countryman Electric Favoured Pack,5995000,66.4,462,,4.8,3,2025-11-27,2026-03-23,12
+Mini,Mini Countryman Electric,Countryman Electric Favoured Pack,6070000,66.4,462,,4.8,3,2026-03-31,2026-09-15,16
+Mini,Mini Countryman Electric,Countryman Electric S,5490000,66.4,462,,4.8,3,2025-11-27,2026-06-29,22
+Mini,Mini Countryman Electric,Countryman Electric S,5565000,66.4,462,,4.8,3,2026-07-15,2026-09-15,6
+Pmv,PMV EaS E,EaS E Electric,479000,10,160,2,4.5,36,2025-11-27,2026-09-15,31
+Porsche,Porsche Macan EV,Macan EV 4S,13900000,100,619,,4.9,3,2025-11-27,2026-03-23,12
+Porsche,Porsche Macan EV,Macan EV 4S,15800000,100,619,,4.9,3,2026-03-31,2026-09-15,18
+Porsche,Porsche Macan EV,Macan EV Standard,12200000,100,624,,4.9,3,2025-11-27,2026-09-15,30
+Porsche,Porsche Macan EV,Macan EV Turbo,16900000,100,624,,4.9,3,2025-11-27,2026-03-23,12
+Porsche,Porsche Macan EV,Macan EV Turbo,17300000,100,624,,4.9,3,2026-03-31,2026-09-15,18
+Porsche,Porsche Taycan,Taycan 4S,19600000,93.4,705,,4.7,7,2025-11-27,2026-09-15,31
+Porsche,Porsche Taycan,Taycan STD,17000000,93.4,705,,4.7,7,2025-11-27,2026-09-15,31
+Porsche,Porsche Taycan,Taycan Turbo,26900000,93.4,683,,4.6,6,2025-11-27,2026-03-23,12
+Porsche,Porsche Taycan,Taycan Turbo,27000000,93.4,683,,4.7,7,2026-03-31,2026-09-15,19
+Pravaig,Pravaig DEFY,DEFY Hacker Edition,3950000,90.9,500,4,4.6,19,2025-11-27,2026-09-15,31
+Rolls-Royce,Rolls-Royce Spectre,Spectre Electric,75000000,102,530,,4.7,28,2025-11-27,2026-09-23,33
+Strom-Motors,Strom Motors R3,R3 2-Door,450000,30,200,2,3.7,17,2025-11-27,2026-09-15,30
+Tata,Tata Curvv EV,Curvv EV Accomplished 45,1849000,45,430,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Accomplished 55,1925000,55,502,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Accomplished Plus S 45,1929000,45,430,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Accomplished Plus S 55,1999000,55,502,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Accomplished X 55,1699000,55,502,,4.7,139,2026-05-12,2026-08-28,8
+Tata,Tata Curvv EV,Curvv EV Accomplished X 55,1719000,55,502,,4.7,139,2026-09-06,2026-09-06,1
+Tata,Tata Curvv EV,Curvv EV Creative 45,1749000,45,430,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Empowered Plus 55,2125000,55,502,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Empowered Plus A 55,2199000,55,502,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Empowered Plus A 55 Dark,2224000,55,502,,4.7,139,2025-11-27,2026-05-02,18
+Tata,Tata Curvv EV,Curvv EV Empowered X 55,1919000,55,502,,4.7,139,2026-05-12,2026-08-28,8
+Tata,Tata Curvv EV,Curvv EV Empowered X 55,1939000,55,502,,4.7,139,2026-09-06,2026-09-06,1
+Tata,Tata Curvv EV,Curvv EV Empowered X 55 Dark,1949000,55,502,,4.7,139,2026-05-12,2026-08-28,8
+Tata,Tata Curvv EV,Curvv EV Empowered X 55 Dark,1969000,55,502,,4.7,139,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Empowered QWD 75 Stealth ACFC,3023000,75,622,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Empowered QWD 75 Stealth ACFC,3043000,75,622,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Empowered QWD 75 Stealth ACFC,3054000,75,622,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Adventure 65,2149000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Adventure 65,2169000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Adventure 65,2179000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Adventure 65 ACFC,2198000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Adventure 65 ACFC,2218000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Adventure 65 ACFC,2229000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Adventure S 65,2199000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Adventure S 65,2219000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Adventure S 65,2229000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Adventure S 65 ACFC,2248000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Adventure S 65 ACFC,2268000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Adventure S 65 ACFC,2279000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered 75,2749000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered 75,2769000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered 75,2779000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered 75 ACFC,2798000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered 75 ACFC,2818000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered 75 ACFC,2829000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth,2824000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth,2844000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth,2854000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth ACFC,2873000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth ACFC,2893000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered 75 Stealth ACFC,2904000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75,2899000,75,622,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75,2919000,75,622,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75,2929000,75,622,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 ACFC,2948000,75,622,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 ACFC,2968000,75,622,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 ACFC,2979000,75,622,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 Stealth,2974000,75,622,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 Stealth,2994000,75,622,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Empowered QWD 75 Stealth,3004000,75,622,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65,2399000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65,2419000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65,2429000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65 ACFC,2448000,65,538,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65 ACFC,2468000,65,538,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 65 ACFC,2479000,65,538,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75,2499000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75,2519000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75,2529000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75 ACFC,2548000,75,627,,4.9,72,2025-11-27,2026-07-07,23
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75 ACFC,2568000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus 75 ACFC,2579000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75,2649000,75,627,,4.9,72,2026-03-23,2026-07-07,11
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75,2669000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75,2679000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75 ACFC,2698000,75,627,,4.9,72,2026-03-23,2026-07-07,11
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75 ACFC,2718000,75,627,,4.9,74,2026-08-11,2026-08-28,3
+Tata,Tata Harrier EV,Harrier EV Fearless Plus QWD 75 ACFC,2729000,75,627,,4.8,74,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Creative 45,1399000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Creative 45,1414000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Creative 45,1434000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Creative Plus MR,1249000,30,275,,4.5,246,2025-11-27,2026-09-06,25
+Tata,Tata Nexon EV,Nexon EV Empowered 45,1599000,45,489,,4.5,223,2025-11-27,2026-01-08,5
+Tata,Tata Nexon EV,Nexon EV Empowered 45,1614000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Empowered 45,1634000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Empowered LR,1599000,45,489,,4.5,236,2026-01-16,2026-05-20,15
+Tata,Tata Nexon EV,Nexon EV Empowered MR,1479000,30,275,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus 45,1699000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus 45 Red Dark,1719000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45,1729000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45,1749000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45,1769000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Dark,1749000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Dark,1769000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Dark,1789000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Red Dark,1749000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Red Dark,1769000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Empowered Plus A 45 Red Dark,1789000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Fearless 45,1499000,45,489,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Nexon EV,Nexon EV Fearless 45,1514000,45,489,,4.5,245,2026-08-02,2026-08-28,4
+Tata,Tata Nexon EV,Nexon EV Fearless 45,1534000,45,489,,4.5,246,2026-09-06,2026-09-06,1
+Tata,Tata Nexon EV,Nexon EV Fearless MR,1329000,30,275,,4.5,246,2025-11-27,2026-09-06,21
+Tata,Tata Nexon EV,Nexon EV Fearless Plus MR,1379000,30,275,,4.5,245,2025-11-27,2026-08-28,24
+Tata,Tata Nexon EV,Nexon EV Fearless Plus S MR,1429000,30,275,,4.5,236,2025-11-27,2026-05-20,20
+Tata,Tata Punch EV,Punch EV Adventure,1184000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Adventure 40,1159000,40,335,,4.8,40,2026-08-02,2026-08-02,1
+Tata,Tata Punch EV,Punch EV Adventure 40,1174000,40,335,,4.8,43,2026-08-11,2026-08-28,3
+Tata,Tata Punch EV,Punch EV Adventure 40,1194000,40,335,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Adventure 40kWh,1159000,40,335,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Punch EV,Punch EV Adventure LR,1284000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Adventure LR AC FC,1319000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Adventure LR AC FC,1334000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Adventure S,1214000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Adventure S LR,1314000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Adventure S LR AC FC,1349000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Adventure S LR AC FC,1364000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Empowered,1264000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered 40,1229000,40,335,,4.8,40,2026-08-02,2026-08-02,1
+Tata,Tata Punch EV,Punch EV Empowered 40,1249000,40,335,,4.8,43,2026-08-11,2026-08-28,3
+Tata,Tata Punch EV,Punch EV Empowered 40,1269000,40,335,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Empowered 40kWh,1229000,40,335,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Punch EV,Punch EV Empowered LR,1344000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered LR AC FC,1379000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Empowered LR AC FC,1394000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Empowered Plus,1284000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered Plus LR,1364000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered Plus LR AC FC,1399000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Empowered Plus LR AC FC,1414000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Empowered Plus S,1314000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered Plus S 40,1259000,40,335,,4.8,40,2026-08-02,2026-08-02,1
+Tata,Tata Punch EV,Punch EV Empowered Plus S 40,1279000,40,335,,4.8,43,2026-08-11,2026-08-28,3
+Tata,Tata Punch EV,Punch EV Empowered Plus S 40,1299000,40,335,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Empowered Plus S 40kWh,1259000,40,335,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Punch EV,Punch EV Empowered Plus S LR,1394000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered Plus S LR AC FC,1429000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Empowered Plus S LR AC FC,1444000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Empowered S,1284000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered S LR,1364000,35,421,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Empowered S LR AC FC,1399000,35,421,,4.4,131,2025-11-27,2025-11-27,1
+Tata,Tata Punch EV,Punch EV Empowered S LR AC FC,1414000,35,421,,4.4,137,2025-12-08,2026-02-13,8
+Tata,Tata Punch EV,Punch EV Smart,999000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Smart 30,969000,30,260,,4.8,43,2026-08-02,2026-08-28,4
+Tata,Tata Punch EV,Punch EV Smart 30,979000,30,260,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Smart 30kWh,969000,30,260,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Punch EV,Punch EV Smart Plus,1114000,25,315,,4.4,137,2025-11-27,2026-02-13,9
+Tata,Tata Punch EV,Punch EV Smart Plus 30,1029000,30,260,,4.8,43,2026-08-02,2026-08-28,4
+Tata,Tata Punch EV,Punch EV Smart Plus 30,1039000,30,260,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Smart Plus 30kWh,1029000,30,260,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Punch EV,Punch EV Smart Plus 40,1089000,40,335,,4.8,40,2026-08-02,2026-08-02,1
+Tata,Tata Punch EV,Punch EV Smart Plus 40,1099000,40,335,,4.8,43,2026-08-11,2026-08-28,3
+Tata,Tata Punch EV,Punch EV Smart Plus 40,1119000,40,335,,4.8,43,2026-09-06,2026-09-06,1
+Tata,Tata Punch EV,Punch EV Smart Plus 40kWh,1089000,40,335,,4.9,30,2026-02-25,2026-05-20,11
+Tata,Tata Sierra EV,Sierra EV Adventure 63 RWD,2099000,63,566,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Adventure 63 RWD ACFC,2148000,63,566,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Adventure 75 RWD,2219000,75,665,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Adventure 75 RWD ACFC,2268000,75,665,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Empowered 63 RWD,2279000,63,566,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Empowered 63 RWD ACFC,2328000,63,566,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Empowered 75 RWD,2379000,75,665,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Empowered 75 RWD ACFC,2428000,75,665,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Empowered A 75 AWD,2599000,75,624,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Empowered A 75 AWD ACFC,2648000,75,624,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Empowered A 75 RWD,2479000,75,665,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Empowered A 75 RWD ACFC,2528000,75,665,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Pure 63 RWD,1879000,63,566,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Pure 63 RWD ACFC,1928000,63,566,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Sierra EV,Sierra EV Pure S 63 RWD,1999000,63,566,5,4.8,47,2026-07-07,2026-09-23,7
+Tata,Tata Sierra EV,Sierra EV Pure S 63 RWD ACFC,2048000,63,566,5,4.8,47,2026-08-11,2026-09-23,6
+Tata,Tata Tiago EV,Tiago EV Creative Plus 24 Long Range,999000,24,285,5,4.8,14,2026-05-28,2026-08-28,8
+Tata,Tata Tiago EV,Tiago EV Creative Plus 24 Long Range,1009000,24,285,5,4.6,14,2026-09-06,2026-09-06,1
+Tata,Tata Tiago EV,Tiago EV Pure Plus 19 Medium Range,849000,19.2,226,5,4.8,14,2026-05-28,2026-08-28,8
+Tata,Tata Tiago EV,Tiago EV Pure Plus 19 Medium Range,864000,19.2,226,5,4.6,14,2026-09-06,2026-09-06,1
+Tata,Tata Tiago EV,Tiago EV Pure Plus 24 Long Range,949000,24,285,5,4.8,14,2026-05-28,2026-08-28,8
+Tata,Tata Tiago EV,Tiago EV Pure Plus 24 Long Range,964000,24,285,5,4.6,14,2026-09-06,2026-09-06,1
+Tata,Tata Tiago EV,Tiago EV Smart 19 Medium Range,699000,19.2,226,5,4.8,14,2026-05-28,2026-09-06,9
+Tata,Tata Tiago EV,Tiago EV XE MR,799000,19.2,250,,4.4,300,2025-11-27,2026-05-20,20
+Tata,Tata Tiago EV,Tiago EV XT LR,1014000,24,315,,4.4,300,2025-11-27,2026-05-20,20
+Tata,Tata Tiago EV,Tiago EV XT MR,899000,19.2,250,,4.4,300,2025-11-27,2026-05-20,20
+Tata,Tata Tiago EV,Tiago EV XZ Plus Tech LUX LR,1114000,24,315,,4.4,300,2025-11-27,2026-05-20,20
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XE MR,799000,19.2,250,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XM,1299000,24,306,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XT LR,1014000,24,315,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XT MR,899000,19.2,250,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XZ Plus LR,1049000,24,315,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XZ Plus LR ACFC,1099000,24,315,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,Tiago EV 2022-2026 XZ Plus Tech LUX LR,1114000,24,315,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tiago EV 2022-2026,XZ Plus Tech LUX LR ACFC,1149000,24,315,,4.4,302,2026-05-28,2026-05-28,1
+Tata,Tata Tigor EV,Tigor EV XE,1249000,26,315,,4.1,98,2025-11-27,2026-09-06,24
+Tata,Tata Tigor EV,Tigor EV XT,1299000,26,315,,4.1,98,2025-11-27,2026-09-06,24
+Tata,Tata Tigor EV,Tigor EV XZ Plus,1349000,26,315,,4.1,98,2025-11-27,2026-09-06,24
+Tata,Tata Tigor EV,Tigor EV XZ Plus LUX,1375000,26,315,,4.1,98,2025-11-27,2026-09-06,24
+Tata,Tata Xpres T EV,Xpres T EV XM,1304000,32,391,,4.8,4.97,2026-01-26,2026-09-23,27
+Tesla,Tesla Model Y,Long Range RWD Full Self Driving,7389000,75,661,,4.6,19,2026-02-13,2026-04-16,8
+Tesla,Tesla Model Y,Model Y L Premium AWD,6199000,82,681,,4.6,21,2026-05-12,2026-09-06,10
+Tesla,Tesla Model Y,Model Y Long Range Premium RWD,6789000,75,661,,4.6,20,2026-05-12,2026-05-20,2
+Tesla,Tesla Model Y,Model Y Long Range RWD,6789000,75,661,,4.6,19,2026-02-13,2026-04-16,8
+Tesla,Tesla Model Y,Model Y Premium RWD,5989000,60,500,,4.6,20,2026-05-12,2026-05-20,2
+Tesla,Tesla Model Y,Model Y Premium RWD,5089000,60,500,,4.6,21,2026-06-05,2026-09-06,8
+Toyota,Toyota Urban Cruiser EBELLA,Urban Cruiser EBELLA E3,2360000,61,543,5,4.3,1,2026-06-13,2026-08-28,5
+Vayve-Mobility,Vayve Mobility Eva,Eva Nova,325000,9,125,3,4.6,84,2025-11-27,2026-07-07,26
+Vayve-Mobility,Vayve Mobility Eva,Eva Nova,399000,9,125,3,4.6,85,2026-07-15,2026-09-06,7
+Vayve-Mobility,Vayve Mobility Eva,Eva Stella,399000,12.6,175,3,4.6,84,2025-11-27,2026-07-07,26
+Vayve-Mobility,Vayve Mobility Eva,Eva Stella,499000,12.6,175,3,4.6,85,2026-07-15,2026-09-06,7
+Vayve-Mobility,Vayve Mobility Eva,Eva Vega,449000,18,250,3,4.6,84,2025-11-27,2026-07-07,26
+Vayve-Mobility,Vayve Mobility Eva,Eva Vega,599000,18,250,3,4.6,85,2026-07-15,2026-09-06,7
+Vinfast,VinFast Limo Green,Limo Green Electric,2299000,60.13,512,7,0,,2026-09-06,2026-09-23,3
+Vinfast,VinFast VF MPV 7,VF MPV 7 Electric,2449000,60.13,517,7,0,,2026-04-16,2026-09-06,12
+Vinfast,VinFast VF6,VF6 Earth,1649000,59.6,468,5,4.8,4,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF6,VF6 Earth,1729000,59.6,468,5,4.8,9,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF6,VF6 Earth,1819000,59.6,468,5,4.5,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF6,VF6 Wind,1779000,59.6,463,5,4.8,4,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF6,VF6 Wind,1869000,59.6,463,5,4.8,9,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF6,VF6 Wind,1959000,59.6,463,5,4.5,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF6,VF6 Wind Infinity,1829000,59.6,463,5,4.8,4,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF6,VF6 Wind Infinity,1919000,59.6,463,5,4.8,9,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF6,VF6 Wind Infinity,2009000,59.6,463,5,4.5,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF7,VF7 Earth,2089000,59.6,438,5,4.2,5,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF7,VF7 Earth,2189000,59.6,438,5,4.4,10,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF7,VF7 Earth,2299000,59.6,438,5,4.4,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF7,VF7 Sky,2499000,70,510,5,4.2,5,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF7,VF7 Sky,2619000,70,510,5,4.4,10,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF7,VF7 Sky,2749000,70,510,5,4.4,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF7,VF7 Sky Infinity,2549000,70,510,5,4.2,5,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF7,VF7 Sky Infinity,2679000,70,510,5,4.4,10,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF7,VF7 Sky Infinity,2809000,70,510,5,4.4,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF7,VF7 Wind,2349000,70,532,5,4.2,5,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF7,VF7 Wind,2469000,70,532,5,4.4,10,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF7,VF7 Wind,2589000,70,532,5,4.4,10,2026-07-15,2026-09-06,7
+Vinfast,VinFast VF7,VF7 Wind Infinity,2399000,70,532,5,4.2,5,2025-11-27,2026-01-26,7
+Vinfast,VinFast VF7,VF7 Wind Infinity,2519000,70,532,5,4.4,10,2026-02-13,2026-07-07,18
+Vinfast,VinFast VF7,VF7 Wind Infinity,2639000,70,532,5,4.4,10,2026-07-15,2026-09-06,7
+Volvo,Volvo EC40,EC40 E80,5900000,78,530,,4.8,4,2025-11-27,2026-09-23,30
+Volvo,Volvo EX30,EX30 RWD Ultra,3999000,69,480,5,4.7,3,2025-11-27,2026-03-23,12
+Volvo,Volvo EX30,EX30 RWD Ultra,4100000,69,480,5,4.7,4,2026-03-31,2026-09-23,22
+Volvo,Volvo EX40,EX40 E60 Plus,4900000,69,592,5,4.2,53,2025-11-27,2026-09-15,25

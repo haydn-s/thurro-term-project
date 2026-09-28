@@ -1,0 +1,1003 @@
+[1000]{month,Category_Clean,Segment_Clean,Sub_Segment_Clean,OEM_Clean,Model,production_units,domestic_sales_units,export_units}:
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,7185,6746,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,4375,4546,72
+  2023-04-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,373,138,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,421,360,0
+  2023-04-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,7,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,2,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,11,0
+  2023-04-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,6,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,10,0
+  2023-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,1,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,5218,6227,0
+  2023-04-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,272,265,0
+  2023-04-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,131,116,0
+  2023-04-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,0,0,0
+  2023-04-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,406,324,0
+  2023-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,460,448,0
+  2023-04-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,0,203,0
+  2023-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,600,1554,0
+  2023-04-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,0,0,0
+  2023-04-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,917,463,0
+  2023-04-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,152,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,9742,9670,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,9073,9208,2
+  2023-05-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,122,127,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,1055,360,0
+  2023-05-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,21,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,532,0
+  2023-05-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,0,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,28,0
+  2023-05-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-05-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2023-05-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,3,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-05-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,18067,17913,0
+  2023-05-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,533,527,0
+  2023-05-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,120,119,0
+  2023-05-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,0,0,0
+  2023-05-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,225,184,0
+  2023-05-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,556,488,0
+  2023-05-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,250,178,0
+  2023-05-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,238,1115,0
+  2023-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,54,39,0
+  2023-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-05-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,0,0,0
+  2023-05-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,1552,730,0
+  2023-05-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,404,667,0
+  2023-05-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,83,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,9039,10202,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,8010,7080,0
+  2023-06-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,51,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3132,2760,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2023-06-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,7,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,2,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,11,0
+  2023-06-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,549,6,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,10,0
+  2023-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,1,0
+  2023-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-06-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2023-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,5,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-06-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,14249,14462,0
+  2023-06-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,679,490,0
+  2023-06-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,187,211,0
+  2023-06-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,11,0,0
+  2023-06-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,282,332,0
+  2023-06-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,381,467,0
+  2023-06-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,102,266,0
+  2023-06-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1484,1366,0
+  2023-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,41,6,0
+  2023-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-06-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,0,0,0
+  2023-06-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,1500,1184,0
+  2023-06-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,550,617,0
+  2023-06-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,44,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,7973,8062,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,5659,4528,0
+  2023-07-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,114,600,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,1183,160,4
+  2023-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,502,0
+  2023-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,85,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,2124,0
+  2023-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,328,343,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,2,0
+  2023-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2023-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,2,0
+  2023-07-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2023-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,4,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-07-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,16006,13306,0
+  2023-07-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,328,353,0
+  2023-07-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,111,93,0
+  2023-07-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,46,45,0
+  2023-07-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,408,356,0
+  2023-07-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,295,291,0
+  2023-07-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,0,4,0
+  2023-07-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1692,1745,0
+  2023-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,119,170,0
+  2023-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-07-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,10,0,0
+  2023-07-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2023-07-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2023-07-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,15,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1771,1623,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,6480,6620,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,6836,8032,0
+  2023-08-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,815,23,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,611,1000,0
+  2023-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,45,0
+  2023-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,21,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,1356,1620,0
+  2023-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,871,657,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,20,0
+  2023-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,1,0
+  2023-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-08-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2023-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,1,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,27020,23887,0
+  2023-08-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,297,458,0
+  2023-08-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,66,84,0
+  2023-08-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,CONTINENTAL ENGINES,Baxy Cargo Super King EV,0,0,0
+  2023-08-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,29,14,0
+  2023-08-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,476,301,0
+  2023-08-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,396,379,0
+  2023-08-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,115,101,0
+  2023-08-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1941,1978,0
+  2023-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,185,181,0
+  2023-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-08-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,3137,2822,4
+  2023-08-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,
+  2023-08-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,
+  2023-08-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,42,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,2632,2470,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4821,4485,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,10494,8988,0
+  2023-09-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,1919,2355,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,450,1160,0
+  2023-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,141,0
+  2023-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,1365,1412,0
+  2023-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,608,844,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2023-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2023-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-09-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,3,0
+  2023-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,1,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,23246,20276,0
+  2023-09-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,575,592,0
+  2023-09-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,109,113,0
+  2023-09-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,CONTINENTAL ENGINES,Baxy Cargo Super King EV,0,0,0
+  2023-09-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,24,36,0
+  2023-09-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,575,745,0
+  2023-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,645,561,0
+  2023-09-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,118,106,0
+  2023-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,2752,2671,0
+  2023-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,270,253,0
+  2023-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-09-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5515,5685,0
+  2023-09-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2023-09-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2023-09-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,150,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1583,1830,1
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,8204,8718,122
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,10351,12212,0
+  2023-10-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,3223,3500,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3345,3840,0
+  2023-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,42,0
+  2023-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,1482,1394,0
+  2023-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,504,416,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2023-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,1,0
+  2023-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2023-10-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,1,0
+  2023-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-10-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,18414,20121,0
+  2023-10-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,549,551,0
+  2023-10-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,139,103,0
+  2023-10-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,CONTINENTAL ENGINES,Baxy Cargo Super King EV,0,0,0
+  2023-10-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,6,15,0
+  2023-10-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,512,431,0
+  2023-10-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,596,589,0
+  2023-10-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,141,150,0
+  2023-10-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,2922,2553,0
+  2023-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,412,404,0
+  2023-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-10-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5489,4957,24
+  2023-10-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2023-10-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2023-10-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,141,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1967,1538,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,6697,6256,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,9036,8472,0
+  2023-11-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,98,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3756,3286,0
+  2023-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2023-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,2,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,167,292,0
+  2023-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,245,189,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2023-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2023-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-11-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,1,0
+  2023-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,1,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-11-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,14503,16702,80
+  2023-11-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,433,433,0
+  2023-11-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,195,230,0
+  2023-11-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,CONTINENTAL ENGINES,Baxy Cargo Super King EV,0,0,0
+  2023-11-01,3W,Goods Carrier,E-Cart,CONTINENTAL ENGINES,Baxy E Cart,18,10,0
+  2023-11-01,3W,Passenger Carrier,E-Rickshaw,CONTINENTAL ENGINES,Baxy E Rath,409,427,0
+  2023-11-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,406,320,0
+  2023-11-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,74,52,0
+  2023-11-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1694,1383,0
+  2023-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,399,405,0
+  2023-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-11-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,4954,4755,180
+  2023-11-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2023-11-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2023-11-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,25,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,532,612,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4725,4282,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,13061,13008,0
+  2023-12-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,1094,350,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,784,1120,0
+  2023-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2023-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2023-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,186,249,0
+  2023-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,169,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2023-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2023-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2023-12-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2023-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2023-12-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,10516,11232,56
+  2023-12-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,453,400,0
+  2023-12-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,172,148,0
+  2023-12-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,29,25,0
+  2023-12-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,223,382,0
+  2023-12-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2023-12-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2023-12-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2023-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,-1,0
+  2023-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2023-12-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,72,243,0
+  2023-12-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,71,102,0
+  2023-12-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,649,1122,0
+  2023-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,545,410,0
+  2023-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2023-12-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,6300,4376,129
+  2023-12-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2023-12-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2023-12-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,6,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,4244,4654,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,8413,7211,73
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,16021,14144,0
+  2024-01-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,895,1150,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3404,2120,2
+  2024-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2024-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2024-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,1063,1061,0
+  2024-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,321,30,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2024-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,2,0
+  2024-01-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,2,0
+  2024-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,7,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2024-01-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,12156,15652,0
+  2024-01-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,510,349,0
+  2024-01-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,291,230,0
+  2024-01-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,29,31,0
+  2024-01-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,365,339,0
+  2024-01-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-01-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-01-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-01-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,262,178,0
+  2024-01-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-01-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,256,177,0
+  2024-01-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1432,396,0
+  2024-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,602,454,0
+  2024-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,26,6,0
+  2024-01-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,9237,4586,2862
+  2024-01-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2024-01-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,
+  2024-01-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,0,0
+  2024-01-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,280,236,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,4830,4611,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,5548,6247,80
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,14286,13620,0
+  2024-02-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,2500,1800,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3187,1399,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2024-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,98,95,0
+  2024-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,826,745,0
+  2024-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,170,404,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2024-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,3,0
+  2024-02-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,5,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+  2024-02-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,15683,15792,113
+  2024-02-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,264,375,0
+  2024-02-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,301,250,0
+  2024-02-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,19,17,0
+  2024-02-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,231,189,0
+  2024-02-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-02-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-02-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,-2,0
+  2024-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-02-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,218,302,0
+  2024-02-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-02-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,247,213,0
+  2024-02-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,41,643,0
+  2024-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,341,591,0
+  2024-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,26,0
+  2024-02-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,8281,3184,3610
+  2024-02-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2024-02-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,
+  2024-02-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,1,0
+  2024-02-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,400,418,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,5320,5464,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4800,5939,80
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,8299,11864,0
+  2024-03-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,1989,3200,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,-2064,2240,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2024-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,2,0
+  2024-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,64,0
+  2024-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,167,218,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge 100,0,0,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2024-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-03-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,3,0
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,933,0,884
+  2024-03-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,14313,14326,40
+  2024-03-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,524,572,0
+  2024-03-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,185,297,0
+  2024-03-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,12,19,0
+  2024-03-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,217,233,0
+  2024-03-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-03-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-03-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-03-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-03-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,216,268,0
+  2024-03-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,199,144,0
+  2024-03-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,136,622,0
+  2024-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,229,129,0
+  2024-03-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,3,35,0
+  2024-03-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,8281,3277,3464
+  2024-03-01,Passenger Vehicles,Passenger Cars,Micro / Mini,JSW MG MOTOR INDIA,Comet EV,,,0
+  2024-03-01,Passenger Vehicles,Utility Vehicles,UV4: Price between Rs. 20 to 30 Lakh,JSW MG MOTOR INDIA,ZS EV,,,0
+  2024-03-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,1,0
+  2024-03-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2024-03-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,400,369,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,3794,3706,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,5930,4775,40
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,12694,11121,0
+  2024-04-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,0,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3296,2880,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-04-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,1,0
+  2024-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2024-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-04-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,2,0
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,1014,0,650
+  2024-04-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,16713,16713,40
+  2024-04-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,372,324,0
+  2024-04-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,144,119,0
+  2024-04-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,48,31,0
+  2024-04-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,163,204,0
+  2024-04-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-04-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-04-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,422,217,0
+  2024-04-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,97,115,0
+  2024-04-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,393,563,0
+  2024-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,570,658,0
+  2024-04-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-04-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,0,0,0
+  2024-04-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5700,1731,2500
+  2024-04-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,5,0
+  2024-04-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,548,351,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,3112,2540,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4222,4132,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,0,0,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,12647,13042,0
+  2024-05-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,2200,2000,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,4128,3640,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-05-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-05-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,65,60,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-05-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2024-05-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-05-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,1,0
+  2024-05-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,1,0
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,1047,0,1404
+  2024-05-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,17642,17230,40
+  2024-05-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,417,471,0
+  2024-05-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,121,138,0
+  2024-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,0,0,0
+  2024-05-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,8,17,0
+  2024-05-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,237,227,0
+  2024-05-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-05-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-05-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-05-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,249,182,0
+  2024-05-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-05-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,89,97,0
+  2024-05-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,203,323,0
+  2024-05-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,622,600,0
+  2024-05-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-05-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,24,24,0
+  2024-05-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,3955,1553,4051
+  2024-05-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,15,0
+  2024-05-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,277,274,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1749,2117,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3749,4189,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,1685,1363,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,16242,16691,2
+  2024-06-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,2890,1000,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,3343,4039,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,31,0
+  2024-06-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,44,0,0
+  2024-06-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,0,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2024-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-06-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-06-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,4,0
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,556,11,598
+  2024-06-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,15001,15210,40
+  2024-06-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,654,666,0
+  2024-06-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,276,249,0
+  2024-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,0,0,0
+  2024-06-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,20,8,0
+  2024-06-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy E Rath,151,143,0
+  2024-06-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-06-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Baxy Ltd,,,
+  2024-06-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-06-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-06-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,1,254,0
+  2024-06-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,10,133,0
+  2024-06-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,139,145,0
+  2024-06-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,674,505,0
+  2024-06-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-06-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,32,31,0
+  2024-06-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,4834,2151,4108
+  2024-06-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,24,0
+  2024-06-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,126,241,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1108,1159,25
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3108,2923,15
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,6755,6765,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,20384,20114,0
+  2024-07-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,4114,6200,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,4592,4600,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,97,0,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2024-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,37,40,0
+  2024-07-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,0,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,5,0
+  2024-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,3,0
+  2024-07-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-07-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,3,0
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,168,0,298
+  2024-07-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,22180,21064,80
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,381,412,0
+  2024-07-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,168,103,0
+  2024-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,45,38,6
+  2024-07-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,8,27,0
+  2024-07-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-07-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,166,266,0
+  2024-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,0,6,0
+  2024-07-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-07-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,40,47,0
+  2024-07-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1606,1569,0
+  2024-07-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,498,641,0
+  2024-07-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-07-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,71,67,0
+  2024-07-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,3752,1340,2442
+  2024-07-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,22,0
+  2024-07-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,200,217,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,617,644,40
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4091,4156,120
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,8566,8215,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,24367,21756,0
+  2024-08-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,4204,4000,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,6195,6024,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2024-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,68,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2024-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,36,0
+  2024-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,143,80,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2024-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,1,0
+  2024-08-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-08-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,2,0
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,370,0,402
+  2024-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,25031,24181,196
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,744,707,0
+  2024-08-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,114,128,0
+  2024-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,101,101,0
+  2024-08-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,37,26,0
+  2024-08-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-08-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,5,0,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,257,251,0
+  2024-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,167,172,0
+  2024-08-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-08-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,0,21,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1854,1525,0
+  2024-08-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-08-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2024-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,613,640,0
+  2024-08-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-08-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,126,126,0
+  2024-08-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5639,1723,4615
+  2024-08-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,33,0
+  2024-08-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,176,222,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1678,1668,25
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,5423,4825,55
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,10040,9867,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,26638,28517,0
+  2024-09-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,3602,3500,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,7145,5352,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,166,64,0
+  2024-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,44,61,0
+  2024-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,372,346,0
+  2024-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,478,493,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,40,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,1,0
+  2024-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,5,0
+  2024-09-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-09-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,5,0
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,299,35,260
+  2024-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,28111,28529,77
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,741,585,0
+  2024-09-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,223,270,0
+  2024-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,117,116,0
+  2024-09-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,304,298,0
+  2024-09-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-09-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,0,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,353,356,0
+  2024-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,158,153,0
+  2024-09-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-09-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,84,60,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,2439,1225,17
+  2024-09-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-09-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2024-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,882,752,0
+  2024-09-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,1,0,0
+  2024-09-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,6665,1960,4841
+  2024-09-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,12,0
+  2024-09-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,99,130,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1673,1774,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,5017,5078,176
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,12686,13151,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,29284,30644,0
+  2024-10-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,10,0,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,6783,8750,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,71,0
+  2024-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,140,125,0
+  2024-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,144,142,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,20,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,703,641,0
+  2024-10-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,1096,1081,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2024-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-10-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-10-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,3,0
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,370,204,104
+  2024-10-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,27631,28923,77
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,562,573,0
+  2024-10-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,280,258,0
+  2024-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,166,153,14
+  2024-10-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy E Cart,208,219,0
+  2024-10-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Baxy Ltd,,,
+  2024-10-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,10,0,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,416,403,0
+  2024-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,310,138,0
+  2024-10-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-10-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,118,138,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,892,971,17
+  2024-10-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-10-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2024-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,671,804,0
+  2024-10-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-10-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,250,207,0
+  2024-10-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,2701,2149,4155
+  2024-10-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,50,0
+  2024-10-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2024-10-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,76,37,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1084,2012,7
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,2179,914,73
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,10635,10354,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,26502,25860,0
+  2024-11-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,50,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,2216,1976,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,265,75,0
+  2024-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,15,0
+  2024-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,129,123,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,5,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,227,293,0
+  2024-11-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,439,491,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,0,0
+  2024-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,0,0
+  2024-11-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-11-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,4,0
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,220,58,247
+  2024-11-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,26415,25681,306
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,590,369,0
+  2024-11-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,225,157,0
+  2024-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,133,133,0
+  2024-11-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,0,7,0
+  2024-11-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,30,16,0
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,287,228,0
+  2024-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-11-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,0,0,0
+  2024-11-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-11-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,18,130,0
+  2024-11-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,111,116,0
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,808,800,0
+  2024-11-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,EKA 3S,0,0,0
+  2024-11-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-11-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2024-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,497,509,0
+  2024-11-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-11-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,133,126,0
+  2024-11-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5251,1668,4101
+  2024-11-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,68,0
+  2024-11-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2024-11-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,62,75,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,690,681,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,1201,1224,96
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,8562,7456,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,21732,21020,0
+  2024-12-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,763,640,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2024-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,2,118,0
+  2024-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,0,0
+  2024-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,123,112,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,601,493,0
+  2024-12-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,347,293,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2024-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,1,0
+  2024-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,4,0
+  2024-12-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2024-12-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,9,0
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,97,28,100
+  2024-12-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,20312,20003,40
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,190,260,0
+  2024-12-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,90,94,0
+  2024-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,84,84,0
+  2024-12-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,6,6,0
+  2024-12-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,20,20,0
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,199,199,0
+  2024-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2024-12-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2024-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,2,1,0
+  2024-12-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2024-12-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,41,109,0
+  2024-12-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,47,62,0
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,1,530,0
+  2024-12-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,EKA 3S,0,0,0
+  2024-12-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2024-12-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2024-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,729,553,0
+  2024-12-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2024-12-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,84,91,0
+  2024-12-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,4170,2148,2693
+  2024-12-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,61,0
+  2024-12-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2024-12-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,308,250,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1130,875,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,4403,4391,96
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,11443,11978,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,21711,21045,2
+  2025-01-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,100,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,6627,6669,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,0,0,0
+  2025-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,33,0
+  2025-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,92,69,0
+  2025-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,22,41,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,167,186,0
+  2025-01-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,106,101,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2025-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,3,0
+  2025-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,6,0
+  2025-01-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2025-01-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,0,0
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,246,58,26
+  2025-01-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,25001,24991,120
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,144,260,0
+  2025-01-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,218,259,0
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,198,198,0
+  2025-01-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,8,7,0
+  2025-01-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,98,90,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,278,292,0
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2025-01-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,25,3,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-01-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,100,48,0
+  2025-01-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2025-01-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,169,111,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,258,404,0
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,PINNACLE MOBILITY SOLUTIONS,EKA 3S,0,0,0
+  2025-01-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2025-01-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,679,617,0
+  2025-01-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2025-01-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,142,167,0
+  2025-01-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,7601,1959,4116
+  2025-01-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,0,0
+  2025-01-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2025-01-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,2281,1837,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,65,111,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,686,786,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3592,3566,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,9622,9019,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,21456,21240,1
+  2025-02-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,189,200,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,7541,6146,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,1439,560,2
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,423,0,0
+  2025-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,6,0
+  2025-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,33,49,0
+  2025-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,35,38,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,4,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,113,195,0
+  2025-02-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,20,101,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2025-02-01,2W,Scooters,A5: Engine >150 cc upto 200 cc,PIAGGIO VEHICLES,AE: More than 250 W Electric,,,
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2025-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,9,0
+  2025-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,3,0
+  2025-02-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2025-02-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,8,0
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,139,32,286
+  2025-02-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,25104,23581,118
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,78,128,0
+  2025-02-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,265,188,0
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,272,272,0
+  2025-02-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,11,6,0
+  2025-02-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,76,80,0
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,385,285,0
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,0,0,0
+  2025-02-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,908,611,0
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-02-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-02-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,6,0,0
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,10,57,0
+  2025-02-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,97,65,0
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,177,271,0
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,PINNACLE MOBILITY SOLUTIONS,EKA 3S,0,0,0
+  2025-02-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2025-02-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,754,529,0
+  2025-02-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,0,0,0
+  2025-02-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,564,568,0
+  2025-02-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,6709,1464,4313
+  2025-02-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,0,0
+  2025-02-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,0,0
+  2025-02-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,3071,3196,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,120,99,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,747,1037,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3468,4218,37
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,10138,11471,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,26947,28983,120
+  2025-03-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,13,100,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,7560,7787,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,1793,106,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,2777,1996,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,INDIA YAMAHA MOTOR,EC06,0,0,0
+  2025-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual,0,0,0
+  2025-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Dual-100,0,0,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,I Praise,0,5,0
+  2025-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,15,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Praise Pro,0,16,0
+  2025-03-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,R-30,0,0,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Ridge+,0,0,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2025-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,2,0
+  2025-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,4,0
+  2025-03-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,0,0
+  2025-03-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,6,0
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,62,32,52
+  2025-03-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,26822,26499,352
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,126,214,0
+  2025-03-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,258,259,0
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,149,130,20
+  2025-03-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,27,8,0
+  2025-03-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,108,85,0
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,149,142,0
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Baxy EVE PRO,8,14,0
+  2025-03-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,2450,2546,0
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-03-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,0,0,0
+  2025-03-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,0,0,0
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,176,131,0
+  2025-03-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,74,44,0
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,253,586,0
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,PINNACLE MOBILITY SOLUTIONS,EKA 3S,0,0,0
+  2025-03-01,3W,Passenger Carrier,A2: Seats >4 upto 7 & Max. Mass upto 1.5 tonnes,PINNACLE MOBILITY SOLUTIONS,Saarthi 3W(D+6),0,0,0
+  2025-03-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,0,0,0
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TI CLEAN MOBILITY,L5M,417,510,0
+  2025-03-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,TI CLEAN MOBILITY,L5N,8,6,0
+  2025-03-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,1466,1463,0
+  2025-03-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,HONDA CARS INDIA,Elevate,5970,2475,3232
+  2025-03-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV6,0,520,0
+  2025-03-01,Passenger Vehicles,Utility Vehicles,UV5: Price >Rs. 30 Lakh,KIA MOTORS INDIA,EV9,0,18,0
+  2025-03-01,Passenger Vehicles,Utility Vehicles,UV1: Length 4000 to 4400 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,Electric Origin SUV,2951,3014,1
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450,0,0,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,57,88,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,1149,935,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,3247,2588,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,9692,10052,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,21015,19216,0
+  2025-04-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,0,50,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,6927,7116,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,800,32,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,1000,808,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,INDIA YAMAHA MOTOR,EC06,0,0,0
+  2025-04-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,32,33,0
+  2025-04-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,0,0,0
+  2025-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Bobber,0,3,0
+  2025-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville Speedmaster,0,3,0
+  2025-04-01,2W,Motorcycles,B10: Engine >800 cc upto 1000 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T100,0,1,0
+  2025-04-01,2W,Motorcycles,B11: Engine >1000 cc upto 1600 cc,TRIUMPH MOTORCYCLES INDIA,Boneville T120,0,3,0
+COLUMNS (9): month | Category_Clean | Segment_Clean | Sub_Segment_Clean | OEM_Clean | Model | production_units | domestic_sales_units | export_units
+
