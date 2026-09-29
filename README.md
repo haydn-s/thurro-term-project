@@ -42,7 +42,7 @@ is a design problem rather than a data-availability one. See
 | EV registrations (VAHAN) | month × state, × segment, × maker | 2018-01 → 2026-08 usable (104 months) |
 | EV pricing & specs | model variant × price | 2025-11 → 2026-09 |
 | Industrial investment projects | project | single snapshot — **no usable EV content** |
-| Investment announcements | event | 2023-12 → 2026-09, hand-coded, 21 events |
+| Investment announcements | event | 2021-12 → 2026-09, hand-coded, 34 events |
 
 Selected findings from first-pass exploration:
 
@@ -56,8 +56,10 @@ Selected findings from first-pass exploration:
   — but month-on-month growth in the two series correlates at only +0.24, and a
   lead test on the pair alternates sign (+0.24 at k=0, −0.20 at k=1, +0.40 at
   k=2), which reads as noise at n≈37 rather than structure.
-- Only **9 dated announcement events** fall inside the production window, across
-  8 distinct months.
+- **16 dated announcement events** (exact or month precision) fall inside the
+  usable production window (2023-04 → 2026-07), across 11 distinct months, up
+  from 9 events in the first seed. Still thin for a lead test; see
+  [`data/README.md`](data/README.md).
 
 ## Repository layout
 

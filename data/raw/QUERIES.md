@@ -123,3 +123,15 @@ surfaced the underlying documents used capacity-expansion and capex themes
 ("battery plant capacity expansion", "EV manufacturing capex", "gigafactory")
 to rank companies, then retrieved evidence per company from the exchange-filings
 domain.
+
+**Pass 4 (2026-09-28).** Theme roster for `electric vehicle manufacturing plant
+investment`, `EV battery plant capex` and `gigafactory` (company domain) ranked
+Ola Electric, Tata Motors, Amara Raja, Exide and Neogen Chemicals highest.
+Then `retrieve` in focused/compare mode, company domain only, with capex/plant
+wording (for example "board approves capital expenditure new manufacturing plant or
+capacity expansion electric vehicle, investment crore, location"), over these
+groups: Tata Motors; Hyundai; Ather; Hero MotoCorp; Sona BLW, Sansera, CIE
+Automotive; Ashok Leyland, Eicher, Tata Power; Ola Electric, Bajaj, TVS; Exide,
+Amara Raja, Tube Investments; Bharat Forge, M&M, JBM Auto. Chunks were read by hand
+and coded per the inclusion rule in `data/README.md`.
+

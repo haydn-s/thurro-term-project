@@ -27,7 +27,7 @@ pricing, investment projects and investment announcements pulled 2026-09-28.
 | `processed/ev_prices_car_variants.csv` | model variant × distinct price | 2025-11 → 2026-09 | 604 |
 | `processed/ev_prices_2w_variants.csv` | model variant × distinct price | 2025-11 → 2026-09 | 50 |
 | `processed/investment_projects_auto_energy.csv` | project | snapshot dated 2026-07-04 | 117 |
-| `manual/investment_announcements.csv` | announcement event | 2023-12 → 2026-09 | 21 |
+| `manual/investment_announcements.csv` | announcement event | 2021-12 → 2026-09 | 34 |
 
 All month values are the first day of the month.
 
@@ -111,7 +111,7 @@ earnings-call transcripts in the connector's filings corpus.
 `announcement_date, date_precision, company, event_type, facility, state,
 capex_inr_cr, capacity, source_url, evidence`
 
-`date_precision` is `exact`, `month` or `fiscal_period` — 8 of 21 rows carry an
+`date_precision` is `exact`, `month` or `fiscal_period` — 16 of 34 rows carry an
 exact date, and those come from press notes and board-meeting filings, which are
 the only sources that date an announcement to the day. `capex_inr_cr` is blank
 where the filing gave a range or no figure rather than a single number.
@@ -132,16 +132,38 @@ snapshot date, so the source could not yield an announcement time series even if
 the rows were on-topic. Keyword matching on "battery" returns coke-oven batteries
 at steel plants.
 
-**The announcements file is a seed, not a census.** It is what three passes over
-the filings corpus surfaced, covering 16 companies. Building the full event
-series — and deciding the inclusion rule for what counts as an "announcement" —
-is the remaining work on the dependent variable. Treat the current row count as
-too small to regress on.
+**The announcements file is a seed, not a census.** It is what four passes over
+the filings corpus surfaced, covering 24 companies. The fourth pass (2026-09-28)
+added 13 events across Sona BLW, Eicher (2), Hero MotoCorp (2), Ather, Hyundai, Zelio,
+Sansera, Amara Raja, TVS, Exide and M&M. It ran focused
+retrieval per company on the exchange-filings domain and kept only dated primary
+documents (board outcomes, Regulation 30 intimations, press notes, earnings-call
+transcripts) or annual-report statements. Ratings rationales, DRHP boilerplate and
+industry-overview text were discarded. 16 events with exact or month dates fall in
+the usable production window (2023-04 → 2026-07), across 11 months. Two rows
+(Exide 2021-12, TVS 2023-01) pre-date the production series and are usable only
+against the registrations files.
 
-**Announcement dates are mostly imprecise.** Half the rows are dated only to a
+*Inclusion rule used:* India manufacturing capacity for automotive, EV, battery-cell
+or auto-component production, from a listed company, as a board approval, new-plant
+announcement, capacity expansion, commissioning, or an explicit capex figure or
+guidance. Excluded: overseas plants (e.g. Sona Comstar Mexico, April 2024), solar
+and other non-auto manufacturing (Tata Power), parts-logistics centres (Hero GPC 2.0,
+Tirupati), charging-network deployments, and equity infusions into subsidiaries
+(Ashok Leyland–Switch/Optare). Rows are not flagged as EV versus ICE; several new
+rows (Eicher, Hyundai, Sansera) are ICE-led, so add an `ev_related` column before
+modelling if the EV-only cut matters. Building a complete series is still open:
+Ola Electric, Bajaj, Tata Motors, Bharat Forge and JBM Auto returned no dated,
+quantified plant announcements in this pass, which reflects the retrieval limit and
+not necessarily the absence of events.
+
+**Announcement dates are often imprecise.** 12 of 34 rows are dated only to a
 fiscal period, because annual reports describe a facility without saying when it
 was announced. A lead-lag test needs the `exact` and `month` rows, or a rule for
-placing fiscal-period events.
+placing fiscal-period events. Two rows carry extra date caveats, stated in their
+`evidence`: Ather (6 June 2024) is the board-resolution date, with first public
+disclosure in the September 2024 DRHP, and Eicher's Andhra Pradesh approval is
+coded to FY2027 because the results-day date was not visible in the retrieved text.
 
 **Registrations are not production.** They lag manufacture, they are recorded at
 the RTO where the vehicle is registered rather than where it was built, and they
