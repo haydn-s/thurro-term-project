@@ -49,7 +49,7 @@ function statCard(s,x,y,w,h,val,label,color){
      fontFace:BODY,isTextBox:true,margin:0});
   s.addText('Haydn Stucker  ·  Duke Pratt School of Engineering  ·  Data: Thurro connector (India)',
     {x:0.9,y:6.4,w:11,h:0.3,fontSize:12,color:'8FB4AF',fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 30 seconds here \u2014 set the frame and move on\n\u2022 Question: does national EV production growth lead investment announcements\n\u2022 Alt-data angle: production as an early signal of where capital gets committed\n\u2022 Two parts: national (primary), state siting (stretch)\n\u2022 All data via the Thurro connector, India only");
+  s.addNotes("\u2022 15 seconds \u2014 set the frame and move on\n\u2022 Question: does national EV production growth lead investment announcements\n\u2022 Alt-data angle: production as an early signal of where capital gets committed\n\u2022 Two parts: national (primary), state siting (stretch)\n\u2022 All data via the Thurro connector, India only");
 }
 
 /* ---------- 2 PROBLEM ---------- */
@@ -84,7 +84,7 @@ function statCard(s,x,y,w,h,val,label,color){
   });
   s.addText('The primary question is national and stands alone. Siting is an extension, not a requirement.',
     {x:0.7,y:6.6,w:11.9,h:0.3,fontSize:12,color:MUT,italic:true,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Say explicitly that the primary question is gradeable on its own\n\u2022 X = monthly national EV production growth\n\u2022 Y = count and value of new manufacturing-investment announcements\n\u2022 The test is lead-lag: does X move first, and at what lag\n\u2022 Stretch: does a state's demand share predict its share of announced capacity\n\u2022 Honest caveat: siting may be incentive-driven, as the US IRA wave suggests\n\u2022 So the project does not fail if the stretch answer is that incentives decide");
+  s.addNotes("\u2022 ~40 seconds. Say explicitly that the primary question is gradeable on its own\n\u2022 X = monthly national EV production growth\n\u2022 Y = count and value of new manufacturing-investment announcements\n\u2022 The test is lead-lag: does X move first, and at what lag\n\u2022 Stretch: does a state's demand share predict its share of announced capacity\n\u2022 Honest caveat: siting may be incentive-driven, as the US IRA wave suggests\n\u2022 So the project does not fail if the stretch answer is that incentives decide");
 }
 
 /* ---------- 3 DATASETS ---------- */
@@ -126,69 +126,38 @@ function statCard(s,x,y,w,h,val,label,color){
     {text:'The fourth dataset was meant to be the dependent variable. ',options:{bold:true,color:INK}},
     {text:'Its whole automotive sector is two rows, titled "Infra" and "Non NIP worklist rejection". 113 of its 115 energy-storage rows are oil, gas and LNG. Nothing in it matches any EV or battery keyword.',options:{color:MUT}},
   ],{x:0.7,y:5.55,w:11.9,h:0.8,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Three of four datasets landed clean \u2014 do not dwell, 60 seconds max\n\u2022 Production: SIAM, 40 usable months, 2023-04 to 2026-07\n\u2022 Registrations: VAHAN, 3,216 state-month rows, reconciles exactly to the national file\n\u2022 Pricing: 654 variants, weekly from Nov 2025 \u2014 thinnest and least load-bearing\n\u2022 The fourth was meant to be the dependent variable and is unusable\n\u2022 Do not read the orange detail aloud \u2014 point at it, defer to the backup slide\n\u2022 Substitute: 34 events hand-coded from exchange filings");
+  s.addNotes("\u2022 ~40 seconds. Three of four landed clean \u2014 point at the cards, do not narrate them\n\u2022 Production: SIAM, 40 usable months, 2023-04 to 2026-07\n\u2022 Registrations: VAHAN, 3,216 state-month rows, reconciles exactly to the national file\n\u2022 Pricing: 654 variants, weekly from Nov 2025 \u2014 thinnest and least load-bearing\n\u2022 The fourth was meant to be the dependent variable and is unusable\n\u2022 Do not read the orange detail aloud \u2014 point at it, defer to the backup slide\n\u2022 Substitute: 34 events hand-coded from exchange filings");
 }
 
-/* ---------- 4 EDA A ---------- */
+/* ---------- 4 EDA (merged) ---------- */
 {
   const s=pres.addSlide(); s.background={color:WHT};
-  titleBar(s,'03 · INITIAL EDA','The market is growing fast — and is mostly two-wheelers');
+  titleBar(s,'03 · INITIAL EDA','Growing fast, mostly two-wheelers, and concentrated');
 
   s.addChart(pres.ChartType.line,[{
     name:'EV registrations',
     labels:['2018','2019','2020','2021','2022','2023','2024','2025'],
     values:[131197,167917,126007,341279,1059660,1581708,2025425,2356222],
-  }],{...chartBase(),x:0.7,y:1.8,w:7.3,h:3.5,
+  }],{...chartBase(),x:0.7,y:1.8,w:6.15,h:3.2,
       chartColors:[TEAL],lineSize:3,lineSmooth:false,
-      showValue:false,valAxisMaxVal:2500000,
-      valAxisLabelFormatCode:'#,##0,,"M"'});
-  s.addText('Annual EV registrations, India (full years). 2026 is at 2.20M through August alone.',
-    {x:0.7,y:5.35,w:7.3,h:0.5,fontSize:10.5,color:MUT,italic:true,fontFace:BODY,isTextBox:true,margin:0});
+      valAxisMaxVal:2500000,valAxisLabelFormatCode:'#,##0,,"M"'});
+  s.addText('Annual EV registrations, India (full years) — an 18× rise. 2026 is at 2.20M through August alone.',
+    {x:0.7,y:5.05,w:6.15,h:0.4,fontSize:10.5,color:MUT,italic:true,fontFace:BODY,isTextBox:true,margin:0});
 
-  statCard(s,8.35,1.85,2.05,1.62,'62%','of 2026 EV volume\nis two-wheelers',TEAL);
-  statCard(s,10.57,1.85,2.05,1.62,'27%','three-wheelers\n(largely e-rickshaw)',TEAL);
-  statCard(s,8.35,3.66,2.05,1.62,'10%','four-wheelers —\nthe capex target segment',ORNG);
-  statCard(s,10.57,3.66,2.05,1.62,'18×','registration growth\n2018 → 2025',TEAL);
+  statCard(s,7.05,1.85,2.65,1.62,'62%','of 2026 EV volume\nis two-wheelers',TEAL);
+  statCard(s,9.97,1.85,2.65,1.62,'27%','three-wheelers\n(largely e-rickshaw)',TEAL);
+  statCard(s,7.05,3.66,2.65,1.62,'10%','four-wheelers —\nthe capex target segment',ORNG);
+  statCard(s,9.97,3.66,2.65,1.62,'49%','of demand sits in\nthe top five states',TEAL);
 
   s.addText([
     {text:'Why this matters:  ',options:{bold:true,color:INK}},
-    {text:'the volume is 2W/3W, but the investment announcements we care about are concentrated in 4W and cell manufacturing. The demand signal and the capex signal may not be measuring the same market.',options:{color:MUT}},
-  ],{x:0.7,y:6.0,w:11.9,h:0.8,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Lead with the growth, then immediately complicate it\n\u2022 Registrations grew about 18x from 2018 to 2025\n\u2022 Peak month was 332,544 in July 2026\n\u2022 But the mix is 62% two-wheelers, 27% three-wheelers, only 10% four-wheelers\n\u2022 The capex we care about is four-wheelers and cell manufacturing\n\u2022 So the demand signal and the capex signal may not track the same market\n\u2022 This is a real analytical risk, not a footnote");
-}
-
-/* ---------- 5 EDA B ---------- */
-{
-  const s=pres.addSlide(); s.background={color:WHT};
-  titleBar(s,'03 · INITIAL EDA','Demand is concentrated; the production feed is catching up');
-
-  s.addChart(pres.ChartType.bar,[{
-    name:'Share of 2026 EV registrations',
-    labels:['Uttar Pradesh','Maharashtra','Karnataka','Tamil Nadu','Madhya Pradesh','Rajasthan','West Bengal','Bihar'],
-    values:[14.2,11.2,9.2,8.6,5.8,5.1,5.0,4.7],
-  }],{...chartBase(),x:0.7,y:1.8,w:5.9,h:3.9,barDir:'bar',
-      chartColors:[TEAL],barGapWidthPct:45,
-      showValue:true,dataLabelPosition:'outEnd',dataLabelColor:MUT,
-      dataLabelFontFace:BODY,dataLabelFontSize:10,dataLabelFormatCode:'0.0"%"',
-      valAxisHidden:true,valGridLine:{style:'none'}});
-  s.addText('Top-5 states take 49% of national EV registrations (HHI 0.071).',
-    {x:0.7,y:5.75,w:5.9,h:0.4,fontSize:10.5,color:MUT,italic:true,fontFace:BODY,isTextBox:true,margin:0});
-
-  s.addChart(pres.ChartType.line,[{
-    name:'Production as % of registrations',
-    labels:['23Q2','23Q3','23Q4','24Q1','24Q2','24Q3','24Q4','25Q1','25Q2','25Q3','25Q4','26Q1','26Q2','26Q3'],
-    values:[26.5,34.9,27.6,25.7,33.9,44.6,37.7,44.8,42.9,49.1,49.4,53.8,54.1,59.9],
-  }],{...chartBase(),x:7.0,y:1.8,w:5.6,h:3.9,
-      chartColors:[VIOL],lineSize:3,lineSmooth:false,
-      valAxisMinVal:0,valAxisMaxVal:70,valAxisLabelFormatCode:'0"%"'});
-  s.addText('Production coverage of registrations rose 27% → 60%. Four-wheeler EVs remain structurally under-captured.',
-    {x:7.0,y:5.75,w:5.6,h:0.6,fontSize:10.5,color:MUT,italic:true,fontFace:BODY,isTextBox:true,margin:0});
-
+    {text:'the volume is 2W/3W, but the announcements we care about are 4W and cell manufacturing. The demand signal and the capex signal may not be measuring the same market.',options:{color:MUT}},
+  ],{x:0.7,y:5.6,w:11.9,h:0.5,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
   s.addText([
-    {text:'A first lead test on the proxy pair gives +0.24 at k=0, −0.20 at k=1, +0.40 at k=2. ',options:{bold:true,color:INK}},
+    {text:'First lead test gives +0.24 at k=0, −0.20 at k=1, +0.40 at k=2. ',options:{bold:true,color:INK}},
     {text:'Sign-alternating at n=39 — the machinery runs, but this reads as noise, not structure.',options:{color:MUT}},
-  ],{x:0.7,y:6.4,w:11.9,h:0.55,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Two points: siting is a fair question, and the machinery is built\n\u2022 Top-5 states hold 49% of demand, HHI 0.071 \u2014 concentrated but not extreme\n\u2022 UP 14.2%, Maharashtra 11.2%, Karnataka 9.2%, Tamil Nadu 8.6%\n\u2022 Production coverage of registrations rose from 27% to 60%\n\u2022 Four-wheeler EVs still under-captured: ICE and EV share one nameplate in the feed\n\u2022 Lead test runs: +0.24 at k=0, -0.20 at k=1, +0.40 at k=2, n=39\n\u2022 Be honest \u2014 signs alternate, so that is noise, not a result");
+  ],{x:0.7,y:6.18,w:11.9,h:0.5,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
+  s.addNotes("\u2022 ~65 seconds \u2014 this one slide now carries all the EDA\n\u2022 Open with scale: registrations grew about 18x from 2018 to 2025\n\u2022 Peak month was 332,544 in July 2026\n\u2022 Then complicate it: 62% two-wheelers, 27% three-wheelers, only 10% four-wheelers\n\u2022 The capex we care about is four-wheelers and cell manufacturing\n\u2022 So the demand signal and the capex signal may not track the same market\n\u2022 Top-5 states hold 49% of demand, HHI 0.071 \u2014 enough for siting to be a fair question\n\u2022 If asked for states: UP 14.2%, Maharashtra 11.2%, Karnataka 9.2%, Tamil Nadu 8.6%\n\u2022 Lead test: +0.24 at k=0, -0.20 at k=1, +0.40 at k=2, n=39 \u2014 say plainly that is noise\n\u2022 Cut for time: the production-coverage chart (27% to 60%) \u2014 raise it only if asked");
 }
 
 /* ---------- 6 SUCCESS ---------- */
@@ -229,7 +198,7 @@ function statCard(s,x,y,w,h,val,label,color){
     {text:'At our 16 events a moderate effect is caught 15% of the time. ',options:{bold:true,color:INK}},
     {text:'Fixing the lag in advance cuts the events we need by a third — the cheapest win available.',options:{color:MUT}},
   ],{x:0.7,y:6.38,w:11.9,h:0.54,fontSize:13,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 This is the slide that earns credit \u2014 spend your time here\n\u2022 Success is a defensible answer, not a positive one\n\u2022 A clean null is valid only if the test could have detected a lead\n\u2022 Method: Poisson regression on monthly counts, lagged production growth\n\u2022 Baseline uses their own lag plus a time trend; placebo shuffles dates within year\n\u2022 The power study is done, not planned \u2014 that is the point to land\n\u2022 At our 16 events a moderate effect is caught just 15% of the time\n\u2022 80% power needs about 73 events scanning six lags, about 48 if the lag is fixed\n\u2022 Fixing the lag in advance is the cheapest win we have\n\u2022 Real data at 16 events: no significant lead at any k, best p = 0.11\n\u2022 Say it plainly \u2014 that is not evidence of no lead, it is an underpowered test\n\u2022 If asked: false-positive rate checks out at 1.5-2.5%, solver validated against statsmodels");
+  s.addNotes("\u2022 ~80 seconds. This is the slide that earns credit \u2014 spend your time here\n\u2022 Success is a defensible answer, not a positive one\n\u2022 A clean null is valid only if the test could have detected a lead\n\u2022 Method: Poisson regression on monthly counts, lagged production growth\n\u2022 Baseline uses their own lag plus a time trend; placebo shuffles dates within year\n\u2022 The power study is done, not planned \u2014 that is the point to land\n\u2022 At our 16 events a moderate effect is caught just 15% of the time\n\u2022 80% power needs about 73 events scanning six lags, about 48 if the lag is fixed\n\u2022 Fixing the lag in advance is the cheapest win we have\n\u2022 Real data at 16 events: no significant lead at any k, best p = 0.11\n\u2022 Say it plainly \u2014 that is not evidence of no lead, it is an underpowered test\n\u2022 If asked: false-positive rate checks out at 1.5-2.5%, solver validated against statsmodels");
 }
 
 /* ---------- 7 ROADMAP ---------- */
@@ -255,7 +224,7 @@ function statCard(s,x,y,w,h,val,label,color){
       fontFace:BODY,isTextBox:true,margin:0});
     y+=0.95;
   });
-  s.addText('Steps 1 and 2 are the critical path. Everything downstream is blocked on how many dated events we can defensibly assemble.',
+  s.addText('~35 seconds. Steps 1 and 2 are the critical path. Everything downstream is blocked on how many dated events we can defensibly assemble.',
     {x:0.7,y:6.55,w:11.9,h:0.4,fontSize:12,color:ORNG,bold:true,fontFace:BODY,isTextBox:true,margin:0});
   s.addNotes("\u2022 Steps 1 and 2 are the critical path \u2014 everything else waits on them\n\u2022 Step 1: settle what counts as an announcement (board approval, press note, commissioning)\n\u2022 Step 2: scale extraction toward 45-75 dated events\n\u2022 We are at 22 dated, 16 inside the production window\n\u2022 Step 3: build the month panel, plus the state panel for the stretch\n\u2022 Step 4: run the tests with the lag pre-registered at k=3\n\u2022 Step 5: write up, including the negative result on the investment source\n\u2022 Close on this: the modelling is not the risk, the dependent variable is");
 }
