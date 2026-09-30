@@ -47,7 +47,7 @@ function statCard(s,x,y,w,h,val,label,color){
   s.addText('Does national growth in EV production predict new automotive-sector manufacturing-investment announcements?',
     {x:0.9,y:4.05,w:8.8,h:0.9,fontSize:16,color:'BFD9D5',italic:true,
      fontFace:BODY,isTextBox:true,margin:0});
-  s.addText('Haydn Stucker  ·  Duke Pratt School of Engineering  ·  Data: Thurro connector (India)',
+  s.addText('Colby, Xianyu, Keming, Haydn ·  Duke Pratt School of Engineering  ·  Data: Thurro connector (India)',
     {x:0.9,y:6.4,w:11,h:0.3,fontSize:12,color:'8FB4AF',fontFace:BODY,isTextBox:true,margin:0});
   s.addNotes("\u2022 15 seconds \u2014 set the frame and move on\n\u2022 Question: does national EV production growth lead investment announcements\n\u2022 Alt-data angle: production as an early signal of where capital gets committed\n\u2022 Two parts: national (primary), state siting (stretch)\n\u2022 All data via the Thurro connector, India only");
 }
@@ -224,9 +224,7 @@ function statCard(s,x,y,w,h,val,label,color){
       fontFace:BODY,isTextBox:true,margin:0});
     y+=0.95;
   });
-  s.addText('~35 seconds. Steps 1 and 2 are the critical path. Everything downstream is blocked on how many dated events we can defensibly assemble.',
-    {x:0.7,y:6.55,w:11.9,h:0.4,fontSize:12,color:ORNG,bold:true,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Steps 1 and 2 are the critical path \u2014 everything else waits on them\n\u2022 Step 1: settle what counts as an announcement (board approval, press note, commissioning)\n\u2022 Step 2: scale extraction toward 45-75 dated events\n\u2022 We are at 22 dated, 16 inside the production window\n\u2022 Step 3: build the month panel, plus the state panel for the stretch\n\u2022 Step 4: run the tests with the lag pre-registered at k=3\n\u2022 Step 5: write up, including the negative result on the investment source\n\u2022 Close on this: the modelling is not the risk, the dependent variable is");
+  s.addNotes("\u2022 ~35 seconds. Steps 1 and 2 are the critical path \u2014 everything else waits on them\n\u2022 Step 1: settle what counts as an announcement (board approval, press note, commissioning)\n\u2022 Step 2: scale extraction toward 45-75 dated events\n\u2022 We are at 22 dated, 16 inside the production window\n\u2022 Step 3: build the month panel, plus the state panel for the stretch\n\u2022 Step 4: run the tests with the lag pre-registered at k=3\n\u2022 Step 5: write up, including the negative result on the investment source\n\u2022 Close on this: the modelling is not the risk, the dependent variable is");
 }
 
 /* ---------- 8 BACKUP ---------- */
