@@ -28,11 +28,26 @@ brief. Modelling has not started.
 
 Three of the four are in good shape. The fourth — industrial investment
 tracking, which was meant to supply the **dependent variable** — turned out to
-contain no EV content at all, and the substitute built from exchange filings is
-currently too small to regress on. That is the open risk on the project, and it
-is a design problem rather than a data-availability one. See
-[`data/README.md`](data/README.md) for the full accounting and
-[`presentations/`](presentations/) for the current status deck.
+contain no EV content at all.
+
+Following industry-partner feedback, the dependent variable has been rebuilt from
+**company financials** rather than from announcement events: a named target set of
+52 companies, and what they actually spent on plant each year, read from their
+filed cash-flow statements. That takes the dependent variable from 16 usable
+events to 182 company-years. Announcements are what a company said; capex is what
+it spent, which is the backward-looking confirmation the feedback asked for.
+
+One caveat travels with that fix and is stated plainly in
+[`data/README.md`](data/README.md): more companies buys precision, not time. The
+independent variable is a single national series and capex is filed annually, so
+a pooled regression still turns on four distinct values of X. The route that
+actually identifies a lead is the seven companies that have *their own* monthly EV
+volume series, where X varies by company and by month. That is the next piece of
+work, and it is a modelling decision rather than a data gap.
+
+See [`data/README.md`](data/README.md) for the full accounting and
+[`presentations/`](presentations/) for the current status deck (which still
+describes the pre-feedback state of the dependent variable).
 
 ## What's in the data
 
@@ -43,6 +58,9 @@ is a design problem rather than a data-availability one. See
 | EV pricing & specs | model variant × price | 2025-11 → 2026-09 |
 | Industrial investment projects | project | single snapshot — **no usable EV content** |
 | Investment announcements | event | 2021-12 → 2026-09, hand-coded, 34 events |
+| Target companies | company | 52 named, 36 in the modelling panel |
+| Company capex | company × fiscal year | FY23 → FY26, 47 companies, 182 rows |
+| Company asset stocks | company × half year | 2023-03 → 2026-03, 33 companies |
 
 Selected findings from first-pass exploration:
 
@@ -60,6 +78,12 @@ Selected findings from first-pass exploration:
   usable production window (2023-04 → 2026-07), across 11 distinct months, up
   from 9 events in the first seed. Still thin for a lead test; see
   [`data/README.md`](data/README.md).
+- Capex across the 36-company panel ran **29,808 → 42,510 → 52,841 → 52,760 Cr**
+  over FY23–FY26: a 77% rise over three years that flattens in the last one. That
+  is a dependent variable with real movement in it, unlike the announcement count.
+- Only **7 of 52** target companies have their own monthly EV volume series to
+  pair against their own capex. That overlap, not the 182-row total, is what
+  determines whether a lead is detectable.
 
 ## Repository layout
 
@@ -71,6 +95,7 @@ data/
   README.md   grain, provenance and caveats for every file — read before modelling
 scripts/
   build_processed.py          rebuilds processed/ from raw/
+  build_financials.py         rebuilds the company capex and asset files
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
 presentations/
@@ -88,6 +113,16 @@ That rebuilds everything in `processed/` from the extracts in `raw/`, applying
 the cleaning rules and re-running the validation checks (segment columns sum to
 totals; state-month keys unique; state totals reconcile against the national
 file).
+
+The company financials rebuild separately:
+
+```bash
+python3 scripts/build_financials.py
+```
+
+That one also re-checks both financial extracts against
+`data/manual/target_companies.csv` in both directions, so a company that silently
+drops out of the feed fails the build instead of quietly shrinking the panel.
 
 Two files are outside that pipeline and the script says so when it runs: the
 two-wheeler price file (the connector returned it inline, so no extract was
