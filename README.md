@@ -46,7 +46,9 @@ series, where X varies by company and by month.
 **That route has now been built and tested, and the answer is null.** The
 within-company relationship between a company's own EV volume growth and its own
 asset growth is r = -0.003, and the one-period lead is r = -0.37 — wrong sign, and
-on 19 observations. The national design has only 2–3 usable period pairs, so it
+on 19 observations. Swapping registrations for genuine **production**, which is the
+variable the question actually names, does not change it: r = +0.068 on the same
+four firms. The national design has only 2–3 usable period pairs, so it
 cannot be estimated at all. The well-powered cross-sectional test finds no
 difference in capex intensity between EV-exposed firms and the rest (2.06 vs 2.08,
 t = -0.06, n = 35), and an ICE-only negative control moves with the EV names.
@@ -96,9 +98,10 @@ Selected findings from first-pass exploration:
 - Capex across the 36-company panel ran **29,808 → 42,510 → 52,841 → 52,760 Cr**
   over FY23–FY26: a 77% rise over three years that flattens in the last one. That
   is a dependent variable with real movement in it, unlike the announcement count.
-- Only **7 of 52** target companies have their own monthly EV volume series to
-  pair against their own capex. That overlap, not the 182-row total, is what
-  determines whether a lead is detectable.
+- Only **6 of 52** target companies have their own monthly EV registrations series
+  to pair against their own capex, and only **4** have their own EV *production*
+  series. That overlap, not the 182-row total, is what determines whether a lead is
+  detectable.
 
 ## Repository layout
 

@@ -218,10 +218,21 @@ The modelling panels: the two company files above joined to the independent
 variable. Built by `scripts/build_panel.py`. These are what a model should read;
 the `company_*` files are the inputs behind them.
 
-Both carry X at two levels. `national_ev_production` and
+Both carry X at three levels. `national_ev_production` and
 `national_ev_registrations` are one series shared by every company in a period.
-`own_ev_registrations` is that company's own monthly EV volume, present for the
-six listed makers that have both a volume series and filing history.
+`own_ev_registrations` is that company's own monthly EV registrations, present for
+the six listed makers with both a volume series and filing history.
+`own_ev_production` is that company's own monthly EV **production** — the variable
+the research question actually names — present for four.
+
+The production feed spells companies differently from the registrations feed:
+`TVS MOTOR COMPANY` against `TVS MOTOR`. `build_panel.py` therefore keeps two
+separate name maps rather than reusing one, because sharing them silently drops
+TVS. **Ola and Tata Motors are absent from the production source entirely**, which
+is the documented consequence of that feed classifying passenger vehicles by length
+and price rather than by powertrain. Ola's absence costs the most: its volumes fall
+steadily across the window and supply most of the variation in the
+own-registrations test.
 
 `window_start`, `window_end` and `window_months` record the months X was summed
 over. **X is aligned to the actual reporting window, not to the fiscal-year
@@ -303,7 +314,11 @@ the design does not have.
 [`notebook-590/03_capex_panel_eda.ipynb`](../notebook-590/03_capex_panel_eda.ipynb).
 Route 1 (own X, within company) gives r = -0.003 contemporaneously and r = -0.37
 at a one-period lead, on 24 and 19 observations — underpowered and uninformative
-rather than evidence of no effect. Route 2 confirms only 2–3 usable period pairs
+rather than evidence of no effect. **That null survives substituting genuine
+production for registrations**: on the same four firms it moves from r = -0.004 to
+r = +0.068, no material change, even though the two measures correlate at only
+r = 0.45 with each other. So the result is not an artefact of the registrations
+proxy. Route 2 confirms only 2–3 usable period pairs
 exist for the national design. Route 3, the well-powered one, finds capex
 intensity of 2.06 for EV-led and battery names against 2.08 for components and
 ICE-led ones (t = -0.06, p = 0.96, n = 35), and the ICE-only negative control moves

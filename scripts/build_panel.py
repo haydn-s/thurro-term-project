@@ -51,6 +51,26 @@ MAKER_TO_SYMBOL = {
 }
 
 
+# The production file keys on OEM as SIAM spells it, which is NOT how the
+# registrations file spells the same company: production says "TVS MOTOR COMPANY"
+# where registrations say "TVS MOTOR". Writing this map the obvious way by reusing
+# MAKER_TO_SYMBOL silently drops TVS, so the two maps are kept separate on purpose.
+#
+# Ola and Tata Motors are absent from the production source entirely. That is
+# consistent with what data/README.md records about the feed: it tags electric 2W
+# and 3W with an explicit electric sub-segment but classifies passenger vehicles by
+# length and price, so 4W EVs only surface when the model name carries an EV
+# marker. Ola's absence is the more costly one -- its volumes fall steadily across
+# the window and supply most of the variation in the own-registrations test.
+OEM_TO_SYMBOL = {
+    "ATHER ENERGY": "ATHERENERG",
+    "BAJAJ AUTO": "BAJAJ-AUTO",
+    "HERO MOTOCORP": "HEROMOTOCO",
+    "MAHINDRA AND MAHINDRA": "M&M",
+    "TVS MOTOR COMPANY": "TVSMOTOR",
+}
+
+
 def read(name):
     return list(csv.DictReader(open(PROC / name)))
 
@@ -83,6 +103,8 @@ def load_series():
     """Monthly (year, month) -> value, for each independent variable."""
     national_prod = defaultdict(float)
     prod_months = set()
+    own_prod = defaultdict(float)
+    own_prod_months = defaultdict(set)
     for r in read("ev_production_model_monthly.csv"):
         units = r["production_units"]
         if units == "":
@@ -90,6 +112,10 @@ def load_series():
         k = ym(r["month"])
         national_prod[k] += float(units)
         prod_months.add(k)
+        sym = OEM_TO_SYMBOL.get(r["oem"])
+        if sym:
+            own_prod[(sym, k)] += float(units)
+            own_prod_months[sym].add(k)
 
     national_reg = defaultdict(float)
     reg_months = set()
@@ -108,7 +134,8 @@ def load_series():
         own[(sym, k)] += float(r["ev_registrations"])
         own_months[sym].add(k)
 
-    return (national_prod, prod_months, national_reg, reg_months, own, own_months)
+    return (national_prod, prod_months, national_reg, reg_months, own, own_months,
+            own_prod, own_prod_months)
 
 
 # The last month of each source is partial and must never enter a window.
@@ -133,7 +160,8 @@ def pct(curr, prev):
 
 
 def build(rows, y_field, y_label, out_name, per_company_window):
-    (nprod, pmonths, nreg, rmonths, own, own_months) = load_series()
+    (nprod, pmonths, nreg, rmonths, own, own_months,
+     oprod, oprod_months) = load_series()
 
     by_company = defaultdict(list)
     for r in rows:
@@ -143,7 +171,7 @@ def build(rows, y_field, y_label, out_name, per_company_window):
     for company, recs in by_company.items():
         recs.sort(key=lambda r: r["period_end"])
         sym = recs[0]["nse_symbol"]
-        prev_y = prev_own = None
+        prev_y = prev_own = prev_oprod = None
         prev_end = None
         for r in recs:
             end = ym(r["period_end"])
@@ -162,6 +190,14 @@ def build(rows, y_field, y_label, out_name, per_company_window):
                     {k[1]: v for k, v in own.items() if k[0] == sym},
                     own_months[sym], months, REG_LAST_GOOD)
 
+            # Own production is the variable the research question actually names;
+            # own registrations stand in for it where no production series exists.
+            oprod_v, oprod_ok = (None, False)
+            if sym in oprod_months:
+                oprod_v, oprod_ok = window_sum(
+                    {k[1]: v for k, v in oprod.items() if k[0] == sym},
+                    oprod_months[sym], months, PROD_LAST_GOOD)
+
             y = float(r[y_field]) if r[y_field] not in ("", None) else None
             out.append({
                 "company": company, "nse_symbol": sym,
@@ -176,11 +212,16 @@ def build(rows, y_field, y_label, out_name, per_company_window):
                 "national_ev_registrations": round(reg) if reg_ok else "",
                 "own_ev_registrations": round(own_v) if own_ok else "",
                 "own_ev_reg_growth_pct": pct(own_v, prev_own) if own_ok else None,
+                "own_ev_production": round(oprod_v) if oprod_ok else "",
+                "own_ev_prod_growth_pct": pct(oprod_v, prev_oprod) if oprod_ok else None,
                 "x_coverage": ";".join(
                     n for n, ok in (("production", prod_ok), ("registrations", reg_ok),
-                                    ("own", own_ok)) if not ok) or "complete",
+                                    ("own_reg", own_ok), ("own_prod", oprod_ok))
+                    if not ok) or "complete",
             })
-            prev_y, prev_own, prev_end = y, (own_v if own_ok else None), end
+            prev_y, prev_end = y, end
+            prev_own = own_v if own_ok else None
+            prev_oprod = oprod_v if oprod_ok else None
 
     out.sort(key=lambda r: (r["company"], r["period_end"]))
     cols = list(out[0].keys())
@@ -296,5 +337,7 @@ if __name__ == "__main__":
     report("annual, national production X", a, "national_ev_production")
     report("annual, national registrations X", a, "national_ev_registrations")
     report("annual, own registrations X", a, "own_ev_registrations")
+    report("annual, own production X", a, "own_ev_production")
     report("half-yearly, national production X", h, "national_ev_production")
     report("half-yearly, own registrations X", h, "own_ev_registrations")
+    report("half-yearly, own production X", h, "own_ev_production")
