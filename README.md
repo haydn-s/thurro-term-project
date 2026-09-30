@@ -52,9 +52,11 @@ difference in capex intensity between EV-exposed firms and the rest (2.06 vs 2.0
 t = -0.06, n = 35), and an ICE-only negative control moves with the EV names.
 
 The reading that survives is that **FY23–FY26 automotive capex was driven by a
-sector-wide cycle, not by EV volumes specifically.** That is a real answer to the
-project's question rather than a data failure, and it is what model evaluation
-should be scoped around. The full working is in
+sector-wide cycle, not by EV volumes specifically.** The ICE-led OEMs in fact grew
+capex *faster* than the EV-led ones (+33/+38/+19% against +10/+38/+19%), which is
+the wrong way round if EV volume were driving plant investment. That is a real
+answer to the project's question rather than a data failure, and it is what model
+evaluation should be scoped around. The full working, executed, is in
 [`notebook-590/03_capex_panel_eda.ipynb`](notebook-590/03_capex_panel_eda.ipynb).
 
 See [`data/README.md`](data/README.md) for the full accounting and
@@ -113,6 +115,24 @@ scripts/
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
 presentations/
+```
+
+## Environment
+
+```bash
+python3 -m venv .VENV && .VENV/bin/python -m pip install -r requirements.txt
+```
+
+The build scripts in `scripts/` are standard-library only and run under any
+Python 3. The notebooks need the pinned environment: pandas, matplotlib and
+statsmodels to run, plus `nbclient` and `nbformat` to execute headlessly and store
+outputs. Built and executed against Python 3.14.7 with pandas 3.0.6.
+
+```bash
+.VENV/bin/python -c "import nbformat; from nbclient import NotebookClient; \
+  nb = nbformat.read('notebook-590/03_capex_panel_eda.ipynb', as_version=4); \
+  NotebookClient(nb, timeout=600, resources={'metadata': {'path': '.'}}).execute(); \
+  nbformat.write(nb, 'notebook-590/03_capex_panel_eda.ipynb')"
 ```
 
 ## Reproducing the data

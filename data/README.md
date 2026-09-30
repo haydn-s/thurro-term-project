@@ -306,8 +306,10 @@ at a one-period lead, on 24 and 19 observations — underpowered and uninformati
 rather than evidence of no effect. Route 2 confirms only 2–3 usable period pairs
 exist for the national design. Route 3, the well-powered one, finds capex
 intensity of 2.06 for EV-led and battery names against 2.08 for components and
-ICE-led ones (t = -0.06, n = 35), and the ICE-only negative control moves with the
-EV names. Every tier shares one FY24-peaked cycle. The reading that survives the
+ICE-led ones (t = -0.06, p = 0.96, n = 35), and the ICE-only negative control moves
+with the EV names. Every tier shares one FY24-peaked cycle, and the ICE-led OEMs
+grew capex *faster* than the EV-led ones (+33/+38/+19% against +10/+38/+19%) --
+the reverse of what the hypothesis predicts. The reading that survives the
 evidence is that **FY23–FY26 automotive capex was driven by a sector-wide cycle
 rather than by EV volumes specifically** — which is an answer to the project
 question, just not the predicted one.
