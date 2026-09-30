@@ -31,6 +31,8 @@ pricing, investment projects and investment announcements pulled 2026-09-28.
 | `manual/target_companies.csv` | company | — | 52 |
 | `processed/company_capex_annual.csv` | company × fiscal year | FY23 → FY26 | 182 |
 | `processed/company_assets_halfyearly.csv` | company × half year | 2023-03 → 2026-03 | 239 |
+| `processed/panel_company_annual.csv` | company × fiscal year | FY23 → FY26 | 182 |
+| `processed/panel_company_halfyearly.csv` | company × half year | 2023-09 → 2026-03 | 204 |
 
 All month values are the first day of the month.
 
@@ -210,6 +212,43 @@ boundary. `split_flag = reclassified` marks the 11 periods where the split moved
 by more than a tenth of the base while the total held still — Ola three times,
 Sona BLW four, M&M twice, Motherson and Autoline once each.
 
+### `processed/panel_company_annual.csv` + `processed/panel_company_halfyearly.csv`
+
+The modelling panels: the two company files above joined to the independent
+variable. Built by `scripts/build_panel.py`. These are what a model should read;
+the `company_*` files are the inputs behind them.
+
+Both carry X at two levels. `national_ev_production` and
+`national_ev_registrations` are one series shared by every company in a period.
+`own_ev_registrations` is that company's own monthly EV volume, present for the
+six listed makers that have both a volume series and filing history.
+
+`window_start`, `window_end` and `window_months` record the months X was summed
+over. **X is aligned to the actual reporting window, not to the fiscal-year
+label.** Two things force that: CIE Automotive closes in December and Hyundai
+files December and June periods, so `FY25` spans different real months for
+different filers; and Ola's balance-sheet history skips a period, leaving a
+9-month gap a label-based join would silently treat as six months. Check
+`window_months` before differencing. `x_coverage` names any X whose window the
+source does not fully cover, so a row is never quietly summed over a short window.
+
+The annual panel additionally carries a validated gross-capex proxy:
+
+- `asset_formation_cr` — the annual change in `productive_assets_cr` plus
+  depreciation. A balance-sheet change is *net* of depreciation while filed capex
+  is *gross*, so the raw stock change correlates with capex at only 0.696; adding
+  depreciation back lifts that to **0.896**, median absolute error 17% (n=97).
+  This is what makes the twice-yearly balance sheet usable as a capex measure.
+- `asset_formation_error_pct` — the proxy's gap against filed capex.
+- `formation_flag` — `acquired` or `divested` where that gap exceeds 100%. **These
+  11 rows are companies that grew their asset base by buying it rather than
+  building it**: Bajaj consolidated KTM in FY26 (+9,745 Cr of assets on 722 Cr of
+  capex), Motherson and Sona BLW acquired, Jupiter Wagons and Syrma likewise. For
+  a question about *new* manufacturing investment that is a different thing from
+  capex and should be dummied or excluded. PPAP's two flags are a denominator
+  artefact — filed capex of 3 Cr makes any gap look enormous — and are not
+  acquisitions.
+
 ## Caveats worth knowing before you model on this
 
 **The industrial-investment dataset is empty of EV content.** The build step
@@ -259,6 +298,19 @@ The registrations files reaching back to 2018 do not help here: capex simply is
 not filed more often than annually, whatever the independent variable does. State
 the constraint in the writeup rather than letting a large-looking n imply power
 the design does not have.
+
+**This has now been run, and all three routes come back null.** See
+[`notebook-590/03_capex_panel_eda.ipynb`](../notebook-590/03_capex_panel_eda.ipynb).
+Route 1 (own X, within company) gives r = -0.003 contemporaneously and r = -0.37
+at a one-period lead, on 24 and 19 observations — underpowered and uninformative
+rather than evidence of no effect. Route 2 confirms only 2–3 usable period pairs
+exist for the national design. Route 3, the well-powered one, finds capex
+intensity of 2.06 for EV-led and battery names against 2.08 for components and
+ICE-led ones (t = -0.06, n = 35), and the ICE-only negative control moves with the
+EV names. Every tier shares one FY24-peaked cycle. The reading that survives the
+evidence is that **FY23–FY26 automotive capex was driven by a sector-wide cycle
+rather than by EV volumes specifically** — which is an answer to the project
+question, just not the predicted one.
 
 **Capex is not EV capex.** Every figure is company-wide. M&M's capex covers
 tractors and SUVs, Tube Investments' covers bicycles and steel tubes, Bharat

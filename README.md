@@ -37,13 +37,25 @@ filed cash-flow statements. That takes the dependent variable from 16 usable
 events to 182 company-years. Announcements are what a company said; capex is what
 it spent, which is the backward-looking confirmation the feedback asked for.
 
-One caveat travels with that fix and is stated plainly in
-[`data/README.md`](data/README.md): more companies buys precision, not time. The
-independent variable is a single national series and capex is filed annually, so
-a pooled regression still turns on four distinct values of X. The route that
-actually identifies a lead is the seven companies that have *their own* monthly EV
-volume series, where X varies by company and by month. That is the next piece of
-work, and it is a modelling decision rather than a data gap.
+One caveat travels with that fix: more companies buys precision, not time. The
+independent variable is a single national series and capex is filed annually, so a
+pooled regression still turns on four distinct values of X. The route that
+identifies a lead is the six companies that have *their own* monthly EV volume
+series, where X varies by company and by month.
+
+**That route has now been built and tested, and the answer is null.** The
+within-company relationship between a company's own EV volume growth and its own
+asset growth is r = -0.003, and the one-period lead is r = -0.37 — wrong sign, and
+on 19 observations. The national design has only 2–3 usable period pairs, so it
+cannot be estimated at all. The well-powered cross-sectional test finds no
+difference in capex intensity between EV-exposed firms and the rest (2.06 vs 2.08,
+t = -0.06, n = 35), and an ICE-only negative control moves with the EV names.
+
+The reading that survives is that **FY23–FY26 automotive capex was driven by a
+sector-wide cycle, not by EV volumes specifically.** That is a real answer to the
+project's question rather than a data failure, and it is what model evaluation
+should be scoped around. The full working is in
+[`notebook-590/03_capex_panel_eda.ipynb`](notebook-590/03_capex_panel_eda.ipynb).
 
 See [`data/README.md`](data/README.md) for the full accounting and
 [`presentations/`](presentations/) for the current status deck (which still
@@ -61,6 +73,7 @@ describes the pre-feedback state of the dependent variable).
 | Target companies | company | 52 named, 36 in the modelling panel |
 | Company capex | company × fiscal year | FY23 → FY26, 47 companies, 182 rows |
 | Company asset stocks | company × half year | 2023-03 → 2026-03, 33 companies |
+| Modelling panels | company × period | financials joined to national and own-company X |
 
 Selected findings from first-pass exploration:
 
@@ -96,6 +109,7 @@ data/
 scripts/
   build_processed.py          rebuilds processed/ from raw/
   build_financials.py         rebuilds the company capex and asset files
+  build_panel.py              joins the financials to the EV volume series
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
 presentations/
@@ -123,6 +137,12 @@ python3 scripts/build_financials.py
 That one also re-checks both financial extracts against
 `data/manual/target_companies.csv` in both directions, so a company that silently
 drops out of the feed fails the build instead of quietly shrinking the panel.
+
+Then the modelling panels, which join those to the EV volume series:
+
+```bash
+python3 scripts/build_panel.py
+```
 
 Two files are outside that pipeline and the script says so when it runs: the
 two-wheeler price file (the connector returned it inline, so no extract was
