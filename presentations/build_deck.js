@@ -296,7 +296,7 @@ function statCard(s,x,y,w,h,val,label,color){
     'Is there an investment or capex feed we have not been pointed at — project-level, PLI/ACC allocations, or state MoUs?',
     'Would you accept exchange filings as the announcement source, and what should count as an "announcement"?',
     'Is the single-snapshot limitation on the project registry permanent, or is a historical series retrievable?',
-    'If the dated-event count stays in single digits, do you prefer an underpowered national test or a pivot to the state panel?',
+    'If the dated-event count stays well short of 45–75, do you prefer an underpowered national test or a pivot to the state panel?',
   ];
   s.addText(qs.map((t,i)=>({text:t,options:{bullet:true,breakLine:i<qs.length-1}})),
     {x:8.85,y:2.43,w:3.5,h:3.6,fontSize:12,color:INK,fontFace:BODY,
@@ -304,7 +304,7 @@ function statCard(s,x,y,w,h,val,label,color){
 
   s.addText('None of this blocks the stretch question — the state panel has 3,216 clean rows and reconciles exactly.',
     {x:0.7,y:6.5,w:11.9,h:0.4,fontSize:12,color:'8FB4AF',italic:true,fontFace:BODY,isTextBox:true,margin:0});
-  s.addNotes("\u2022 Only pull this up if asked, or if time allows\n\u2022 Problem 1: the dependent variable does not exist in the structured source\n\u2022 Problem 2: the substitute is thin \u2014 16 usable events against a 45-75 target\n\u2022 Problem 3: two silent data defects found during ingestion\n\u2022 The four questions are the real ask\n\u2022 Q2 (the inclusion rule) unblocks the most work \u2014 push for an answer on that\n\u2022 Q1 (a better capex feed) is highest value if the answer is yes\n\u2022 Fallback if events stay low: pre-register the lag, or pivot to the state panel");
+  s.addNotes("\u2022 Only pull this up if asked, or if time allows\n\u2022 Problem 1: the dependent variable does not exist in the structured source\n\u2022 Problem 2: the substitute is thin \u2014 16 usable events against a 45-75 target\n\u2022 Problem 3: two silent data defects found during ingestion\n\u2022 The four questions are the real ask\n\u2022 Q2 (the inclusion rule) unblocks the most work \u2014 push for an answer on that\n\u2022 Q1 (a better capex feed) is highest value if the answer is yes\n\u2022 Fallback if events stay well short of 45-75: pre-register the lag, or pivot to the state panel");
 }
 
 pres.writeFile({fileName:'/Users/haydn/projects/duke/aipi-courses/aipi-590-ad/thurro-term-project/presentations/ev-investment-update.pptx'})
