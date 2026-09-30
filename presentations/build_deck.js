@@ -224,6 +224,9 @@ function statCard(s,x,y,w,h,val,label,color){
       fontFace:BODY,isTextBox:true,margin:0});
     y+=0.95;
   });
+  s.addText('Slide design and layout generated with Claude (Anthropic Claude Code)',
+    {x:8.53,y:6.63,w:4.07,h:0.46,fontSize:9.5,color:MUT,align:'right',
+     fontFace:BODY,isTextBox:true,margin:0});
   s.addNotes("\u2022 ~35 seconds. Steps 1 and 2 are the critical path \u2014 everything else waits on them\n\u2022 Step 1: settle what counts as an announcement (board approval, press note, commissioning)\n\u2022 Step 2: scale extraction toward 45-75 dated events\n\u2022 We are at 22 dated, 16 inside the production window\n\u2022 Step 3: build the month panel, plus the state panel for the stretch\n\u2022 Step 4: run the tests with the lag pre-registered at k=3\n\u2022 Step 5: write up, including the negative result on the investment source\n\u2022 Close on this: the modelling is not the risk, the dependent variable is");
 }
 
@@ -272,7 +275,7 @@ function statCard(s,x,y,w,h,val,label,color){
   s.addText('None of this blocks the stretch question — the state panel has 3,216 clean rows and reconciles exactly.',
     {x:0.7,y:6.46,w:8.15,h:0.46,fontSize:12,color:'8FB4AF',italic:true,fontFace:BODY,isTextBox:true,margin:0});
   s.addText('Slide design and layout generated with Claude (Anthropic Claude Code)',
-    {x:8.95,y:6.46,w:3.67,h:0.46,fontSize:9.5,color:'8FB4AF',align:'right',
+    {x:8.55,y:6.46,w:4.07,h:0.46,fontSize:9.5,color:'8FB4AF',align:'right',
      fontFace:BODY,isTextBox:true,margin:0});
   s.addNotes("\u2022 Only pull this up if asked, or if time allows\n\u2022 Problem 1: the dependent variable does not exist in the structured source\n\u2022 Problem 2: the substitute is thin \u2014 16 usable events against a 45-75 target\n\u2022 Problem 3: two silent data defects found during ingestion\n\u2022 The four questions are the real ask\n\u2022 Q2 (the inclusion rule) unblocks the most work \u2014 push for an answer on that\n\u2022 Q1 (a better capex feed) is highest value if the answer is yes\n\u2022 Fallback if events stay well short of 45-75: pre-register the lag, or pivot to the state panel");
 }
