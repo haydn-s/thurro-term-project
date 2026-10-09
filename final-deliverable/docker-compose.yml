@@ -41,10 +41,10 @@ services:
 
     healthcheck:
       test: ["CMD", "python", "-m", "app.healthcheck", "/ready"]
-      interval: 30s
-      timeout: 5s
+      interval: 10s
+      timeout: 3s
       retries: 3
-      start_period: 10s
+      start_period: 5s
 
     # The workload is a cached 36-row cross-section, so these are generous. They
     # are here so that a manager scheduling this container has a declared

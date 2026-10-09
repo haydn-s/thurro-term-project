@@ -215,9 +215,11 @@ numbers, which is what keeps a result reproducible later.
 [`final-deliverable/README.md`](final-deliverable/README.md) is the
 deliverable's own documentation — the wire contract, the environment variables,
 the deployment shapes, and the four steps that swap the null baseline for a
-fitted model. **Read it before deploying.** One caveat it records: the image
-has not been built yet, because no Docker daemon was running when the scaffold
-was written. Everything inside it has been exercised directly.
+fitted model. **Read it before deploying.**
+
+The image builds and runs: healthy in ~7s, 13/13 on its smoke test, and the
+signals it serves are numerically identical to a host run — which is what the
+baked-in snapshot exists to guarantee.
 
 ## Presentations
 

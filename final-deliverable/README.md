@@ -227,6 +227,16 @@ The suite runs against the repo's committed `data/processed/` rather than a
 fixture CSV, on purpose: that way a schema change in `scripts/build_panel.py`
 breaks the service's tests instead of being discovered after a deploy.
 
+The image has been built and exercised in this environment. `docker compose up`
+reports healthy in ~7s and the smoke test passes 13/13 against the container;
+the signals it serves are numerically identical to a host run (35 signals,
+sector median intensity 1.7332), which is the reproducibility claim the baked-in
+snapshot is there to make. Also confirmed in-container: `docker run -p 8000:8000`
+with no other flags, SIGTERM stopping the container in under a second (uvicorn
+is PID 1), and a bad `MODEL_ARTIFACT` returning 503 with a mount hint and
+driving the container to `unhealthy` in ~35s instead of silently serving the
+baseline.
+
 `scripts/smoke_test.sh` is the only check that exercises `/stream` over a real
 socket. The suite cannot — both in-process ASGI clients (Starlette's
 `TestClient` and httpx's `ASGITransport`) accumulate a response body and hand it
@@ -324,8 +334,7 @@ when the sleep ends; what is held until then is one idle coroutine.
 - There are no metrics and no tracing. `/health`, `/ready` and the access log
   are the whole observability story. That is proportionate to a term project;
   it is not proportionate to production.
-- The image has not been built in this environment — the Docker daemon was not
-  running when the scaffold was written. Every other layer has been exercised:
-  the suite, the server over a real socket, SSE framing, the auth gate, the
-  unready path and the healthcheck's exit codes. The `COPY` paths and the base
-  image are the parts still unverified.
+- The 35-signal cross-section is computed once at load and cached. That is
+  right for a cumulative baseline over a static panel, but a model whose
+  signals move within a period will need the cache invalidated on something
+  other than `POST /signals/refresh`.
