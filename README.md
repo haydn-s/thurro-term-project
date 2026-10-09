@@ -61,6 +61,14 @@ answer to the project's question rather than a data failure, and it is what mode
 evaluation should be scoped around. The full working, executed, is in
 [`notebook-590/03_capex_panel_eda.ipynb`](notebook-590/03_capex_panel_eda.ipynb).
 
+The **deliverable that result ships in** is now scaffolded, in
+[`final-deliverable/`](final-deliverable/README.md): a Docker image serving
+per-company signals on a port. No fitted model exists yet, so the container
+serves a documented null baseline — the cumulative capex intensity above — and
+flags `is_baseline` on every response so a consumer can refuse to act on it.
+What is built and tested is the delivery mechanism and the seam the model drops
+into.
+
 See [`data/README.md`](data/README.md) for the full accounting and
 [`presentations/`](presentations/) for the current status deck (which still
 describes the pre-feedback state of the dependent variable).
@@ -117,6 +125,18 @@ scripts/
   build_panel.py              joins the financials to the EV volume series
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
+notebook-590/
+  01_eda.ipynb                first-pass exploration of the EV volume series
+  02_power_simulation.ipynb   what effect size this design can actually detect
+  03_capex_panel_eda.ipynb    the capex panel, and the null result
+notebooks/
+  preliminary-eda.ipynb       the first scratch pass; the cited EDA is notebook-590/
+final-deliverable/
+  Dockerfile    the deployable image — build context is the repo root
+  app/          the signal service: HTTP surface, model seam, feature reader
+  model/        fitted artifacts go here (empty; the model is not written yet)
+  tests/        45 tests, runnable without Docker
+  README.md     the deliverable's documentation — read before deploying
 presentations/
 ```
 
@@ -175,6 +195,29 @@ exact query behind every extract, so anything can be re-pulled.
 **Read `data/raw/QUERIES.md` before re-pulling.** It documents two connector
 behaviours that cause silent data loss: the row cap scales with row width, and
 small results are returned inline rather than written to disk.
+
+## The deployed model
+
+The final deliverable is a Docker image: the model, the feature snapshot it
+reads and an HTTP server. It deploys to any Docker manager, and signals leave
+the container on a port — either on request or as a push stream — so other
+software can consume them.
+
+```bash
+docker compose -f final-deliverable/docker-compose.yml up --build
+curl localhost:8000/signals | python3 -m json.tool
+```
+
+The build context is the repository root, not `final-deliverable/`, because the
+image bakes in the panel from `data/`. A given tag then always serves the same
+numbers, which is what keeps a result reproducible later.
+
+[`final-deliverable/README.md`](final-deliverable/README.md) is the
+deliverable's own documentation — the wire contract, the environment variables,
+the deployment shapes, and the four steps that swap the null baseline for a
+fitted model. **Read it before deploying.** One caveat it records: the image
+has not been built yet, because no Docker daemon was running when the scaffold
+was written. Everything inside it has been exercised directly.
 
 ## Presentations
 
