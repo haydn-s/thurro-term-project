@@ -135,7 +135,7 @@ final-deliverable/
   Dockerfile    the deployable image — build context is the repo root
   app/          the signal service: HTTP surface, model seam, feature reader
   model/        fitted artifacts go here (empty; the model is not written yet)
-  tests/        72 tests, runnable without Docker
+  tests/        91 tests, runnable without Docker
   README.md     the deliverable's documentation — read before deploying
 presentations/
 ```
@@ -217,11 +217,12 @@ deliverable's own documentation — the wire contract, the environment variables
 the deployment shapes, and the four steps that swap the null baseline for a
 fitted model. **Read it before deploying.**
 
-The image builds and runs: healthy in ~6s, 17/17 on its smoke test, and the
+The image builds and runs: healthy in ~6s, 19/19 on its smoke test, and the
 signals it serves are numerically identical to a host run — which is what the
 baked-in snapshot exists to guarantee. It exposes Prometheus metrics on
-`/metrics`, logs one JSON record per request, and picks up a rebuilt panel
-without a restart.
+`/metrics`, logs one JSON record per request, picks up a rebuilt panel without a
+restart, and continues a caller's OpenTelemetry trace when an OTLP endpoint is
+configured.
 
 ## Presentations
 

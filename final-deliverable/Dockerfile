@@ -69,6 +69,20 @@ ENV PATH="/opt/venv/bin:$PATH" \
 # supported in a Dockerfile -- it parses, but not reliably across versions.
 ENV LOG_FORMAT=json
 
+# Tracing is off until an OTLP endpoint is set, so only the service name is
+# baked in -- it is the one value that identifies this container in a trace
+# backend and should not have to be supplied at every deployment.
+#
+# Deliberately NOT set here: OTEL_EXPORTER_OTLP_ENDPOINT. Setting it would make
+# the image try to export to somewhere that only exists in one environment. Pass
+# it at run time to turn tracing on:
+#
+#   -e OTEL_EXPORTER_OTLP_ENDPOINT=http://collector:4318
+#   -e OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+#
+# OTEL_SDK_DISABLED=true is the standard kill switch and wins over both.
+ENV OTEL_SERVICE_NAME=ev-capex-signal
+
 COPY --from=builder /opt/venv /opt/venv
 
 WORKDIR /app

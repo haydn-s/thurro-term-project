@@ -51,6 +51,11 @@ def settings(panel_dir: Path) -> Settings:
         # panel-change path rather than a configuration no deployment uses.
         watch_feature_store=True,
         cors_origins=(),
+        # No endpoint: spans are created against the no-op provider, which is
+        # what every deployment that has not opted into tracing also does.
+        otel_endpoint=None,
+        otel_service_name="ev-capex-signal-test",
+        otel_sdk_disabled=False,
     )
 
 

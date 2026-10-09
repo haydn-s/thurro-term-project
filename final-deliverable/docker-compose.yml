@@ -35,6 +35,15 @@ services:
       #
       # Unset: no authentication, which is correct only on a private network.
       # SIGNAL_API_TOKEN: "${SIGNAL_API_TOKEN}"
+      #
+      # Tracing. Standard OpenTelemetry variables, not names of our own -- any
+      # OTLP collector, Jaeger, Tempo or hosted backend works. Unset means
+      # spans are created against a no-op provider and nothing is exported, so
+      # leaving this commented costs nothing.
+      # OTEL_EXPORTER_OTLP_ENDPOINT: "http://collector:4318"
+      # OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf"
+      # OTEL_SERVICE_NAME: "ev-capex-signal"
+      # OTEL_SDK_DISABLED: "false"
 
     # Uncomment to iterate on the panel without rebuilding: the mount shadows
     # the baked-in snapshot, then POST /signals/refresh to re-read it. Read-only

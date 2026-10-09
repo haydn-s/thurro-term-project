@@ -69,10 +69,24 @@ class Settings:
     log_format: str
     watch_feature_store: bool
     cors_origins: tuple[str, ...]
+    otel_endpoint: str | None
+    otel_service_name: str
+    otel_sdk_disabled: bool
 
     @property
     def requires_auth(self) -> bool:
         return self.api_token is not None
+
+    @property
+    def tracing_enabled(self) -> bool:
+        """Whether spans will actually leave this process.
+
+        Derived, never set directly: FastAPI's own auto-configuration decides
+        this from the same two standard variables, and a second switch of our
+        own would be a way for the two to disagree. This property exists only so
+        /metadata and the startup banner can report the truth.
+        """
+        return self.otel_endpoint is not None and not self.otel_sdk_disabled
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -115,6 +129,19 @@ class Settings:
             # someone remembers to POST /signals/refresh.
             watch_feature_store=_env_flag("SIGNAL_WATCH_FEATURE_STORE", True),
             cors_origins=tuple(o.strip() for o in origins.split(",") if o.strip()),
+            # Read, not invented. These are the OpenTelemetry environment
+            # variables every other OTel-aware process in a deployment already
+            # honours; defining SIGNAL_TRACE_ENDPOINT instead would make this
+            # container the one thing a platform team has to special-case.
+            # The traces-specific endpoint wins over the general one, which is
+            # the precedence the OTel spec defines.
+            otel_endpoint=(
+                _env_str("OTEL_EXPORTER_OTLP_TRACES_ENDPOINT", "")
+                or _env_str("OTEL_EXPORTER_OTLP_ENDPOINT", "")
+                or None
+            ),
+            otel_service_name=_env_str("OTEL_SERVICE_NAME", "ev-capex-signal"),
+            otel_sdk_disabled=_env_str("OTEL_SDK_DISABLED", "false").lower() == "true",
         )
 
 

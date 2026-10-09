@@ -113,6 +113,10 @@ class Metadata(BaseModel):
     feature_store: FeatureStoreInfo
     stream_interval_s: float
     auth_required: bool
+    tracing: bool = Field(
+        description="Whether spans are being exported. When false, a request's "
+                    "X-Request-ID is the only correlation handle.",
+    )
     tiers: list[str]
     companies: list[str]
     endpoints: list[Endpoint]

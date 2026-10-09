@@ -12,7 +12,7 @@ from pathlib import Path
 from .config import Settings
 from .features import ANNUAL_PANEL, FeatureStore, FeatureStoreError
 from .model import ModelArtifactError, RawSignal, SignalModel, load_model
-from .observability import model_reloads, signal_recomputes
+from .observability import model_reloads, signal_recomputes, tracer
 from .schemas import (
     FeatureStoreInfo,
     ModelInfo,
@@ -69,9 +69,20 @@ class SignalService:
             # failed actually changes.
             self._fingerprint = self._panel_fingerprint()
             try:
-                store = FeatureStore.load(self.settings.feature_store)
-                model = load_model(self.settings.model_artifact)
-                signals = model.signals(store)
+                # Named spans for the three distinct costs, because "the request
+                # was slow" and "parsing the panel was slow" need different
+                # fixes. FastAPI's own spans cannot see inside this.
+                with tracer.start_as_current_span("feature_store.load") as span:
+                    store = FeatureStore.load(self.settings.feature_store)
+                    span.set_attribute("panel.rows", len(store.rows))
+                    span.set_attribute("panel.source", str(store.source))
+                with tracer.start_as_current_span("model.load"):
+                    model = load_model(self.settings.model_artifact)
+                with tracer.start_as_current_span("model.signals") as span:
+                    signals = model.signals(store)
+                    span.set_attribute("model.name", model.name)
+                    span.set_attribute("model.version", model.version)
+                    span.set_attribute("signals.count", len(signals))
             except (FeatureStoreError, ModelArtifactError) as exc:
                 self.load_error = str(exc)
                 model_reloads.labels("failed").inc()
@@ -158,7 +169,11 @@ class SignalService:
             # The panel is unchanged, so only the cross-section is recomputed --
             # no re-parse of the CSV and no re-load of the artifact.
             signal_recomputes.labels("ttl_expired").inc()
-            self._signals = self.model.signals(self.store)
+            with tracer.start_as_current_span("model.signals") as span:
+                span.set_attribute("recompute.reason", "ttl_expired")
+                span.set_attribute("recompute.age_s", round(age, 3))
+                self._signals = self.model.signals(self.store)
+                span.set_attribute("signals.count", len(self._signals))
             self._computed_at = datetime.now(timezone.utc)
             log.debug(
                 "recomputed after ttl",

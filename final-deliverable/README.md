@@ -152,6 +152,10 @@ inject empty strings for keys they have no setting for.
 | `SIGNAL_WATCH_FEATURE_STORE` | `true` | Re-read the panel when the file underneath it changes. |
 | `LOG_LEVEL` | `INFO` | Standard Python level name. |
 | `LOG_FORMAT` | `json` in the image, `text` from a checkout | `json` for a log aggregator, `text` for a terminal. |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | *(unset)* | Set it to turn tracing on. Unset means no spans leave the process. |
+| `OTEL_EXPORTER_OTLP_PROTOCOL` | `http/protobuf` | The only transport the native integration auto-configures. |
+| `OTEL_SERVICE_NAME` | `ev-capex-signal` | How this container is named in a trace backend. |
+| `OTEL_SDK_DISABLED` | `false` | Standard kill switch; wins over a configured endpoint. |
 
 A malformed value fails at import, before the port opens — a container that
 would have served nonsense does not start.
@@ -240,6 +244,75 @@ caller or an ingress survives into these logs; otherwise one is generated. It is
 also attached to every log line emitted while handling that request, including
 the service's own.
 
+### Tracing
+
+Off until `OTEL_EXPORTER_OTLP_ENDPOINT` is set. Spans are then exported over
+OTLP to any collector — Jaeger, Tempo, a hosted backend — using the **standard
+`OTEL_*` variables**, not names of ours. Defining `SIGNAL_TRACE_ENDPOINT`
+instead would have made this container the one thing a platform team has to
+special-case.
+
+```bash
+docker run -p 8000:8000 \
+  -e OTEL_EXPORTER_OTLP_ENDPOINT=http://collector:4318 \
+  -e OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
+  ev-capex-signal:0.1.0
+```
+
+With no endpoint set, spans are created against OpenTelemetry's no-op provider —
+an object allocation and nothing else — so the instrumentation is left in
+permanently rather than guarded. `/metadata` reports `tracing` so a consumer
+knows whether a trace exists to go looking for.
+
+**Be clear about what this buys.** This service makes no outbound calls, so its
+traces are shallow by nature; it is not a hop in a long chain. The value is in
+two narrower things:
+
+- **It continues a caller's trace.** A consumer that calls `/signals` as part of
+  its own workflow sees this request *inside* its own trace, under its own
+  parent span, rather than as a disconnected trace of ours. W3C `traceparent` is
+  extracted on the way in.
+- **It shows where time went inside the request.** FastAPI 0.143 instruments
+  itself natively (no bolt-on package), giving dependency-resolution, endpoint
+  and serialization spans; the service adds its own around the work only it
+  knows is expensive:
+
+```
+GET /signals  3.0ms                      POST /signals/refresh  6.3ms
+  fastapi.dependencies  0.8ms              fastapi.dependencies   0.4ms
+  fastapi.endpoint      0.7ms              fastapi.endpoint       4.7ms
+  fastapi.serialization 0.4ms                feature_store.load   3.6ms  panel.rows=182
+                                             model.load           0.0ms
+                                             model.signals        0.4ms  signals.count=35
+                                           fastapi.serialization  0.2ms
+```
+
+"The request was slow" and "parsing the panel was slow" need different fixes, so
+they get different spans.
+
+**The probes are excluded.** `/health`, `/ready` and `/metrics` are hit every
+few seconds by a healthcheck and a scrape; tracing them would fill a backend
+with identical spans nobody reads and bill for it. Their failures are already in
+metrics and logs.
+
+**Logs carry the trace.** When a span is active, every JSON log record gains
+`trace_id` and `span_id` under the field names an aggregator expects, so a log
+line pivots straight to its trace:
+
+```json
+{"logger":"signal.access","message":"GET /signals 200 3.0ms",
+ "request_id":"8f28b2809b944d34","trace_id":"4bf92f3577b34da6a3ce929d0e0e4736",
+ "span_id":"b491baaa4bd86dec","http_route":"/signals","http_status":200}
+```
+
+The fields are **absent** when tracing is off rather than present and zero — a
+zeroed id is a real id as far as a backend is concerned. `X-Request-ID` remains
+the correlation handle in that case, which is why both are logged.
+
+Startup is one trace (`service.startup`) with the load phases beneath it, so
+"how long did the container take to become useful, and which part was slow" is
+answerable.
+
 ### Staleness
 
 The cross-section is cached. Two different things can make that cache wrong, and
@@ -284,8 +357,8 @@ already polls — picks the panel up as soon as it appears. Verified: `RestartCo
 ## Testing
 
 ```bash
-make venv && make test      # 72 tests, no Docker needed
-make up && make smoke       # 17 checks against a running container
+make venv && make test      # 91 tests, no Docker needed
+make up && make smoke       # 19 checks against a running container
 ```
 
 The suite runs against the repo's committed `data/processed/` rather than a
@@ -293,19 +366,25 @@ fixture CSV, on purpose: that way a schema change in `scripts/build_panel.py`
 breaks the service's tests instead of being discovered after a deploy.
 
 The image has been built and exercised in this environment. `docker compose up`
-reports healthy in ~6s and the smoke test passes 17/17 against the container;
+reports healthy in ~6s and the smoke test passes 19/19 against the container;
 the signals it serves are numerically identical to a host run (35 signals,
 sector median intensity 1.7332), which is the reproducibility claim the baked-in
 snapshot is there to make. Also confirmed in-container: `docker run -p 8000:8000`
 with no other flags, SIGTERM stopping the container in under a second (uvicorn
 is PID 1), and a bad `MODEL_ARTIFACT` returning 503 with a mount hint and
 driving the container to `unhealthy` in ~35s instead of silently serving the
-baseline. Also verified in-container: one JSON access record per request with
+baseline. And: one JSON access record per request with
 an inbound `X-Request-ID` carried through, a panel rebuilt on the host picked up
 by the next request (182 → 162 rows, 35 → 31 signals, attributed in
 `signal_recomputes_total{reason="panel_changed"}`), and a container started
 against an empty volume reaching ready once the panel appeared, with
 `RestartCount=0`.
+
+Tracing was verified end to end against a real OTLP receiver decoding the
+protobuf: a request carrying `traceparent: 00-4bf92f35...-00f067aa...-01`
+produced a span tree under that exact trace and parent span, startup arrived as
+one `service.startup` trace rather than three orphans, and nine requests to the
+probe paths produced no spans at all.
 
 `scripts/smoke_test.sh` is the only check that exercises `/stream` over a real
 socket. The suite cannot — both in-process ASGI clients (Starlette's
@@ -364,7 +443,8 @@ final-deliverable/
   Dockerfile.dockerignore    exclusion list, kept beside the Dockerfile
   docker-compose.yml         local run + reference deployment shape
   Makefile                   build / up / test / smoke
-  requirements.txt           serving deps only — fastapi, uvicorn, pydantic
+  requirements.txt           serving deps — fastapi[opentelemetry], uvicorn,
+                             pydantic, prometheus-client
   requirements-dev.txt       + pytest, httpx
   app/
     __main__.py              `python -m app`, the container's CMD
@@ -373,11 +453,11 @@ final-deliverable/
     service.py               holds the loaded (panel, model) pair
     model.py                 the model seam + the null baseline
     features.py              typed reader over the panel CSV
-    observability.py         metrics, JSON logs, the request-timing middleware
+    observability.py         metrics, JSON logs, tracing helpers, middleware
     config.py                environment -> Settings
     healthcheck.py           `python -m app.healthcheck`, used by HEALTHCHECK
   model/                     fitted artifacts go here (empty; see its README)
-  tests/                     72 tests
+  tests/                     91 tests
   scripts/smoke_test.sh      end-to-end check against a running container
 ```
 
@@ -406,9 +486,17 @@ when the sleep ends; what is held until then is one idle coroutine.
 
 ### Known limits
 
-- **No distributed tracing.** There are metrics and a request id that a caller
-  can thread through, but no spans and no propagation to a downstream service.
-  The request id is the seam to build that on if it is ever needed.
+- **Traces are shallow, because the service has no downstream calls.** It
+  continues a caller's trace and breaks its own request down, but there is no
+  chain below it to follow. That is a property of the deliverable, not a gap to
+  close — a fitted model that calls out to a feature service would change it.
+- **Only OTLP over http/protobuf is auto-configured.** gRPC export needs a
+  provider wired up by hand and `auto_configure: False`; the native integration
+  says so when asked for anything else.
+- **Export is batched, so spans from a crashing process can be lost.** The
+  default batch processor holds spans for up to its schedule delay. Acceptable
+  here; a service where the last span before a crash is the interesting one
+  would want a shorter delay.
 - **The base image is pinned, so patches no longer arrive on their own.** That
   is the trade for a reproducible build. The Dockerfile carries the one-liner
   that re-resolves the digest; refreshing it is a deliberate act now.

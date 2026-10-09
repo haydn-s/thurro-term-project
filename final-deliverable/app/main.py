@@ -29,6 +29,7 @@ from . import __version__
 from .config import settings
 from .observability import (
     ObservabilityMiddleware,
+    tracer,
     configure_logging,
     render_metrics,
     set_service_state,
@@ -60,19 +61,43 @@ service: SignalService | None = None
 async def lifespan(app: FastAPI):
     global service
     log.info(
-        "starting %s v%s  feature_store=%s  model_artifact=%s  auth=%s",
+        "starting %s v%s  feature_store=%s  model_artifact=%s  auth=%s  tracing=%s",
         SERVICE_NAME, __version__, settings.feature_store,
         settings.model_artifact or "<none, serving null baseline>",
         "on" if settings.requires_auth else "off",
+        settings.otel_endpoint if settings.tracing_enabled else "off",
     )
     # Loading happens here rather than per-request: the panel is small, and a
     # container that has already read its inputs can answer /ready honestly
     # before any traffic arrives.
-    service = SignalService(settings)
+    #
+    # Wrapped in a span so the startup load is ONE trace. Without a parent,
+    # the spans inside SignalService -- feature_store.load, model.load,
+    # model.signals -- each became a separate single-span trace with no context,
+    # because at startup there is no request span to attach to. Three orphans in
+    # a trace backend tell you nothing; one `service.startup` tree tells you how
+    # long the container took to become useful and which part was slow.
+    with tracer.start_as_current_span("service.startup") as span:
+        service = SignalService(settings)
+        span.set_attribute("service.ready", service.ready)
+        span.set_attribute("service.version", __version__)
+        if service.store is not None:
+            span.set_attribute("panel.rows", len(service.store.rows))
     if not service.ready:
         log.error("started UNREADY: %s", service.load_error)
     yield
     log.info("shutting down")
+
+
+#: Paths kept out of traces. The healthcheck hits /ready every 10s and a
+#: Prometheus scrape hits /metrics on its own interval, so tracing them would
+#: fill a backend with identical spans nobody will ever read and bill for the
+#: privilege. Their failures are already visible in metrics and logs.
+TRACE_EXCLUDED_PATHS = frozenset({"/health", "/ready", "/metrics"})
+
+
+def _exclude_from_traces(scope: dict) -> bool:
+    return scope.get("path") in TRACE_EXCLUDED_PATHS
 
 
 app = FastAPI(
@@ -81,6 +106,28 @@ app = FastAPI(
     summary="Per-company automotive capex expansion signals, served over HTTP.",
     description=__doc__,
     lifespan=lifespan,
+    # FastAPI 0.143 instruments itself; there is no bolt-on package here. It
+    # extracts W3C traceparent on the way in, so a consumer that calls
+    # /signals as part of its own workflow sees this request inside its trace.
+    telemetry={
+        "tracing": True,
+        # Spans for dependency resolution, the endpoint and serialization. This
+        # service makes no outbound calls, so without these -- and the explicit
+        # spans in service.py -- a trace would be one flat span saying only how
+        # long the whole request took.
+        "operation_spans": True,
+        # Off: Prometheus already owns metrics (/metrics) and logging is already
+        # configured above. Turning these on would mean two metrics pipelines
+        # double-counting the same requests, and two log pipelines emitting the
+        # same records.
+        "metrics": False,
+        "logs": False,
+        # Reads the standard OTEL_* variables and adds an OTLP exporter only if
+        # an endpoint is set. With none set it returns early, so this is a no-op
+        # by default and the deliverable still runs with zero configuration.
+        "auto_configure": True,
+        "exclude": _exclude_from_traces,
+    },
 )
 
 # Added before CORS so it ends up outermost: Starlette applies middleware in
@@ -210,6 +257,7 @@ def metadata(svc: SignalService = Depends(get_service)) -> Metadata:
         feature_store=svc.store_info(),
         stream_interval_s=settings.stream_interval_s,
         auth_required=settings.requires_auth,
+        tracing=settings.tracing_enabled,
         tiers=svc.known_tiers(),
         companies=svc.known_symbols(),
         endpoints=ENDPOINTS,

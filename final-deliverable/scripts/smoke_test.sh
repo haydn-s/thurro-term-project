@@ -117,6 +117,22 @@ if check_status "metrics" GET /metrics 200; then
   fi
 fi
 
+# Tracing. Whether spans are exported depends on the deployment, so what is
+# checked here is that the contract is intact: the state is reported, and a
+# caller's traceparent is accepted rather than rejected or crashed on.
+if check_status "metadata reports tracing state" GET /metadata 200; then
+  tracing="$(field "['tracing']")"
+  note "tracing: ${tracing}"
+fi
+tp="00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
+status="$(req -o /dev/null -w '%{http_code}' --max-time 10 \
+          -H "traceparent: ${tp}" "${BASE}/signals" || echo 000)"
+if [[ "$status" == "200" ]]; then
+  ok "a caller's W3C traceparent is accepted"
+else
+  bad "request with a traceparent returned ${status}"
+fi
+
 # The middleware has to be in the path for a STREAMING response too -- that is
 # the whole reason it is pure ASGI rather than BaseHTTPMiddleware.
 rid="smoke-$$"

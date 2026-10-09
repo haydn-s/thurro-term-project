@@ -8,9 +8,15 @@
 # The repo root's requirements.txt is a different thing -- the pinned notebook
 # environment (pandas, matplotlib, statsmodels). Do not install that here.
 #
+# The [opentelemetry] extra brings the OTel SDK and the OTLP/http exporter
+# (~11 MB). Baked in rather than left out so tracing is turned on with an
+# environment variable instead of a rebuild -- see README, "Tracing". FastAPI
+# 0.143 instruments itself, so there is no opentelemetry-instrumentation-*
+# package here.
+#
 # WHEN THE FITTED MODEL LANDS, add its runtime dependencies below
 # (scikit-learn / joblib / statsmodels / numpy, whichever it needs) and rebuild.
-fastapi==0.143.0
+fastapi[opentelemetry]==0.143.0
 uvicorn[standard]==0.54.0
 pydantic==2.14.0
 prometheus-client==0.26.0

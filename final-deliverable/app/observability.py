@@ -15,6 +15,7 @@ import uuid
 from collections.abc import Awaitable, Callable
 from contextvars import ContextVar
 
+from opentelemetry import trace
 from prometheus_client import (
     CONTENT_TYPE_LATEST,
     REGISTRY,
@@ -35,6 +36,27 @@ request_id_var: ContextVar[str | None] = ContextVar("request_id", default=None)
 REQUEST_ID_HEADER = "x-request-id"
 
 PREFIX = "signal"
+
+#: Spans for work this service does itself. FastAPI's native telemetry covers
+#: the request, dependency resolution and serialization; this is for the parts
+#: only we know are expensive -- parsing the panel and scoring the model.
+#:
+#: Resolved against the global provider, which is a no-op until an exporter is
+#: configured. An unconfigured span costs an object allocation, so these are
+#: safe to leave in permanently rather than guarding each one.
+tracer = trace.get_tracer("ev-capex-signal")
+
+
+def current_trace_ids() -> tuple[str, str] | None:
+    """(trace_id, span_id) as lowercase hex, or None when not tracing.
+
+    This is what joins a log line to a trace. Without it the two are separate
+    piles of evidence about the same request.
+    """
+    context = trace.get_current_span().get_span_context()
+    if not context.is_valid:
+        return None
+    return f"{context.trace_id:032x}", f"{context.span_id:016x}"
 
 # -- metrics ---------------------------------------------------------------
 # Every series is labelled by the matched ROUTE TEMPLATE, never the raw path.
@@ -160,6 +182,12 @@ class JsonFormatter(logging.Formatter):
         request_id = request_id_var.get()
         if request_id:
             payload["request_id"] = request_id
+        # Emitted under the OTel field names an aggregator expects, so a log
+        # line can be pivoted straight to its trace. Absent entirely when
+        # tracing is off, rather than present and zero.
+        ids = current_trace_ids()
+        if ids:
+            payload["trace_id"], payload["span_id"] = ids
         for key, value in vars(record).items():
             if key not in _STANDARD_RECORD_FIELDS and not key.startswith("_"):
                 payload[key] = value
