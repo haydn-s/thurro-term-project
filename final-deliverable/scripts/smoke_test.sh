@@ -100,6 +100,35 @@ check_status "bad direction is 422"   GET "/signals?direction=sideways" 422 || t
 check_status "refresh"                POST /signals/refresh 200 || true
 
 echo
+echo "observability"
+if check_status "metrics" GET /metrics 200; then
+  series=0
+  for name in signal_http_requests_total signal_service_ready signal_set_size \
+              signal_feature_store_rows signal_model_info; do
+    grep -q "^${name}" "$BODY" && series=$((series + 1)) \
+      || bad "metrics is missing ${name}"
+  done
+  [[ "$series" -eq 5 ]] && ok "all 5 core metric families present"
+  # Raw paths in a label would make every probed URL its own time series.
+  if grep -q 'route="/signals/{nse_symbol}"' "$BODY"; then
+    ok "requests are labelled by route template, not raw path"
+  else
+    bad "no route-template label found in metrics"
+  fi
+fi
+
+# The middleware has to be in the path for a STREAMING response too -- that is
+# the whole reason it is pure ASGI rather than BaseHTTPMiddleware.
+rid="smoke-$$"
+hdrs="$(req -N -D - -o /dev/null --max-time 3 -H "X-Request-ID: ${rid}" \
+        "${BASE}/stream?interval=1" 2>/dev/null || true)"
+if grep -qi "^x-request-id: ${rid}" <<<"$hdrs"; then
+  ok "request id survives into a streaming response"
+else
+  bad "X-Request-ID missing from /stream response headers"
+fi
+
+echo
 echo "push path"
 # -N disables curl's buffering; --max-time ends the otherwise endless stream.
 stream="$(req -N --max-time 4 "${BASE}/stream?interval=1" 2>/dev/null || true)"

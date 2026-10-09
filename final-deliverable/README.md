@@ -55,7 +55,8 @@ is at `/docs` (Swagger) and `/openapi.json`.
 | `GET` | `/signals` | The full cross-section. Filters: `tier`, `direction`, `min_confidence`. |
 | `GET` | `/signals/{nse_symbol}` | One company. Case-insensitive; percent-encode `&` in symbols like `ARE&M`. |
 | `GET` | `/stream` | The same payload re-emitted as Server-Sent Events. `?interval=<seconds>` overrides the default. |
-| `POST` | `/signals/refresh` | Re-read the panel and model from disk. For a mounted feature store. |
+| `POST` | `/signals/refresh` | Force a re-read of the panel and model from disk. |
+| `GET` | `/metrics` | Prometheus exposition. Behind the token when auth is on. |
 
 A signal:
 
@@ -148,7 +149,9 @@ inject empty strings for keys they have no setting for.
 | `SIGNAL_STREAM_INTERVAL` | `60` | Seconds between SSE events. |
 | `SIGNAL_API_TOKEN` | *(unset)* | When set, bearer token required on everything except the probes. |
 | `SIGNAL_CORS_ORIGINS` | *(unset)* | Comma-separated origins. Only needed for a browser consumer. |
+| `SIGNAL_WATCH_FEATURE_STORE` | `true` | Re-read the panel when the file underneath it changes. |
 | `LOG_LEVEL` | `INFO` | Standard Python level name. |
+| `LOG_FORMAT` | `json` in the image, `text` from a checkout | `json` for a log aggregator, `text` for a terminal. |
 
 A malformed value fails at import, before the port opens — a container that
 would have served nonsense does not start.
@@ -197,13 +200,75 @@ out of the load balancer, because restarting it fixes nothing. Docker's own
 `HEALTHCHECK` uses `/ready`, since that is what `depends_on:
 condition: service_healthy` and Swarm rolling updates gate on.
 
+### Observability
+
+`GET /metrics` serves Prometheus exposition format. Alongside the usual process
+collectors:
+
+| series | type | use |
+|---|---|---|
+| `signal_http_requests_total` | counter | by method, **matched route** and status |
+| `signal_http_request_duration_seconds` | histogram | buckets tuned to a millisecond-scale service, with a tail for `/stream` |
+| `signal_service_ready` | gauge | `1`/`0`; the same condition as `/ready` |
+| `signal_set_size` | gauge | companies in the current cross-section |
+| `signal_set_computed_timestamp_seconds` | gauge | **subtract from `now()` to alert on staleness** |
+| `signal_feature_store_rows` / `_mtime_seconds` | gauge | which panel is loaded |
+| `signal_model_info` | info | name, version, `is_baseline`, `score_units` |
+| `signal_model_reloads_total` | counter | by outcome: `ok` / `failed` / `error` |
+| `signal_recomputes_total` | counter | by trigger: `panel_changed` / `ttl_expired` |
+| `signal_sse_connections_active` | gauge | live `/stream` consumers |
+| `signal_sse_events_total` | counter | by event type |
+
+Requests are labelled by **route template**, never raw path. `/signals/{nse_symbol}`
+has 35 live values and unbounded junk ones from anything that probes the port;
+labelling by raw path would make each its own time series and eventually take the
+scrape target down.
+
+Logs go to stdout, one JSON object per line in the image (`LOG_FORMAT=text` for a
+readable terminal). Every request produces exactly one access record carrying
+duration, matched route, status and a request id:
+
+```json
+{"ts":"2026-10-09T12:53:16.512Z","level":"INFO","logger":"signal.access",
+ "message":"GET /signals/M&M 200 0.9ms","request_id":"trace-from-caller",
+ "http_method":"GET","http_path":"/signals/M&M",
+ "http_route":"/signals/{nse_symbol}","http_status":200,"duration_ms":0.85}
+```
+
+An inbound `X-Request-ID` is honoured and echoed back, so a trace started by a
+caller or an ingress survives into these logs; otherwise one is generated. It is
+also attached to every log line emitted while handling that request, including
+the service's own.
+
+### Staleness
+
+The cross-section is cached. Two different things can make that cache wrong, and
+they get different answers:
+
+- **The panel changed.** The service fingerprints the panel file (mtime + size)
+  and reloads when it moves. So a panel rebuilt outside the container is picked
+  up by the next request — no API call, no restart. `SIGNAL_WATCH_FEATURE_STORE=false`
+  turns this off.
+- **The model reads the clock.** A model that is a function of time as well as
+  of the panel must declare `signal_ttl_s`; the service then recomputes the
+  cross-section once that lapses, without re-parsing the panel. The baseline
+  declares `None`, correctly — intensity is cumulative over a filed panel and
+  reads no clock.
+
+The same mechanism makes a container self-healing. One that starts before its
+volume is attached comes up unready, and `/ready` — the endpoint an orchestrator
+already polls — picks the panel up as soon as it appears. Verified: `RestartCount=0`.
+
+`POST /signals/refresh` remains, for forcing it.
+
 ### Operating it
 
 - **Refreshing the data without a rebuild** — mount the panel over the baked-in
-  copy (there is a commented-out volume in `docker-compose.yml`) and
-  `POST /signals/refresh`. A failed reload leaves the previous snapshot serving
-  and reports the reason on `/ready`, so a bad rebuild upstream does not take
-  the service down.
+  copy (there is a commented-out volume in `docker-compose.yml`). It is picked
+  up automatically; see [Staleness](#staleness). A failed reload leaves the
+  previous snapshot serving and reports the reason on `/ready`, so a bad rebuild
+  upstream does not take the service down, and it is not retried on every
+  request — only once the file changes again.
 - **Diagnosing an unready container** — `curl localhost:8000/ready` returns the
   actual reason, e.g. a missing panel naming the path it looked at. The service
   deliberately starts unready rather than crash-looping: a crash loop tells an
@@ -219,8 +284,8 @@ condition: service_healthy` and Swarm rolling updates gate on.
 ## Testing
 
 ```bash
-make venv && make test      # 45 tests, no Docker needed
-make up && make smoke       # 13 checks against a running container
+make venv && make test      # 72 tests, no Docker needed
+make up && make smoke       # 17 checks against a running container
 ```
 
 The suite runs against the repo's committed `data/processed/` rather than a
@@ -228,14 +293,19 @@ fixture CSV, on purpose: that way a schema change in `scripts/build_panel.py`
 breaks the service's tests instead of being discovered after a deploy.
 
 The image has been built and exercised in this environment. `docker compose up`
-reports healthy in ~7s and the smoke test passes 13/13 against the container;
+reports healthy in ~6s and the smoke test passes 17/17 against the container;
 the signals it serves are numerically identical to a host run (35 signals,
 sector median intensity 1.7332), which is the reproducibility claim the baked-in
 snapshot is there to make. Also confirmed in-container: `docker run -p 8000:8000`
 with no other flags, SIGTERM stopping the container in under a second (uvicorn
 is PID 1), and a bad `MODEL_ARTIFACT` returning 503 with a mount hint and
 driving the container to `unhealthy` in ~35s instead of silently serving the
-baseline.
+baseline. Also verified in-container: one JSON access record per request with
+an inbound `X-Request-ID` carried through, a panel rebuilt on the host picked up
+by the next request (182 → 162 rows, 35 → 31 signals, attributed in
+`signal_recomputes_total{reason="panel_changed"}`), and a container started
+against an empty volume reaching ready once the panel appeared, with
+`RestartCount=0`.
 
 `scripts/smoke_test.sh` is the only check that exercises `/stream` over a real
 socket. The suite cannot — both in-process ASGI clients (Starlette's
@@ -256,6 +326,7 @@ class SignalModel(Protocol):
     description: str
     score_units: str
     required_features: tuple[str, ...]
+    signal_ttl_s: float | None   # None = output is a pure function of the panel
 
     def signals(self, store: FeatureStore) -> list[RawSignal]: ...
 ```
@@ -279,6 +350,12 @@ Also worth updating when the model lands: `score_units` and the `confidence`
 semantics, both of which are documented above as baseline-specific, and
 `SIGNAL_HORIZON`, which the cumulative baseline does not really use.
 
+Think about `signal_ttl_s` rather than copying the baseline's `None`. If the
+model reads the clock anywhere — a decay term, a rolling window anchored to
+today — it needs a TTL or it will serve its first answer for the life of the
+container. There is a test asserting the baseline's `None` is deliberate, so
+adding a time term there will fail loudly.
+
 ## Layout
 
 ```
@@ -296,10 +373,11 @@ final-deliverable/
     service.py               holds the loaded (panel, model) pair
     model.py                 the model seam + the null baseline
     features.py              typed reader over the panel CSV
+    observability.py         metrics, JSON logs, the request-timing middleware
     config.py                environment -> Settings
     healthcheck.py           `python -m app.healthcheck`, used by HEALTHCHECK
   model/                     fitted artifacts go here (empty; see its README)
-  tests/                     45 tests
+  tests/                     72 tests
   scripts/smoke_test.sh      end-to-end check against a running container
 ```
 
@@ -328,13 +406,17 @@ when the sleep ends; what is held until then is one idle coroutine.
 
 ### Known limits
 
-- The `python:3.14-slim` base is a floating tag. Pin it by digest before this is
-  deployed anywhere real — a floating tag means the image is not actually
-  reproducible.
-- There are no metrics and no tracing. `/health`, `/ready` and the access log
-  are the whole observability story. That is proportionate to a term project;
-  it is not proportionate to production.
-- The 35-signal cross-section is computed once at load and cached. That is
-  right for a cumulative baseline over a static panel, but a model whose
-  signals move within a period will need the cache invalidated on something
-  other than `POST /signals/refresh`.
+- **No distributed tracing.** There are metrics and a request id that a caller
+  can thread through, but no spans and no propagation to a downstream service.
+  The request id is the seam to build that on if it is ever needed.
+- **The base image is pinned, so patches no longer arrive on their own.** That
+  is the trade for a reproducible build. The Dockerfile carries the one-liner
+  that re-resolves the digest; refreshing it is a deliberate act now.
+- **A recompute happens on the request that notices it.** One request pays for
+  the reload while others wait on the lock. At a millisecond that is invisible;
+  a model that takes seconds to score should move this to a background task
+  rather than inherit this design.
+- **`/metrics` does not trigger a freshness check.** A scrape observes state, it
+  does not drive it, so between a panel changing and the next real request the
+  gauges describe the panel still loaded. `signal_set_computed_timestamp_seconds`
+  is there to make that visible rather than hidden.

@@ -67,6 +67,16 @@ class SignalModel(Protocol):
     score_units: str
     required_features: tuple[str, ...]
 
+    #: How long this model's output stays valid, in seconds, or None when the
+    #: output is a pure function of the panel.
+    #:
+    #: The service caches the cross-section and recomputes it when the panel
+    #: changes on disk. That is sufficient for a model whose signals move only
+    #: when its inputs do. A model that is also a function of *time* -- a decay
+    #: term, a rolling window anchored to today, anything reading the clock --
+    #: must declare a TTL, or it will serve its first answer forever.
+    signal_ttl_s: float | None
+
     def signals(self, store: FeatureStore) -> list[RawSignal]:
         """Score every company the store can support, skipping those it cannot."""
         ...
@@ -103,6 +113,12 @@ class CapexIntensityBaseline:
     )
     score_units = "ratio_capex_to_depreciation"
     required_features = ("capex_cr", "depreciation_cr")
+
+    #: None, and correctly so: the intensity ratio is cumulative over a filed
+    #: panel and reads no clock, so its output changes only when the panel does
+    #: -- which the service already watches for. A fitted model should think
+    #: about this rather than copy it.
+    signal_ttl_s = None
 
     #: Notebook 03 s11 requires at least three filed years and positive
     #: depreciation before a firm's intensity is read. Both guards matter: a

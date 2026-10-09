@@ -1,26 +1,10 @@
 """The wire contract: every endpoint, the probes, auth and the SSE path."""
 import dataclasses
 
-import pytest
 from fastapi.testclient import TestClient
 
 from app import main
 from app.service import SignalService
-
-
-@pytest.fixture()
-def client(service, settings):
-    """A TestClient wired to a service built from the test settings.
-
-    `main.service` and `main.settings` are module globals set by the lifespan
-    handler and the import of config respectively. Overriding both here keeps
-    the test off the process-wide environment, so the auth test can flip a
-    setting without leaking into the others.
-    """
-    main.service = service
-    main.settings = settings
-    with TestClient(main.app) as test_client:
-        yield test_client
 
 
 def test_health_is_open_and_does_not_touch_the_model(client):

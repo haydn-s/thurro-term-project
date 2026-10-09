@@ -17,9 +17,20 @@
 # ---------------------------------------------------------------- builder ----
 # 3.14 matches the Python the repo's notebooks and build scripts are pinned to
 # (3.14.7), so a model fitted in that environment deserialises here.
-# Pin this by digest before anything is deployed for real; a floating tag means
-# the image is not actually reproducible.
-FROM python:3.14-slim AS builder
+#
+# Pinned by digest, not by tag: `python:3.14-slim` moves, so a tag-only build is
+# not reproducible -- rebuild it in six months and you get different bytes. This
+# is the multi-arch *manifest list* digest, so arm64 and amd64 both still build;
+# a per-architecture digest would have broken one of them.
+#
+# The cost of pinning is that base-image security patches no longer arrive on
+# their own. Refresh it deliberately:
+#
+#     docker buildx imagetools inspect python:3.14-slim \
+#       --format '{{.Manifest.Digest}}'
+#
+# and update both FROM lines below to match.
+FROM python:3.14-slim@sha256:a2b82f3c48559aa0a8446d9af49826b6e2b2016f4cd2afabfe6013ec53729170 AS builder
 
 ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_NO_CACHE_DIR=1
@@ -35,7 +46,9 @@ COPY final-deliverable/requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 # ---------------------------------------------------------------- runtime ----
-FROM python:3.14-slim AS runtime
+# Same digest as the builder, so the venv is built against the interpreter that
+# will run it.
+FROM python:3.14-slim@sha256:a2b82f3c48559aa0a8446d9af49826b6e2b2016f4cd2afabfe6013ec53729170 AS runtime
 
 LABEL org.opencontainers.image.title="EV capex signal service" \
       org.opencontainers.image.description="Per-company automotive capex expansion signals over HTTP/SSE." \
@@ -47,6 +60,14 @@ ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONDONTWRITEBYTECODE=1 \
     FEATURE_STORE=/app/feature-store \
     SIGNAL_PORT=8000
+
+# JSON here, but text as app/config.py's default: this image's stdout goes to a
+# log aggregator, while a checkout's goes to a person's terminal. Override to
+# `text` if you are reading `docker logs` by eye.
+#
+# Its own instruction because a comment inside a line continuation is not
+# supported in a Dockerfile -- it parses, but not reliably across versions.
+ENV LOG_FORMAT=json
 
 COPY --from=builder /opt/venv /opt/venv
 

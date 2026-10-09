@@ -23,6 +23,11 @@ services:
       SIGNAL_HORIZON: "FY27"
       SIGNAL_STREAM_INTERVAL: "60"
       LOG_LEVEL: "INFO"
+      # The image defaults to json; text is easier to read in `compose logs`.
+      LOG_FORMAT: "text"
+      # Re-read the panel when the file underneath it changes. Matters most with
+      # the volume mount below, where the panel is rebuilt outside the container.
+      SIGNAL_WATCH_FEATURE_STORE: "true"
       # Unset: serve the null baseline. Set it to an artifact path inside the
       # container to serve a fitted model -- and note the container will refuse
       # to start serving if that path is unloadable, by design.

@@ -22,10 +22,19 @@ from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, Response as RawResponse, StreamingResponse
+from starlette.concurrency import run_in_threadpool
 
 from . import __version__
 from .config import settings
+from .observability import (
+    ObservabilityMiddleware,
+    configure_logging,
+    render_metrics,
+    set_service_state,
+    sse_connections,
+    sse_events,
+)
 from .schemas import (
     Endpoint,
     Health,
@@ -39,10 +48,7 @@ from .service import ServiceNotReady, SignalService
 
 SERVICE_NAME = "ev-capex-signal"
 
-logging.basicConfig(
-    level=getattr(logging, settings.log_level, logging.INFO),
-    format="%(asctime)s %(levelname)-8s %(name)s %(message)s",
-)
+configure_logging(settings.log_level, settings.log_format)
 log = logging.getLogger(SERVICE_NAME)
 
 #: Populated in the lifespan handler. Module-level rather than app.state so the
@@ -76,6 +82,11 @@ app = FastAPI(
     description=__doc__,
     lifespan=lifespan,
 )
+
+# Added before CORS so it ends up outermost: Starlette applies middleware in
+# reverse registration order, and the access log should cover a request even
+# when CORS rejects it.
+app.add_middleware(ObservabilityMiddleware)
 
 if settings.cors_origins:
     app.add_middleware(
@@ -135,6 +146,7 @@ ENDPOINTS = [
     Endpoint(path="/signals/{nse_symbol}", method="GET", summary="One company's signal."),
     Endpoint(path="/stream", method="GET", summary="Server-Sent Events; re-emits the set on an interval."),
     Endpoint(path="/signals/refresh", method="POST", summary="Reload the panel and model from disk."),
+    Endpoint(path="/metrics", method="GET", summary="Prometheus metrics."),
 ]
 
 
@@ -151,6 +163,13 @@ def health() -> Health:
 
 @app.get("/ready", response_model=Ready, tags=["probes"])
 def ready(response: Response, svc: SignalService = Depends(get_service)) -> Ready:
+    # The freshness check belongs here, not only on the read path. This is the
+    # endpoint an orchestrator already polls, so a container that came up before
+    # its volume was attached recovers on its own -- fix the mount and the next
+    # probe loads the panel. Without this, self-healing needed a /signals
+    # request, which a load balancer will never send to a container it believes
+    # is unready. The check is one stat() call.
+    svc.ensure_fresh()
     if svc.ready:
         return Ready(status="ready", model_loaded=True, feature_store_loaded=True)
     response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
@@ -179,6 +198,10 @@ def index() -> dict[str, str]:
 @app.get("/metadata", response_model=Metadata, tags=["integration"],
          dependencies=[Protected])
 def metadata(svc: SignalService = Depends(get_service)) -> Metadata:
+    # This endpoint reports the panel's row count, latest period and mtime. A
+    # consumer reads it to know what the signals were computed from, so serving
+    # provenance for a panel that has since been replaced is worse than useless.
+    svc.ensure_fresh()
     return Metadata(
         service=SERVICE_NAME,
         version=__version__,
@@ -191,6 +214,24 @@ def metadata(svc: SignalService = Depends(get_service)) -> Metadata:
         companies=svc.known_symbols(),
         endpoints=ENDPOINTS,
     )
+
+
+@app.get("/metrics", tags=["probes"], dependencies=[Protected],
+         include_in_schema=False)
+def metrics(svc: SignalService = Depends(get_service)) -> RawResponse:
+    """Prometheus exposition format.
+
+    Behind the same token as /signals rather than open like the probes. It
+    discloses no signal values, but it does name the model and its version, and
+    that is not something to volunteer on a published port. Prometheus can carry
+    a bearer token in its scrape config.
+
+    State gauges are refreshed here, at scrape time, so they cannot drift from
+    what the service would actually answer with.
+    """
+    set_service_state(svc)
+    body, content_type = render_metrics()
+    return RawResponse(content=body, media_type=content_type)
 
 
 # -- signals --------------------------------------------------------------
@@ -271,15 +312,30 @@ async def signal_events(svc: SignalService, period: float) -> AsyncIterator[byte
     The one cost is that a disconnect during a long sleep is noticed when that
     sleep ends; what is held until then is one idle coroutine, not a worker.
     """
-    while True:
-        try:
-            yield _sse("signals", svc.signal_set().model_dump_json())
-        except ServiceNotReady as exc:
-            # Report and hold the connection open: readiness is usually
-            # transient, and dropping the stream would make every consumer
-            # implement its own reconnect.
-            yield _sse("error", json.dumps({"detail": str(exc)}))
-        await asyncio.sleep(period)
+    sse_connections.inc()
+    try:
+        while True:
+            try:
+                # run_in_threadpool because signal_set() may now recompute the
+                # cross-section under a lock. For the baseline that is about a
+                # millisecond, but a heavier model would stall the event loop --
+                # and with it every other connection this process is serving.
+                payload = await run_in_threadpool(
+                    lambda: svc.signal_set().model_dump_json()
+                )
+                yield _sse("signals", payload)
+                sse_events.labels("signals").inc()
+            except ServiceNotReady as exc:
+                # Report and hold the connection open: readiness is usually
+                # transient, and dropping the stream would make every consumer
+                # implement its own reconnect.
+                yield _sse("error", json.dumps({"detail": str(exc)}))
+                sse_events.labels("error").inc()
+            await asyncio.sleep(period)
+    finally:
+        # Runs on client disconnect, on cancellation and on shutdown, so the
+        # gauge cannot leak a connection that has gone away.
+        sse_connections.dec()
 
 
 @app.get("/stream", tags=["signals"], dependencies=[Protected],

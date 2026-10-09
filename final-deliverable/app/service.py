@@ -5,12 +5,14 @@ the loaded model, and it is the only thing that replaces either -- so a request
 never sees a half-swapped pair.
 """
 import logging
+import threading
 from datetime import datetime, timezone
 from pathlib import Path
 
 from .config import Settings
-from .features import FeatureStore, FeatureStoreError
+from .features import ANNUAL_PANEL, FeatureStore, FeatureStoreError
 from .model import ModelArtifactError, RawSignal, SignalModel, load_model
+from .observability import model_reloads, signal_recomputes
 from .schemas import (
     FeatureStoreInfo,
     ModelInfo,
@@ -38,7 +40,20 @@ class SignalService:
         self.load_error: str | None = None
         self._signals: list[RawSignal] = []
         self._computed_at: datetime | None = None
+        # Identity of the panel file the current state was built from, so a
+        # change on disk is detectable without re-parsing it.
+        self._fingerprint: tuple[int, int] | None = None
+        # FastAPI runs sync endpoints in a threadpool, so two requests can hit
+        # the freshness check at once. Everything that reads or replaces the
+        # cached state does so under this lock; it is reentrant because reload()
+        # is reachable both directly and from ensure_fresh().
+        self._lock = threading.RLock()
         self.reload()
+
+    @property
+    def computed_at(self) -> datetime | None:
+        """When the cached cross-section was computed. Read by /metrics."""
+        return self._computed_at
 
     # -- lifecycle -------------------------------------------------------
 
@@ -48,28 +63,108 @@ class SignalService:
         Loads into locals first and only publishes on success, so a failed
         refresh leaves the previously good state serving traffic.
         """
-        try:
-            store = FeatureStore.load(self.settings.feature_store)
-            model = load_model(self.settings.model_artifact)
-            signals = model.signals(store)
-        except (FeatureStoreError, ModelArtifactError) as exc:
-            self.load_error = str(exc)
-            log.error("signal service not ready: %s", exc)
-            return
-        except Exception as exc:  # noqa: BLE001 - last resort, reported not swallowed
-            self.load_error = f"unexpected error loading model or panel: {exc!r}"
-            log.exception("signal service not ready")
-            return
+        with self._lock:
+            # Recorded before the attempt, not after, so a reload that fails is
+            # not retried on every single request -- only once the file that
+            # failed actually changes.
+            self._fingerprint = self._panel_fingerprint()
+            try:
+                store = FeatureStore.load(self.settings.feature_store)
+                model = load_model(self.settings.model_artifact)
+                signals = model.signals(store)
+            except (FeatureStoreError, ModelArtifactError) as exc:
+                self.load_error = str(exc)
+                model_reloads.labels("failed").inc()
+                log.error("signal service not ready: %s", exc)
+                return
+            except Exception as exc:  # noqa: BLE001 - last resort, reported not swallowed
+                self.load_error = f"unexpected error loading model or panel: {exc!r}"
+                model_reloads.labels("error").inc()
+                log.exception("signal service not ready")
+                return
 
-        self.store = store
-        self.model = model
-        self._signals = signals
-        self._computed_at = datetime.now(timezone.utc)
-        self.load_error = None
-        log.info(
-            "loaded %s v%s over %d panel rows -> %d signals",
-            model.name, model.version, len(store.rows), len(signals),
-        )
+            self.store = store
+            self.model = model
+            self._signals = signals
+            self._computed_at = datetime.now(timezone.utc)
+            self.load_error = None
+            model_reloads.labels("ok").inc()
+            log.info(
+                "loaded %s v%s over %d panel rows -> %d signals (ttl=%s)",
+                model.name, model.version, len(store.rows), len(signals),
+                model.signal_ttl_s if model.signal_ttl_s is not None else "none",
+                extra={
+                    "model_name": model.name,
+                    "model_version": model.version,
+                    "panel_rows": len(store.rows),
+                    "signals": len(signals),
+                },
+            )
+
+    # -- freshness -------------------------------------------------------
+
+    def _panel_fingerprint(self) -> tuple[int, int] | None:
+        """(mtime_ns, size) of the panel file, or None if it cannot be read.
+
+        Both parts matter. mtime alone misses a rewrite inside the same
+        filesystem timestamp granularity, and size alone misses an edit that
+        happens to preserve the byte count. Together they catch every rebuild
+        this pipeline actually produces. A content hash would be stricter, but
+        it means reading the file on every request to avoid reading it on every
+        request.
+        """
+        root = self.settings.feature_store
+        path = root / ANNUAL_PANEL if root.is_dir() else root
+        try:
+            stat = path.stat()
+        except OSError:
+            return None
+        return (stat.st_mtime_ns, stat.st_size)
+
+    def ensure_fresh(self) -> None:
+        """Reload or recompute if the panel changed or the model's TTL lapsed.
+
+        Called on the read path, which is what makes a mounted panel usable: the
+        file is rebuilt outside the container and the next request picks it up,
+        with no API call and no restart. POST /signals/refresh remains for
+        forcing it.
+
+        This is also the self-healing path for a container that started
+        unready -- fix the mount and the next request loads it.
+        """
+        with self._lock:
+            if self.settings.watch_feature_store:
+                current = self._panel_fingerprint()
+                if current != self._fingerprint:
+                    log.info(
+                        "panel changed on disk, reloading",
+                        extra={"was": self._fingerprint, "now": current},
+                    )
+                    signal_recomputes.labels("panel_changed").inc()
+                    self.reload()
+                    return
+
+            if not self.ready:
+                return
+
+            assert self.model is not None and self.store is not None
+            ttl = self.model.signal_ttl_s
+            if ttl is None or self._computed_at is None:
+                return
+            age = (datetime.now(timezone.utc) - self._computed_at).total_seconds()
+            if age < ttl:
+                return
+
+            # The panel is unchanged, so only the cross-section is recomputed --
+            # no re-parse of the CSV and no re-load of the artifact.
+            signal_recomputes.labels("ttl_expired").inc()
+            self._signals = self.model.signals(self.store)
+            self._computed_at = datetime.now(timezone.utc)
+            log.debug(
+                "recomputed after ttl",
+                extra={"age_s": round(age, 3), "ttl_s": ttl,
+                       "signals": len(self._signals)},
+            )
 
     @property
     def ready(self) -> bool:
@@ -116,6 +211,7 @@ class SignalService:
         direction: str | None = None,
         min_confidence: float = 0.0,
     ) -> SignalSet:
+        self.ensure_fresh()
         self.require_ready()
         rows = [
             self._to_wire(s)
@@ -141,6 +237,7 @@ class SignalService:
         already decoded it by here. Case folding is a convenience -- the panel's
         own casing is what comes back in the response.
         """
+        self.ensure_fresh()
         self.require_ready()
         wanted = symbol.strip().upper()
         for signal in self._signals:
