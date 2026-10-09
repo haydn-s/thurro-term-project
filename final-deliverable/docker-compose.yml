@@ -1,0 +1,64 @@
+# Local run and the reference deployment shape.
+#
+#   docker compose -f final-deliverable/docker-compose.yml up --build
+#
+# The build context is `..` (the repository root) because the image bakes in the
+# panel from data/ -- see the note at the top of the Dockerfile.
+services:
+  signal:
+    build:
+      context: ..
+      dockerfile: final-deliverable/Dockerfile
+    image: ev-capex-signal:0.1.0
+    container_name: ev-capex-signal
+
+    # host:container. Change the left side to move the published port; changing
+    # the right side means also setting SIGNAL_PORT, since the server binds what
+    # that variable says.
+    ports:
+      - "8000:8000"
+
+    environment:
+      SIGNAL_PORT: "8000"
+      SIGNAL_HORIZON: "FY27"
+      SIGNAL_STREAM_INTERVAL: "60"
+      LOG_LEVEL: "INFO"
+      # Unset: serve the null baseline. Set it to an artifact path inside the
+      # container to serve a fitted model -- and note the container will refuse
+      # to start serving if that path is unloadable, by design.
+      # MODEL_ARTIFACT: "/app/model/model.joblib"
+      #
+      # Unset: no authentication, which is correct only on a private network.
+      # SIGNAL_API_TOKEN: "${SIGNAL_API_TOKEN}"
+
+    # Uncomment to iterate on the panel without rebuilding: the mount shadows
+    # the baked-in snapshot, then POST /signals/refresh to re-read it. Read-only
+    # because the service never writes here.
+    # volumes:
+    #   - ../data/processed:/app/feature-store:ro
+
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD", "python", "-m", "app.healthcheck", "/ready"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+    # The workload is a cached 36-row cross-section, so these are generous. They
+    # are here so that a manager scheduling this container has a declared
+    # footprint rather than an unbounded one.
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
+
+    security_opt:
+      - no-new-privileges:true
+    # The image already runs as uid 10001 with an unwritable /app; tmpfs covers
+    # the one path a Python process may still want to write.
+    read_only: true
+    tmpfs:
+      - /tmp

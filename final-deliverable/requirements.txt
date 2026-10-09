@@ -1,0 +1,15 @@
+# Serving dependencies for the deliverable container.
+#
+# Deliberately short. This is the deployed surface, so it carries the web
+# framework and nothing else -- the feature store is read with the standard
+# library (see app/features.py). Versions are exact, not ranges: the point of
+# shipping a container is that what was tested is what runs.
+#
+# The repo root's requirements.txt is a different thing -- the pinned notebook
+# environment (pandas, matplotlib, statsmodels). Do not install that here.
+#
+# WHEN THE FITTED MODEL LANDS, add its runtime dependencies below
+# (scikit-learn / joblib / statsmodels / numpy, whichever it needs) and rebuild.
+fastapi==0.143.0
+uvicorn[standard]==0.54.0
+pydantic==2.14.0
