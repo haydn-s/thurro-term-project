@@ -1,0 +1,205 @@
+company,nse_symbol,tier,primary_panel,fiscal_period,period_end,window_start,window_end,window_months,productive_assets_cr,productive_assets_cr_growth_pct,national_ev_production,national_ev_registrations,own_ev_registrations,own_ev_reg_growth_pct,own_ev_production,own_ev_prod_growth_pct,x_coverage
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,3352.47,-16.1125,236006,769143,,,,,own_reg;own_prod
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,4448.11,32.6816,258204,972322,,,,,own_reg;own_prod
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,4976.44,11.8776,370193,928545,,,,,own_reg;own_prod
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,5312.33,6.7496,457012,1110748,,,,,own_reg;own_prod
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,5676.33,6.852,523014,1133675,,,,,own_reg;own_prod
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,6314.72,11.2465,729907,1413408,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,8398.73,-0.1866,236006,769143,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,8571.33,2.0551,258204,972322,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,8808.53,2.7674,370193,928545,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,9414.08,6.8746,457012,1110748,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,10540.57,11.966,523014,1133675,,,,,own_reg;own_prod
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,11374.83,7.9148,729907,1413408,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,162.47,6.9726,236006,769143,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,163.11,0.3939,258204,972322,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,248.35,52.2592,370193,928545,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,300.81,21.1234,457012,1110748,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,321.39,6.8415,523014,1133675,,,,,own_reg;own_prod
+Autoline Industries Limited,AUTOIND,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,373.04,16.0708,729907,1413408,,,,,own_reg;own_prod
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,2996.18,2.346,236006,769143,37242,,47790,,complete
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,3252.47,8.5539,258204,972322,85382,129.2627,80755,68.9789,complete
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,3355.14,3.1567,370193,928545,103101,20.7526,130763,61.9256,complete
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,3737.39,11.393,457012,1110748,188904,83.2223,153337,17.2633,complete
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,3719.61,-0.4757,523014,1133675,159160,-15.7456,147414,-3.8627,complete
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,13482.05,262.4587,729907,1413408,231484,45.4411,221109,49.9919,complete
+Belrise Industries Limited,BELRISE,ev_component,yes,Q4 FY22,2022-03-31,2021-10,2022-03,6,2580.62,5.2696,,343256,,,,,production;own_reg;own_prod
+Belrise Industries Limited,BELRISE,ev_component,yes,Q4 FY24,2024-03-31,2022-04,2024-03,24,2638.94,2.2599,,2964054,,,,,production;own_reg;own_prod
+Belrise Industries Limited,BELRISE,ev_component,yes,Q4 FY25,2025-03-31,2024-04,2025-03,12,3162.93,19.8561,827205,2039293,,,,,own_reg;own_prod
+Belrise Industries Limited,BELRISE,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,3283.36,3.8075,523014,1133675,,,,,own_reg;own_prod
+Belrise Industries Limited,BELRISE,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,3343.82,1.8414,729907,1413408,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,6954.75,1.3506,236006,769143,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,7300.63,4.9733,258204,972322,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,7906.08,8.2931,370193,928545,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,8358.63,5.7241,457012,1110748,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,9153.85,9.5138,523014,1133675,,,,,own_reg;own_prod
+Bharat Forge Limited,BHARATFORG,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,9513.37,3.9275,729907,1413408,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q4 FY24,2024-03-31,2024-01,2024-03,3,5864.13,0.0002,134066,522225,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q1 FY25,2024-06-30,2024-04,2024-06,3,5863.76,-0.0063,139258,410211,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q3 FY25,2024-12-31,2024-07,2024-12,6,5923.35,1.0162,447761,1092989,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q1 FY26,2025-06-30,2025-01,2025-06,6,6138.8,3.6373,476235,1085878,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q3 FY26,2025-12-31,2025-07,2025-12,6,6329.71,3.1099,625777,1270344,,,,,own_reg;own_prod
+Cie Automotive India Limited,CIEINDIA,ev_component,yes,Q1 FY27,2026-06-30,2026-01,2026-06,6,6424.22,1.4931,845154,1565777,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,3324.39,5.1337,236006,769143,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,3469.48,4.3644,258204,972322,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,3719.4,7.2034,370193,928545,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,3964.94,6.6016,457012,1110748,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,4165.8,5.0659,523014,1133675,,,,,own_reg;own_prod
+Eicher Motors Limited,EICHERMOT,oem_ice_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,4588.0,10.1349,729907,1413408,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,3510.34,5.9322,236006,769143,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,3789.51,7.9528,258204,972322,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,4063.7,7.2355,370193,928545,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,4351.11,7.0726,457012,1110748,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,5888.0,35.3218,523014,1133675,,,,,own_reg;own_prod
+Endurance Technologies Limited,ENDURANCE,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,6188.65,5.1061,729907,1413408,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,98.77,17.9907,236006,769143,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,113.6,15.0147,258204,972322,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,532.83,369.0405,370193,928545,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,665.76,24.9479,457012,1110748,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,761.68,14.4076,523014,1133675,,,,,own_reg;own_prod
+Exicom Tele Systems Limited,EXICOM,charging,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,868.23,13.9888,729907,1413408,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,4545.29,8.0275,236006,769143,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,5204.82,14.5102,258204,972322,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,6525.06,25.3657,370193,928545,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,7578.75,16.1484,457012,1110748,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,7947.67,4.8678,523014,1133675,,,,,own_reg;own_prod
+Exide Industries Limited,EXIDEIND,battery_cell,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,8204.47,3.2311,729907,1413408,,,,,own_reg;own_prod
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,6588.66,-0.3667,236006,769143,3968,,6852,,complete
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,6716.26,1.9367,258204,972322,14807,273.1603,12412,81.1442,complete
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,6733.12,0.251,370193,928545,21625,46.0458,28699,131.2198,complete
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,6770.16,0.5501,457012,1110748,29169,34.8855,31490,9.7251,complete
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,6820.3,0.7406,523014,1133675,59516,104.0385,62395,98.1423,complete
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,7138.53,4.6659,729907,1413408,90171,51.5072,85725,37.3908,complete
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q4 FY24,2024-03-31,2024-01,2024-03,3,8267.27,-1.7449,134066,522225,,,,,own_reg;own_prod
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q1 FY25,2024-06-30,2024-04,2024-06,3,8225.51,-0.5051,139258,410211,,,,,own_reg;own_prod
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q2 FY25,2024-09-30,2024-07,2024-09,3,8718.31,5.9911,230935,518334,,,,,own_reg;own_prod
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,11823.47,35.6165,457012,1110748,,,,,own_reg;own_prod
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,13522.85,14.3729,523014,1133675,,,,,own_reg;own_prod
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,13795.22,2.0141,729907,1413408,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,3659.04,1.1545,236006,769143,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,3719.84,1.6616,258204,972322,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,3714.22,-0.1511,370193,928545,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,3586.1,-3.4494,457012,1110748,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,3628.2,1.174,523014,1133675,,,,,own_reg;own_prod
+Jbm Auto Limited,JBMA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,3556.34,-1.9806,729907,1413408,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,514.4,4.5635,236006,769143,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,884.73,71.9926,258204,972322,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,913.6,3.2631,370193,928545,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,1038.51,13.6723,457012,1110748,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,1113.43,7.2142,523014,1133675,,,,,own_reg;own_prod
+Jupiter Wagons Limited,JWL,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,1384.76,24.3688,729907,1413408,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,901.38,13.8422,236006,769143,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,1146.04,27.1428,258204,972322,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,1233.43,7.6254,370193,928545,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,1318.01,6.8573,457012,1110748,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,1444.92,9.6289,523014,1133675,,,,,own_reg;own_prod
+Lumax Industries Limited,LUMAXIND,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,1538.42,6.4709,729907,1413408,,,,,own_reg;own_prod
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,32558.34,4.6604,236006,769143,31062,,12025,,complete
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,36168.71,11.0889,258204,972322,37563,20.9291,9632,-19.9002,complete
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,39872.28,10.2397,370193,928545,34422,-8.362,7951,-17.4522,complete
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,42934.0,7.6788,457012,1110748,45307,31.6222,11969,50.5345,complete
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,44442.16,3.5127,523014,1133675,69556,53.5215,23590,97.0925,complete
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,46198.95,3.953,729907,1413408,83103,19.4764,30992,31.3777,complete
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,21470.2,-33.0821,236006,769143,,,,,own_reg;own_prod
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,35599.6,65.8094,258204,972322,,,,,own_reg;own_prod
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,37640.1,5.7318,370193,928545,,,,,own_reg;own_prod
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,40911.7,8.6918,457012,1110748,,,,,own_reg;own_prod
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,43400.8,6.0841,523014,1133675,,,,,own_reg;own_prod
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,44361.6,2.2138,729907,1413408,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,1181.22,6.3233,236006,769143,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,1269.97,7.5134,258204,972322,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,1344.97,5.9057,370193,928545,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,1592.65,18.4153,457012,1110748,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,1634.66,2.6377,523014,1133675,,,,,own_reg;own_prod
+Minda Corporation Limited,MINDACORP,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,1759.22,7.6199,729907,1413408,,,,,own_reg;own_prod
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,Q4 FY24,2024-03-31,2023-07,2024-03,9,3204.0,72.4834,391760,1355325,272780,,,,own_prod
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,3386.0,5.6804,370193,928545,213511,-21.7278,,,own_prod
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,3856.0,13.8807,457012,1110748,146511,-31.3801,,,own_prod
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,3827.0,-0.7521,523014,1133675,111566,-23.8515,,,own_prod
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,3848.0,0.5487,729907,1413408,56951,-48.9531,,,own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,355.15,-1.2402,236006,769143,,,,,own_reg;own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,401.96,13.1803,258204,972322,,,,,own_reg;own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,439.65,9.3766,370193,928545,,,,,own_reg;own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,541.67,23.2048,457012,1110748,,,,,own_reg;own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,609.0,12.4301,523014,1133675,,,,,own_reg;own_prod
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,655.97,7.7126,729907,1413408,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,331.58,0.616,236006,769143,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,329.94,-0.4946,258204,972322,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,330.31,0.1121,370193,928545,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,342.79,3.7783,457012,1110748,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,347.01,1.2311,523014,1133675,,,,,own_reg;own_prod
+Ppap Automotive Limited,PPAP,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,364.25,4.9682,729907,1413408,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,380.48,-3.0822,236006,769143,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,352.44,-7.3696,258204,972322,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,348.62,-1.0839,370193,928545,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,344.68,-1.1302,457012,1110748,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,357.33,3.6701,523014,1133675,,,,,own_reg;own_prod
+Precision Camshafts Limited,PRECAM,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,371.98,4.0999,729907,1413408,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,29735.05,20.7526,236006,769143,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,32619.21,9.6995,258204,972322,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,35148.47,7.7539,370193,928545,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,35826.46,1.9289,457012,1110748,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,38707.61,8.042,523014,1133675,,,,,own_reg;own_prod
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,42591.62,10.0342,729907,1413408,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,1536.4,4.5682,236006,769143,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,1667.49,8.5323,258204,972322,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,1844.86,10.6369,370193,928545,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,2132.15,15.5725,457012,1110748,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,2259.05,5.9517,523014,1133675,,,,,own_reg;own_prod
+Sansera Engineering Limited,SANSERA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,2481.27,9.8369,729907,1413408,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,2060.59,22.7455,236006,769143,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,2314.19,12.3072,258204,972322,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,2428.77,4.9512,370193,928545,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,2546.7,4.8555,457012,1110748,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,4062.36,59.5147,523014,1133675,,,,,own_reg;own_prod
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,4073.11,0.2646,729907,1413408,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,285.97,-0.1257,236006,769143,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,284.45,-0.5315,258204,972322,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,293.96,3.3433,370193,928545,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,332.08,12.9678,457012,1110748,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,332.22,0.0422,523014,1133675,,,,,own_reg;own_prod
+Sterling Tools Limited,STERTOOLS,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,348.47,4.8913,729907,1413408,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,814.93,0.7069,236006,769143,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,825.39,1.2835,258204,972322,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,806.07,-2.3407,370193,928545,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,797.53,-1.0595,457012,1110748,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,783.54,-1.7542,523014,1133675,,,,,own_reg;own_prod
+Subros Limited,SUBROS,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,808.7,3.2111,729907,1413408,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,912.23,63.5671,236006,769143,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,1092.25,19.7341,258204,972322,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,1217.26,11.4452,370193,928545,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,1209.88,-0.6063,457012,1110748,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,1221.05,0.9232,523014,1133675,,,,,own_reg;own_prod
+Syrma Sgs Technology Limited,SYRMA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,1530.12,25.3118,729907,1413408,,,,,own_reg;own_prod
+Tata Motors Limited,TMCV,oem_ev_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,15716.0,1.1391,523014,1133675,40121,,,,own_prod
+Tata Motors Limited,TMCV,oem_ev_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,15988.0,1.7307,729907,1413408,52035,29.6952,,,own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,4487.06,18.7354,236006,769143,,,,,own_reg;own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,4774.0,6.3948,258204,972322,,,,,own_reg;own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,5348.75,12.0392,370193,928545,,,,,own_reg;own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,5979.23,11.7874,457012,1110748,,,,,own_reg;own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,6729.89,12.5545,523014,1133675,,,,,own_reg;own_prod
+Tube Investments Of India Limited,TIINDIA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,7127.13,5.9026,729907,1413408,,,,,own_reg;own_prod
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,6661.19,2.6143,236006,769143,83378,,103806,,complete
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,6923.77,3.9419,258204,972322,114102,36.849,86547,-16.6262,complete
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,7267.37,4.9626,370193,928545,95728,-16.1031,128386,48.3425,complete
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,9109.9,25.3535,457012,1110748,158973,66.0674,155058,20.7749,complete
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,9847.88,8.1009,523014,1133675,158117,-0.5385,163712,5.5811,complete
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,11173.13,13.4572,729907,1413408,228928,44.7839,238405,45.6246,complete
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,3952.27,9.5164,236006,769143,,,,,own_reg;own_prod
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,4146.33,4.9101,258204,972322,,,,,own_reg;own_prod
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,4782.03,15.3316,370193,928545,,,,,own_reg;own_prod
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,5479.41,14.5833,457012,1110748,,,,,own_reg;own_prod
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,5949.41,8.5776,523014,1133675,,,,,own_reg;own_prod
+Uno Minda Limited,UNOMINDA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,6404.12,7.6429,729907,1413408,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,2142.47,-1.9904,236006,769143,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,2106.61,-1.6738,258204,972322,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,2056.21,-2.3925,370193,928545,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,2119.27,3.0668,457012,1110748,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,2280.02,7.5852,523014,1133675,,,,,own_reg;own_prod
+Varroc Engineering Limited,VARROC,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,2383.06,4.5193,729907,1413408,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q2 FY24,2023-09-30,2023-04,2023-09,6,687.8,3.614,236006,769143,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q4 FY24,2024-03-31,2023-10,2024-03,6,756.83,10.0363,258204,972322,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q2 FY25,2024-09-30,2024-04,2024-09,6,767.01,1.3451,370193,928545,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q4 FY25,2025-03-31,2024-10,2025-03,6,804.95,4.9465,457012,1110748,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q2 FY26,2025-09-30,2025-04,2025-09,6,791.24,-1.7032,523014,1133675,,,,,own_reg;own_prod
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,yes,Q4 FY26,2026-03-31,2025-10,2026-03,6,792.42,0.1491,729907,1413408,,,,,own_reg;own_prod

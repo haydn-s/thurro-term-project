@@ -1,0 +1,53 @@
+company,nse_symbol,tier,ev_volume_series,in_announcements,roster_mentions,primary_panel,rationale
+Ola Electric Mobility Limited,OLAELEC,oem_ev_pure,yes,yes,514,yes,Pure-play electric 2W OEM with its own cell plant; highest mention count in the corpus by a factor of four
+Ather Energy Limited,ATHERENERG,oem_ev_pure,yes,yes,47,no,Pure-play electric 2W OEM but listed 2025 so no FY23-FY26 cash-flow history in the feed
+Olectra Greentech Limited,OLECTRA,oem_ev_pure,no,yes,80,yes,Electric bus OEM; capex is almost entirely EV-attributable
+Tvs Motor Company Limited,TVSMOTOR,oem_ev_led,yes,yes,,yes,Large 2W OEM with the iQube line; top-three electric 2W by registrations
+Bajaj Auto Limited,BAJAJ-AUTO,oem_ev_led,yes,no,,yes,Large 2W/3W OEM with Chetak; 3W electric leader
+Hero Motocorp Limited,HEROMOTOCO,oem_ev_led,yes,yes,35,yes,Largest 2W OEM overall; Vida is the EV line
+Mahindra & Mahindra Limited,M&M,oem_ev_led,yes,yes,110,yes,4W EV nameplates (XEV) plus 3W; capex is group-wide so EV share is not separable
+Tata Motors Limited,TMCV,oem_ev_led,yes,yes,135,yes,Largest 4W EV maker by registrations; demerged entity so only FY25-FY26 available under this ISIN
+Hyundai Motor India Limited,HYUNDAI,oem_ice_led,no,yes,54,yes,4W OEM with announced EV capacity; December and June period ends appear alongside March
+Maruti Suzuki India Limited,MARUTI,oem_ice_led,no,yes,107,yes,Largest 4W OEM; EV entry is recent so most capex is ICE
+Eicher Motors Limited,EICHERMOT,oem_ice_led,no,yes,,yes,Motorcycle OEM; announcements in the set are ICE-led. No FY26 row
+Ashok Leyland Limited,ASHOKLEY,oem_ice_led,no,no,,yes,CV OEM with electric bus exposure through subsidiaries not consolidated here
+Exide Industries Limited,EXIDEIND,battery_cell,no,yes,71,yes,Lead-acid incumbent building lithium cell capacity; capex step-up is the clearest battery signal in the set
+Amara Raja Energy & Mobility Limited,ARE&M,battery_cell,no,yes,97,yes,Lead-acid incumbent with announced gigafactory; renamed to signal the mobility pivot
+Uno Minda Limited,UNOMINDA,ev_component,no,yes,103,yes,Largest EV-exposed component maker by mentions; EV-specific product lines disclosed
+Sona Blw Precision Forgings Limited,SONACOMS,ev_component,no,yes,28,yes,Driveline maker reporting an explicit EV revenue share; announced India capacity
+Endurance Technologies Limited,ENDURANCE,ev_component,no,yes,67,yes,Suspension and braking supplier with disclosed EV programmes
+Samvardhana Motherson International Limited,MOTHERSON,ev_component,no,no,27,yes,Largest component group; EV share small relative to global book
+Varroc Engineering Limited,VARROC,ev_component,no,yes,44,yes,Lighting and electricals supplier to 2W OEMs including EV lines
+Minda Corporation Limited,MINDACORP,ev_component,no,no,31,yes,Wiring and electronics supplier with EV product disclosures
+Sansera Engineering Limited,SANSERA,ev_component,no,yes,36,yes,Precision components; announcements in the set are ICE-led
+Bharat Forge Limited,BHARATFORG,ev_component,no,no,,yes,Forgings supplier diversifying into EV components
+Tube Investments Of India Limited,TIINDIA,ev_component,no,yes,38,yes,Metal-formed products plus electric 3W venture; capex is group-wide
+Jbm Auto Limited,JBMA,ev_component,no,no,51,yes,Sheet metal plus electric bus assembly; duplicated across two industry labels in the source
+Belrise Industries Limited,BELRISE,ev_component,no,no,36,yes,Sheet metal supplier to 2W OEMs; 2025 IPO so balance-sheet history is sparse
+Dhoot Transmission Limited,DHOOTTRANS,ev_component,no,no,27,yes,Wiring harness supplier with EV exposure; listed 2025 so no FY23 row
+Lumax Industries Limited,LUMAXIND,ev_component,no,no,27,yes,Lighting supplier
+Subros Limited,SUBROS,ev_component,no,no,27,yes,Thermal systems; EV thermal management is a stated growth line
+Sterling Tools Limited,STERTOOLS,ev_component,no,no,38,yes,Fasteners plus an EV powertrain-electronics joint venture
+Zf Commercial Vehicle Control System India Limited,ZFCVINDIA,ev_component,no,no,30,yes,CV braking and control systems
+Precision Camshafts Limited,PRECAM,ev_component,no,no,31,yes,Camshafts are an ICE-only product; included as a negative control
+Ppap Automotive Limited,PPAP,ev_component,no,no,25,yes,Sealing systems; reports capex partly under capital work in progress
+Cie Automotive India Limited,CIEINDIA,ev_component,no,no,45,yes,Forgings supplier on a December fiscal year end; periods are not comparable to the March filers
+Autoline Industries Limited,AUTOIND,ev_component,no,no,38,yes,Sheet metal supplier; no FY26 row
+Syrma Sgs Technology Limited,SYRMA,ev_component,no,no,31,yes,Electronics manufacturing including EV components; not auto-exclusive
+Jupiter Wagons Limited,JWL,ev_component,no,no,39,yes,Rolling stock with an electric LCV venture; mostly rail
+Exicom Tele Systems Limited,EXICOM,charging,no,yes,27,yes,EV charger maker; demand follows the vehicle fleet rather than production
+Motherson Sumi Wiring India Limited,MSUMI,ev_component,no,no,31,no,Wiring harness maker but no rows in the cash-flow feed
+Rolex Rings Limited,RATNAVEER,ev_component,no,no,34,no,Bearing rings but no rows in the cash-flow feed
+Divgi Torqtransfer Systems Limited,DIVGIITTS,ev_component,no,no,29,no,Transfer cases and EV driveline but no rows in the cash-flow feed
+Sedemac Mechatronics Limited,SEDEMAC,ev_component,no,no,26,no,Powertrain controls but no rows in the cash-flow feed
+Reliance Industries Limited,RELIANCE,upstream_material,no,yes,44,no,Announced cell gigafactory but capex is dominated by refining and telecom; two orders of magnitude larger than the panel
+Hindalco Industries Limited,HINDALCO,upstream_material,no,yes,39,no,Aluminium supplier to the sector; capex driven by metals not vehicles
+Vedanta Limited,VEDL,upstream_material,no,no,31,no,Diversified metals; duplicated across two industry labels in the source
+Hindustan Zinc Limited,HINDZINC,upstream_material,no,no,36,no,Zinc and battery metals; capex driven by mining
+Tata Power Company Limited,TATAPOWER,upstream_material,no,yes,77,no,Charging network and cells but capex is dominated by power generation
+Gujarat Fluorochemicals Limited,FLUOROCHEM,upstream_material,no,no,50,no,Battery chemicals among many product lines
+Himadri Speciality Chemical Limited,HSCL,upstream_material,no,no,68,no,Anode material among many product lines
+Neogen Chemicals Limited,NEOGEN,upstream_material,no,no,60,no,Electrolyte salts; small and early
+Gravita India Limited,GRAVITA,upstream_material,no,yes,,no,Lead and battery recycling rather than vehicle manufacture
+Shakti Pumps (India) Limited,SHAKTIPUMP,out_of_scope,no,no,25,no,Pumps; EV motor line is a minor segment. Roster hit is not vehicle manufacturing
+Gensol Engineering Limited,GENSOL,out_of_scope,no,no,54,no,Solar EPC with an EV leasing arm; no FY25 or FY26 rows and the company is under regulatory action
