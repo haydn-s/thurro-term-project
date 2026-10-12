@@ -1,0 +1,34 @@
+# Applies to the build above when BuildKit is used with
+# `-f final-deliverable/Dockerfile`, keeping the exclusion list beside the
+# Dockerfile it belongs to instead of at the repository root.
+#
+# The context is the repo root, which holds notebooks, a venv and a 580 KB
+# image. Excluding them keeps the context small and, more importantly, keeps
+# anything not named in a COPY out of reach of the build.
+**/.git
+**/.VENV
+**/.venv
+**/__pycache__
+**/*.pyc
+**/.DS_Store
+**/.ipynb_checkpoints
+
+# Analysis and authoring material: not part of the runtime.
+notebooks/
+notebook-590/
+presentations/
+*.jpg
+*.png
+
+# Raw connector extracts. Only data/processed/ and the one manual file are
+# COPYed; the raw .toon/.json inputs belong to the build pipeline, not the
+# serving image.
+data/raw/
+
+# This directory's own non-runtime files.
+final-deliverable/tests/
+final-deliverable/scripts/
+final-deliverable/README.md
+final-deliverable/Makefile
+final-deliverable/docker-compose.yml
+final-deliverable/requirements-dev.txt

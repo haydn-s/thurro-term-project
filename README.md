@@ -28,11 +28,50 @@ brief. Modelling has not started.
 
 Three of the four are in good shape. The fourth — industrial investment
 tracking, which was meant to supply the **dependent variable** — turned out to
-contain no EV content at all, and the substitute built from exchange filings is
-currently too small to regress on. That is the open risk on the project, and it
-is a design problem rather than a data-availability one. See
-[`data/README.md`](data/README.md) for the full accounting and
-[`presentations/`](presentations/) for the current status deck.
+contain no EV content at all.
+
+Following industry-partner feedback, the dependent variable has been rebuilt from
+**company financials** rather than from announcement events: a named target set of
+52 companies, and what they actually spent on plant each year, read from their
+filed cash-flow statements. That takes the dependent variable from 16 usable
+events to 182 company-years. Announcements are what a company said; capex is what
+it spent, which is the backward-looking confirmation the feedback asked for.
+
+One caveat travels with that fix: more companies buys precision, not time. The
+independent variable is a single national series and capex is filed annually, so a
+pooled regression still turns on four distinct values of X. The route that
+identifies a lead is the six companies that have *their own* monthly EV volume
+series, where X varies by company and by month.
+
+**That route has now been built and tested, and the answer is null.** The
+within-company relationship between a company's own EV volume growth and its own
+asset growth is r = -0.003, and the one-period lead is r = -0.37 — wrong sign, and
+on 19 observations. Swapping registrations for genuine **production**, which is the
+variable the question actually names, does not change it: r = +0.068 on the same
+four firms. The national design has only 2–3 usable period pairs, so it
+cannot be estimated at all. The well-powered cross-sectional test finds no
+difference in capex intensity between EV-exposed firms and the rest (2.06 vs 2.08,
+t = -0.06, n = 35), and an ICE-only negative control moves with the EV names.
+
+The reading that survives is that **FY23–FY26 automotive capex was driven by a
+sector-wide cycle, not by EV volumes specifically.** The ICE-led OEMs in fact grew
+capex *faster* than the EV-led ones (+33/+38/+19% against +10/+38/+19%), which is
+the wrong way round if EV volume were driving plant investment. That is a real
+answer to the project's question rather than a data failure, and it is what model
+evaluation should be scoped around. The full working, executed, is in
+[`notebook-590/03_capex_panel_eda.ipynb`](notebook-590/03_capex_panel_eda.ipynb).
+
+The **deliverable that result ships in** is now scaffolded, in
+[`final-deliverable/`](final-deliverable/README.md): a Docker image serving
+per-company signals on a port. No fitted model exists yet, so the container
+serves a documented null baseline — the cumulative capex intensity above — and
+flags `is_baseline` on every response so a consumer can refuse to act on it.
+What is built and tested is the delivery mechanism and the seam the model drops
+into.
+
+See [`data/README.md`](data/README.md) for the full accounting and
+[`presentations/`](presentations/) for the current status deck (which still
+describes the pre-feedback state of the dependent variable).
 
 ## What's in the data
 
@@ -43,6 +82,10 @@ is a design problem rather than a data-availability one. See
 | EV pricing & specs | model variant × price | 2025-11 → 2026-09 |
 | Industrial investment projects | project | single snapshot — **no usable EV content** |
 | Investment announcements | event | 2021-12 → 2026-09, hand-coded, 34 events |
+| Target companies | company | 52 named, 36 in the modelling panel |
+| Company capex | company × fiscal year | FY23 → FY26, 47 companies, 182 rows |
+| Company asset stocks | company × half year | 2023-03 → 2026-03, 33 companies |
+| Modelling panels | company × period | financials joined to national and own-company X |
 
 Selected findings from first-pass exploration:
 
@@ -60,6 +103,13 @@ Selected findings from first-pass exploration:
   usable production window (2023-04 → 2026-07), across 11 distinct months, up
   from 9 events in the first seed. Still thin for a lead test; see
   [`data/README.md`](data/README.md).
+- Capex across the 36-company panel ran **29,808 → 42,510 → 52,841 → 52,760 Cr**
+  over FY23–FY26: a 77% rise over three years that flattens in the last one. That
+  is a dependent variable with real movement in it, unlike the announcement count.
+- Only **6 of 52** target companies have their own monthly EV registrations series
+  to pair against their own capex, and only **4** have their own EV *production*
+  series. That overlap, not the 182-row total, is what determines whether a lead is
+  detectable.
 
 ## Repository layout
 
@@ -71,9 +121,41 @@ data/
   README.md   grain, provenance and caveats for every file — read before modelling
 scripts/
   build_processed.py          rebuilds processed/ from raw/
+  build_financials.py         rebuilds the company capex and asset files
+  build_panel.py              joins the financials to the EV volume series
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
+notebook-590/
+  01_eda.ipynb                first-pass exploration of the EV volume series
+  02_power_simulation.ipynb   what effect size this design can actually detect
+  03_capex_panel_eda.ipynb    the capex panel, and the null result
+notebooks/
+  preliminary-eda.ipynb       the first scratch pass; the cited EDA is notebook-590/
+final-deliverable/
+  Dockerfile    the deployable image — build context is the repo root
+  app/          the signal service: HTTP surface, model seam, feature reader
+  model/        fitted artifacts go here (empty; the model is not written yet)
+  tests/        91 tests, runnable without Docker
+  README.md     the deliverable's documentation — read before deploying
 presentations/
+```
+
+## Environment
+
+```bash
+python3 -m venv .VENV && .VENV/bin/python -m pip install -r requirements.txt
+```
+
+The build scripts in `scripts/` are standard-library only and run under any
+Python 3. The notebooks need the pinned environment: pandas, matplotlib and
+statsmodels to run, plus `nbclient` and `nbformat` to execute headlessly and store
+outputs. Built and executed against Python 3.14.7 with pandas 3.0.6.
+
+```bash
+.VENV/bin/python -c "import nbformat; from nbclient import NotebookClient; \
+  nb = nbformat.read('notebook-590/03_capex_panel_eda.ipynb', as_version=4); \
+  NotebookClient(nb, timeout=600, resources={'metadata': {'path': '.'}}).execute(); \
+  nbformat.write(nb, 'notebook-590/03_capex_panel_eda.ipynb')"
 ```
 
 ## Reproducing the data
@@ -89,6 +171,22 @@ the cleaning rules and re-running the validation checks (segment columns sum to
 totals; state-month keys unique; state totals reconcile against the national
 file).
 
+The company financials rebuild separately:
+
+```bash
+python3 scripts/build_financials.py
+```
+
+That one also re-checks both financial extracts against
+`data/manual/target_companies.csv` in both directions, so a company that silently
+drops out of the feed fails the build instead of quietly shrinking the panel.
+
+Then the modelling panels, which join those to the EV volume series:
+
+```bash
+python3 scripts/build_panel.py
+```
+
 Two files are outside that pipeline and the script says so when it runs: the
 two-wheeler price file (the connector returned it inline, so no extract was
 saved) and the hand-coded announcements file. `data/raw/QUERIES.md` records the
@@ -97,6 +195,34 @@ exact query behind every extract, so anything can be re-pulled.
 **Read `data/raw/QUERIES.md` before re-pulling.** It documents two connector
 behaviours that cause silent data loss: the row cap scales with row width, and
 small results are returned inline rather than written to disk.
+
+## The deployed model
+
+The final deliverable is a Docker image: the model, the feature snapshot it
+reads and an HTTP server. It deploys to any Docker manager, and signals leave
+the container on a port — either on request or as a push stream — so other
+software can consume them.
+
+```bash
+docker compose -f final-deliverable/docker-compose.yml up --build
+curl localhost:8000/signals | python3 -m json.tool
+```
+
+The build context is the repository root, not `final-deliverable/`, because the
+image bakes in the panel from `data/`. A given tag then always serves the same
+numbers, which is what keeps a result reproducible later.
+
+[`final-deliverable/README.md`](final-deliverable/README.md) is the
+deliverable's own documentation — the wire contract, the environment variables,
+the deployment shapes, and the four steps that swap the null baseline for a
+fitted model. **Read it before deploying.**
+
+The image builds and runs: healthy in ~6s, 19/19 on its smoke test, and the
+signals it serves are numerically identical to a host run — which is what the
+baked-in snapshot exists to guarantee. It exposes Prometheus metrics on
+`/metrics`, logs one JSON record per request, picks up a rebuilt panel without a
+restart, and continues a caller's OpenTelemetry trace when an OTLP endpoint is
+configured.
 
 ## Presentations
 
