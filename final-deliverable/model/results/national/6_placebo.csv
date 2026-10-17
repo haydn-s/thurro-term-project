@@ -1,0 +1,4 @@
+model,n_placebo_runs,real_brier,placebo_brier_median,share_placebo_better_or_equal
+"Logit L2, core",200,0.23580735245894888,0.28166797603028493,0.035
+"Poisson, core",200,0.23826056610265628,0.23818793513087932,0.5
+"Logit L2, controls+production+mix (best ablation set)",200,0.1850907577229635,0.2638590755660941,0.0
