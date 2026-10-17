@@ -4,12 +4,13 @@ Run from the repo root (after build_financials.py):
 
     python3 scripts/build_company_panel.py
 
-Named build_company_panel.py, not build_panel.py. It was called the latter until
-the data-cleaning pipeline landed a different `scripts/build_panel.py` -- which
-orchestrates clean.py and features.py to build data/clean/ and data/model/ --
-and the merge resolved by keeping only that one. This file is the company-side
-join restored from edfdf06; the two scripts build different things for different
-questions and now have different names.
+Named build_company_panel.py. It was called build_panel.py until the
+data-cleaning pipeline landed a second script under that same name, and a merge
+resolved the collision by keeping only the other one -- this file is the
+company-side join, restored from edfdf06. That other script is now
+build_clean_pipeline.py, and nothing is called build_panel.py any more. The two
+build different things for different questions, and sharing one name is what
+lost this file once already.
 
 Produces two panels, both keyed on company x reporting period:
 

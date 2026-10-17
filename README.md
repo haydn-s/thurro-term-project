@@ -123,7 +123,7 @@ scripts/
   build_processed.py          rebuilds processed/ from raw/
   build_financials.py         rebuilds the company capex and asset files
   build_company_panel.py      joins the financials to the EV volume series
-  build_panel.py              runs clean.py then features.py -> clean/ + model/
+  build_clean_pipeline.py     runs clean.py then features.py -> clean/ + model/
   clean.py                    builds data/clean/ from processed extracts
   features.py                 builds data/model/ national and state panels
   parse_production_extract.py rebuilds the production file
@@ -190,10 +190,11 @@ Then the company modelling panels, which join those to the EV volume series:
 python3 scripts/build_company_panel.py
 ```
 
-Note the name. A separate `scripts/build_panel.py` arrived with the data-cleaning
-pipeline and builds `data/clean/` and `data/model/` for the announcement models —
-a different output for a different question. Running the wrong one will not
-rebuild the company panels.
+Note the name. The other build script is `scripts/build_clean_pipeline.py`,
+which produces `data/clean/` and `data/model/` for the announcement models — a
+different output for a different question. Both were briefly called
+`build_panel.py`, which is how the company-side join came to be overwritten
+once; neither carries that name now.
 
 Two files are outside that pipeline and the script says so when it runs: the
 two-wheeler price file (the connector returned it inline, so no extract was

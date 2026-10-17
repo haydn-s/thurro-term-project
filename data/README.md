@@ -216,8 +216,8 @@ Sona BLW four, M&M twice, Motherson and Autoline once each.
 
 The modelling panels: the two company files above joined to the independent
 variable. Built by `scripts/build_company_panel.py` — **not** by
-`scripts/build_panel.py`, which is the separate data-cleaning pipeline that
-produces `data/clean/` and `data/model/`. These are what a model should read;
+`scripts/build_clean_pipeline.py`, which is the separate data-cleaning pipeline
+that produces `data/clean/` and `data/model/`. These are what a model should read;
 the `company_*` files are the inputs behind them.
 
 Both carry X at three levels. `national_ev_production` and
