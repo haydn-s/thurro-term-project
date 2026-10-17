@@ -1,0 +1,2 @@
+model,feature_set,real_brier,placebo_brier_median,share_placebo_better_or_equal,share_sd,n_seeds
+"MLP (8), controls+production+mix",controls+production+mix,0.18116312911286228,0.2618287502513717,0.0,0.0,3
