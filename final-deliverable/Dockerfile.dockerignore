@@ -32,3 +32,15 @@ final-deliverable/README.md
 final-deliverable/Makefile
 final-deliverable/docker-compose.yml
 final-deliverable/requirements-dev.txt
+
+# The exploratory model study: analysis code, result tables and 1.1 MB of
+# figures. None of it is COPYed, so it never reached the image -- but without
+# these lines it was still uploaded to the daemon on every build.
+#
+# Note what is NOT excluded: final-deliverable/model/ itself. A fitted artifact
+# is meant to live directly in that directory and be COPYed in (see
+# model/README.md), and a blanket `final-deliverable/model/` here would make
+# that COPY fail with a confusing "file not found" for a file that is plainly
+# on disk. Only the two subdirectories that exist to be read by people are out.
+final-deliverable/model/exploration/
+final-deliverable/model/results/
