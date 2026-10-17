@@ -12,7 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 
 # Point the service at the repo's real panel. Testing against the committed data
 # rather than a synthetic file is deliberate: it catches a schema change in
-# build_panel.py breaking the service, which a fixture CSV would hide.
+# build_company_panel.py breaking the service, which a fixture CSV would hide.
 os.environ.setdefault("FEATURE_STORE", str(REPO_ROOT / "data" / "processed"))
 
 import pytest  # noqa: E402

@@ -1,7 +1,7 @@
 """Run the whole exploratory model comparison.
 
 From the repo root:
-    python scripts/build_panel.py                          # refresh data/clean and data/model
+    python scripts/build_clean_pipeline.py                 # refresh data/clean and data/model
     python final-deliverable/model/exploration/run_all.py  # takes a few minutes
 
 Everything lands in final-deliverable/model/results/:

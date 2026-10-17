@@ -362,8 +362,9 @@ make up && make smoke       # 19 checks against a running container
 ```
 
 The suite runs against the repo's committed `data/processed/` rather than a
-fixture CSV, on purpose: that way a schema change in `scripts/build_panel.py`
-breaks the service's tests instead of being discovered after a deploy.
+fixture CSV, on purpose: that way a schema change in
+`scripts/build_company_panel.py` breaks the service's tests instead of being
+discovered after a deploy.
 
 The image has been built and exercised in this environment. `docker compose up`
 reports healthy in ~6s and the smoke test passes 19/19 against the container;

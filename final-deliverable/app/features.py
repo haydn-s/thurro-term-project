@@ -1,7 +1,7 @@
 """The feature store: typed access to the modelling panel the container ships.
 
-The serving path reads the same CSVs that `scripts/build_panel.py` writes in the
-repo root -- not a re-derivation of them. That is on purpose. If the service
+The serving path reads the same CSVs that `scripts/build_company_panel.py`
+writes in the repo root -- not a re-derivation of them. That is on purpose. If the service
 computed its own features it would become a second implementation of the panel
 logic, and the two would drift. The build pipeline stays the single source of
 truth; this module only reads, types and indexes.
@@ -119,7 +119,7 @@ class CompanyPeriod:
 
 #: Columns the annual panel must carry for the service to start. A short list on
 #: purpose -- it catches "wrong CSV mounted" without failing the build every time
-#: build_panel.py adds a column.
+#: build_company_panel.py adds a column.
 REQUIRED_COLUMNS = frozenset(
     {
         "company",
