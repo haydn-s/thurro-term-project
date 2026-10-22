@@ -25,9 +25,9 @@ OUT = ROOT / "data" / "processed"
 NULLS = {"-", "None"}
 
 
-def write(path, columns, rows):
+def write(path, columns, rows, eol="\r\n"):
     with open(path, "w", newline="") as fh:
-        w = csv.writer(fh)
+        w = csv.writer(fh, lineterminator=eol)
         w.writerow(columns)
         w.writerows(rows)
     print(f"  {path.relative_to(ROOT)}: {len(rows)} rows")
@@ -70,6 +70,46 @@ def build_state_registrations():
         raise SystemExit("duplicate state-month keys")
 
     write(OUT / "ev_registrations_state_monthly.csv", columns, rows)
+    build_segment_registrations(columns, rows)
+
+
+# Column in the state extract -> Vahan segment name. The segment file used to be
+# committed with no builder at all; it is exactly this sum of the state file
+# (all 799 rows of the old file reproduce, zero-registration months omitted).
+SEGMENT_COLUMNS = {
+    "ev_2w": "2W", "ev_3w": "3W", "ev_4w": "4W", "ev_buses": "Buses",
+    "ev_small_buses": "Small Buses", "ev_lcv": "LCV", "ev_mhcv": "M&HCV",
+    "ev_tractors": "Tractors", "ev_constr_eq": "Construction Equipment",
+}
+
+
+def build_segment_registrations(columns, rows):
+    """National monthly registrations by segment, summed from the state rows."""
+    month = columns.index("month")
+    totals = {}
+    for r in rows:
+        for col, name in SEGMENT_COLUMNS.items():
+            key = (r[month], name)
+            totals[key] = totals.get(key, 0) + int(float(r[columns.index(col)]))
+    out = sorted([m, seg, n] for (m, seg), n in totals.items() if n)
+    write(OUT / "ev_registrations_segment_monthly.csv",
+          ["month", "vehicle_segment", "ev_registrations"], out, eol="\n")
+
+
+def build_vehicle_production_total():
+    """All-vehicle production by month and category, EV and ICE together.
+
+    The EV production file only holds electric models, so the ICE side of the
+    industry has to come from here: ICE = total - EV, per month and category.
+    """
+    print("vehicle production totals")
+    loaded = load("vehicle_production_total_monthly.json")
+    if loaded is None:
+        return
+    raw_cols, raw_rows = loaded
+    keep = [i for i, c in enumerate(raw_cols) if not c.startswith("_")]
+    write(OUT / "vehicle_production_total_monthly.csv", [raw_cols[i] for i in keep],
+          [[r[i] for i in keep] for r in raw_rows])
 
 
 def build_car_prices():
@@ -118,6 +158,7 @@ def build_investment_projects():
 if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     build_state_registrations()
+    build_vehicle_production_total()
     build_car_prices()
     build_investment_projects()
     print("\nNot built here: ev_prices_2w_variants.csv (connector returned it "

@@ -12,8 +12,12 @@ IN_PROC = ROOT / "data" / "processed"
 IN_MANUAL = ROOT / "data" / "manual"
 OUT = ROOT / "data" / "clean"
 
-INCOMPLETE_PRODUCTION_MONTHS = {"2026-08-01"}
-INCOMPLETE_REGISTRATION_MONTHS = {"2026-09-01"}
+# Nothing is partial in production any more: the 2026-08 pull that reported 5 of
+# 11 EV OEMs was re-pulled on 2026-10-22 and now matches July and September.
+INCOMPLETE_PRODUCTION_MONTHS = set()
+# Registrations were re-pulled 2026-10-22: September is complete, October is
+# month-to-date.
+INCOMPLETE_REGISTRATION_MONTHS = {"2026-10-01"}
 
 EV_KEYWORDS = [
     r"\bEV\b", r"\belectric\b", r"\be[- ]mobility\b", r"\be[- ]vehicle\b",
@@ -84,6 +88,21 @@ def clean_production() -> pd.DataFrame:
     return p
 
 
+def clean_ice_production() -> pd.DataFrame:
+    """ICE production = all-vehicle production minus the EV models, by month and category.
+
+    The EV production file only holds electric models, so on its own it cannot say
+    whether the sector as a whole is in an up- or down-cycle. This is that missing
+    series.
+    """
+    tot = pd.read_csv(IN_PROC / "vehicle_production_total_monthly.csv", parse_dates=["month"])
+    ev = pd.read_csv(IN_PROC / "ev_production_model_monthly.csv", parse_dates=["month"])
+    ev = ev.groupby(["month", "category"], as_index=False)["production_units"].sum()
+    m = tot.merge(ev, on=["month", "category"], how="left").fillna({"production_units": 0})
+    m["ice_production"] = m["production_total"] - m["production_units"]
+    return m[["month", "category", "ice_production"]].sort_values(["month", "category"])
+
+
 def clean_registrations_state() -> pd.DataFrame:
     r = pd.read_csv(IN_PROC / "ev_registrations_state_monthly.csv", parse_dates=["month"])
     before = len(r)
@@ -112,13 +131,16 @@ def main():
     prod = clean_production()
     prod.to_csv(OUT / "production_model_monthly.csv", index=False)
 
+    ice = clean_ice_production()
+    ice.to_csv(OUT / "ice_production_monthly.csv", index=False)
+
     seg = clean_registrations_segment()
     seg.to_csv(OUT / "registrations_segment_monthly.csv", index=False)
 
     state = clean_registrations_state()
     state.to_csv(OUT / "registrations_state_monthly.csv", index=False)
 
-    print(f"\nWrote 4 files to {OUT.relative_to(ROOT)}/")
+    print(f"\nWrote 5 files to {OUT.relative_to(ROOT)}/")
 
 
 if __name__ == "__main__":

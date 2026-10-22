@@ -5,6 +5,8 @@ India only, and every figure is a unit count unless stated otherwise.
 
 Production and national registrations pulled 2026-09-20. State registrations,
 pricing, investment projects and investment announcements pulled 2026-09-28.
+Production (2026-08 onward), all-vehicle production totals and 2026 state
+registrations were re-pulled 2026-10-22.
 
 ## Layout
 
@@ -19,10 +21,10 @@ pricing, investment projects and investment announcements pulled 2026-09-28.
 
 | File | Grain | Coverage | Rows |
 |---|---|---|---|
-| `processed/ev_production_model_monthly.csv` | month × category × segment × sub-segment × OEM × model | 2023-04 → 2026-08 | 1,363 |
-| `processed/ev_registrations_segment_monthly.csv` | month × vehicle segment | 2018-01 → 2026-09 | 799 |
+| `processed/ev_production_model_monthly.csv` | month × category × segment × sub-segment × OEM × model | 2023-04 → 2026-09 | 1,431 |
+| `processed/ev_registrations_segment_monthly.csv` | month × vehicle segment | 2018-01 → 2026-10 (October partial) | 808 |
 | `processed/ev_registrations_maker_monthly.csv` | month × maker | 2023-01 → 2026-09 | 891 |
-| `processed/ev_registrations_state_monthly.csv` | month × state (segments as columns) | 2018-01 → 2026-09 | 3,216 |
+| `processed/ev_registrations_state_monthly.csv` | month × state (segments as columns) | 2018-01 → 2026-10 (October partial) | 3,252 |
 | `processed/ev_maker_reference.csv` | maker | — | 20 |
 | `processed/ev_prices_car_variants.csv` | model variant × distinct price | 2025-11 → 2026-09 | 604 |
 | `processed/ev_prices_2w_variants.csv` | model variant × distinct price | 2025-11 → 2026-09 | 50 |
@@ -419,19 +421,22 @@ and electric variants under one name, are **not** separable in this feed and are
 absent from the production file. For 4W EV volumes, use the registrations files,
 where the fuel type is recorded explicitly.
 
-**The production series is short.** It starts 2023-04, giving 41 monthly
+**The production series is short.** It starts 2023-04, giving 42 monthly
 observations — thin for testing leads of several months. The registrations files
 reach back to 2018 (segment, state) and are worth considering as an extended or
 alternate independent variable.
 
-**The last month is partial in both sources, for different reasons.** The
-registrations files run to 2026-09-15, so 2026-09 is roughly half a month and
-will read as a sharp drop. Separately, **2026-08 production is incomplete**: only
-5 of the 11 OEMs reporting in 2026-07 appear in 2026-08 (Ather, Hero, Honda,
-Suzuki, Yamaha and Okinawa are all missing), which reads as an 88% month-on-month
-collapse and is a reporting artefact, not a real one. The usable production
-series therefore ends **2026-07**, giving 40 months, not 41. Drop both tail
-months or annualise them.
+**The last month is partial in registrations only.** After the 2026-10-22
+re-pull, production runs complete through 2026-09 (all 11 EV OEMs report in July,
+August and September; the earlier 2026-08 pull, which showed only 5 of 11 and read
+as an 88% collapse, was a reporting lag and has been replaced). Registrations were
+pulled 2026-10-22, so 2026-10 is month-to-date and `scripts/clean.py` drops it;
+September, half a month in the first pull, is now complete.
+
+**There is now an ICE production series.** `processed/vehicle_production_total_monthly.csv`
+holds all-vehicle SIAM production by month and category; `scripts/clean.py`
+subtracts the EV rows to write `clean/ice_production_monthly.csv`. It exists to
+give the model a sector-cycle control that does not move with EV volumes.
 
 **Pricing covers ten months, not a history.** Both price files start 2025-11 and
 are weekly scrapes, so they support cross-sectional comparison and short-run

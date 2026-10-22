@@ -15,6 +15,9 @@ OUT = ROOT / "data" / "model"
 
 LAGS = range(1, 7)
 WINSOR_SD = 2.0
+# Production is keyed on SIAM's `category` (2W / 3W / Passenger Vehicles); there is
+# no "4W" value in it. Registrations use VAHAN's `vehicle_segment`, which does.
+FOUR_W_PRODUCTION_CATEGORIES = {"Passenger Vehicles"}
 FOUR_W_SEGMENTS = {"4W"}
 
 
@@ -22,7 +25,7 @@ def production_national_monthly(prod: pd.DataFrame) -> pd.DataFrame:
     total = prod.groupby("month", as_index=False)["production_units"].sum()
     total = total.rename(columns={"production_units": "production_total"})
     four = (
-        prod[prod["segment"].isin(FOUR_W_SEGMENTS)]
+        prod[prod["category"].isin(FOUR_W_PRODUCTION_CATEGORIES)]
         .groupby("month", as_index=False)["production_units"].sum()
         .rename(columns={"production_units": "production_4w"})
     )
@@ -41,7 +44,8 @@ def registrations_national_monthly(seg: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_growth(df: pd.DataFrame, col: str) -> pd.DataFrame:
-    g = df[col].pct_change()
+    # a zero month followed by a non-zero one is inf, not a growth rate
+    g = df[col].pct_change().replace([np.inf, -np.inf], np.nan)
     sd = g.std()
     mu = g.mean()
     winsor = g.clip(lower=mu - WINSOR_SD * sd, upper=mu + WINSOR_SD * sd)

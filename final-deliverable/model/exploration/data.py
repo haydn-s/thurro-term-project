@@ -40,3 +40,12 @@ def load_registrations_segment():
 def load_registrations_state():
     """VAHAN EV registrations, one row per state x month, one column per segment."""
     return pd.read_csv(CLEAN / "registrations_state_monthly.csv", parse_dates=["month"])
+
+
+def load_ice_production():
+    """All-vehicle production minus the EV models, one row per month x category.
+
+    The sector-cycle series: what combustion-engine plants are doing, which is the
+    thing a "was it just the cycle?" control has to measure.
+    """
+    return pd.read_csv(CLEAN / "ice_production_monthly.csv", parse_dates=["month"])
