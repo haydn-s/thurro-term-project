@@ -122,7 +122,10 @@ data/
 scripts/
   build_processed.py          rebuilds processed/ from raw/
   build_financials.py         rebuilds the company capex and asset files
-  build_panel.py              joins the financials to the EV volume series
+  build_company_panel.py      joins the financials to the EV volume series
+  build_clean_pipeline.py     runs clean.py then features.py -> clean/ + model/
+  clean.py                    builds data/clean/ from processed extracts
+  features.py                 builds data/model/ national and state panels
   parse_production_extract.py rebuilds the production file
   toon_to_csv.py              shared reader for saved connector results
 notebook-590/
@@ -181,11 +184,17 @@ That one also re-checks both financial extracts against
 `data/manual/target_companies.csv` in both directions, so a company that silently
 drops out of the feed fails the build instead of quietly shrinking the panel.
 
-Then the modelling panels, which join those to the EV volume series:
+Then the company modelling panels, which join those to the EV volume series:
 
 ```bash
-python3 scripts/build_panel.py
+python3 scripts/build_company_panel.py
 ```
+
+Note the name. The other build script is `scripts/build_clean_pipeline.py`,
+which produces `data/clean/` and `data/model/` for the announcement models — a
+different output for a different question. Both were briefly called
+`build_panel.py`, which is how the company-side join came to be overwritten
+once; neither carries that name now.
 
 Two files are outside that pipeline and the script says so when it runs: the
 two-wheeler price file (the connector returned it inline, so no extract was

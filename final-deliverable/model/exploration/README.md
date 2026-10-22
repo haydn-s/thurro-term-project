@@ -12,7 +12,7 @@ headline table is regenerated at [`../results/summary.md`](../results/summary.md
 
 ```bash
 pip install -r requirements.txt                      # repo-root notebook environment
-python scripts/build_panel.py                        # refresh data/clean and data/model
+python scripts/build_clean_pipeline.py               # refresh data/clean and data/model
 python final-deliverable/model/exploration/run_all.py   # ~8 minutes
 pytest final-deliverable/model/exploration -q        # 14 checks, incl. no-leakage
 ```

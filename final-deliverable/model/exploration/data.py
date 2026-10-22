@@ -1,7 +1,7 @@
 """Load the four cleaned files from data/clean/.
 
 Nothing here changes the data; it only reads it with the right types.
-Run `python scripts/build_panel.py` first if data/clean/ is missing.
+Run `python scripts/build_clean_pipeline.py` first if data/clean/ is missing.
 """
 import pandas as pd
 

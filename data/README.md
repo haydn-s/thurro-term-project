@@ -215,7 +215,9 @@ Sona BLW four, M&M twice, Motherson and Autoline once each.
 ### `processed/panel_company_annual.csv` + `processed/panel_company_halfyearly.csv`
 
 The modelling panels: the two company files above joined to the independent
-variable. Built by `scripts/build_panel.py`. These are what a model should read;
+variable. Built by `scripts/build_company_panel.py` — **not** by
+`scripts/build_clean_pipeline.py`, which is the separate data-cleaning pipeline
+that produces `data/clean/` and `data/model/`. These are what a model should read;
 the `company_*` files are the inputs behind them.
 
 Both carry X at three levels. `national_ev_production` and
@@ -226,7 +228,7 @@ the six listed makers with both a volume series and filing history.
 the research question actually names — present for four.
 
 The production feed spells companies differently from the registrations feed:
-`TVS MOTOR COMPANY` against `TVS MOTOR`. `build_panel.py` therefore keeps two
+`TVS MOTOR COMPANY` against `TVS MOTOR`. `build_company_panel.py` therefore keeps two
 separate name maps rather than reusing one, because sharing them silently drops
 TVS. **Ola and Tata Motors are absent from the production source entirely**, which
 is the documented consequence of that feed classifying passenger vehicles by length

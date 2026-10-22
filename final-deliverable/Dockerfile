@@ -4,8 +4,8 @@
 # image that runs on any Docker manager.
 #
 # BUILD CONTEXT IS THE REPOSITORY ROOT, not this directory, because the image
-# bakes in the panel that scripts/build_panel.py produces under data/. Build it
-# as:
+# bakes in the panel that scripts/build_company_panel.py produces under data/.
+# Build it as:
 #
 #     docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.1.0 .
 #
