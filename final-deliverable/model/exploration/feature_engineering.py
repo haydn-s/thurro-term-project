@@ -24,8 +24,8 @@ import numpy as np
 import pandas as pd
 
 from config import MAX_LOOKBACK
-from data import (load_announcements, load_production, load_registrations_segment,
-                  load_registrations_state)
+from data import (load_announcements, load_ice_production, load_production,
+                  load_registrations_segment, load_registrations_state)
 
 
 # =====================================================================
@@ -130,6 +130,20 @@ def demand_block(seg):
     return out, df["reg_total"]
 
 
+def ice_block(ice):
+    """Sector-cycle control: growth in combustion-engine (ICE) production.
+
+    Built from all-vehicle production minus the EV models, so it moves with the
+    industry's capacity cycle but not with EV volumes. A feature set that beats
+    the controls built on this has found something beyond "the whole sector is
+    expanding".
+    """
+    total = ice.groupby("month")["ice_production"].sum().sort_index()
+    out = pd.DataFrame(index=total.index)
+    out["ice_growth_3m"] = log_growth(total, 3)
+    return out
+
+
 def announcement_counts(ann, target, months):
     """Monthly count of announcements for one target definition, on a fixed month index."""
     dated = ev_filter(ann, target).dropna(subset=["month"])
@@ -154,6 +168,7 @@ def national_features():
     df = df.join(industry_structure_block(prod))
     demand, reg_total = demand_block(seg)
     df = df.join(demand)
+    df = df.join(ice_block(load_ice_production()))
 
     # supply vs demand: production growing faster than registrations (> 0) or slower
     df["supply_minus_demand_3m"] = df["prod_growth_3m"] - df["reg_growth_3m"]
@@ -195,6 +210,10 @@ def national_features():
 # Feature groups. The ablation study adds them one at a time on top of CONTROLS,
 # which is how we test whether EV production adds anything beyond the sector trend.
 CONTROLS = ["time_trend", "month_sin", "month_cos", "results_season"]
+# Same controls with the linear time trend replaced by an ICE-production cycle
+# measure (model card, next step b). The trend can only say "later in the sample";
+# this says "the combustion-engine side of the industry is expanding".
+CONTROLS_ICE = ["ice_growth_3m", "month_sin", "month_cos", "results_season"]
 # prod_growth_6m is NOT used as a feature: prod_accel = 2 * growth_3m - growth_6m
 # exactly, so putting all three in one regression makes it singular.
 PRODUCTION = ["prod_growth_1m", "prod_growth_3m", "prod_accel",
@@ -209,17 +228,22 @@ def history_feature(target):
     return [f"events_last_6m_{target}"]
 
 
-def feature_sets(target):
-    """Named feature sets, from the null (controls only) to everything."""
+def feature_sets(target, controls=None):
+    """Named feature sets, from the null (controls only) to everything.
+
+    `controls` defaults to CONTROLS (with the linear time trend); pass CONTROLS_ICE
+    to run the same sets with the ICE-production cycle measure instead.
+    """
+    controls = CONTROLS if controls is None else controls
     hist = history_feature(target)
     return {
-        "controls": CONTROLS,
-        "controls+history": CONTROLS + hist,
-        "controls+production": CONTROLS + PRODUCTION,
-        "controls+production+mix": CONTROLS + PRODUCTION + SEGMENT_MIX,
-        "controls+demand": CONTROLS + DEMAND,
-        "controls+industry": CONTROLS + INDUSTRY,
-        "all": CONTROLS + hist + PRODUCTION + SEGMENT_MIX + INDUSTRY + DEMAND,
+        "controls": controls,
+        "controls+history": controls + hist,
+        "controls+production": controls + PRODUCTION,
+        "controls+production+mix": controls + PRODUCTION + SEGMENT_MIX,
+        "controls+demand": controls + DEMAND,
+        "controls+industry": controls + INDUSTRY,
+        "all": controls + hist + PRODUCTION + SEGMENT_MIX + INDUSTRY + DEMAND,
     }
 
 

@@ -77,8 +77,8 @@ describes the pre-feedback state of the dependent variable).
 
 | Dataset | Grain | Coverage |
 |---|---|---|
-| EV production (SIAM) | month × OEM × model | 2023-04 → 2026-07 usable (40 months) |
-| EV registrations (VAHAN) | month × state, × segment, × maker | 2018-01 → 2026-08 usable (104 months) |
+| EV production (SIAM) | month × OEM × model | 2023-04 → 2026-09 usable (42 months) |
+| EV registrations (VAHAN) | month × state, × segment, × maker | 2018-01 → 2026-09 usable (105 months) |
 | EV pricing & specs | model variant × price | 2025-11 → 2026-09 |
 | Industrial investment projects | project | single snapshot — **no usable EV content** |
 | Investment announcements | event | 2021-12 → 2026-09, hand-coded, 34 events |

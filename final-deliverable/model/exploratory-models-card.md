@@ -123,6 +123,48 @@ any model gains is a non-linear version of the trend.
 | State siting | **Logit L2, share + history** | best AUC / precision / top-5 hit rate, simple coefficients |
 
 Next steps: (a) re-test the segment-mix signal on months after 2026-07 before it is
-served; (b) replace `time_trend` with an ICE-production control to test the sector-cycle
-reading directly; (c) fix `production_4w` in `scripts/features.py` (it is all zeros because it
-filters `segment` instead of `category`) and move the useful features here into it.
+served — **first pass done, see the re-test below; one new scored month only**;
+(b) replace `time_trend` with an ICE-production control — **done, see below**;
+(c) fix `production_4w` in `scripts/features.py` — **done**; the move of the useful
+exploration features into `scripts/features.py` is still open.
+
+## Re-test after the 2026-10-22 data refresh
+
+Production now runs complete through 2026-09 (the 5-of-11-OEM August gap is
+filled), so the national sample is 36 months, 2023-10 to 2026-09, with 35 known
+targets and 12 events. Walk-forward test: **19 months, 8 events** (was 18 and 7).
+Only **one** month is genuinely new to the test (t = 2026-08, outcome 2026-09: an
+announcement happened; the model said 0.77 against a base rate of 0.32). The
+2026-09 row has no outcome yet. Code: `exploration/ice_control_analysis.py`;
+results: `results/national/8_ice_control_ablation.csv`, `8b_ice_control_placebo.csv`, `8d_mix_model_by_month.csv`;
+figures: `results/figures/12_ice_control_comparison.png`, `13_ice_control_placebo.png`.
+
+Controls: the original (linear `time_trend`) and ICE growth instead of the trend.
+ICE = all-vehicle SIAM production minus the EV models.
+
+| Logit L2, h = 1 | Brier skill | 90% CI of gain | AUC | placebos as good |
+|---|---|---|---|---|
+| controls + production + mix, original controls | +33.1% | [0.020, 0.162] | 0.84 | 4.5% |
+| same, ICE growth replaces trend | +33.6% | [0.020, 0.164] | 0.84 | 0.0% |
+
+(On the pre-refresh data the same code gives the card's +27.6%, [0.003, 0.142].)
+
+* **The segment-mix result survives the control swap.** It is the same size with
+  ICE growth in place of the trend. Its interval
+  still clears zero, and it still beats nearly all shifted copies.
+* **ICE growth is a weak control, not a stronger null.** On its own it scores worse
+  than the base rate (Brier skill −12.8%, AUC 0.50): three-month ICE growth is a
+  noisy, seasonal series, and the trend was doing real work. The test shows the mix
+  features are not just proxying the trend; it does not show they beat a good
+  model of the sector cycle.
+* **Production growth alone adds nothing once the trend is gone** (+15.8% with the
+  trend, −0.2% with ICE growth instead). That fits the capex finding that the
+  cycle, not EV volume, is what moves.
+* **The gain is concentrated.** Three months (2026-05, 2026-06, 2026-08, all
+  events, all in the 2026 upswing) supply 84% of the total Brier gain. The
+  new month is the third of them. That is why this is still a lead, not a finding:
+  one extra event month cannot confirm it. More months, especially quiet ones, are
+  what is needed; the Q3 results season (November) is the next chance.
+* Not refreshed: the in-sample Poisson / Granger / lead-lag tables and the state
+  models (they need `statsmodels`, which could not be installed where this was
+  run), `results/summary.md` and the figures. Rerun `run_all.py` to update them.

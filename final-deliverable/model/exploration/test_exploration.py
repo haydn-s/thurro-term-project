@@ -16,6 +16,7 @@ import pandas as pd
 import pytest
 
 import feature_engineering as fe
+from config import CLEAN, ROOT
 from evaluation import walk_forward
 from models import NATIONAL_MODELS
 
@@ -111,3 +112,26 @@ def _outside_window(ann):
     dated = ann.dropna(subset=["month"])
     fy = fe.fiscal_year(dated["month"])
     return int((~fy.between(2023, 2027)).sum())
+
+
+def test_ice_features_have_no_gaps_and_use_only_the_past(nat):
+    """The ICE control is built like every other feature: from data up to month t."""
+    assert nat[fe.CONTROLS_ICE].isna().sum().sum() == 0
+    ice = pd.read_csv(CLEAN / "ice_production_monthly.csv", parse_dates=["month"])
+    total = ice.groupby("month")["ice_production"].sum().sort_index()
+    i = len(nat) // 2
+    t = nat["month"].iloc[i]
+    manual = np.log((total[t] + 1) / (total[t - pd.DateOffset(months=3)] + 1))
+    assert nat["ice_growth_3m"].iloc[i] == pytest.approx(manual)
+
+
+def test_production_4w_in_shared_panel_is_not_all_zero():
+    """scripts/features.py once filtered on a `segment` value ("4W") that the
+    production file does not have, so production_4w was 0 in every month."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import features as shared
+    out = shared.production_national_monthly(pd.read_csv(CLEAN / "production_model_monthly.csv",
+                                                         parse_dates=["month"]))
+    prod = pd.read_csv(CLEAN / "production_model_monthly.csv")
+    pv = prod[prod["category"] == "Passenger Vehicles"]["production_units"].sum()
+    assert out["production_4w"].sum() == pytest.approx(pv) and pv > 0

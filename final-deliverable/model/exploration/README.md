@@ -71,8 +71,18 @@ exactly.
 * **State models** train on state-months up to 2025-06 and test after, and also report
   how often the announcing state was in the model's top-5 that month.
 
-## Bug found in the shared panel
+## Bug found in the shared panel (fixed)
 
-`data/model/national_panel.csv:production_4w` is 0 in every month: `scripts/features.py`
-filters production on `segment == "4W"`, but the production file keeps 2W / 3W /
-Passenger Vehicles in `category`. This package reads `category` directly.
+`data/model/national_panel.csv:production_4w` was 0 in every month because
+`scripts/features.py` filtered production on `segment == "4W"`, but the production
+file keeps 2W / 3W / Passenger Vehicles in `category`. It now filters
+`category == "Passenger Vehicles"`. This package still reads `category` directly.
+The series is thin: the source only surfaces 4W EVs for MG and Mahindra, so it is
+still zero in many months.
+
+## Sector-cycle control
+
+`ice_control_analysis.py` repeats the ablation and placebo with `CONTROLS_ICE`
+(ICE-production growth instead of the time trend). It needs only
+pandas and scikit-learn. Results: `../results/national/8_ice_control_*.csv`. `ice_control_plots.py` draws
+`12_ice_control_comparison.png` and `13_ice_control_placebo.png` from them.

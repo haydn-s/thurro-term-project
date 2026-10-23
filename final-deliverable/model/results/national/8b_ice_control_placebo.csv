@@ -1,0 +1,3 @@
+controls,n_placebo_runs,real_brier,placebo_brier_median,share_placebo_better_or_equal
+time_trend,200,0.17819303229507255,0.25223128343275164,0.045
+ice_growth,200,0.17700320829567373,0.2788967257633047,0.0

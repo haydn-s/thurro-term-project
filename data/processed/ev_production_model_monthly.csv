@@ -1344,6 +1344,31 @@ month,category,segment,sub_segment,oem,model,production_units,domestic_sales_uni
 2026-07-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,566,429,0
 2026-07-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,16,16,0
 2026-07-01,Passenger Vehicles,Utility Vehicles,UV3: Length >4700 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,XEV,5487,5924,34
+2026-08-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Greaves Electric Mobility Ltd,,,
+2026-08-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Reo,2980,1911,32
+2026-08-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,1392,1500,0
+2026-08-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450,7206,6891,516
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Konarc,400,217,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,22468,22586,180
+2026-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,53542,52248,832
+2026-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Greaves Electric Mobility Ltd,,,
+2026-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Magnus,10311,9772,30
+2026-08-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Nexus,738,756,55
+2026-08-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,25514,25558,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,140,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,1830,1902,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,INDIA YAMAHA MOTOR,EC06,40,475,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Indie,6881,6567,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,River Mobility Pvt Ltd,,,
+2026-08-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,627,668,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+2026-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS Orbiter,15151,14641,964
+2026-08-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,43791,42882,966
 2026-08-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,11,11,0
 2026-08-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,182,200,0
 2026-08-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,13,11,0
@@ -1362,3 +1387,46 @@ month,category,segment,sub_segment,oem,model,production_units,domestic_sales_uni
 2026-08-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,293,508,0
 2026-08-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,22,0,0
 2026-08-01,Passenger Vehicles,Utility Vehicles,UV3: Length >4700 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,XEV,6759,6509,23
+2026-09-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Greaves Electric Mobility Ltd,,,
+2026-09-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Reo,2415,2047,10
+2026-09-01,2W,Scooters,AE1: Upto 250 W Electric,BAJAJ AUTO,Yulu Ver 3.0x,1439,800,0
+2026-09-01,2W,Scooters,AE1: Upto 250 W Electric,OKINAWA AUTOTECH,Lite,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450,6742,6168,397
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450 Apex,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450S,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,450X,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Konarc,6600,4140,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,ATHER ENERGY,Rizta,20860,19813,803
+2026-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Chetak,41129,42394,641
+2026-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Greaves Electric Mobility Ltd,,,
+2026-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Magnus,10247,10532,14
+2026-09-01,2W,Scooters,AE2: >250 W Electric,BAJAJ AUTO,Nexus,1000,862,16
+2026-09-01,2W,Scooters,AE2: >250 W Electric,HERO MOTOCORP,Vida,28588,28862,216
+2026-09-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,Activa E,0,140,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,HONDA MOTORCYCLE AND SCOOTER INDIA,QC1,1330,1464,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,INDIA YAMAHA MOTOR,EC06,0,493,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Indie,6500,6057,179
+2026-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,Okhi 90,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,OKINAWA AUTOTECH,River Mobility Pvt Ltd,,,
+2026-09-01,2W,Scooters,AE2: >250 W Electric,SUZUKI MOTORCYCLE INDIA,e-Access,967,573,1
+2026-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,BMW EV,0,0,0
+2026-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS Orbiter,18813,17027,1428
+2026-09-01,2W,Scooters,AE2: >250 W Electric,TVS MOTOR COMPANY,TVS iQube Electric,47953,45320,2024
+2026-09-01,3W,Goods Carrier,B1: Max mass upto 1 tonnes,BAJAJ AUTO,Baxy Cargo Super King EV,9,8,1
+2026-09-01,3W,Goods Carrier,E-Cart,ATUL AUTO,Atul Elite Cargo,7,6,0
+2026-09-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy E Cart,32,30,0
+2026-09-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Baxy Ltd,,,
+2026-09-01,3W,Goods Carrier,E-Cart,BAJAJ AUTO,Riki - EV,228,218,0
+2026-09-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,Treo Yaari,107,143,0
+2026-09-01,3W,Goods Carrier,E-Cart,MAHINDRA AND MAHINDRA,e-Alfa Cargo,101,97,0
+2026-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,ATUL AUTO,Atul Rik EV,279,271,0
+2026-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,BAJAJ AUTO,Maxima - EV,12150,12020,0
+2026-09-01,3W,Passenger Carrier,A1: Seats upto 4 & Max. Mass upto 1 tonne,TVS MOTOR COMPANY,TVS King Electric,6045,5928,108
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,ATUL AUTO,Atul Elite,168,163,0
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy E Rath,44,30,0
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Baxy Ltd,,,
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,BAJAJ AUTO,Riki - EV,755,615,0
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,Treo Yaari,0,22,0
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,MAHINDRA AND MAHINDRA,e-Alfa Mini,436,534,0
+2026-09-01,3W,Passenger Carrier,E-Rickshaw,TI CLEAN MOBILITY,L3M,1,0,0
+2026-09-01,Passenger Vehicles,Utility Vehicles,UV3: Length >4700 mm & Price <20 Lakhs,MAHINDRA AND MAHINDRA,XEV,6542,6611,6
