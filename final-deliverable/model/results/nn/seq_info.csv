@@ -1,0 +1,12 @@
+,value
+states,34
+major_states,18
+train_samples,2455
+test_samples,544
+train_end,2025-03-01
+test_origins,2025-04-01 to 2026-07-01
+channels,9
+windows_tried,"[13, 24]"
+best_by_validation,N-BEATS on SES
+ses_alpha,0.65
+drift_per_month,0.041976617232569506

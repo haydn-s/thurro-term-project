@@ -69,6 +69,48 @@ flags `is_baseline` on every response so a consumer can refuse to act on it.
 What is built and tested is the delivery mechanism and the seam the model drops
 into.
 
+A **neural-network track** has since been added, on branch `nn-development`
+(card: [`final-deliverable/model/nn-models-card.md`](final-deliverable/model/nn-models-card.md)).
+It reuses the exploration study's features, splits and metrics unmodified, so
+the networks land in the same table as the 16 models already compared. Three
+results:
+
+- On the **national announcement-timing** question an MLP is the best model in
+  the study. On the `controls+production+mix` feature set it scores Brier 0.168
+  against a 0.256 base rate (+34% skill) — the only specification anywhere in
+  the study whose 90% interval excludes zero, [+0.005, +0.172] — and it beats
+  **all 200** calendar-shifted placebo copies on every seed. Notably the shared
+  study's logit picks the *same* feature set by a different route (Brier 0.185,
+  0% of placebos as good). Two unrelated model families agreeing is the
+  strongest claim available here; it is still 18 test months and 7 events, and
+  the winning set is the best of 14 runs without a selection correction.
+- On **state siting** the network ties the logit (AUC 0.852 vs 0.85) and is
+  worse at ranking (top-5 hit rate 0.545 vs 0.64). With 7 training events there
+  is nothing for it to add — prefer the logit.
+- On **forecasting EV volume** itself, the only target dense enough to train a
+  network properly (34 states x 92 months), a feedforward network on engineered
+  lags loses to a random walk. A second round (branch `nn-sequence-models`)
+  found that was mostly how it was trained, not the data: GRU, LSTM, TCN,
+  Transformer and N-BEATS models all beat the random walk, but mostly by
+  rediscovering **exponential smoothing**, which one fitted parameter does just
+  as well. One network, N-BEATS trained on the smoother's residual, beats
+  smoothing by ~4.5% one month ahead, and that held up in a 46-month rolling
+  backtest; beyond one month nothing beats smoothing reliably.
+
+None of this is wired into the container, which still serves its documented
+null baseline. It also does not revisit the capex null above — that is a
+different dependent variable, and both can hold at once: sector capex driven by
+the cycle while announcement *timing* still tracked production.
+
+One data problem surfaced on the way, and is **not** fixed outside that branch:
+`data/processed/ev_registrations_state_monthly.csv` is sparse-encoded — a
+state-month with zero registrations has no row, and 21 of 36 states have
+internal calendar gaps, including Gujarat, Kerala and Andhra Pradesh each
+missing a 2020 lockdown month. Anything that lags that panel with
+`groupby("state").shift(1)` moves one *row*, not one *month*. The NN track
+reindexes onto a complete grid first; `scripts/features.py` and the exploration
+package's `state_features` still shift positionally.
+
 See [`data/README.md`](data/README.md) for the full accounting and
 [`presentations/`](presentations/) for the current status deck (which still
 describes the pre-feedback state of the dependent variable).
@@ -138,6 +180,8 @@ final-deliverable/
   Dockerfile    the deployable image — build context is the repo root
   app/          the signal service: HTTP surface, model seam, feature reader
   model/        fitted artifacts go here (empty; the model is not written yet)
+    exploration/  the 7 national + 9 state model study
+    nn/           the neural-network experiments (branches nn-development, nn-sequence-models)
   tests/        91 tests, runnable without Docker
   README.md     the deliverable's documentation — read before deploying
 presentations/
