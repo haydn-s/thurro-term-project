@@ -26,7 +26,7 @@ amount of capacity fixes that.
 | Environment | repo-root `requirements.txt`; Python 3.14.7, scikit-learn 1.9.1, pandas 3.0.6, numpy 2.5.3 |
 | Track A features | `exploration/feature_engineering.py`, unmodified |
 | Track A data | `data/clean/` (production file mtime 2026-10-16 21:08) |
-| Track B data | `data/processed/ev_registrations_state_monthly.csv` (mtime 2026-09-30 15:48) |
+| Track B data | `data/clean/registrations_state_monthly.csv`, ends 2026-08 (re-run 2026-10-23; see the correction under Track B) |
 | Networks | `sklearn.neural_network.MLPClassifier` / `MLPRegressor` — dense + ReLU + Adam, L2 via `alpha` |
 | Seeds | 5 per network (3 for placebo runs); every table reports the spread |
 | Tests | `pytest final-deliverable/model/nn -q`, 21 checks |
@@ -186,6 +186,15 @@ the target instead: forecast a state's EV registrations next month. Dense, 34
 states × 92 months, 2,455 training rows, no missing outcomes. **This is the only
 target in the project a network can genuinely be trained on.**
 
+> **Correction, 2026-10-23.** The first run read
+> `data/processed/ev_registrations_state_monthly.csv`, whose last month (2026-09)
+> is a half month: the pull ends 2026-09-15, and `data/README.md` says so.
+> `scripts/clean.py` drops it from `data/clean/`, which Track B now reads. The
+> half month put a ~55% fall in every state into the final test month, so every
+> score below moved: naive went from 0.267 to 0.234 and the networks lost ground
+> against it. The conclusion did not change, but every number here is from the
+> re-run, and `test_final_month_is_not_partial` now guards it.
+
 It is also useful rather than a detour: EV volume is the *independent* variable
 in the research question, so a one-month-ahead forecast of it is what would turn
 the deliverable's backward-looking panel into a forward-looking signal.
@@ -197,34 +206,34 @@ re-learn an identity map first.
 
 | model | MAE (log) predicting level | MAE (log) predicting change | skill vs naive (better framing) |
 |---|---|---|---|
-| **Naive (last month)** | **0.267** | **0.267** | **0.0%** |
-| Mean of training growth | — | 0.267 | −0.2% |
-| Drift (last + mean growth) | 0.267 | 0.267 | −0.3% |
-| Ridge | 0.290 | 0.290 | −8.7% |
-| MLP (16) | 0.298 ± 0.021 | 0.306 ± 0.020 | −11.9% |
-| MLP (64,32) | 0.347 ± 0.035 | 0.337 ± 0.017 | −26.4% |
-| MLP (128,64) | 0.384 ± 0.100 | 0.353 ± 0.020 | −32.3% |
-| Seasonal naive (12m) | 0.473 | 0.473 | −77.3% |
+| Mean of training growth | — | 0.232 | +0.7% |
+| Drift (last + mean growth) | 0.233 | 0.233 | +0.7% |
+| **Naive (last month)** | **0.234** | **0.234** | **0.0%** |
+| Ridge | 0.244 | 0.244 | −4.2% |
+| MLP (16) | 0.267 ± 0.021 | 0.278 ± 0.028 | −14.0% |
+| MLP (64,32) | 0.313 ± 0.038 | 0.312 ± 0.021 | −33.1% |
+| MLP (128,64) | 0.354 ± 0.098 | 0.324 ± 0.024 | −38.5% |
+| Seasonal naive (12m) | 0.475 | 0.475 | −102.8% |
 
-**Nothing beats the random walk.** The series is close to a martingale at
-monthly frequency: predicting "same as last month" is better than any fitted
-model, and predicting the average training growth rate is no better than
-predicting zero growth, which says the conditional mean of log growth given 21
-features is approximately constant.
+**No fitted model beats the random walk.** The only things that edge it are the
+two constant-growth baselines, by 0.7% — "same as last month, plus the average
+training growth rate". The series is close to a random walk with drift at
+monthly frequency: the conditional mean of log growth given 21 features is
+approximately the unconditional one.
 
 ### The diagnostic that separates the two failure modes
 
 | model | MAE train | MAE test | gap |
 |---|---|---|---|
-| Naive (last month) | 0.432 | 0.267 | −0.165 |
-| Ridge | 0.408 | 0.290 | −0.119 |
-| MLP (16) | 0.349 | 0.306 | −0.044 |
-| MLP (64,32) | 0.195 | 0.337 | +0.142 |
-| MLP (128,64) | 0.158 | 0.353 | +0.195 |
+| Naive (last month) | 0.432 | 0.234 | −0.197 |
+| Ridge | 0.408 | 0.244 | −0.164 |
+| MLP (16) | 0.349 | 0.278 | −0.071 |
+| MLP (64,32) | 0.195 | 0.312 | +0.117 |
+| MLP (128,64) | 0.158 | 0.324 | +0.166 |
 
 Two different failures, and the distinction matters:
 
-- The **large** networks overfit outright (train 0.158 against test 0.353).
+- The **large** networks overfit outright (train 0.158 against test 0.324).
 - **`MLP (16)` does not overfit at all** — its test error is *better* than its
   training error — and it still loses to naive.
 
@@ -241,17 +250,17 @@ conditional structure is not there to fit, and tuning will not produce it.
 
 | train months | train rows | MAE test (log) |
 |---|---|---|
-| 19 | 646 | 0.552 |
-| 38 | 1,292 | 0.410 |
-| 56 | 1,898 | 0.333 |
-| 75 | 2,455 | 0.338 |
+| 19 | 646 | 0.490 |
+| 38 | 1,292 | 0.360 |
+| 56 | 1,898 | 0.299 |
+| 75 | 2,455 | 0.312 |
 
-Falls steeply, then **flat over the last quarter** (0.333 → 0.338). It has
-saturated well short of naive's 0.267, so more history would not close the gap.
+Falls steeply, then **flat over the last quarter** (0.299 → 0.312). It has
+saturated well short of naive's 0.234, so more history would not close the gap.
 
 ### Per state
 
-The network beats naive in **6 of 34** states; median skill −0.246. The failure
+The network beats naive in **7 of 34** states; median skill −0.251. The failure
 is general, not an artifact of a few large states.
 
 ---
@@ -295,5 +304,5 @@ Track B rules out a feedforward network on engineered lags. It does not rule out
 an LSTM or temporal CNN reading the raw monthly sequence, which is a different
 hypothesis (the lags may be the wrong summary rather than the signal being
 absent). That needs torch, so it is a real decision rather than an afternoon —
-and given that naive wins by 12% on the best network here, the prior should be
+and given that naive wins by 14% on the best network here, the prior should be
 low.

@@ -75,37 +75,37 @@ The controls-only row is the null the EV features must beat. Best-of-several is 
 
 | model | MAE (log, mean ± sd) | RMSE (log) | sMAPE (level) | skill vs naive | seeds |
 |---|---|---|---|---|---|
-| Naive (last month) | 0.267 | 0.405 | 0.277 | +0.0% | 1 |
-| Drift (last + mean growth) | 0.267 | 0.408 | 0.277 | -0.3% | 1 |
-| Ridge | 0.290 | 0.421 | 0.294 | -8.7% | 1 |
-| MLP (16) | 0.298 ± 0.021 | 0.434 | 0.301 | -11.9% | 5 |
-| MLP (64,32) | 0.347 ± 0.035 | 0.487 | 0.347 | -30.3% | 5 |
-| MLP (128,64) | 0.384 ± 0.100 | 0.504 | 0.384 | -44.1% | 5 |
-| Seasonal naive (12m) | 0.473 | 0.618 | 0.485 | -77.3% | 1 |
-| Mean (train) | 2.836 | 3.134 | 1.591 | -963.9% | 1 |
+| Drift (last + mean growth) | 0.233 | 0.362 | 0.244 | +0.7% | 1 |
+| Naive (last month) | 0.234 | 0.364 | 0.246 | +0.0% | 1 |
+| Ridge | 0.244 | 0.344 | 0.253 | -4.3% | 1 |
+| MLP (16) | 0.267 ± 0.021 | 0.388 | 0.273 | -14.0% | 5 |
+| MLP (64,32) | 0.313 ± 0.038 | 0.437 | 0.316 | -33.6% | 5 |
+| MLP (128,64) | 0.354 ± 0.098 | 0.460 | 0.358 | -51.3% | 5 |
+| Seasonal naive (12m) | 0.475 | 0.622 | 0.486 | -102.8% | 1 |
+| Mean (train) | 2.849 | 3.148 | 1.593 | -1116.8% | 1 |
 
 ## Track B: next-month state EV registrations -- predicting the change (the fair framing for a network)
 
 | model | MAE (log, mean ± sd) | RMSE (log) | sMAPE (level) | skill vs naive | seeds |
 |---|---|---|---|---|---|
-| Naive (last month) | 0.267 | 0.405 | 0.277 | +0.0% | 1 |
-| Mean (train) | 0.267 | 0.408 | 0.277 | -0.2% | 1 |
-| Drift (last + mean growth) | 0.267 | 0.408 | 0.277 | -0.3% | 1 |
-| Ridge | 0.290 | 0.421 | 0.294 | -8.7% | 1 |
-| MLP (16) | 0.306 ± 0.020 | 0.419 | 0.313 | -14.7% | 5 |
-| MLP (64,32) | 0.337 ± 0.017 | 0.474 | 0.342 | -26.4% | 5 |
-| MLP (128,64) | 0.353 ± 0.020 | 0.490 | 0.356 | -32.3% | 5 |
-| Seasonal naive (12m) | 0.473 | 0.618 | 0.485 | -77.3% | 1 |
+| Mean (train) | 0.232 | 0.362 | 0.244 | +0.7% | 1 |
+| Drift (last + mean growth) | 0.233 | 0.362 | 0.244 | +0.7% | 1 |
+| Naive (last month) | 0.234 | 0.364 | 0.246 | +0.0% | 1 |
+| Ridge | 0.244 | 0.344 | 0.253 | -4.2% | 1 |
+| MLP (16) | 0.278 ± 0.028 | 0.381 | 0.288 | -18.8% | 5 |
+| MLP (64,32) | 0.312 ± 0.021 | 0.442 | 0.320 | -33.1% | 5 |
+| MLP (128,64) | 0.324 ± 0.024 | 0.453 | 0.330 | -38.5% | 5 |
+| Seasonal naive (12m) | 0.475 | 0.622 | 0.486 | -102.8% | 1 |
 
 ## Track B: train vs test error (delta target)
 
 | model | MAE train | MAE test | gap |
 |---|---|---|---|
-| Naive (last month) | 0.432 | 0.267 | -0.165 |
-| Ridge | 0.408 | 0.290 | -0.119 |
-| MLP (16) | 0.349 | 0.306 | -0.044 |
-| MLP (64,32) | 0.195 | 0.337 | 0.142 |
-| MLP (128,64) | 0.158 | 0.353 | 0.194 |
+| Naive (last month) | 0.432 | 0.234 | -0.197 |
+| Ridge | 0.408 | 0.244 | -0.164 |
+| MLP (16) | 0.349 | 0.278 | -0.071 |
+| MLP (64,32) | 0.195 | 0.312 | 0.117 |
+| MLP (128,64) | 0.158 | 0.324 | 0.166 |
 
 `gap > 0` is overfitting. `MLP (16)` has no gap and still loses to naive, which is the point: the signal is absent, not merely overfitted.
 
@@ -113,14 +113,14 @@ The controls-only row is the null the EV features must beat. Best-of-several is 
 
 | train months | train rows | MAE test (log) |
 |---|---|---|
-| 19 | 646 | 0.552 |
-| 38 | 1292 | 0.410 |
-| 56 | 1898 | 0.333 |
-| 75 | 2455 | 0.338 |
+| 19 | 646 | 0.490 |
+| 38 | 1292 | 0.360 |
+| 56 | 1898 | 0.299 |
+| 75 | 2455 | 0.312 |
 
 Flat over the last quarter of the window, so more history would not close the gap to the naive forecast.
 
 ## Track B: per-state
 
-The network beats the naive forecast in **6 of 34** states; median skill -0.246.
+The network beats the naive forecast in **7 of 34** states; median skill -0.251.
 

@@ -24,7 +24,12 @@ RESULTS = MODEL_DIR / "results" / "nn"
 # Forecasting next-month EV registrations per state. This is the only target in
 # the project with enough dense observations to train a network on; see
 # nn-models-card.md for the counts that led here.
-VOLUME_PANEL = ROOT / "data" / "processed" / "ev_registrations_state_monthly.csv"
+#
+# data/clean/, not data/processed/. The registrations pull ends 2026-09-15, so
+# the processed file's last month is half a month and reads as a ~55% collapse in
+# every state at once. scripts/clean.py drops it; reading the processed file
+# skipped that and put a target no model can predict into every test score.
+VOLUME_PANEL = ROOT / "data" / "clean" / "registrations_state_monthly.csv"
 
 # Train on months up to and including this, test after. Chosen to leave ~18
 # months of test, matching the national study's test length.

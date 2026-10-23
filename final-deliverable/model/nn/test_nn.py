@@ -235,6 +235,21 @@ def test_completion_only_adds_zero_months():
     assert (only_new["ev_total"] == 0).all(), "filled months must be zero"
 
 
+def test_final_month_is_not_partial():
+    """The last month of the panel must be a complete month.
+
+    The registrations pull stops mid-month, and a half month looks like a ~55%
+    collapse in every state at once -- a target that only rewards models that
+    happen to predict a fall. Round one read the uncleaned file and scored
+    against it; this is what keeps that from coming back if the pull is extended.
+    """
+    raw = nv.load_panel()
+    nat = raw.groupby("month")["ev_total"].sum().sort_index()
+    assert nat.iloc[-1] >= 0.6 * nat.iloc[-4:-1].median(), (
+        f"{nat.index[-1].date()} totals {nat.iloc[-1]:,.0f}, far below the months "
+        "before it -- probably a partial month that clean.py should drop")
+
+
 def test_completion_does_not_backfill_before_first_sighting():
     raw = nv.load_panel()
     full = nv.complete_panel()
