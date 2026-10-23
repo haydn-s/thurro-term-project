@@ -107,7 +107,7 @@ The controls-only row is the null the EV features must beat. Best-of-several is 
 | MLP (64,32) | 0.195 | 0.312 | 0.117 |
 | MLP (128,64) | 0.158 | 0.324 | 0.166 |
 
-`gap > 0` is overfitting. `MLP (16)` has no gap and still loses to naive, which is the point: the signal is absent, not merely overfitted.
+`gap > 0` is overfitting. `MLP (16)` has no gap and still loses to naive. Round one read that as the signal being absent; Track C shows otherwise -- SES beats naive, and this network trained with a median loss and early stopping gets most of the way there.
 
 ## Track B: learning curve
 
@@ -123,4 +123,285 @@ Flat over the last quarter of the window, so more history would not close the ga
 ## Track B: per-state
 
 The network beats the naive forecast in **7 of 34** states; median skill -0.251.
+
+## Track C: sequence models on state EV registrations
+
+34 states (18 major), 2455 training windows, 544 test origins (2025-04-01 to 2026-07-01). Trained to 2025-03-01; windows tried [13, 24]. SES alpha 0.65, drift +0.042 log/month, both fitted on training rows only. Lowest validation loss: **N-BEATS on SES**.
+
+### Validation (the only place anything was chosen)
+
+| model | window chosen | validation pinball | mean best epoch | parameters | seconds / fit |
+|---|---|---|---|---|---|
+| N-BEATS on SES | 13 | 0.0879 | 14.2 | 36207 | 1.3 |
+| N-BEATS | 13 | 0.0889 | 14.2 | 36207 | 1.4 |
+| LSTM on SES | 24 | 0.0903 | 6.4 | 7482 | 2.7 |
+| TCN on SES | 24 | 0.0918 | 4.4 | 24922 | 16.6 |
+| GRU on SES | 24 | 0.0934 | 9.6 | 6106 | 2.7 |
+| TCN | 24 | 0.0938 | 6.2 | 24890 | 16.4 |
+| MLP (16), Track C training | 13 | 0.0938 | 113.6 | 658 | 1.2 |
+| Transformer on SES | 24 | 0.0953 | 3.2 | 20154 | 8.5 |
+| LSTM | 24 | 0.0955 | 9.6 | 7450 | 2.9 |
+| GRU | 24 | 0.0961 | 10.8 | 6074 | 3.2 |
+| Transformer | 13 | 0.1003 | 9.6 | 19770 | 6.8 |
+
+### Main split, h=1, all states (544 rows, 16 months)
+
+Every model, per-seed rows and 5-seed ensembles. Intervals resample whole test months.
+
+| model | MAE (log, mean ± sd) | skill vs naive | 90% CI vs naive | 90% CI vs SES | corr. with SES | seeds |
+|---|---|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.204 | +13.0% | [+0.019, +0.042] | [+0.002, +0.021] | 0.885 | 1 |
+| N-BEATS on SES | 0.205 ± 0.002 | +12.3% | [+0.017, +0.041] | [-0.001, +0.021] | 0.861 | 5 |
+| N-BEATS x5 ensemble | 0.209 | +10.7% | [+0.015, +0.035] | [-0.002, +0.014] | 0.831 | 1 |
+| LSTM on SES x5 ensemble | 0.209 | +10.6% | [+0.014, +0.036] | [-0.005, +0.016] | 0.913 | 1 |
+| TCN on SES x5 ensemble | 0.210 | +10.5% | [+0.014, +0.036] | [-0.005, +0.016] | 0.909 | 1 |
+| Transformer on SES x5 ensemble | 0.210 | +10.2% | [+0.011, +0.036] | [-0.008, +0.017] | 0.907 | 1 |
+| TCN on SES | 0.211 ± 0.002 | +10.1% | [+0.012, +0.035] | [-0.007, +0.015] | 0.897 | 5 |
+| LSTM on SES | 0.211 ± 0.002 | +9.9% | [+0.012, +0.034] | [-0.007, +0.014] | 0.906 | 5 |
+| Transformer on SES | 0.212 ± 0.003 | +9.3% | [+0.008, +0.035] | [-0.011, +0.016] | 0.897 | 5 |
+| GRU on SES x5 ensemble | 0.213 | +9.1% | [+0.009, +0.033] | [-0.008, +0.012] | 0.910 | 1 |
+| N-BEATS | 0.214 ± 0.004 | +8.7% | [+0.008, +0.033] | [-0.009, +0.012] | 0.812 | 5 |
+| GRU on SES | 0.214 ± 0.003 | +8.5% | [+0.008, +0.032] | [-0.009, +0.011] | 0.899 | 5 |
+| TCN x5 ensemble | 0.214 | +8.4% | [+0.009, +0.031] | [-0.009, +0.010] | 0.772 | 1 |
+| SES | 0.215 | +8.2% | [+0.010, +0.028] | [+0.000, +0.000] | 1.000 | 1 |
+| Transformer x5 ensemble | 0.217 | +7.5% | [+0.004, +0.033] | [-0.013, +0.010] | 0.779 | 1 |
+| MLP (16), Track C training x5 ensemble | 0.218 | +6.8% | [+0.006, +0.025] | [-0.012, +0.005] | 0.842 | 1 |
+| Transformer | 0.220 ± 0.004 | +6.2% | [-0.000, +0.031] | [-0.018, +0.008] | 0.759 | 5 |
+| TCN | 0.220 ± 0.008 | +6.0% | [+0.001, +0.028] | [-0.017, +0.007] | 0.727 | 5 |
+| LSTM x5 ensemble | 0.220 | +5.8% | [+0.003, +0.025] | [-0.015, +0.004] | 0.752 | 1 |
+| GRU x5 ensemble | 0.224 | +4.5% | [-0.002, +0.024] | [-0.019, +0.002] | 0.760 | 1 |
+| LSTM | 0.224 ± 0.006 | +4.4% | [-0.002, +0.023] | [-0.020, +0.002] | 0.712 | 5 |
+| GRU | 0.225 ± 0.006 | +4.0% | [-0.004, +0.023] | [-0.021, +0.001] | 0.741 | 5 |
+| Drift (last + mean growth) | 0.233 | +0.7% | [-0.006, +0.009] | [-0.032, -0.003] | -- | 1 |
+| Naive (last month) | 0.234 | +0.0% | [+0.000, +0.000] | [-0.028, -0.010] | -- | 1 |
+| MLP (16), Track C training | 0.240 ± 0.032 | -2.7% | [-0.022, +0.008] | [-0.041, -0.011] | 0.767 | 5 |
+| Ridge (Track B features) | 0.244 | -4.2% | [-0.034, +0.013] | [-0.052, -0.006] | 0.663 | 1 |
+| MLP (16) (Track B features) | 0.278 ± 0.028 | -18.8% | [-0.069, -0.018] | [-0.088, -0.038] | 0.650 | 5 |
+| Seasonal naive (12m) | 0.427 | -82.5% | [-0.228, -0.157] | [-0.248, -0.175] | 0.481 | 1 |
+
+### Main split, h=3, all states (476 rows, 14 months)
+
+Ensembles, baselines and references; per-seed rows are in `seq_summary.csv`.
+
+| model | MAE (log, mean ± sd) | skill vs naive | 90% CI vs naive | 90% CI vs SES | corr. with SES | seeds |
+|---|---|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.257 | +11.9% | [+0.013, +0.057] | [+0.008, +0.037] | 0.757 | 1 |
+| Drift (last + mean growth) | 0.271 | +7.0% | [-0.001, +0.041] | [-0.014, +0.028] | -0.000 | 1 |
+| N-BEATS x5 ensemble | 0.273 | +6.4% | [-0.003, +0.040] | [-0.010, +0.022] | 0.690 | 1 |
+| LSTM on SES x5 ensemble | 0.274 | +6.1% | [-0.002, +0.037] | [-0.008, +0.019] | 0.809 | 1 |
+| TCN on SES x5 ensemble | 0.277 | +4.9% | [-0.007, +0.035] | [-0.014, +0.017] | 0.759 | 1 |
+| SES | 0.279 | +4.2% | [+0.003, +0.022] | [+0.000, +0.000] | 1.000 | 1 |
+| Transformer x5 ensemble | 0.280 | +4.1% | [-0.008, +0.032] | [-0.016, +0.016] | 0.731 | 1 |
+| GRU on SES x5 ensemble | 0.281 | +3.6% | [-0.012, +0.032] | [-0.018, +0.013] | 0.798 | 1 |
+| TCN x5 ensemble | 0.284 | +2.7% | [-0.013, +0.029] | [-0.021, +0.012] | 0.697 | 1 |
+| Transformer on SES x5 ensemble | 0.288 | +1.5% | [-0.015, +0.023] | [-0.022, +0.005] | 0.738 | 1 |
+| LSTM x5 ensemble | 0.291 | +0.4% | [-0.017, +0.021] | [-0.027, +0.005] | 0.720 | 1 |
+| Naive (last month) | 0.292 | +0.0% | [+0.000, +0.000] | [-0.022, -0.003] | -- | 1 |
+| MLP (16), Track C training x5 ensemble | 0.295 | -1.2% | [-0.020, +0.014] | [-0.030, -0.001] | 0.819 | 1 |
+| GRU x5 ensemble | 0.301 | -3.3% | [-0.030, +0.012] | [-0.039, -0.006] | 0.726 | 1 |
+| MLP (16), Track C training | 0.310 ± 0.045 | -6.4% | [-0.040, +0.004] | [-0.051, -0.011] | 0.744 | 5 |
+| Ridge (Track B features) | 0.335 | -14.8% | [-0.088, -0.002] | [-0.095, -0.019] | 0.623 | 1 |
+| MLP (16) (Track B features) | 0.395 ± 0.067 | -35.2% | [-0.132, -0.072] | [-0.144, -0.086] | 0.659 | 5 |
+| Seasonal naive (12m) | 0.435 | -49.0% | [-0.179, -0.106] | [-0.187, -0.124] | 0.524 | 1 |
+
+### Main split, h=6, all states (374 rows, 11 months)
+
+Ensembles, baselines and references; per-seed rows are in `seq_summary.csv`.
+
+| model | MAE (log, mean ± sd) | skill vs naive | 90% CI vs naive | 90% CI vs SES | corr. with SES | seeds |
+|---|---|---|---|---|---|---|
+| Drift (last + mean growth) | 0.322 | +16.7% | [+0.015, +0.114] | [-0.002, +0.097] | 0.000 | 1 |
+| N-BEATS on SES x5 ensemble | 0.325 | +16.1% | [+0.033, +0.090] | [+0.018, +0.072] | 0.584 | 1 |
+| TCN x5 ensemble | 0.332 | +14.3% | [+0.024, +0.088] | [+0.007, +0.070] | 0.622 | 1 |
+| LSTM on SES x5 ensemble | 0.332 | +14.2% | [+0.020, +0.091] | [+0.003, +0.074] | 0.677 | 1 |
+| TCN on SES x5 ensemble | 0.333 | +14.0% | [+0.026, +0.084] | [+0.009, +0.067] | 0.653 | 1 |
+| LSTM x5 ensemble | 0.334 | +13.8% | [+0.031, +0.078] | [+0.014, +0.062] | 0.665 | 1 |
+| Transformer x5 ensemble | 0.334 | +13.6% | [+0.016, +0.091] | [-0.001, +0.073] | 0.668 | 1 |
+| GRU on SES x5 ensemble | 0.338 | +12.7% | [+0.013, +0.086] | [-0.004, +0.069] | 0.682 | 1 |
+| Transformer on SES x5 ensemble | 0.347 | +10.3% | [-0.005, +0.083] | [-0.023, +0.068] | 0.635 | 1 |
+| GRU x5 ensemble | 0.348 | +10.2% | [+0.016, +0.064] | [-0.001, +0.048] | 0.658 | 1 |
+| N-BEATS x5 ensemble | 0.348 | +10.1% | [+0.013, +0.066] | [-0.002, +0.047] | 0.549 | 1 |
+| MLP (16), Track C training x5 ensemble | 0.349 | +9.7% | [+0.016, +0.061] | [-0.001, +0.044] | 0.709 | 1 |
+| SES | 0.370 | +4.4% | [+0.009, +0.026] | [+0.000, +0.000] | 1.000 | 1 |
+| MLP (16), Track C training | 0.383 ± 0.059 | +1.1% | [-0.030, +0.039] | [-0.047, +0.021] | 0.643 | 5 |
+| Ridge (Track B features) | 0.386 | +0.2% | [-0.083, +0.080] | [-0.100, +0.064] | 0.473 | 1 |
+| Naive (last month) | 0.387 | +0.0% | [+0.000, +0.000] | [-0.026, -0.009] | -- | 1 |
+| Seasonal naive (12m) | 0.457 | -18.0% | [-0.107, -0.027] | [-0.124, -0.046] | 0.577 | 1 |
+| MLP (16) (Track B features) | 0.589 ± 0.084 | -52.3% | [-0.250, -0.154] | [-0.266, -0.172] | 0.479 | 5 |
+
+### Main split, h=1, major states (288 rows, 16 months)
+
+Ensembles, baselines and references; per-seed rows are in `seq_summary.csv`.
+
+| model | MAE (log, mean ± sd) | skill vs naive | 90% CI vs naive | 90% CI vs SES | corr. with SES | seeds |
+|---|---|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.128 | +14.2% | [+0.006, +0.037] | [+0.002, +0.025] | 0.930 | 1 |
+| N-BEATS x5 ensemble | 0.133 | +10.9% | [+0.002, +0.031] | [-0.001, +0.017] | 0.859 | 1 |
+| TCN on SES x5 ensemble | 0.138 | +7.7% | [+0.001, +0.022] | [-0.005, +0.011] | 0.882 | 1 |
+| Transformer on SES x5 ensemble | 0.139 | +7.5% | [+0.000, +0.022] | [-0.007, +0.012] | 0.871 | 1 |
+| LSTM on SES x5 ensemble | 0.140 | +6.3% | [-0.001, +0.020] | [-0.006, +0.008] | 0.902 | 1 |
+| SES | 0.141 | +5.6% | [-0.003, +0.020] | [+0.000, +0.000] | 1.000 | 1 |
+| TCN x5 ensemble | 0.144 | +3.7% | [-0.006, +0.017] | [-0.010, +0.005] | 0.633 | 1 |
+| GRU on SES x5 ensemble | 0.147 | +1.9% | [-0.011, +0.017] | [-0.014, +0.004] | 0.869 | 1 |
+| Drift (last + mean growth) | 0.149 | +0.5% | [-0.009, +0.010] | [-0.025, +0.010] | -- | 1 |
+| Transformer x5 ensemble | 0.149 | +0.4% | [-0.015, +0.016] | [-0.019, +0.004] | 0.659 | 1 |
+| Naive (last month) | 0.150 | +0.0% | [+0.000, +0.000] | [-0.020, +0.003] | -- | 1 |
+| LSTM x5 ensemble | 0.150 | -0.3% | [-0.014, +0.012] | [-0.019, +0.001] | 0.578 | 1 |
+| MLP (16), Track C training x5 ensemble | 0.153 | -2.0% | [-0.017, +0.011] | [-0.025, +0.002] | 0.740 | 1 |
+| GRU x5 ensemble | 0.159 | -6.2% | [-0.028, +0.008] | [-0.030, -0.005] | 0.655 | 1 |
+| MLP (16), Track C training | 0.179 ± 0.051 | -19.7% | [-0.049, -0.011] | [-0.058, -0.018] | 0.629 | 5 |
+| Ridge (Track B features) | 0.180 | -20.1% | [-0.054, -0.005] | [-0.063, -0.014] | 0.518 | 1 |
+| MLP (16) (Track B features) | 0.205 ± 0.037 | -36.9% | [-0.093, -0.016] | [-0.098, -0.027] | 0.562 | 5 |
+| Seasonal naive (12m) | 0.347 | -131.5% | [-0.254, -0.138] | [-0.257, -0.149] | 0.420 | 1 |
+
+### Intervals: mean pinball loss and 80% coverage, all states
+
+| model | pinball h=1 | coverage h=1 | pinball h=3 | coverage h=3 | pinball h=6 | coverage h=6 |
+|---|---|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.070 | 0.875 | 0.088 | 0.874 | 0.106 | 0.845 |
+| SES + empirical quantiles | 0.071 | 0.860 | 0.091 | 0.790 | 0.114 | 0.735 |
+| TCN on SES x5 ensemble | 0.072 | 0.877 | 0.091 | 0.817 | 0.104 | 0.741 |
+| LSTM on SES x5 ensemble | 0.072 | 0.897 | 0.090 | 0.840 | 0.105 | 0.791 |
+| GRU on SES x5 ensemble | 0.072 | 0.897 | 0.092 | 0.828 | 0.106 | 0.797 |
+| Transformer x5 ensemble | 0.072 | 0.877 | 0.091 | 0.826 | 0.104 | 0.770 |
+| N-BEATS x5 ensemble | 0.073 | 0.879 | 0.091 | 0.859 | 0.111 | 0.850 |
+| TCN x5 ensemble | 0.073 | 0.884 | 0.092 | 0.809 | 0.104 | 0.751 |
+| MLP (16), Track C training x5 ensemble | 0.073 | 0.877 | 0.095 | 0.775 | 0.111 | 0.722 |
+| Transformer on SES x5 ensemble | 0.074 | 0.910 | 0.095 | 0.891 | 0.110 | 0.853 |
+| GRU x5 ensemble | 0.075 | 0.897 | 0.097 | 0.800 | 0.109 | 0.757 |
+| LSTM x5 ensemble | 0.075 | 0.890 | 0.094 | 0.807 | 0.106 | 0.746 |
+| Drift + empirical quantiles | 0.079 | 0.877 | 0.093 | 0.824 | 0.110 | 0.743 |
+| Naive + empirical quantiles | 0.079 | 0.877 | 0.097 | 0.824 | 0.121 | 0.743 |
+
+Lower pinball is better; a calibrated 80% interval covers 0.80.
+
+### Rolling origin: refit every 6 months from 2022-09
+
+`before` is the 30 forecast months ahead of the main test window, which had not been looked at when the hybrid was added. ± is the spread of the single-seed scores behind each ensemble.
+
+**h=1, all** (1564 rows, 46 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.245 ± 0.002 | +12.8% | +4.5% | [+0.004, +0.018] |
+| N-BEATS x5 ensemble | 0.250 ± 0.003 | +10.9% | +2.4% | [-0.001, +0.013] |
+| SES | 0.256 | +8.7% | +0.0% | [+0.000, +0.000] |
+| Drift (last + mean growth) | 0.280 | +0.4% | -9.2% | [-0.034, -0.013] |
+| Naive (last month) | 0.281 | +0.0% | -9.6% | [-0.031, -0.018] |
+
+**h=1, before** (1020 rows, 30 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.266 ± 0.003 | +13.0% | +4.5% | [+0.003, +0.022] |
+| N-BEATS x5 ensemble | 0.273 ± 0.005 | +10.6% | +1.9% | [-0.005, +0.015] |
+| SES | 0.278 | +8.9% | +0.0% | [+0.000, +0.000] |
+| Drift (last + mean growth) | 0.305 | +0.2% | -9.6% | [-0.040, -0.014] |
+| Naive (last month) | 0.305 | +0.0% | -9.8% | [-0.036, -0.019] |
+
+**h=1, main window** (544 rows, 16 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.205 ± 0.003 | +12.4% | +4.6% | [+0.002, +0.018] |
+| N-BEATS x5 ensemble | 0.207 ± 0.002 | +11.5% | +3.6% | [+0.000, +0.015] |
+| SES | 0.215 | +8.2% | +0.0% | [+0.000, +0.000] |
+| Drift (last + mean growth) | 0.232 | +0.8% | -8.1% | [-0.032, -0.003] |
+| Naive (last month) | 0.234 | +0.0% | -8.9% | [-0.028, -0.010] |
+
+**h=3, all** (1496 rows, 44 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.288 ± 0.005 | +10.5% | +4.0% | [-0.003, +0.027] |
+| N-BEATS x5 ensemble | 0.292 ± 0.005 | +9.2% | +2.7% | [-0.007, +0.023] |
+| SES | 0.300 | +6.7% | +0.0% | [+0.000, +0.000] |
+| Drift (last + mean growth) | 0.320 | +0.3% | -6.9% | [-0.037, -0.005] |
+| Naive (last month) | 0.321 | +0.0% | -7.2% | [-0.029, -0.015] |
+
+**h=3, before** (1020 rows, 30 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.301 ± 0.009 | +10.1% | +2.6% | [-0.014, +0.028] |
+| N-BEATS x5 ensemble | 0.304 ± 0.007 | +9.2% | +1.6% | [-0.017, +0.025] |
+| SES | 0.309 | +7.7% | +0.0% | [+0.000, +0.000] |
+| Naive (last month) | 0.335 | +0.0% | -8.4% | [-0.036, -0.017] |
+| Drift (last + mean growth) | 0.343 | -2.5% | -11.0% | [-0.055, -0.014] |
+
+**h=3, main window** (476 rows, 14 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.259 ± 0.011 | +11.3% | +7.4% | [+0.007, +0.035] |
+| N-BEATS x5 ensemble | 0.265 ± 0.011 | +9.1% | +5.1% | [-0.001, +0.030] |
+| Drift (last + mean growth) | 0.271 | +7.0% | +2.9% | [-0.014, +0.028] |
+| SES | 0.279 | +4.2% | +0.0% | [+0.000, +0.000] |
+| Naive (last month) | 0.292 | +0.0% | -4.4% | [-0.022, -0.003] |
+
+**h=6, all** (1394 rows, 41 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| N-BEATS on SES x5 ensemble | 0.359 ± 0.011 | +5.7% | +0.0% | [-0.029, +0.030] |
+| SES | 0.359 | +5.7% | +0.0% | [+0.000, +0.000] |
+| N-BEATS x5 ensemble | 0.361 ± 0.013 | +5.0% | -0.7% | [-0.031, +0.026] |
+| Drift (last + mean growth) | 0.379 | +0.4% | -5.6% | [-0.052, +0.013] |
+| Naive (last month) | 0.380 | +0.0% | -6.0% | [-0.029, -0.015] |
+
+**h=6, before** (1020 rows, 30 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| SES | 0.355 | +6.1% | +0.0% | [+0.000, +0.000] |
+| N-BEATS x5 ensemble | 0.367 ± 0.011 | +2.9% | -3.4% | [-0.050, +0.024] |
+| N-BEATS on SES x5 ensemble | 0.369 ± 0.014 | +2.4% | -4.0% | [-0.052, +0.023] |
+| Naive (last month) | 0.378 | +0.0% | -6.5% | [-0.032, -0.015] |
+| Drift (last + mean growth) | 0.399 | -5.6% | -12.5% | [-0.080, -0.009] |
+
+**h=6, main window** (374 rows, 11 months)
+
+| model | MAE (log) | skill vs naive | skill vs SES | 90% CI vs SES |
+|---|---|---|---|---|
+| Drift (last + mean growth) | 0.324 | +16.3% | +12.4% | [-0.002, +0.093] |
+| N-BEATS on SES x5 ensemble | 0.331 ± 0.010 | +14.4% | +10.4% | [+0.014, +0.063] |
+| N-BEATS x5 ensemble | 0.346 ± 0.025 | +10.5% | +6.4% | [-0.004, +0.050] |
+| SES | 0.370 | +4.4% | +0.0% | [+0.000, +0.000] |
+| Naive (last month) | 0.387 | +0.0% | -4.6% | [-0.026, -0.009] |
+
+### Rolling origin: MAE by block, h=1
+
+| origin | months | SES alpha | Naive (last month) | Drift (last + mean growth) | SES | N-BEATS x5 ensemble | N-BEATS on SES x5 ensemble |
+|---|---|---|---|---|---|---|---|
+| 2022-09-01 | 6 | 0.800 | 0.254 | 0.259 | 0.241 | 0.245 | 0.241 |
+| 2023-03-01 | 6 | 0.800 | 0.314 | 0.308 | 0.287 | 0.280 | 0.265 |
+| 2023-09-01 | 6 | 0.750 | 0.362 | 0.361 | 0.339 | 0.334 | 0.324 |
+| 2024-03-01 | 6 | 0.700 | 0.300 | 0.292 | 0.269 | 0.251 | 0.244 |
+| 2024-09-01 | 6 | 0.700 | 0.296 | 0.304 | 0.255 | 0.254 | 0.254 |
+| 2025-03-01 | 6 | 0.650 | 0.196 | 0.192 | 0.184 | 0.182 | 0.175 |
+| 2025-09-01 | 6 | 0.650 | 0.275 | 0.280 | 0.247 | 0.238 | 0.236 |
+| 2026-03-01 | 4 | 0.650 | 0.229 | 0.221 | 0.213 | 0.199 | 0.204 |
+
+### Train vs test error, h=1 (main split, seed means)
+
+| model | MAE train | MAE test | gap |
+|---|---|---|---|
+| GRU | 0.377 | 0.225 | -0.152 |
+| LSTM | 0.384 | 0.224 | -0.160 |
+| TCN | 0.378 | 0.220 | -0.158 |
+| Transformer | 0.370 | 0.220 | -0.151 |
+| N-BEATS | 0.366 | 0.214 | -0.152 |
+| GRU on SES | 0.374 | 0.214 | -0.160 |
+| LSTM on SES | 0.383 | 0.211 | -0.172 |
+| TCN on SES | 0.376 | 0.211 | -0.166 |
+| Transformer on SES | 0.382 | 0.212 | -0.170 |
+| N-BEATS on SES | 0.365 | 0.205 | -0.159 |
+| MLP (16), Track C training | 0.377 | 0.240 | -0.137 |
+| Naive (last month) | 0.432 | 0.234 | -0.197 |
+
+Every gap is negative, as it is for naive: the test period is calmer than 2019-2021, and no sequence model overfits.
+
+### Per state, h=1
+
+N-BEATS on SES ensemble (chosen by validation loss) beats naive in **27 of 34** states, 13 of 18 major; median skill +0.135.
 

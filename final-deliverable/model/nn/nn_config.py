@@ -42,6 +42,57 @@ VOLUME_MIN_NONZERO_MONTHS = 24
 # Longest look-back used by a volume feature; rows without a full window are dropped.
 VOLUME_MAX_LOOKBACK = 12
 
+# ---------------------------------------------------------------- sequence models
+# Track C: recurrent, convolutional, attention and N-BEATS networks reading the
+# raw monthly sequence rather than engineered lags. Same panel, states and split
+# as Track B, so its one-month-ahead numbers land in the same table.
+
+# Forecast 1..SEQ_HORIZON months ahead from each origin. h=1 is Track B's target;
+# the longer horizons are where a random walk degrades and structure, if any,
+# should show.
+SEQ_HORIZON = 6
+SEQ_REPORT_HORIZONS = [1, 3, 6]
+
+# Window lengths tried. Picked per architecture on the inner validation block
+# below, never on the test months. 13 is the history every Track B row already
+# has (lag12 + the current month); 24 reaches back further, zero-padded and
+# masked where a state's history is shorter.
+SEQ_WINDOWS = [13, 24]
+
+# Inner validation: the last this-many months of training origins. Used for
+# early stopping and the window choice; the model is then refitted on the whole
+# training window for the chosen number of epochs.
+SEQ_VAL_MONTHS = 12
+
+# Quantiles every sequence model predicts. The median is the point forecast;
+# 0.1 and 0.9 give an 80% interval, scored for coverage.
+SEQ_QUANTILES = [0.1, 0.5, 0.9]
+
+# Training budget: Adam, early-stopped on the validation pinball loss.
+SEQ_MAX_EPOCHS = 300
+SEQ_PATIENCE = 30
+SEQ_BATCH = 64
+
+# A second scoring subset, fixed before any sequence model was run: states whose
+# mean monthly registrations over the training window are at least this. The
+# smallest kept states average 2-15 a month, where log1p is dominated by count
+# noise; the headline metric keeps them so it stays comparable with Track B.
+SEQ_MAJOR_STATE_MIN_MONTHLY = 1000
+
+# Rolling-origin backtest of the deciding comparison: refit at each origin and
+# forecast the next SEQ_ROLLING_BLOCK months of origins, so every block is out of
+# sample for the model that scores it. The first five blocks end before the main
+# test window and had not been looked at when the hybrid was added.
+SEQ_ROLLING_ORIGINS = ["2022-09-01", "2023-03-01", "2023-09-01", "2024-03-01",
+                       "2024-09-01", "2025-03-01", "2025-09-01", "2026-03-01"]
+SEQ_ROLLING_BLOCK = 6
+SEQ_ROLLING_ARCHS = ["N-BEATS", "N-BEATS on SES"]
+SEQ_ROLLING_WINDOW = 13          # what validation chose for both in the main split
+
+# Parallel training jobs. Each job pins torch to one thread; these networks are
+# too small for intra-op threading to help.
+SEQ_N_JOBS = 6
+
 RANDOM_STATE = 0
 
 # How many seeds each network is refit under. A single seed on data this small

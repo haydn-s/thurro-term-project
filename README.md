@@ -88,10 +88,14 @@ results:
   worse at ranking (top-5 hit rate 0.545 vs 0.64). With 7 training events there
   is nothing for it to add — prefer the logit.
 - On **forecasting EV volume** itself, the only target dense enough to train a
-  network properly (34 states x 92 months), every network loses to a random
-  walk. The diagnostic that matters: a small network that does *not* overfit
-  still loses, and its learning curve is flat, so the conditional structure is
-  absent rather than under-regularised.
+  network properly (34 states x 92 months), a feedforward network on engineered
+  lags loses to a random walk. A second round (branch `nn-sequence-models`)
+  found that was mostly how it was trained, not the data: GRU, LSTM, TCN,
+  Transformer and N-BEATS models all beat the random walk, but mostly by
+  rediscovering **exponential smoothing**, which one fitted parameter does just
+  as well. One network, N-BEATS trained on the smoother's residual, beats
+  smoothing by ~4.5% one month ahead, and that held up in a 46-month rolling
+  backtest; beyond one month nothing beats smoothing reliably.
 
 None of this is wired into the container, which still serves its documented
 null baseline. It also does not revisit the capex null above — that is a
@@ -177,7 +181,7 @@ final-deliverable/
   app/          the signal service: HTTP surface, model seam, feature reader
   model/        fitted artifacts go here (empty; the model is not written yet)
     exploration/  the 7 national + 9 state model study
-    nn/           the neural-network experiments (branch nn-development)
+    nn/           the neural-network experiments (branches nn-development, nn-sequence-models)
   tests/        91 tests, runnable without Docker
   README.md     the deliverable's documentation — read before deploying
 presentations/

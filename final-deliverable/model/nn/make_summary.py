@@ -128,7 +128,9 @@ def build():
                       ["model", "MAE train", "MAE test", "gap"]),
                   "",
                   "`gap > 0` is overfitting. `MLP (16)` has no gap and still loses to "
-                  "naive, which is the point: the signal is absent, not merely overfitted.",
+                  "naive. Round one read that as the signal being absent; Track C shows "
+                  "otherwise -- SES beats naive, and this network trained with a median "
+                  "loss and early stopping gets most of the way there.",
                   ""]
 
     lc = _read("volume_learning_curve.csv")
@@ -147,7 +149,144 @@ def build():
                   f"The network beats the naive forecast in **{wins} of {len(bs)}** states; "
                   f"median skill {bs['skill_vs_naive'].median():+.3f}.", ""]
 
+    lines += _track_c()
     return "\n".join(lines) + "\n"
+
+
+def _ci(lo, hi):
+    return f"[{lo:+.3f}, {hi:+.3f}]" if pd.notna(lo) else "--"
+
+
+def _pct(v):
+    return f"{v * 100:+.1f}%" if pd.notna(v) else "--"
+
+
+def _pm(mean, sd):
+    return f"{mean:.3f} ± {sd:.3f}" if pd.notna(sd) else f"{mean:.3f}"
+
+
+def _track_c():
+    """Track C: the sequence models (seq_volume.py)."""
+    out = []
+    info = _read("seq_info.csv")
+    sel = _read("seq_selection.csv")
+    summ = _read("seq_summary.csv")
+    if summ is None:
+        return out
+
+    if info is not None:
+        i = dict(zip(info.iloc[:, 0], info["value"]))
+        out += ["## Track C: sequence models on state EV registrations", "",
+                f"{i['states']} states ({i['major_states']} major), "
+                f"{i['train_samples']} training windows, {i['test_samples']} test origins "
+                f"({i['test_origins']}). Trained to {i['train_end']}; windows tried "
+                f"{i['windows_tried']}. SES alpha {float(i['ses_alpha']):.2f}, "
+                f"drift {float(i['drift_per_month']):+.3f} log/month, both fitted on training "
+                f"rows only. Lowest validation loss: **{i['best_by_validation']}**.", ""]
+
+    if sel is not None:
+        ch = (sel[sel["chosen"]].groupby(["model", "window"], as_index=False)
+              .agg(val_loss=("val_loss", "mean"), best_epoch=("best_epoch", "mean"),
+                   params=("params", "first"), seconds=("seconds", "mean"))
+              .sort_values("val_loss"))
+        ch["best_epoch"] = ch["best_epoch"].map("{:.1f}".format)
+        ch["seconds"] = ch["seconds"].map("{:.1f}".format)
+        out += ["### Validation (the only place anything was chosen)", "",
+                _md(ch, ["model", "window", "val_loss", "best_epoch", "params", "seconds"],
+                    ["model", "window chosen", "validation pinball", "mean best epoch",
+                     "parameters", "seconds / fit"], floatfmt="{:.4f}"),
+                ""]
+
+    s = summ.copy()
+    s["mae_pm"] = s.apply(lambda r: _pm(r["mae_log"], r["mae_log_sd"]), axis=1)
+    s["skill"] = s["skill_vs_naive"].map(_pct)
+    s["ci_n"] = s.apply(lambda r: _ci(r["gain_ci_low"], r["gain_ci_high"]), axis=1)
+    s["ci_s"] = s.apply(lambda r: _ci(r["ses_ci_low"], r["ses_ci_high"]), axis=1)
+    cols = ["model", "mae_pm", "skill", "ci_n", "ci_s", "corr_with_ses", "n_seeds"]
+    heads = ["model", "MAE (log, mean ± sd)", "skill vs naive", "90% CI vs naive",
+             "90% CI vs SES", "corr. with SES", "seeds"]
+
+    def table(h, subset, compact):
+        t = s[(s["horizon"] == h) & (s["subset"] == subset)]
+        t = t[~t["model"].str.contains("empirical")]
+        if compact:
+            t = t[(t["family"] != "network") | t["model"].str.startswith("MLP")]
+        t = t.sort_values("mae_log")
+        return t.iloc[0]["n"], t.iloc[0]["test_months"], _md(t, cols, heads)
+
+    n, months, tab = table(1, "all", compact=False)
+    out += [f"### Main split, h=1, all states ({n} rows, {months} months)", "",
+            "Every model, per-seed rows and 5-seed ensembles. Intervals resample whole "
+            "test months.", "", tab, ""]
+    for h, subset in ((3, "all"), (6, "all"), (1, "major")):
+        n, months, tab = table(h, subset, compact=True)
+        out += [f"### Main split, h={h}, {subset} states ({n} rows, {months} months)", "",
+                "Ensembles, baselines and references; per-seed rows are in `seq_summary.csv`.",
+                "", tab, ""]
+
+    q = s[s["pinball"].notna() & (s["subset"] == "all")
+          & (s["model"].str.contains("ensemble") | s["model"].str.contains("empirical"))]
+    rows = []
+    for model, g in q.groupby("model"):
+        r = {"model": model}
+        for h in (1, 3, 6):
+            x = g[g["horizon"] == h].iloc[0]
+            r[f"p{h}"], r[f"c{h}"] = x["pinball"], x["coverage_80"]
+        rows.append(r)
+    pq = pd.DataFrame(rows).sort_values("p1")
+    out += ["### Intervals: mean pinball loss and 80% coverage, all states", "",
+            _md(pq, ["model", "p1", "c1", "p3", "c3", "p6", "c6"],
+                ["model", "pinball h=1", "coverage h=1", "pinball h=3", "coverage h=3",
+                 "pinball h=6", "coverage h=6"]),
+            "", "Lower pinball is better; a calibrated 80% interval covers 0.80.", ""]
+
+    roll = _read("seq_rolling_summary.csv")
+    if roll is not None:
+        roll = roll.copy()
+        roll["mae_pm"] = roll.apply(lambda r: _pm(r["mae_log"], r["seed_sd"]), axis=1)
+        roll["skill_n"] = roll["skill_vs_naive"].map(_pct)
+        roll["skill_s"] = roll["skill_vs_ses"].map(_pct)
+        roll["ci_s"] = roll.apply(lambda r: _ci(r["ses_ci_low"], r["ses_ci_high"]), axis=1)
+        out += ["### Rolling origin: refit every 6 months from 2022-09", "",
+                "`before` is the 30 forecast months ahead of the main test window, which had "
+                "not been looked at when the hybrid was added. ± is the spread of the "
+                "single-seed scores behind each ensemble.", ""]
+        for h in (1, 3, 6):
+            for period in ("all", "before", "main window"):
+                t = roll[(roll["horizon"] == h) & (roll["subset"] == "all")
+                         & (roll["period"] == period)].sort_values("mae_log")
+                out += [f"**h={h}, {period}** ({t['n'].iloc[0]} rows, "
+                        f"{t['test_months'].iloc[0]} months)", "",
+                        _md(t, ["model", "mae_pm", "skill_n", "skill_s", "ci_s"],
+                            ["model", "MAE (log)", "skill vs naive", "skill vs SES",
+                             "90% CI vs SES"]),
+                        ""]
+
+    blocks = _read("seq_rolling_by_block.csv")
+    if blocks is not None:
+        mcols = [c for c in blocks.columns if c not in {"origin", "test_months", "ses_alpha"}]
+        out += ["### Rolling origin: MAE by block, h=1", "",
+                _md(blocks, ["origin", "test_months", "ses_alpha"] + mcols,
+                    ["origin", "months", "SES alpha"] + mcols),
+                ""]
+
+    dg = _read("seq_fit_diagnostics.csv")
+    if dg is not None:
+        out += ["### Train vs test error, h=1 (main split, seed means)", "",
+                _md(dg, ["model", "mae_log_train", "mae_log_test", "gap"],
+                    ["model", "MAE train", "MAE test", "gap"]),
+                "", "Every gap is negative, as it is for naive: the test period is calmer "
+                "than 2019-2021, and no sequence model overfits.", ""]
+
+    bs = _read("seq_by_state.csv")
+    if bs is not None:
+        wins = int((bs["skill_vs_naive"] > 0).sum())
+        mj = bs[bs["major"]]
+        out += ["### Per state, h=1", "",
+                f"{bs['model'].iloc[0]} (chosen by validation loss) beats naive in "
+                f"**{wins} of {len(bs)}** states, {int((mj['skill_vs_naive'] > 0).sum())} of "
+                f"{len(mj)} major; median skill {bs['skill_vs_naive'].median():+.3f}.", ""]
+    return out
 
 
 if __name__ == "__main__":
