@@ -81,7 +81,7 @@ The controls-only row is the null the EV features must beat. Best-of-several is 
 | MLP (16) | 0.267 ± 0.021 | 0.388 | 0.273 | -14.0% | 5 |
 | MLP (64,32) | 0.313 ± 0.038 | 0.437 | 0.316 | -33.6% | 5 |
 | MLP (128,64) | 0.354 ± 0.098 | 0.460 | 0.358 | -51.3% | 5 |
-| Seasonal naive (12m) | 0.475 | 0.622 | 0.486 | -102.8% | 1 |
+| Seasonal naive (12m) | 0.427 | 0.588 | 0.428 | -82.5% | 1 |
 | Mean (train) | 2.849 | 3.148 | 1.593 | -1116.8% | 1 |
 
 ## Track B: next-month state EV registrations -- predicting the change (the fair framing for a network)
@@ -95,7 +95,7 @@ The controls-only row is the null the EV features must beat. Best-of-several is 
 | MLP (16) | 0.278 ± 0.028 | 0.381 | 0.288 | -18.8% | 5 |
 | MLP (64,32) | 0.312 ± 0.021 | 0.442 | 0.320 | -33.1% | 5 |
 | MLP (128,64) | 0.324 ± 0.024 | 0.453 | 0.330 | -38.5% | 5 |
-| Seasonal naive (12m) | 0.475 | 0.622 | 0.486 | -102.8% | 1 |
+| Seasonal naive (12m) | 0.427 | 0.588 | 0.428 | -82.5% | 1 |
 
 ## Track B: train vs test error (delta target)
 

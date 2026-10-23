@@ -68,6 +68,22 @@ def test_rolling_windows_end_before_t(panel):
             assert getattr(row, f"log_roll{R}") == pytest.approx(np.mean(window), abs=1e-9)
 
 
+def test_seasonal_naive_reads_the_same_month_last_year(panel):
+    """The seasonal forecast for t+1 is month t+1-12, not t-12.
+
+    Round one used log_lag12, a 13-month lag, which scored a worse seasonal
+    baseline than the real one.
+    """
+    raw = nv.complete_panel()
+    raw["log_total"] = np.log1p(raw["ev_total"])
+    lookup = {(r.state, r.month): r.log_total for r in raw.itertuples()}
+
+    for row in panel.sample(100, random_state=3).itertuples():
+        want = lookup[(row.state, row.month + pd.DateOffset(months=1) - pd.DateOffset(months=12))]
+        assert row.log_same_month_last_year == pytest.approx(want, abs=1e-9)
+    assert "log_same_month_last_year" not in nv.FEATURES
+
+
 def test_no_feature_column_is_the_target(panel):
     """A column equal to the target would make the task trivial."""
     for col in nv.FEATURES:

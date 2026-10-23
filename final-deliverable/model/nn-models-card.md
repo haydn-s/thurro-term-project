@@ -193,7 +193,9 @@ target in the project a network can genuinely be trained on.**
 > half month put a ~55% fall in every state into the final test month, so every
 > score below moved: naive went from 0.267 to 0.234 and the networks lost ground
 > against it. The conclusion did not change, but every number here is from the
-> re-run, and `test_final_month_is_not_partial` now guards it.
+> re-run, and `test_final_month_is_not_partial` now guards it. The re-run also
+> fixed the seasonal-naive baseline, which forecast month t+1 from t−12 (a
+> 13-month lag) instead of t−11, the same month a year earlier.
 
 It is also useful rather than a detour: EV volume is the *independent* variable
 in the research question, so a one-month-ahead forecast of it is what would turn
@@ -213,7 +215,7 @@ re-learn an identity map first.
 | MLP (16) | 0.267 ± 0.021 | 0.278 ± 0.028 | −14.0% |
 | MLP (64,32) | 0.313 ± 0.038 | 0.312 ± 0.021 | −33.1% |
 | MLP (128,64) | 0.354 ± 0.098 | 0.324 ± 0.024 | −38.5% |
-| Seasonal naive (12m) | 0.475 | 0.475 | −102.8% |
+| Seasonal naive (12m) | 0.427 | 0.427 | −82.5% |
 
 **No fitted model beats the random walk.** The only things that edge it are the
 two constant-growth baselines, by 0.7% — "same as last month, plus the average

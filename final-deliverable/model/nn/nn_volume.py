@@ -144,6 +144,10 @@ def build_volume_features(d=None, min_nonzero=VOLUME_MIN_NONZERO_MONTHS):
     # for a network; both are run, because the gap between them is the finding.
     d["y_delta_next"] = d["y_log_next"] - d["log_total"]
 
+    # The seasonal-naive forecast for t+1 is the same calendar month a year
+    # earlier, t-11. Not a feature; only that baseline reads it.
+    d["log_same_month_last_year"] = g["log_total"].shift(11)
+
     # a full look-back for every row, so all models see identical rows
     d = d.dropna(subset=FEATURES + ["y_log_next", "y_delta_next"]).reset_index(drop=True)
     return d
@@ -210,7 +214,8 @@ def volume_comparison(d=None, train_end=VOLUME_TRAIN_END, n_seeds=N_SEEDS,
     rows.append({"model": "Naive (last month)", "seed": None, "family": "baseline",
                  **regression_scores(test["y_log_next"], naive)})
     rows.append({"model": "Seasonal naive (12m)", "seed": None, "family": "baseline",
-                 **regression_scores(test["y_log_next"], test["log_lag12"].to_numpy())})
+                 **regression_scores(test["y_log_next"],
+                                     test["log_same_month_last_year"].to_numpy())})
     drift = test["log_total"].to_numpy() + train["log_growth_1m"].mean()
     rows.append({"model": "Drift (last + mean growth)", "seed": None, "family": "baseline",
                  **regression_scores(test["y_log_next"], drift)})
