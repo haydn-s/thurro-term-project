@@ -9,7 +9,7 @@
 
 ROOT  := $(shell git rev-parse --show-toplevel)
 HERE  := final-deliverable
-IMAGE := ev-capex-signal:0.1.0
+IMAGE := ev-capex-signal:0.2.0
 PORT  ?= 8000
 COMPOSE := docker compose -f $(ROOT)/$(HERE)/docker-compose.yml
 

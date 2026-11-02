@@ -42,6 +42,8 @@ def settings(panel_dir: Path) -> Settings:
         port=8000,
         feature_store=panel_dir,
         model_artifact=None,
+        # The committed artifact, for the same reason as the real panel above.
+        outlook_artifact=REPO_ROOT / "final-deliverable" / "model" / "outlook.json",
         signal_horizon="FY27",
         stream_interval_s=1.0,
         api_token=None,

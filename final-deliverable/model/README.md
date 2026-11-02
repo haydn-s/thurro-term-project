@@ -1,10 +1,18 @@
 # Model artifacts
 
-Empty on purpose. The fitted model does not exist yet -- feature engineering is
-the next phase -- so the container currently serves the null baseline described
-in [`../app/model.py`](../app/model.py).
+Two kinds of model are served, and they live here differently.
 
-This directory is where a fitted artifact goes.
+**The outlook** -- next-month announcement probabilities, national and by
+state -- is fitted. Its artifact is [`outlook.json`](outlook.json), written by
+[`build_outlook.py`](build_outlook.py), described in
+[`outlook-card.md`](outlook-card.md) and baked into the image at
+`/app/model/outlook.json`. `test_outlook_build.py` fails when the committed
+artifact no longer matches `data/clean/`; re-run the build script to fix it.
+
+**The per-company signal** has no fitted model. None of the models selected in
+development produce per-company output, so the container serves the null
+baseline described in [`../app/model.py`](../app/model.py). The rest of this
+file is the contract a fitted company model would have to meet.
 
 ## The contract
 

@@ -84,6 +84,97 @@ class SignalSet(BaseModel):
     signals: list[Signal]
 
 
+class Contribution(BaseModel):
+    """One feature's share of an outlook probability."""
+
+    feature: str
+    description: str
+    value: float = Field(description="The feature as built, in its own units.")
+    standardized: float = Field(description="`value` standardised on the training rows.")
+    coefficient: float
+    contribution: float = Field(
+        description="coefficient x standardized, in log-odds. The intercept plus "
+                    "every contribution is the logit of `probability`."
+    )
+
+
+class OutlookModelInfo(BaseModel):
+    """Which fitted model produced an outlook, and how well it tested."""
+
+    name: str
+    version: str = Field(description="Spec version, plus the data month it was refit on.")
+    description: str
+    target: str = Field(description="Which announcements count: `all` is every one.")
+    horizon_months: int
+    features: list[str]
+    training: dict[str, float | int | str | None]
+    evaluation: dict[str, float | int | str | None] = Field(
+        description="Out-of-sample scores, re-run by the build on the data the "
+                    "model was refit on."
+    )
+    notes: list[str] = Field(description="Caveats that travel with the numbers.")
+
+
+class NationalOutlook(BaseModel):
+    """P(at least one manufacturing-investment announcement in `forecast_month`)."""
+
+    built_at: datetime
+    model: OutlookModelInfo
+    data_through: date = Field(description="Latest month of data the forecast reads.")
+    forecast_month: date
+    forecast_month_closed: bool = Field(
+        description="True once forecast_month has ended. The data lags the "
+                    "calendar, so this is often true; the forecast is then of a "
+                    "month whose outcome may already be public."
+    )
+    probability: float = Field(ge=0.0, le=1.0)
+    base_rate: float = Field(description="Share of training months with an announcement.")
+    intercept: float
+    contributions: list[Contribution] = Field(description="Largest effect first.")
+
+
+class StateOutlookEntry(BaseModel):
+    state: str
+    rank: int = Field(ge=1)
+    probability: float = Field(ge=0.0, le=1.0)
+    contributions: list[Contribution]
+
+
+class StateOutlook(BaseModel):
+    """States ranked by P(named in an announcement in `forecast_month`).
+
+    The rank is the signal; the level is not well calibrated on so few events.
+    """
+
+    built_at: datetime
+    model: OutlookModelInfo
+    data_through: date
+    forecast_month: date
+    forecast_month_closed: bool
+    base_rate: float
+    intercept: float
+    count: int
+    states: list[StateOutlookEntry]
+
+
+class OutlookModelRef(BaseModel):
+    name: str
+    version: str
+    data_through: date
+    forecast_month: date
+
+
+class OutlookInfo(BaseModel):
+    """Provenance of the outlook artifact being served."""
+
+    artifact: str
+    built_at: datetime
+    source_mtime: datetime
+    inputs: dict[str, str] = Field(description="sha256 of each data/clean input.")
+    national: OutlookModelRef
+    state: OutlookModelRef
+
+
 class Health(BaseModel):
     status: Literal["ok"] = "ok"
     service: str
@@ -94,6 +185,7 @@ class Ready(BaseModel):
     status: Literal["ready", "not_ready"]
     model_loaded: bool
     feature_store_loaded: bool
+    outlook_loaded: bool
     detail: str | None = None
 
 
@@ -111,6 +203,7 @@ class Metadata(BaseModel):
     horizon: str
     model: ModelInfo
     feature_store: FeatureStoreInfo
+    outlook: OutlookInfo
     stream_interval_s: float
     auth_required: bool
     tracing: bool = Field(
@@ -126,6 +219,7 @@ class RefreshResult(BaseModel):
     status: Literal["refreshed"]
     feature_store: FeatureStoreInfo
     model: ModelInfo
+    outlook: OutlookInfo
     signals: int
 
 

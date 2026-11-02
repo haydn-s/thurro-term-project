@@ -163,7 +163,7 @@ def test_startup_is_one_trace_not_three_orphans(settings, spans):
                 if s.parent is not None
                 and s.parent.span_id == startup.context.span_id]
     assert {c.name for c in children} == {
-        "feature_store.load", "model.load", "model.signals"
+        "feature_store.load", "model.load", "model.signals", "outlook.load"
     }
     assert startup.attributes["panel.rows"] > 100
 

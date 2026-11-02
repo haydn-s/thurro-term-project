@@ -9,7 +9,7 @@ services:
     build:
       context: ..
       dockerfile: final-deliverable/Dockerfile
-    image: ev-capex-signal:0.1.0
+    image: ev-capex-signal:0.2.0
     container_name: ev-capex-signal
 
     # host:container. Change the left side to move the published port; changing
@@ -33,6 +33,11 @@ services:
       # to start serving if that path is unloadable, by design.
       # MODEL_ARTIFACT: "/app/model/model.joblib"
       #
+      # The outlook artifact. Defaults to the one baked into the image; point it
+      # at a mounted file to serve a rebuilt outlook (see the volume below).
+      # Unlike MODEL_ARTIFACT there is no fallback: an unloadable one is unready.
+      # OUTLOOK_ARTIFACT: "/app/model/outlook.json"
+      #
       # Unset: no authentication, which is correct only on a private network.
       # SIGNAL_API_TOKEN: "${SIGNAL_API_TOKEN}"
       #
@@ -50,6 +55,7 @@ services:
     # because the service never writes here.
     # volumes:
     #   - ../data/processed:/app/feature-store:ro
+    #   - ./model/outlook.json:/app/model/outlook.json:ro
 
     restart: unless-stopped
 

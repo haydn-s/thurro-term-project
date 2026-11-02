@@ -44,3 +44,8 @@ final-deliverable/requirements-dev.txt
 # on disk. Only the two subdirectories that exist to be read by people are out.
 final-deliverable/model/exploration/
 final-deliverable/model/results/
+
+# The outlook's build script, its test and the model cards. Only outlook.json
+# itself is COPYed.
+final-deliverable/model/*.py
+final-deliverable/model/*.md

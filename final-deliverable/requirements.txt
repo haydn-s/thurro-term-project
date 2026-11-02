@@ -14,7 +14,11 @@
 # 0.143 instruments itself, so there is no opentelemetry-instrumentation-*
 # package here.
 #
-# WHEN THE FITTED MODEL LANDS, add its runtime dependencies below
+# The outlook's two fitted logits add nothing here: app/outlook.py evaluates
+# them with the standard library, and scikit-learn stays in the offline build
+# (model/build_outlook.py, repo-root environment).
+#
+# WHEN THE FITTED COMPANY MODEL LANDS, add its runtime dependencies below
 # (scikit-learn / joblib / statsmodels / numpy, whichever it needs) and rebuild.
 fastapi[opentelemetry]==0.143.0
 uvicorn[standard]==0.54.0

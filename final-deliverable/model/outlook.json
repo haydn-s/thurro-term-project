@@ -1,0 +1,668 @@
+{
+  "artifact": "ev-investment-outlook",
+  "schema_version": 1,
+  "built_at": "2026-11-01T18:58:12+00:00",
+  "inputs": {
+    "announcements_clean.csv": "6ae2507a8df66a53f2ec15442754ac46b6a1df7c277820fc56cc337cbd1ca249",
+    "production_model_monthly.csv": "d39b70c257920bcf0e66eec5171879bef8ec04c111eb680669f050b6609c7059",
+    "registrations_segment_monthly.csv": "13b99274b72b0a229530e8da773b3ca0296903ec2eb7283ac5ee1fc4bc6d2c45",
+    "registrations_state_monthly.csv": "81020b8bb9ca70eb226740f8d70098e6bcf5d8f940b9a84241bf2a6e89087386",
+    "ice_production_monthly.csv": "1a07fcb883d57350817f265b069cfeb16abf9d9d200d272e49b99b46270e2d9f"
+  },
+  "national": {
+    "name": "national-announcement-logit",
+    "version": "1.0.0+data.202609",
+    "description": "Probability that at least one automotive manufacturing-investment announcement is made in the forecast month, from national EV production, its segment mix, and ICE-production growth as the sector-cycle control. L2-regularised logistic regression on standardised features, refit on every month with a known outcome.",
+    "target": "all",
+    "horizon_months": 1,
+    "features": [
+      "ice_growth_3m",
+      "month_sin",
+      "month_cos",
+      "results_season",
+      "prod_growth_1m",
+      "prod_growth_3m",
+      "prod_accel",
+      "prod_vs_6m_max",
+      "prod_record_high",
+      "prod_2w_growth_3m",
+      "prod_3w_growth_3m",
+      "pv_share",
+      "three_w_share",
+      "export_share",
+      "inventory_build_3m"
+    ],
+    "descriptions": {
+      "ice_growth_3m": "3-month log growth in combustion-engine (ICE) vehicle production: the sector cycle",
+      "month_sin": "Calendar seasonality, sine of the month",
+      "month_cos": "Calendar seasonality, cosine of the month",
+      "results_season": "1 in a quarterly results month (Feb, May, Aug, Nov)",
+      "prod_growth_1m": "1-month log growth in national EV production",
+      "prod_growth_3m": "3-month log growth in national EV production",
+      "prod_accel": "3-month EV production growth minus its value three months earlier",
+      "prod_vs_6m_max": "EV production against the best of the previous six months",
+      "prod_record_high": "1 if EV production set an all-time high this month",
+      "prod_2w_growth_3m": "3-month log growth in electric two-wheeler production",
+      "prod_3w_growth_3m": "3-month log growth in electric three-wheeler production",
+      "pv_share": "Passenger vehicles' share of EV production",
+      "three_w_share": "Three-wheelers' share of EV production",
+      "export_share": "Exports as a share of EV production",
+      "inventory_build_3m": "Units built but neither sold nor exported, as a share of production, 3-month mean"
+    },
+    "scaler_mean": [
+      0.022996747615186226,
+      0.028571428571428553,
+      -3.8064789415719653e-17,
+      0.34285714285714286,
+      0.04176707707556541,
+      0.128244178000935,
+      0.004703508699120871,
+      0.9609057697552572,
+      0.34285714285714286,
+      0.1248945162042668,
+      0.13370922199549032,
+      0.01971144878704303,
+      0.0640276580167567,
+      0.009367134037903919,
+      -0.004338451574939953
+    ],
+    "scaler_scale": [
+      0.13273801160717022,
+      0.6963461489687965,
+      0.7171371656006361,
+      0.4746642207381757,
+      0.19697936979793393,
+      0.28226689516099435,
+      0.48459349765233517,
+      0.1723421984163377,
+      0.4746642207381757,
+      0.2772608687355263,
+      0.6788246615191837,
+      0.018972733819104606,
+      0.026668006773108505,
+      0.007455215395254773,
+      0.026633305543197212
+    ],
+    "coefficients": [
+      -0.3491175578121897,
+      0.2922223660261259,
+      0.006231903096001675,
+      0.3844862341998475,
+      -0.031627348912755815,
+      -0.2864889658356412,
+      -0.4058597014607201,
+      0.9085226603193348,
+      0.8819011412922207,
+      -0.2545682545083283,
+      -0.9252679236366447,
+      0.6079494329003199,
+      0.37347285795263696,
+      0.8994491721374877,
+      -0.4335741294136092
+    ],
+    "intercept": -0.9959127256169691,
+    "training": {
+      "first_month": "2023-10-01",
+      "last_month": "2026-08-01",
+      "rows": 35,
+      "events": 12,
+      "base_rate": 0.3429
+    },
+    "evaluation": {
+      "design": "walk-forward, expanding window, one month ahead",
+      "first_test_month": "2025-02-01",
+      "test_months": 19,
+      "test_events": 8,
+      "brier": 0.177,
+      "baseline_brier": 0.2664,
+      "brier_skill": 0.3356,
+      "brier_gain_ci90_low": 0.0196,
+      "brier_gain_ci90_high": 0.1639,
+      "auc": 0.8352,
+      "top3_months_share_of_gain": 0.8315
+    },
+    "notes": [
+      "Selected as the best of 14 feature-set runs; the walk-forward interval carries no correction for that choice.",
+      "Headline EV production growth adds nothing on its own once ICE growth replaces the time trend; the signal is in the segment mix (export share, inventory build).",
+      "83% of the walk-forward Brier gain comes from 3 of 19 test months.",
+      "A probability for the forecast month only: it says nothing about the size or location of an announcement."
+    ],
+    "scored": [
+      {
+        "month": "2026-09-01",
+        "features": {
+          "ice_growth_3m": 0.12826513285956337,
+          "month_sin": -1.0,
+          "month_cos": -1.8369701987210297e-16,
+          "results_season": 0.0,
+          "prod_growth_1m": 0.019839921208377284,
+          "prod_growth_3m": 0.24384505101522921,
+          "prod_accel": -0.025635393071295393,
+          "prod_vs_6m_max": 1.0200381327831405,
+          "prod_record_high": 1.0,
+          "prod_2w_growth_3m": 0.24261141780901155,
+          "prod_3w_growth_3m": 0.2920952074390499,
+          "pv_share": 0.0295367222455494,
+          "three_w_share": 0.09193316086271429,
+          "export_share": 0.026385295750992157,
+          "inventory_build_3m": 0.006398454951452589
+        },
+        "probability": 0.8484101049710779
+      }
+    ]
+  },
+  "state": {
+    "name": "state-siting-logit",
+    "version": "1.0.0+data.202609",
+    "description": "Probability that a state is named in at least one automotive manufacturing-investment announcement in the forecast month, from its share of EV registrations and its own announcement history. Served as a ranking of states. L2-regularised logistic regression on standardised features, refit on every state-month with a known outcome.",
+    "target": "all",
+    "horizon_months": 1,
+    "features": [
+      "share_total",
+      "share_4w",
+      "share_change_6m",
+      "past_announcements",
+      "months_since_last",
+      "ever_announced"
+    ],
+    "descriptions": {
+      "share_total": "State's share of national EV registrations, 3-month rolling",
+      "share_4w": "State's share of national electric four-wheeler registrations, 3-month rolling",
+      "share_change_6m": "Change in the state's registration share over six months",
+      "past_announcements": "Announcements sited in the state up to this month",
+      "months_since_last": "Months since the state's last announcement (60 if it has had none)",
+      "ever_announced": "1 if the state has had any announcement"
+    },
+    "scaler_mean": [
+      0.03301969895993807,
+      0.03289272702728686,
+      -1.0272555599774878e-05,
+      0.08796764408493428,
+      57.07583417593529,
+      0.06167846309403438
+    ],
+    "scaler_scale": [
+      0.04777992803985937,
+      0.05504236914558227,
+      0.012492668601374664,
+      0.4105289545768355,
+      11.743723625579989,
+      0.24057063470921014
+    ],
+    "coefficients": [
+      0.24207196592613786,
+      0.2990359164997337,
+      0.17088074488369429,
+      0.056498139882394285,
+      -0.09563030668639992,
+      0.4366720608839125
+    ],
+    "intercept": -5.728081239175458,
+    "training": {
+      "first_month": "2018-07-01",
+      "last_month": "2026-08-01",
+      "rows": 2967,
+      "events": 18,
+      "base_rate": 0.0061
+    },
+    "evaluation": {
+      "design": "train to 2025-06, test on later months",
+      "test_rows": 488,
+      "test_events": 11,
+      "auc": 0.8466,
+      "avg_precision": 0.1237,
+      "baseline_avg_precision": 0.0225,
+      "top5_hit_rate": 0.6364,
+      "size_only_auc": 0.7747,
+      "size_only_top5_hit_rate": 0.4545
+    },
+    "notes": [
+      "Trained on 18 state-months with an announcement: read the rank, not the probability level.",
+      "A logit on state size alone (12-month EV registrations) scores test AUC 0.77 against this model's 0.85. Demand share and state size are hard to separate in this data, so a high rank means 'large EV market with a record of announcements', not that demand caused the siting."
+    ],
+    "scored": [
+      {
+        "state": "Andaman and Nicobar Islands",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 5.4608605698047385e-05,
+          "share_4w": 9.223579568746413e-05,
+          "share_change_6m": 3.7105997993811863e-06,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019833600991239243
+      },
+      {
+        "state": "Andhra Pradesh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.03480628885067431,
+          "share_4w": 0.034424448634910225,
+          "share_change_6m": 0.004856251433761869,
+          "past_announcements": 1.0,
+          "months_since_last": 1.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.033608224567696646
+      },
+      {
+        "state": "Arunachal Pradesh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 5.7699658850767046e-05,
+          "share_4w": 0.00044068213495121754,
+          "share_change_6m": -6.9545648583494744e-06,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.00198685255151557
+      },
+      {
+        "state": "Assam",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0316760823580202,
+          "share_4w": 0.0032077560055751415,
+          "share_change_6m": -0.0010485841912600755,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002333060981187061
+      },
+      {
+        "state": "Bihar",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.05217697721790791,
+          "share_4w": 0.007553086824629007,
+          "share_change_6m": 0.008014015559238197,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0029980140370505465
+      },
+      {
+        "state": "Chandigarh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0018453587321736388,
+          "share_4w": 0.009674510125440683,
+          "share_change_6m": -0.000191937125554054,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0021025027148256314
+      },
+      {
+        "state": "Chhattisgarh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.018806997732197336,
+          "share_4w": 0.012902762974501927,
+          "share_change_6m": -0.0010624832732171116,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002303643449489915
+      },
+      {
+        "state": "Dadra and Nagar Haveli and Daman and Diu",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.00010509580719246854,
+          "share_4w": 0.00032794949577765023,
+          "share_change_6m": 3.299795395136145e-06,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019863924403416082
+      },
+      {
+        "state": "Delhi",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.03916467379600904,
+          "share_4w": 0.06327375584160039,
+          "share_change_6m": 0.010020750742788985,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0039012163415949003
+      },
+      {
+        "state": "Goa",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0038349666114741955,
+          "share_4w": 0.007481347872427646,
+          "share_change_6m": -0.003300383566806387,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002011470109711255
+      },
+      {
+        "state": "Gujarat",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.03842179068830541,
+          "share_4w": 0.07086783635320161,
+          "share_change_6m": 0.002743664175121452,
+          "past_announcements": 1.0,
+          "months_since_last": 2.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.039943344203764004
+      },
+      {
+        "state": "Haryana",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.013338924705036254,
+          "share_4w": 0.021634418299581865,
+          "share_change_6m": 0.0020987191321172934,
+          "past_announcements": 2.0,
+          "months_since_last": 2.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.030909755806921638
+      },
+      {
+        "state": "Himachal Pradesh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0011230826454881443,
+          "share_4w": 0.003761170779699926,
+          "share_change_6m": 0.0004751647866159341,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002047302655028483
+      },
+      {
+        "state": "Jammu and Kashmir",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.005656627269476983,
+          "share_4w": 0.0029617938837419038,
+          "share_change_6m": 0.0010964410653127006,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002103475173663166
+      },
+      {
+        "state": "Jharkhand",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.014824690920443504,
+          "share_4w": 0.0041403623841928345,
+          "share_change_6m": 0.0025142516018715096,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002260709565575008
+      },
+      {
+        "state": "Karnataka",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.08836908823205154,
+          "share_4w": 0.07261006804952037,
+          "share_change_6m": -0.004529401885481579,
+          "past_announcements": 1.0,
+          "months_since_last": 0.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.04741636060495727
+      },
+      {
+        "state": "Kerala",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0484646223814916,
+          "share_4w": 0.0920513240960892,
+          "share_change_6m": 0.002754086219146218,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.004327216839214084
+      },
+      {
+        "state": "Lakshadweep",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 1.4424914712691761e-05,
+          "share_4w": 0.0,
+          "share_change_6m": -2.134125159447908e-05,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.001981288009548726
+      },
+      {
+        "state": "Madhya Pradesh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.05684240677641279,
+          "share_4w": 0.02231081413462327,
+          "share_change_6m": -0.011574142503861892,
+          "past_announcements": 1.0,
+          "months_since_last": 44.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.020077724606310972
+      },
+      {
+        "state": "Maharashtra",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.11135106842252224,
+          "share_4w": 0.14568131507747806,
+          "share_change_6m": -0.003948046777548189,
+          "past_announcements": 5.0,
+          "months_since_last": 3.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.12425085738678311
+      },
+      {
+        "state": "Manipur",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.00016279546604323558,
+          "share_4w": 0.00019472001311797983,
+          "share_change_6m": -0.0006323139234007931,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019683831691079483
+      },
+      {
+        "state": "Meghalaya",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.00025449670957391893,
+          "share_4w": 0.00012298106091661884,
+          "share_change_6m": -8.528187034420408e-05,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019832858006125255
+      },
+      {
+        "state": "Mizoram",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.00044408130294072495,
+          "share_4w": 1.024842174305157e-05,
+          "share_change_6m": 2.0389794378854957e-05,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.001986838903911947
+      },
+      {
+        "state": "Nagaland",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 7.212457356345881e-06,
+          "share_4w": 5.1242108715257854e-05,
+          "share_change_6m": -6.720725292197328e-06,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019821618701717516
+      },
+      {
+        "state": "Odisha",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.04709631618588769,
+          "share_4w": 0.033379109617118964,
+          "share_change_6m": 0.005717613012053119,
+          "past_announcements": 1.0,
+          "months_since_last": 33.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.02789521101591185
+      },
+      {
+        "state": "Puducherry",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.0021266445690711283,
+          "share_4w": 0.0007891284742149709,
+          "share_change_6m": -0.0006961313256332782,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0019927072418510525
+      },
+      {
+        "state": "Punjab",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.018303156068304034,
+          "share_4w": 0.025436582766253997,
+          "share_change_6m": 0.0015205703395546402,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0025475222732984837
+      },
+      {
+        "state": "Rajasthan",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.053485523052559235,
+          "share_4w": 0.07293801754529802,
+          "share_change_6m": 0.006483278037812568,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0042107874601765485
+      },
+      {
+        "state": "Tamil Nadu",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.08298138258686116,
+          "share_4w": 0.09159014511765189,
+          "share_change_6m": -0.00521798352662213,
+          "past_announcements": 3.0,
+          "months_since_last": 0.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.06546310297591863
+      },
+      {
+        "state": "Telangana",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.04172406580646092,
+          "share_4w": 0.10560998606214643,
+          "share_change_6m": 0.007960804812491645,
+          "past_announcements": 3.0,
+          "months_since_last": 2.0,
+          "ever_announced": 1.0
+        },
+        "probability": 0.06739296914554246
+      },
+      {
+        "state": "Tripura",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.003044687355428868,
+          "share_4w": 0.0001742231696318767,
+          "share_change_6m": -3.6705434112004314e-05,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0020133578101787404
+      },
+      {
+        "state": "Uttar Pradesh",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.13930552278466796,
+          "share_4w": 0.06260760842830204,
+          "share_change_6m": -0.0005057969318439104,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.0055808857681224
+      },
+      {
+        "state": "Uttarakhand",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.008334509650783119,
+          "share_4w": 0.008270476346642616,
+          "share_change_6m": 0.0014866644247409477,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.002206117111578302
+      },
+      {
+        "state": "West Bengal",
+        "month": "2026-09-01",
+        "features": {
+          "share_total": 0.041794129677922565,
+          "share_4w": 0.023427892104615888,
+          "share_change_6m": -0.02490289237604583,
+          "past_announcements": 0.0,
+          "months_since_last": 60.0,
+          "ever_announced": 0.0
+        },
+        "probability": 0.001978542174871207
+      }
+    ]
+  }
+}

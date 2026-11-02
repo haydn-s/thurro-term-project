@@ -1,8 +1,8 @@
-"""Wires the feature store and the model together, and holds the served state.
+"""Wires the feature store, the model and the outlook together, and holds the served state.
 
-One instance lives for the life of the process. It owns the loaded snapshot and
-the loaded model, and it is the only thing that replaces either -- so a request
-never sees a half-swapped pair.
+One instance lives for the life of the process. It owns the loaded snapshot, the
+loaded model and the loaded outlook, and it is the only thing that replaces any
+of them -- so a request never sees a half-swapped set.
 """
 import logging
 import threading
@@ -13,12 +13,30 @@ from .config import Settings
 from .features import ANNUAL_PANEL, FeatureStore, FeatureStoreError
 from .model import ModelArtifactError, RawSignal, SignalModel, load_model
 from .observability import model_reloads, signal_recomputes, tracer
+from .outlook import (
+    LogitModel,
+    Outlook,
+    OutlookArtifactError,
+    Scored,
+    add_months,
+    month_closed,
+)
 from .schemas import (
+    Contribution,
     FeatureStoreInfo,
     ModelInfo,
+    NationalOutlook,
+    OutlookInfo,
+    OutlookModelInfo,
+    OutlookModelRef,
     Signal,
     SignalSet,
+    StateOutlook,
+    StateOutlookEntry,
 )
+
+#: A stat() result reduced to what changes on a rewrite, or None if unreadable.
+_FileId = tuple[int, int] | None
 
 log = logging.getLogger(__name__)
 
@@ -37,12 +55,13 @@ class SignalService:
         self.settings = settings
         self.store: FeatureStore | None = None
         self.model: SignalModel | None = None
+        self.outlook: Outlook | None = None
         self.load_error: str | None = None
         self._signals: list[RawSignal] = []
         self._computed_at: datetime | None = None
-        # Identity of the panel file the current state was built from, so a
-        # change on disk is detectable without re-parsing it.
-        self._fingerprint: tuple[int, int] | None = None
+        # Identity of the panel and outlook files the current state was built
+        # from, so a change on disk is detectable without re-parsing either.
+        self._fingerprint: tuple[_FileId, _FileId] | None = None
         # FastAPI runs sync endpoints in a threadpool, so two requests can hit
         # the freshness check at once. Everything that reads or replaces the
         # cached state does so under this lock; it is reentrant because reload()
@@ -58,7 +77,7 @@ class SignalService:
     # -- lifecycle -------------------------------------------------------
 
     def reload(self) -> None:
-        """(Re)load the panel and the model, then recompute the cross-section.
+        """(Re)load the panel, the model and the outlook, then recompute the cross-section.
 
         Loads into locals first and only publishes on success, so a failed
         refresh leaves the previously good state serving traffic.
@@ -67,7 +86,7 @@ class SignalService:
             # Recorded before the attempt, not after, so a reload that fails is
             # not retried on every single request -- only once the file that
             # failed actually changes.
-            self._fingerprint = self._panel_fingerprint()
+            self._fingerprint = self._input_fingerprint()
             try:
                 # Named spans for the three distinct costs, because "the request
                 # was slow" and "parsing the panel was slow" need different
@@ -83,7 +102,11 @@ class SignalService:
                     span.set_attribute("model.name", model.name)
                     span.set_attribute("model.version", model.version)
                     span.set_attribute("signals.count", len(signals))
-            except (FeatureStoreError, ModelArtifactError) as exc:
+                with tracer.start_as_current_span("outlook.load") as span:
+                    outlook = Outlook.load(self.settings.outlook_artifact)
+                    span.set_attribute("outlook.national.version", outlook.national.version)
+                    span.set_attribute("outlook.state.version", outlook.state.version)
+            except (FeatureStoreError, ModelArtifactError, OutlookArtifactError) as exc:
                 self.load_error = str(exc)
                 model_reloads.labels("failed").inc()
                 log.error("signal service not ready: %s", exc)
@@ -96,26 +119,32 @@ class SignalService:
 
             self.store = store
             self.model = model
+            self.outlook = outlook
             self._signals = signals
             self._computed_at = datetime.now(timezone.utc)
             self.load_error = None
             model_reloads.labels("ok").inc()
             log.info(
-                "loaded %s v%s over %d panel rows -> %d signals (ttl=%s)",
+                "loaded %s v%s over %d panel rows -> %d signals (ttl=%s); "
+                "outlook %s / %s for %s",
                 model.name, model.version, len(store.rows), len(signals),
                 model.signal_ttl_s if model.signal_ttl_s is not None else "none",
+                outlook.national.version, outlook.state.version,
+                add_months(outlook.national_month, outlook.national.horizon_months),
                 extra={
                     "model_name": model.name,
                     "model_version": model.version,
                     "panel_rows": len(store.rows),
                     "signals": len(signals),
+                    "outlook_national_version": outlook.national.version,
+                    "outlook_state_version": outlook.state.version,
                 },
             )
 
     # -- freshness -------------------------------------------------------
 
-    def _panel_fingerprint(self) -> tuple[int, int] | None:
-        """(mtime_ns, size) of the panel file, or None if it cannot be read.
+    def _input_fingerprint(self) -> tuple[_FileId, _FileId]:
+        """(mtime_ns, size) of the panel and of the outlook artifact.
 
         Both parts matter. mtime alone misses a rewrite inside the same
         filesystem timestamp granularity, and size alone misses an edit that
@@ -123,14 +152,15 @@ class SignalService:
         this pipeline actually produces. A content hash would be stricter, but
         it means reading the file on every request to avoid reading it on every
         request.
+
+        The outlook is in here so that a rebuilt outlook.json on a mounted
+        volume is picked up the same way a rebuilt panel is.
         """
         root = self.settings.feature_store
-        path = root / ANNUAL_PANEL if root.is_dir() else root
-        try:
-            stat = path.stat()
-        except OSError:
-            return None
-        return (stat.st_mtime_ns, stat.st_size)
+        return (
+            _file_id(root / ANNUAL_PANEL if root.is_dir() else root),
+            _file_id(self.settings.outlook_artifact),
+        )
 
     def ensure_fresh(self) -> None:
         """Reload or recompute if the panel changed or the model's TTL lapsed.
@@ -145,10 +175,10 @@ class SignalService:
         """
         with self._lock:
             if self.settings.watch_feature_store:
-                current = self._panel_fingerprint()
+                current = self._input_fingerprint()
                 if current != self._fingerprint:
                     log.info(
-                        "panel changed on disk, reloading",
+                        "panel or outlook changed on disk, reloading",
                         extra={"was": self._fingerprint, "now": current},
                     )
                     signal_recomputes.labels("panel_changed").inc()
@@ -183,7 +213,8 @@ class SignalService:
 
     @property
     def ready(self) -> bool:
-        return self.store is not None and self.model is not None
+        return (self.store is not None and self.model is not None
+                and self.outlook is not None)
 
     def require_ready(self) -> None:
         if not self.ready:
@@ -269,6 +300,67 @@ class SignalService:
     def signal_count(self) -> int:
         return len(self._signals)
 
+    # -- outlook ---------------------------------------------------------
+
+    def outlook_info(self) -> OutlookInfo:
+        self.require_ready()
+        assert self.outlook is not None
+        o = self.outlook
+        return OutlookInfo(
+            artifact=str(o.source),
+            built_at=o.built_at,
+            source_mtime=o.source_mtime,
+            inputs=o.inputs,
+            national=_model_ref(o.national, o.national_month),
+            state=_model_ref(o.state, o.state_month),
+        )
+
+    def national_outlook(self) -> NationalOutlook:
+        self.ensure_fresh()
+        self.require_ready()
+        assert self.outlook is not None
+        o, row = self.outlook, self.outlook.national_row
+        forecast = add_months(row.month, o.national.horizon_months)
+        return NationalOutlook(
+            built_at=o.built_at,
+            model=_model_info(o.national),
+            data_through=row.month,
+            forecast_month=forecast,
+            forecast_month_closed=month_closed(forecast),
+            probability=row.probability,
+            base_rate=o.national.base_rate,
+            intercept=o.national.intercept,
+            contributions=_contributions(row),
+        )
+
+    def state_outlook(self, top: int | None = None) -> StateOutlook:
+        """States ranked by probability, highest first; `top` keeps the first N."""
+        self.ensure_fresh()
+        self.require_ready()
+        assert self.outlook is not None
+        o = self.outlook
+        rows = o.state_rows if top is None else o.state_rows[:top]
+        forecast = add_months(o.state_month, o.state.horizon_months)
+        return StateOutlook(
+            built_at=o.built_at,
+            model=_model_info(o.state),
+            data_through=o.state_month,
+            forecast_month=forecast,
+            forecast_month_closed=month_closed(forecast),
+            base_rate=o.state.base_rate,
+            intercept=o.state.intercept,
+            count=len(rows),
+            states=[
+                StateOutlookEntry(
+                    state=row.state or "",
+                    rank=rank,
+                    probability=row.probability,
+                    contributions=_contributions(row),
+                )
+                for rank, row in enumerate(rows, start=1)
+            ],
+        )
+
     @staticmethod
     def _to_wire(signal: RawSignal) -> Signal:
         return Signal(
@@ -283,6 +375,51 @@ class SignalService:
             coverage=list(signal.coverage),
             notes=list(signal.notes),
         )
+
+
+def _file_id(path: Path) -> _FileId:
+    try:
+        stat = path.stat()
+    except OSError:
+        return None
+    return (stat.st_mtime_ns, stat.st_size)
+
+
+def _model_ref(model: LogitModel, month) -> OutlookModelRef:
+    return OutlookModelRef(
+        name=model.name,
+        version=model.version,
+        data_through=month,
+        forecast_month=add_months(month, model.horizon_months),
+    )
+
+
+def _model_info(model: LogitModel) -> OutlookModelInfo:
+    return OutlookModelInfo(
+        name=model.name,
+        version=model.version,
+        description=model.description,
+        target=model.target,
+        horizon_months=model.horizon_months,
+        features=list(model.features),
+        training=model.training,
+        evaluation=model.evaluation,
+        notes=list(model.notes),
+    )
+
+
+def _contributions(row: Scored) -> list[Contribution]:
+    return [
+        Contribution(
+            feature=c.feature,
+            description=c.description,
+            value=c.value,
+            standardized=c.standardized,
+            coefficient=c.coefficient,
+            contribution=c.contribution,
+        )
+        for c in row.contributions
+    ]
 
 
 class ServiceNotReady(RuntimeError):
