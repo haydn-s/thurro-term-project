@@ -41,6 +41,8 @@ final-deliverable/requirements-dev.txt
 # is meant to live directly in that directory and be COPYed in (see
 # model/README.md), and a blanket `final-deliverable/model/` here would make
 # that COPY fail with a confusing "file not found" for a file that is plainly
-# on disk. Only the two subdirectories that exist to be read by people are out.
+# on disk. Only the subdirectories that exist to be read by people are out:
+# the two model studies and their shared results tree.
 final-deliverable/model/exploration/
+final-deliverable/model/nn/
 final-deliverable/model/results/
