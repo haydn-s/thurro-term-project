@@ -1,20 +1,32 @@
 # Final deliverable — the EV capex signal service
 
-The model, the data it reads and an HTTP server, in one Docker image. Start the
-container, publish a port, and other software reads the model's per-company
-signals off that port — by request (`GET /signals`) or as a push stream
-(`GET /stream`).
+The models, the data they read and an HTTP server, in one Docker image. Start
+the container, publish a port, and other software reads two things off that
+port: the project's **leading indicator** — the probability of an automotive
+manufacturing-investment announcement next month, nationally and ranked by
+state (`GET /outlook/national`, `GET /outlook/states`) — and per-company capex
+signals, by request (`GET /signals`) or as a push stream (`GET /stream`).
 
 ```bash
 # from the repository root
 docker compose -f final-deliverable/docker-compose.yml up --build
+curl localhost:8000/outlook/national | python3 -m json.tool
 curl localhost:8000/signals | python3 -m json.tool
 ```
 
 ## Status — read this before using the numbers
 
-**This is scaffolding. The fitted model does not exist yet.** The container
-currently serves a *null baseline*, and `/metadata` says so on every call:
+The container serves two things, and only one of them is a fitted model.
+
+**The outlook is fitted.** `/outlook/national` and `/outlook/states` serve the
+two logistic regressions selected at the end of model development, refit on
+data through 2026-09. See [The outlook](#the-outlook) for what they say and how
+far to trust it, and [`model/outlook-card.md`](model/outlook-card.md) for the
+specification and evidence.
+
+**The per-company signal is still a null baseline.** No fitted company-level
+model exists — none of the selected models produce per-company output — so
+`/signals` serves a *null baseline*, and `/metadata` says so on every call:
 
 ```json
 { "model": { "name": "capex-intensity-baseline", "is_baseline": true } }
@@ -38,9 +50,8 @@ sector-wide cycle, not a response to EV volumes. So the baseline is the null
 that a fitted model has to beat — and on its own it is still a useful
 descriptive signal: how hard is this firm expanding, relative to its peers.
 
-What is built and tested here is the **delivery mechanism**: the container, the
-wire contract, the probes, the feature-store plumbing and the seam the model
-drops into. See [Dropping the real model in](#dropping-the-real-model-in).
+The seam a fitted company model would drop into is built and tested; see
+[Dropping the real model in](#dropping-the-real-model-in).
 
 ## The signal contract
 
@@ -50,12 +61,14 @@ is at `/docs` (Swagger) and `/openapi.json`.
 | method | path | purpose |
 |---|---|---|
 | `GET` | `/health` | Liveness. 200 whenever the process is running. Never authenticated. |
-| `GET` | `/ready` | Readiness. 200 when panel and model are loaded, 503 with the reason otherwise. Never authenticated. |
-| `GET` | `/metadata` | Model identity, data provenance, scored companies, endpoint list. |
+| `GET` | `/ready` | Readiness. 200 when panel, model and outlook are loaded, 503 with the reason otherwise. Never authenticated. |
+| `GET` | `/metadata` | Model identity, data provenance, outlook provenance, scored companies, endpoint list. |
+| `GET` | `/outlook/national` | P(an announcement next month), with what drove it. See [The outlook](#the-outlook). |
+| `GET` | `/outlook/states` | States ranked by P(named in an announcement next month). `?top=<n>` keeps the first n. |
 | `GET` | `/signals` | The full cross-section. Filters: `tier`, `direction`, `min_confidence`. |
 | `GET` | `/signals/{nse_symbol}` | One company. Case-insensitive; percent-encode `&` in symbols like `ARE&M`. |
 | `GET` | `/stream` | The same payload re-emitted as Server-Sent Events. `?interval=<seconds>` overrides the default. |
-| `POST` | `/signals/refresh` | Force a re-read of the panel and model from disk. |
+| `POST` | `/signals/refresh` | Force a re-read of the panel, model and outlook from disk. |
 | `GET` | `/metrics` | Prometheus exposition. Behind the token when auth is on. |
 
 A signal:
@@ -133,6 +146,97 @@ a static panel, so consecutive events are identical until the panel is
 refreshed. The stream is there so a model that *does* move has somewhere to push
 to.
 
+## The outlook
+
+The project's question is whether national EV production leads automotive
+manufacturing-investment announcements, and (the stretch) whether state EV demand
+explains where they land. The outlook is the deliverable form of the answer: the
+two models that model development selected, scoring the latest month of data.
+
+| path | model | answers |
+|---|---|---|
+| `/outlook/national` | `national-announcement-logit` | P(at least one announcement in `forecast_month`) |
+| `/outlook/states` | `state-siting-logit` | each state's P(named in one in `forecast_month`), ranked |
+
+```bash
+curl localhost:8000/outlook/national
+curl 'localhost:8000/outlook/states?top=5'
+```
+
+A national outlook, trimmed:
+
+```json
+{
+  "built_at": "2026-11-01T18:58:12Z",
+  "model": {
+    "name": "national-announcement-logit",
+    "version": "1.0.0+data.202609",
+    "features": ["ice_growth_3m", "month_sin", "...", "export_share", "inventory_build_3m"],
+    "evaluation": { "test_months": 19, "test_events": 8, "brier_skill": 0.3356,
+                    "brier_gain_ci90_low": 0.0196, "brier_gain_ci90_high": 0.1639, "auc": 0.8352 },
+    "notes": ["Selected as the best of 14 feature-set runs; ...", "..."]
+  },
+  "data_through": "2026-09-01",
+  "forecast_month": "2026-10-01",
+  "forecast_month_closed": true,
+  "probability": 0.8484,
+  "base_rate": 0.3429,
+  "intercept": -0.9959,
+  "contributions": [
+    { "feature": "export_share", "description": "Exports as a share of EV production",
+      "value": 0.0264, "standardized": 2.283, "coefficient": 0.899, "contribution": 2.053 },
+    { "feature": "prod_record_high", "value": 1.0, "contribution": 1.221, "...": "..." }
+  ]
+}
+```
+
+Reading it:
+
+- **`forecast_month` is the month after `data_through`, and it may already be
+  over.** The data runs a month or more behind the calendar: built from
+  production through September 2026, the forecast is for October, which had
+  ended by the time it was built. `forecast_month_closed` says which you are
+  reading, so a consumer comparing the forecast with what happened can tell a
+  live forecast from a late one.
+- **`probability` against `base_rate`.** The base rate is the share of training
+  months with an announcement (0.34). The model's job is to move off it.
+- **`contributions` is the explanation, and it is exact.** Each is
+  coefficient × standardised value, in log-odds, largest first, and the
+  intercept plus all of them is the logit of `probability`. Above, unusually
+  high export share adds +2.05 and a record production month +1.22.
+- **`model.evaluation` is out of sample, re-run at build time on the same
+  data**: walk-forward for the national model, train-to-2025-06-then-test for the
+  state model. **`model.notes` carries the caveats**, and they are part of the
+  answer — most of all that the national specification was selected as the best
+  of 14 runs, and that three test months supply most of its gain.
+- **For states, read the rank.** The state model is trained on 18 positive
+  state-months, so the level is not well calibrated; the evidence is in the
+  ranking (the announcing state was in its top 5 in 64% of test cases).
+
+**Where it comes from.** [`model/build_outlook.py`](model/build_outlook.py) fits
+both models offline, in the repo-root environment, using the exploration study's
+own feature code and model factory — imported, not reimplemented, so this
+service still defines no features. It fits on every month whose outcome is
+known, scores the latest month, and writes
+[`model/outlook.json`](model/outlook.json): coefficients, scaler, the scored
+rows and scikit-learn's probabilities for them. The service evaluates the
+logits with the standard library, so scikit-learn stays out of the image, and
+it **recomputes every stored probability at load and refuses to start on a
+mismatch** — a hand-edited or truncated artifact fails on `/ready`, not in the
+results.
+
+**Refreshing it.** After `data/clean/` changes, re-run the build:
+
+```bash
+.VENV/bin/python final-deliverable/model/build_outlook.py
+.VENV/bin/python -m pytest final-deliverable/model/test_outlook_build.py -q
+```
+
+`test_outlook_build.py` fails while the committed artifact no longer matches the
+data, which is the one staleness nothing else in the repo would catch. Then
+rebuild the image, or mount the new file over `/app/model/outlook.json`; it is
+picked up on the next request like a rebuilt panel.
+
 ## Configuration
 
 Every knob is an environment variable, so one built image retargets without a
@@ -144,7 +248,8 @@ inject empty strings for keys they have no setting for.
 | `SIGNAL_PORT` | `8000` | Port the server binds. Change this **and** the published port together. |
 | `SIGNAL_HOST` | `0.0.0.0` | Bind address. Must stay `0.0.0.0` in a container or the published port reaches nothing. |
 | `FEATURE_STORE` | `/app/feature-store` | Directory holding `panel_company_annual.csv`. |
-| `MODEL_ARTIFACT` | *(unset)* | Fitted artifact path. Unset ⇒ null baseline. Set but unloadable ⇒ **fatal**. |
+| `MODEL_ARTIFACT` | *(unset)* | Fitted company-model artifact path. Unset ⇒ null baseline. Set but unloadable ⇒ **fatal**. |
+| `OUTLOOK_ARTIFACT` | `/app/model/outlook.json` | The outlook artifact. No fallback: missing or unverifiable ⇒ unready. |
 | `SIGNAL_HORIZON` | `FY27` | Advisory label on the payload. |
 | `SIGNAL_STREAM_INTERVAL` | `60` | Seconds between SSE events. |
 | `SIGNAL_API_TOKEN` | *(unset)* | When set, bearer token required on everything except the probes. |
@@ -171,7 +276,7 @@ image copies the panel from `data/`. `make build` and `docker compose` both set
 it correctly; by hand:
 
 ```bash
-docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.1.0 .
+docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.2.0 .
 ```
 
 Building with `final-deliverable/` as the context fails on the data `COPY`,
@@ -180,13 +285,13 @@ nothing to serve.
 
 ```bash
 # anywhere a Docker daemon runs
-docker run -d -p 8000:8000 --name ev-capex-signal ev-capex-signal:0.1.0
+docker run -d -p 8000:8000 --name ev-capex-signal ev-capex-signal:0.2.0
 
 # with auth, on a non-default port
 docker run -d -p 9000:9000 \
   -e SIGNAL_PORT=9000 \
   -e SIGNAL_API_TOKEN="$(openssl rand -hex 24)" \
-  ev-capex-signal:0.1.0
+  ev-capex-signal:0.2.0
 ```
 
 `docker-compose.yml` is the reference deployment shape — resource limits,
@@ -256,7 +361,7 @@ special-case.
 docker run -p 8000:8000 \
   -e OTEL_EXPORTER_OTLP_ENDPOINT=http://collector:4318 \
   -e OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
-  ev-capex-signal:0.1.0
+  ev-capex-signal:0.2.0
 ```
 
 With no endpoint set, spans are created against OpenTelemetry's no-op provider —
@@ -318,10 +423,11 @@ answerable.
 The cross-section is cached. Two different things can make that cache wrong, and
 they get different answers:
 
-- **The panel changed.** The service fingerprints the panel file (mtime + size)
-  and reloads when it moves. So a panel rebuilt outside the container is picked
-  up by the next request — no API call, no restart. `SIGNAL_WATCH_FEATURE_STORE=false`
-  turns this off.
+- **The panel or the outlook changed.** The service fingerprints the panel file
+  and the outlook artifact (mtime + size) and reloads when either moves. So a
+  panel or outlook rebuilt outside the container is picked up by the next
+  request — no API call, no restart. `SIGNAL_WATCH_FEATURE_STORE=false` turns
+  this off.
 - **The model reads the clock.** A model that is a function of time as well as
   of the panel must declare `signal_ttl_s`; the service then recomputes the
   cross-section once that lapses, without re-parsing the panel. The baseline
@@ -357,8 +463,15 @@ already polls — picks the panel up as soon as it appears. Verified: `RestartCo
 ## Testing
 
 ```bash
-make venv && make test      # 91 tests, no Docker needed
-make up && make smoke       # 19 checks against a running container
+make venv && make test      # 106 tests, no Docker needed
+make up && make smoke       # 24 checks against a running container
+```
+
+The outlook's build has its own checks, run in the repo-root environment
+because they refit the models:
+
+```bash
+.VENV/bin/python -m pytest final-deliverable/model/test_outlook_build.py -q   # 5 checks
 ```
 
 The suite runs against the repo's committed `data/processed/` rather than a
@@ -381,6 +494,10 @@ by the next request (182 → 162 rows, 35 → 31 signals, attributed in
 against an empty volume reaching ready once the panel appeared, with
 `RestartCount=0`.
 
+Re-verified with the outlook (image 0.2.0, 2026-11-01): healthy in ~6s, 24/24
+on the smoke test, and `/outlook/national` from the container identical to a
+host run, to the last bit (P = 0.8484101049710779 for 2026-10).
+
 Tracing was verified end to end against a real OTLP receiver decoding the
 protobuf: a request carrying `traceparent: 00-4bf92f35...-00f067aa...-01`
 produced a span tree under that exact trace and parent span, startup arrived as
@@ -395,6 +512,10 @@ the SSE generator is tested directly as a generator in `tests/test_stream.py`,
 and the route itself is covered by the smoke test.
 
 ## Dropping the real model in
+
+This section is about the **per-company** signal. The outlook already serves
+fitted models; changing them means editing the specs in
+[`model/build_outlook.py`](model/build_outlook.py) and re-running it.
 
 The seam is `app/model.py`. Everything above it talks to a `SignalModel`
 protocol and knows nothing about how a signal is produced.
@@ -451,14 +572,20 @@ final-deliverable/
     __main__.py              `python -m app`, the container's CMD
     main.py                  HTTP surface: routes, auth, SSE
     schemas.py               the wire contract
-    service.py               holds the loaded (panel, model) pair
-    model.py                 the model seam + the null baseline
+    service.py               holds the loaded (panel, model, outlook) set
+    model.py                 the company-model seam + the null baseline
+    outlook.py               reads, verifies and evaluates outlook.json
     features.py              typed reader over the panel CSV
     observability.py         metrics, JSON logs, tracing helpers, middleware
     config.py                environment -> Settings
     healthcheck.py           `python -m app.healthcheck`, used by HEALTHCHECK
-  model/                     fitted artifacts go here (empty; see its README)
-  tests/                     91 tests
+  model/
+    outlook.json             the served outlook: two fitted logits + scored month
+    build_outlook.py         writes it, from the exploration study's features
+    test_outlook_build.py    fails when outlook.json no longer matches the data
+    outlook-card.md          what the outlook models are and how far to trust them
+    exploration/, results/   the model study the specs were selected from
+  tests/                     106 tests
   scripts/smoke_test.sh      end-to-end check against a running container
 ```
 
@@ -471,8 +598,11 @@ panel logic and they would drift.
 
 **No pandas in the image.** `app/features.py` is standard-library only, matching
 `scripts/`. The panel is 182 rows, so pandas would buy nothing and add a large
-dependency to the deployed surface. The fitted model may need numpy or
-scikit-learn — add them when it lands, not before.
+dependency to the deployed surface. The outlook keeps to the same rule: a
+logistic regression is a dot product and a sigmoid, so `app/outlook.py`
+evaluates it with `math` and scikit-learn stays in the offline build. A fitted
+company model may need numpy or scikit-learn — add them when it lands, not
+before.
 
 **One worker.** The model and panel are held in process memory and the workload
 is a cached 35-row cross-section, so a second worker would double memory for no

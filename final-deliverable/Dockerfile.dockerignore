@@ -46,3 +46,8 @@ final-deliverable/requirements-dev.txt
 final-deliverable/model/exploration/
 final-deliverable/model/nn/
 final-deliverable/model/results/
+
+# The outlook's build script, its test and the model cards. Only outlook.json
+# itself is COPYed.
+final-deliverable/model/*.py
+final-deliverable/model/*.md

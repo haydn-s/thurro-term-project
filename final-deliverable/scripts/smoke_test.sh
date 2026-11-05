@@ -100,6 +100,22 @@ check_status "bad direction is 422"   GET "/signals?direction=sideways" 422 || t
 check_status "refresh"                POST /signals/refresh 200 || true
 
 echo
+echo "outlook"
+if check_status "national outlook" GET /outlook/national 200; then
+  note "P(announcement in $(field "['forecast_month']")) = $(field "['probability']"), \
+data through $(field "['data_through']"), model $(field "['model']['version']")"
+  [[ "$(field "['contributions'].__len__()")" -gt 0 ]] \
+    && ok "national outlook carries its contributions" \
+    || bad "national outlook has no contributions"
+fi
+if check_status "state outlook, top 5" GET "/outlook/states?top=5" 200; then
+  [[ "$(field "['count']")" == "5" ]] \
+    && ok "top=5 returned 5 states, led by $(field "['states'][0]['state']")" \
+    || bad "top=5 returned $(field "['count']") states"
+fi
+check_status "top=0 is 422" GET "/outlook/states?top=0" 422 || true
+
+echo
 echo "observability"
 if check_status "metrics" GET /metrics 200; then
   series=0

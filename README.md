@@ -24,7 +24,9 @@ extension, not a requirement.
 ## Status
 
 Data ingestion is complete for all four dataset families named in the project
-brief. Modelling has not started.
+brief. Model development has produced two selected models, now served by the
+deliverable (see below and
+[`final-deliverable/model/outlook-card.md`](final-deliverable/model/outlook-card.md)).
 
 Three of the four are in good shape. The fourth — industrial investment
 tracking, which was meant to supply the **dependent variable** — turned out to
@@ -61,13 +63,16 @@ answer to the project's question rather than a data failure, and it is what mode
 evaluation should be scoped around. The full working, executed, is in
 [`notebook-590/03_capex_panel_eda.ipynb`](notebook-590/03_capex_panel_eda.ipynb).
 
-The **deliverable that result ships in** is now scaffolded, in
-[`final-deliverable/`](final-deliverable/README.md): a Docker image serving
-per-company signals on a port. No fitted model exists yet, so the container
-serves a documented null baseline — the cumulative capex intensity above — and
-flags `is_baseline` on every response so a consumer can refuse to act on it.
-What is built and tested is the delivery mechanism and the seam the model drops
-into.
+The **deliverable** is in [`final-deliverable/`](final-deliverable/README.md): a
+Docker image serving two things on a port. The **outlook** is the project's
+leading indicator: the probability of an announcement next month, nationally
+(`/outlook/national`) and ranked by state (`/outlook/states`), from the two
+logistic regressions selected in model development — the segment-mix
+specification with an ICE-production control, and state demand share plus
+announcement history. The **per-company signal** (`/signals`) has no fitted
+model, so it serves a documented null baseline — the cumulative capex
+intensity above — and flags `is_baseline` on every response so a consumer can
+refuse to act on it.
 
 A **neural-network track** has since been added, on branch `nn-development`
 (card: [`final-deliverable/model/nn-models-card.md`](final-deliverable/model/nn-models-card.md)).
@@ -97,8 +102,10 @@ results:
   smoothing by ~4.5% one month ahead, and that held up in a 46-month rolling
   backtest; beyond one month nothing beats smoothing reliably.
 
-None of this is wired into the container, which still serves its documented
-null baseline. It also does not revisit the capex null above — that is a
+None of the networks is wired into the container. The national outlook serves
+the logit, on the production and segment-mix features the MLP also picked, and
+`/signals` still serves its documented null baseline. The track also does not
+revisit the capex null above — that is a
 different dependent variable, and both can hold at once: sector capex driven by
 the cycle while announcement *timing* still tracked production.
 
@@ -178,11 +185,11 @@ notebooks/
   preliminary-eda.ipynb       the first scratch pass; the cited EDA is notebook-590/
 final-deliverable/
   Dockerfile    the deployable image — build context is the repo root
-  app/          the signal service: HTTP surface, model seam, feature reader
-  model/        fitted artifacts go here (empty; the model is not written yet)
+  app/          the signal service: HTTP surface, model seam, outlook, feature reader
+  model/        outlook.json (the served models), its build script and card
     exploration/  the 7 national + 9 state model study
     nn/           the neural-network experiments (branches nn-development, nn-sequence-models)
-  tests/        91 tests, runnable without Docker
+  tests/        106 tests, runnable without Docker
   README.md     the deliverable's documentation — read before deploying
 presentations/
 ```
@@ -251,14 +258,14 @@ small results are returned inline rather than written to disk.
 
 ## The deployed model
 
-The final deliverable is a Docker image: the model, the feature snapshot it
-reads and an HTTP server. It deploys to any Docker manager, and signals leave
-the container on a port — either on request or as a push stream — so other
-software can consume them.
+The final deliverable is a Docker image: the outlook models, the feature
+snapshot the service reads and an HTTP server. It deploys to any Docker manager
+and serves on a port, so other software can consume it — the outlook on
+request, and the per-company null baseline on request or as a push stream.
 
 ```bash
 docker compose -f final-deliverable/docker-compose.yml up --build
-curl localhost:8000/signals | python3 -m json.tool
+curl localhost:8000/outlook/national | python3 -m json.tool
 ```
 
 The build context is the repository root, not `final-deliverable/`, because the
@@ -268,10 +275,10 @@ numbers, which is what keeps a result reproducible later.
 [`final-deliverable/README.md`](final-deliverable/README.md) is the
 deliverable's own documentation — the wire contract, the environment variables,
 the deployment shapes, and the four steps that swap the null baseline for a
-fitted model. **Read it before deploying.**
+fitted company model. **Read it before deploying.**
 
-The image builds and runs: healthy in ~6s, 19/19 on its smoke test, and the
-signals it serves are numerically identical to a host run — which is what the
+The image builds and runs: healthy in ~6s, 24/24 on its smoke test, and the
+signals and outlook it serves are numerically identical to a host run — which is what the
 baked-in snapshot exists to guarantee. It exposes Prometheus metrics on
 `/metrics`, logs one JSON record per request, picks up a rebuilt panel without a
 restart, and continues a caller's OpenTelemetry trace when an OTLP endpoint is

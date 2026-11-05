@@ -7,7 +7,7 @@
 # bakes in the panel that scripts/build_company_panel.py produces under data/.
 # Build it as:
 #
-#     docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.1.0 .
+#     docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.2.0 .
 #
 # from the repo root, or just use `make build` / `docker compose build`, both of
 # which set the context correctly. Building with this directory as the context
@@ -51,7 +51,7 @@ RUN pip install -r /tmp/requirements.txt
 FROM python:3.14-slim@sha256:a2b82f3c48559aa0a8446d9af49826b6e2b2016f4cd2afabfe6013ec53729170 AS runtime
 
 LABEL org.opencontainers.image.title="EV capex signal service" \
-      org.opencontainers.image.description="Per-company automotive capex expansion signals over HTTP/SSE." \
+      org.opencontainers.image.description="Per-company automotive capex signals and a next-month investment-announcement outlook over HTTP/SSE." \
       org.opencontainers.image.source="https://github.com/haydn-s/thurro-term-project" \
       org.opencontainers.image.licenses="Apache-2.0"
 
@@ -93,6 +93,12 @@ WORKDIR /app
 # rebuild (see docker-compose.yml) and POST /signals/refresh.
 COPY data/processed/*.csv            /app/feature-store/
 COPY data/manual/target_companies.csv /app/feature-store/
+
+# The outlook: two fitted logits and the month they score, written by
+# final-deliverable/model/build_outlook.py from data/clean/. Baked in for the
+# same reason as the panel. app/config.py's default OUTLOOK_ARTIFACT is this
+# path; mount over it to serve a rebuilt one without a rebuild of the image.
+COPY final-deliverable/model/outlook.json /app/model/outlook.json
 
 COPY final-deliverable/app /app/app
 

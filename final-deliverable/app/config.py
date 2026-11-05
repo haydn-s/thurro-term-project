@@ -62,6 +62,7 @@ class Settings:
     port: int
     feature_store: Path
     model_artifact: Path | None
+    outlook_artifact: Path
     signal_horizon: str
     stream_interval_s: float
     api_token: str | None
@@ -116,6 +117,12 @@ class Settings:
             port=port,
             feature_store=Path(_env_str("FEATURE_STORE", str(APP_ROOT / "feature-store"))),
             model_artifact=Path(artifact) if artifact else None,
+            # Always set, unlike MODEL_ARTIFACT: the outlook has no baseline to
+            # fall back to, and the image bakes this file in. It sits beside the
+            # source in a checkout, so the default works there too.
+            outlook_artifact=Path(
+                _env_str("OUTLOOK_ARTIFACT", str(APP_ROOT / "model" / "outlook.json"))
+            ),
             signal_horizon=_env_str("SIGNAL_HORIZON", "FY27"),
             stream_interval_s=interval,
             api_token=token or None,

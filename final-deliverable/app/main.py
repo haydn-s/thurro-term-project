@@ -1,6 +1,12 @@
-"""HTTP surface: the port the signals leave the container on.
+"""HTTP surface: the port the outlook and the signals leave the container on.
 
-Two ways out, because consumers differ:
+The outlook is the project's leading indicator and the only fitted model served
+here: the probability of a manufacturing-investment announcement next month,
+nationally (GET /outlook/national) and ranked by state (GET /outlook/states).
+Those change once a month, when the data does, so they are pull-only.
+
+The per-company signals are a documented null baseline, not a model output --
+`model.is_baseline` says so -- and leave two ways, because consumers differ:
 
   pull   GET /signals        -- the whole cross-section, on request
   push   GET /stream         -- the same payload re-emitted as Server-Sent
@@ -40,10 +46,12 @@ from .schemas import (
     Endpoint,
     Health,
     Metadata,
+    NationalOutlook,
     Ready,
     RefreshResult,
     Signal,
     SignalSet,
+    StateOutlook,
 )
 from .service import ServiceNotReady, SignalService
 
@@ -61,9 +69,11 @@ service: SignalService | None = None
 async def lifespan(app: FastAPI):
     global service
     log.info(
-        "starting %s v%s  feature_store=%s  model_artifact=%s  auth=%s  tracing=%s",
+        "starting %s v%s  feature_store=%s  model_artifact=%s  outlook=%s  "
+        "auth=%s  tracing=%s",
         SERVICE_NAME, __version__, settings.feature_store,
         settings.model_artifact or "<none, serving null baseline>",
+        settings.outlook_artifact,
         "on" if settings.requires_auth else "off",
         settings.otel_endpoint if settings.tracing_enabled else "off",
     )
@@ -103,8 +113,20 @@ def _exclude_from_traces(scope: dict) -> bool:
 app = FastAPI(
     title="EV capex signal service",
     version=__version__,
-    summary="Per-company automotive capex expansion signals, served over HTTP.",
+    summary="A next-month investment-announcement outlook, nationally and by "
+            "state, beside a per-company capex null baseline, served over HTTP.",
     description=__doc__,
+    # Lists the outlook first in /docs. Without this the tags appear in route
+    # declaration order, which put the baseline ahead of the fitted models.
+    openapi_tags=[
+        {"name": "outlook", "description": "The fitted national and state "
+                                           "models: P(announcement next month)."},
+        {"name": "signals", "description": "Per-company null baseline, not a "
+                                           "model output; `model.is_baseline` "
+                                           "is true."},
+        {"name": "integration"},
+        {"name": "probes"},
+    ],
     lifespan=lifespan,
     # FastAPI 0.143 instruments itself; there is no bolt-on package here. It
     # extracts W3C traceparent on the way in, so a consumer that calls
@@ -189,10 +211,12 @@ ENDPOINTS = [
     Endpoint(path="/health", method="GET", summary="Liveness; always 200 while the process runs."),
     Endpoint(path="/ready", method="GET", summary="Readiness; 503 until panel and model load."),
     Endpoint(path="/metadata", method="GET", summary="Model, data provenance and integration details."),
-    Endpoint(path="/signals", method="GET", summary="Full cross-section of signals."),
-    Endpoint(path="/signals/{nse_symbol}", method="GET", summary="One company's signal."),
+    Endpoint(path="/outlook/national", method="GET", summary="P(an announcement next month), with its drivers."),
+    Endpoint(path="/outlook/states", method="GET", summary="States ranked by P(named in an announcement next month)."),
+    Endpoint(path="/signals", method="GET", summary="Full cross-section of the per-company null baseline."),
+    Endpoint(path="/signals/{nse_symbol}", method="GET", summary="One company's baseline signal."),
     Endpoint(path="/stream", method="GET", summary="Server-Sent Events; re-emits the set on an interval."),
-    Endpoint(path="/signals/refresh", method="POST", summary="Reload the panel and model from disk."),
+    Endpoint(path="/signals/refresh", method="POST", summary="Reload the panel, model and outlook from disk."),
     Endpoint(path="/metrics", method="GET", summary="Prometheus metrics."),
 ]
 
@@ -218,12 +242,14 @@ def ready(response: Response, svc: SignalService = Depends(get_service)) -> Read
     # is unready. The check is one stat() call.
     svc.ensure_fresh()
     if svc.ready:
-        return Ready(status="ready", model_loaded=True, feature_store_loaded=True)
+        return Ready(status="ready", model_loaded=True, feature_store_loaded=True,
+                     outlook_loaded=True)
     response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     return Ready(
         status="not_ready",
         model_loaded=svc.model is not None,
         feature_store_loaded=svc.store is not None,
+        outlook_loaded=svc.outlook is not None,
         detail=svc.load_error,
     )
 
@@ -235,6 +261,8 @@ def index() -> dict[str, str]:
     return {
         "service": SERVICE_NAME,
         "version": __version__,
+        "outlook_national": "/outlook/national",
+        "outlook_states": "/outlook/states",
         "signals": "/signals",
         "stream": "/stream",
         "metadata": "/metadata",
@@ -255,6 +283,7 @@ def metadata(svc: SignalService = Depends(get_service)) -> Metadata:
         horizon=settings.signal_horizon,
         model=svc.model_info(),
         feature_store=svc.store_info(),
+        outlook=svc.outlook_info(),
         stream_interval_s=settings.stream_interval_s,
         auth_required=settings.requires_auth,
         tracing=settings.tracing_enabled,
@@ -301,7 +330,7 @@ def get_signals(
 @app.post("/signals/refresh", response_model=RefreshResult, tags=["signals"],
           dependencies=[Protected])
 def refresh(svc: SignalService = Depends(get_service)) -> RefreshResult:
-    """Re-read the panel and the model artifact from disk.
+    """Re-read the panel, the model artifact and the outlook artifact from disk.
 
     For the case where FEATURE_STORE is a mounted volume and the panel has been
     rebuilt: the data changes without the image changing, so there is nothing to
@@ -314,6 +343,7 @@ def refresh(svc: SignalService = Depends(get_service)) -> RefreshResult:
         status="refreshed",
         feature_store=svc.store_info(),
         model=svc.model_info(),
+        outlook=svc.outlook_info(),
         signals=svc.signal_count(),
     )
 
@@ -332,6 +362,33 @@ def get_signal(
                    f"lists the symbols that are scored.",
         )
     return found
+
+
+# -- outlook --------------------------------------------------------------
+
+@app.get("/outlook/national", response_model=NationalOutlook, tags=["outlook"],
+         dependencies=[Protected])
+def national_outlook(svc: SignalService = Depends(get_service)) -> NationalOutlook:
+    """Probability of at least one announcement in `forecast_month`.
+
+    `contributions` lists what moved it, largest first, in log-odds. Read
+    `model.notes` before acting on the number: it is the selected model, and the
+    notes say what that selection does and does not establish.
+    """
+    return svc.national_outlook()
+
+
+@app.get("/outlook/states", response_model=StateOutlook, tags=["outlook"],
+         dependencies=[Protected])
+def state_outlook(
+    svc: SignalService = Depends(get_service),
+    top: int | None = Query(
+        default=None, ge=1, le=100,
+        description="Return only the N highest-ranked states.",
+    ),
+) -> StateOutlook:
+    """States ranked by probability of being named in an announcement in `forecast_month`."""
+    return svc.state_outlook(top=top)
 
 
 # -- push path ------------------------------------------------------------

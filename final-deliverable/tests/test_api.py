@@ -19,7 +19,7 @@ def test_ready_reports_ready_with_a_good_panel(client):
     body = response.json()
     assert body == {
         "status": "ready", "model_loaded": True,
-        "feature_store_loaded": True, "detail": None,
+        "feature_store_loaded": True, "outlook_loaded": True, "detail": None,
     }
 
 
@@ -137,3 +137,5 @@ def test_openapi_schema_is_generated(client):
     schema = client.get("/openapi.json").json()
     assert "/signals" in schema["paths"]
     assert "/stream" in schema["paths"]
+    assert "/outlook/national" in schema["paths"]
+    assert "/outlook/states" in schema["paths"]
