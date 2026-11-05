@@ -45,7 +45,7 @@ same data; it reproduces `results/national/8_ice_control_ablation.csv`):
 Beats all 200 calendar-shifted placebo copies of the production columns
 (`results/national/8b_ice_control_placebo.csv`). An MLP picked the same
 production + mix set independently, with the trend controls, and also beat
-every placebo (`nn-models-card.md`, branch `nn-sequence-models`). Two model
+every placebo ([`nn-models-card.md`](nn-models-card.md)). Two model
 families converging on one set, and its interval clearing zero, is why it was
 selected over the study's earlier pick, the lasso on all features (+10.6% on
 the pre-refresh data, interval including zero).
@@ -115,11 +115,11 @@ Tamil Nadu, Karnataka, Gujarat. Maharashtra's rank comes mostly from its record
   the same 0.77 as share alone in the study. A high rank means "large EV market
   with a record of announcements"; it does not show demand caused the siting.
 - **The state features shift by row, not month.** `state_features` rolls and
-  lags a sparse panel positionally (see `nn-models-card.md`, "For the modelling
-  track"). Since 2025 that touches only Ladakh, Lakshadweep, Nagaland and
-  Sikkim (20 state-months), none of which has had an announcement, so it is
-  unlikely to move this ranking; it has not been re-checked with a reindexed
-  panel.
+  lags a sparse panel positionally (see [`nn-models-card.md`, "For the
+  modelling track"](nn-models-card.md#for-the-modelling-track)). Since 2025
+  that touches only Ladakh, Lakshadweep, Nagaland and Sikkim (20
+  state-months), none of which has had an announcement, so it is unlikely to
+  move this ranking; it has not been re-checked with a reindexed panel.
 
 ## Rebuilding
 
