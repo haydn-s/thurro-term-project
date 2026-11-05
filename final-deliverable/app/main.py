@@ -1,17 +1,17 @@
-"""HTTP surface: the port the signals leave the container on.
+"""HTTP surface: the port the outlook and the signals leave the container on.
 
-Two ways out, because consumers differ:
+The outlook is the project's leading indicator and the only fitted model served
+here: the probability of a manufacturing-investment announcement next month,
+nationally (GET /outlook/national) and ranked by state (GET /outlook/states).
+Those change once a month, when the data does, so they are pull-only.
+
+The per-company signals are a documented null baseline, not a model output --
+`model.is_baseline` says so -- and leave two ways, because consumers differ:
 
   pull   GET /signals        -- the whole cross-section, on request
   push   GET /stream         -- the same payload re-emitted as Server-Sent
                                 Events, for software that wants to react rather
                                 than poll
-
-Beside the per-company signals sits the outlook, the project's leading
-indicator: the probability of a manufacturing-investment announcement next
-month, nationally (GET /outlook/national) and ranked by state
-(GET /outlook/states). Those change once a month, when the data does, so they
-are pull-only.
 
 SSE rather than WebSockets for the push path: the traffic is one-directional
 (the container never needs to hear back), SSE is plain HTTP so it survives any
@@ -113,9 +113,20 @@ def _exclude_from_traces(scope: dict) -> bool:
 app = FastAPI(
     title="EV capex signal service",
     version=__version__,
-    summary="Per-company automotive capex signals and a next-month "
-            "investment-announcement outlook, served over HTTP.",
+    summary="A next-month investment-announcement outlook, nationally and by "
+            "state, beside a per-company capex null baseline, served over HTTP.",
     description=__doc__,
+    # Lists the outlook first in /docs. Without this the tags appear in route
+    # declaration order, which put the baseline ahead of the fitted models.
+    openapi_tags=[
+        {"name": "outlook", "description": "The fitted national and state "
+                                           "models: P(announcement next month)."},
+        {"name": "signals", "description": "Per-company null baseline, not a "
+                                           "model output; `model.is_baseline` "
+                                           "is true."},
+        {"name": "integration"},
+        {"name": "probes"},
+    ],
     lifespan=lifespan,
     # FastAPI 0.143 instruments itself; there is no bolt-on package here. It
     # extracts W3C traceparent on the way in, so a consumer that calls
@@ -200,12 +211,12 @@ ENDPOINTS = [
     Endpoint(path="/health", method="GET", summary="Liveness; always 200 while the process runs."),
     Endpoint(path="/ready", method="GET", summary="Readiness; 503 until panel and model load."),
     Endpoint(path="/metadata", method="GET", summary="Model, data provenance and integration details."),
-    Endpoint(path="/signals", method="GET", summary="Full cross-section of signals."),
-    Endpoint(path="/signals/{nse_symbol}", method="GET", summary="One company's signal."),
-    Endpoint(path="/stream", method="GET", summary="Server-Sent Events; re-emits the set on an interval."),
-    Endpoint(path="/signals/refresh", method="POST", summary="Reload the panel, model and outlook from disk."),
     Endpoint(path="/outlook/national", method="GET", summary="P(an announcement next month), with its drivers."),
     Endpoint(path="/outlook/states", method="GET", summary="States ranked by P(named in an announcement next month)."),
+    Endpoint(path="/signals", method="GET", summary="Full cross-section of the per-company null baseline."),
+    Endpoint(path="/signals/{nse_symbol}", method="GET", summary="One company's baseline signal."),
+    Endpoint(path="/stream", method="GET", summary="Server-Sent Events; re-emits the set on an interval."),
+    Endpoint(path="/signals/refresh", method="POST", summary="Reload the panel, model and outlook from disk."),
     Endpoint(path="/metrics", method="GET", summary="Prometheus metrics."),
 ]
 
@@ -250,10 +261,10 @@ def index() -> dict[str, str]:
     return {
         "service": SERVICE_NAME,
         "version": __version__,
-        "signals": "/signals",
-        "stream": "/stream",
         "outlook_national": "/outlook/national",
         "outlook_states": "/outlook/states",
+        "signals": "/signals",
+        "stream": "/stream",
         "metadata": "/metadata",
         "openapi": "/docs",
     }

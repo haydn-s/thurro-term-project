@@ -258,14 +258,14 @@ small results are returned inline rather than written to disk.
 
 ## The deployed model
 
-The final deliverable is a Docker image: the model, the feature snapshot it
-reads and an HTTP server. It deploys to any Docker manager, and signals leave
-the container on a port — either on request or as a push stream — so other
-software can consume them.
+The final deliverable is a Docker image: the outlook models, the feature
+snapshot the service reads and an HTTP server. It deploys to any Docker manager
+and serves on a port, so other software can consume it — the outlook on
+request, and the per-company null baseline on request or as a push stream.
 
 ```bash
 docker compose -f final-deliverable/docker-compose.yml up --build
-curl localhost:8000/signals | python3 -m json.tool
+curl localhost:8000/outlook/national | python3 -m json.tool
 ```
 
 The build context is the repository root, not `final-deliverable/`, because the
@@ -275,7 +275,7 @@ numbers, which is what keeps a result reproducible later.
 [`final-deliverable/README.md`](final-deliverable/README.md) is the
 deliverable's own documentation — the wire contract, the environment variables,
 the deployment shapes, and the four steps that swap the null baseline for a
-fitted model. **Read it before deploying.**
+fitted company model. **Read it before deploying.**
 
 The image builds and runs: healthy in ~6s, 24/24 on its smoke test, and the
 signals and outlook it serves are numerically identical to a host run — which is what the

@@ -20,6 +20,7 @@ build:
 
 up:
 	$(COMPOSE) up --build -d
+	@echo "outlook: http://localhost:$(PORT)/outlook/national"
 	@echo "signals: http://localhost:$(PORT)/signals"
 
 down:
