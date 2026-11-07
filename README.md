@@ -289,4 +289,13 @@ configured.
 `presentations/ev-investment-update.pptx` — 8-slide status deck (5–7 min):
 problem statement, target datasets, initial EDA, success criteria and
 evaluation, roadmap, plus a backup slide covering the data problems found and
-the open questions for stakeholders. Speaker notes are on every slide.
+the open questions for stakeholders. Speaker notes are on every slide. Kept as
+a September snapshot; it is not updated.
+
+`presentations/ev-investment-final.pptx` — **draft** final presentation, 12
+main slides plus 2 backup (12-minute slot, ~10:40 spoken): the question and
+answer up front, data, market EDA, the capex null, evaluation design, the
+national and siting results, the neural-network track, the deliverable, and a
+scorecard against the September success criteria. Speaker notes on every slide
+carry timings and the source file behind each number. Rebuild with
+`NODE_PATH=<folder holding pptxgenjs> node presentations/build_final_deck.js`.
