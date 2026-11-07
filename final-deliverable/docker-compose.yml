@@ -9,14 +9,15 @@ services:
     build:
       context: ..
       dockerfile: final-deliverable/Dockerfile
-    image: ev-capex-signal:0.2.0
+    image: ev-capex-signal:0.2.1
     container_name: ev-capex-signal
 
-    # host:container. Change the left side to move the published port; changing
-    # the right side means also setting SIGNAL_PORT, since the server binds what
-    # that variable says.
+    # host:container. The host side is SIGNAL_PUBLISH_PORT, default 8000, so
+    # `SIGNAL_PUBLISH_PORT=9000 docker compose ... up` (or `make up PORT=9000`)
+    # moves it without editing this file. Changing the container side means also
+    # setting SIGNAL_PORT, since the server binds what that variable says.
     ports:
-      - "8000:8000"
+      - "${SIGNAL_PUBLISH_PORT:-8000}:8000"
 
     environment:
       SIGNAL_PORT: "8000"
@@ -66,7 +67,7 @@ services:
       retries: 3
       start_period: 5s
 
-    # The workload is a cached 36-row cross-section, so these are generous. They
+    # The workload is a cached 35-row cross-section, so these are generous. They
     # are here so that a manager scheduling this container has a declared
     # footprint rather than an unbounded one.
     deploy:

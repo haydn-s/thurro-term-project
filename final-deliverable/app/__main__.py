@@ -21,7 +21,7 @@ def main() -> None:
         log_level=settings.log_level.lower(),
         # One worker: the model and panel are held in process memory, and a
         # second worker would double that for no throughput gain on a workload
-        # that is a cached 36-row cross-section. Scale by running more
+        # that is a cached 35-row cross-section. Scale by running more
         # containers, which is the unit the deliverable is shipped in.
         workers=1,
         # Off because ObservabilityMiddleware emits a richer access line --

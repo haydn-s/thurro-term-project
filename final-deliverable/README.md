@@ -276,7 +276,7 @@ image copies the panel from `data/`. `make build` and `docker compose` both set
 it correctly; by hand:
 
 ```bash
-docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.2.0 .
+docker build -f final-deliverable/Dockerfile -t ev-capex-signal:0.2.1 .
 ```
 
 Building with `final-deliverable/` as the context fails on the data `COPY`,
@@ -285,13 +285,13 @@ nothing to serve.
 
 ```bash
 # anywhere a Docker daemon runs
-docker run -d -p 8000:8000 --name ev-capex-signal ev-capex-signal:0.2.0
+docker run -d -p 8000:8000 --name ev-capex-signal ev-capex-signal:0.2.1
 
 # with auth, on a non-default port
 docker run -d -p 9000:9000 \
   -e SIGNAL_PORT=9000 \
   -e SIGNAL_API_TOKEN="$(openssl rand -hex 24)" \
-  ev-capex-signal:0.2.0
+  ev-capex-signal:0.2.1
 ```
 
 `docker-compose.yml` is the reference deployment shape — resource limits,
@@ -361,7 +361,7 @@ special-case.
 docker run -p 8000:8000 \
   -e OTEL_EXPORTER_OTLP_ENDPOINT=http://collector:4318 \
   -e OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf \
-  ev-capex-signal:0.2.0
+  ev-capex-signal:0.2.1
 ```
 
 With no endpoint set, spans are created against OpenTelemetry's no-op provider —
@@ -467,6 +467,11 @@ make venv && make test      # 106 tests, no Docker needed
 make up && make smoke       # 24 checks against a running container
 ```
 
+If port 8000 is already taken on the host, pass another to both:
+`make up PORT=9000 && make smoke PORT=9000`. Compose reads it as
+`SIGNAL_PUBLISH_PORT`, so `SIGNAL_PUBLISH_PORT=9000 docker compose -f
+final-deliverable/docker-compose.yml up --build` does the same without make.
+
 The outlook's build has its own checks, run in the repo-root environment
 because they refit the models:
 
@@ -497,6 +502,12 @@ against an empty volume reaching ready once the panel appeared, with
 Re-verified with the outlook (image 0.2.0, 2026-11-01): healthy in ~6s, 24/24
 on the smoke test, and `/outlook/national` from the container identical to a
 host run, to the last bit (P = 0.8484101049710779 for 2026-10).
+
+Re-verified on the refreshed base image (image 0.2.1, Python 3.14.10,
+2026-11-07): built from scratch for both linux/arm64 and linux/amd64, each
+healthy in ~7s under the compose hardening (read-only root, `no-new-privileges`)
+and 24/24 on the smoke test, with the same P = 0.8484101049710779 from both
+architectures. `make up PORT=18000` published on 18000 as intended.
 
 Tracing was verified end to end against a real OTLP receiver decoding the
 protobuf: a request carrying `traceparent: 00-4bf92f35...-00f067aa...-01`
