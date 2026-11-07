@@ -6,10 +6,13 @@
 #   make smoke     exercise every endpoint against a running container
 #   make test      run the test suite on the host, no Docker needed
 #   make down      stop and remove the container
+#
+# The host port is 8000 unless PORT says otherwise, for every recipe that
+# touches one -- `make up PORT=9000 && make smoke PORT=9000` when 8000 is taken.
 
 ROOT  := $(shell git rev-parse --show-toplevel)
 HERE  := final-deliverable
-IMAGE := ev-capex-signal:0.2.0
+IMAGE := ev-capex-signal:0.2.1
 PORT  ?= 8000
 COMPOSE := docker compose -f $(ROOT)/$(HERE)/docker-compose.yml
 
@@ -18,8 +21,10 @@ COMPOSE := docker compose -f $(ROOT)/$(HERE)/docker-compose.yml
 build:
 	cd $(ROOT) && docker build -f $(HERE)/Dockerfile -t $(IMAGE) .
 
+# Compose publishes on SIGNAL_PUBLISH_PORT, so PORT has to be handed to it here;
+# otherwise the URLs below would name a port nothing is listening on.
 up:
-	$(COMPOSE) up --build -d
+	SIGNAL_PUBLISH_PORT=$(PORT) $(COMPOSE) up --build -d
 	@echo "outlook: http://localhost:$(PORT)/outlook/national"
 	@echo "signals: http://localhost:$(PORT)/signals"
 
